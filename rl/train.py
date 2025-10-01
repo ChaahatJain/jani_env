@@ -11,6 +11,8 @@ This script provides advanced training capabilities including:
 - Support for both property files and individual start/goal/safe files
 """
 
+# @Chaahat: Sample use: python -m rl.train --model_file examples/transport/model.jani --goal_file examples/transport/goal.jani --start_file examples/transport/start.jani --safe_file examples/transport/safe.jani --experiment_name testing_stuff --disable-wandb --total_timesteps 20000
+
 import argparse
 import sys
 import warnings

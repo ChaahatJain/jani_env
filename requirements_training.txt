@@ -26,3 +26,6 @@ pathlib2>=2.3.0  # For older Python versions
 matplotlib>=3.4.0
 seaborn>=0.11.0
 rich>=13.0.0
+
+# z3
+z3-solver

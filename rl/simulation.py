@@ -14,7 +14,8 @@ from sb3_contrib import MaskablePPO
 
 from gymnasium.wrappers import TimeLimit
 
-
+# @Chaahat: Sample command python -m rl.simulation --model_file examples/transport/model.jani --goal_file examples/transport/goal.jani --start_file examples/transport/start.jani --safe_file examples/transport/safe.jani --policy_file models/testing_stuff/best_model.zip --n_steps 2048
+# NOTE: The policy must be a zip file due to random stable baselines 3 magic
 class Simulator:
     def __init__(self, env_args: dict, max_episodes: int, output_path: str = None, policy = None, n_steps: int = 2048, run_oracle: bool = True, cache_states: bool = True, seed: int = None):
         def mask_fn(env) -> np.ndarray:

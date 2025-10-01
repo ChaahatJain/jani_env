@@ -7,3 +7,5 @@ models
 training_results/
 benchmarks/
 state_generated.json
+simulation_results.csv
+faults/
