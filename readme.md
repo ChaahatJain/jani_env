@@ -8,5 +8,5 @@ Minimal working example:
 
 2. Find faults via:
 
-    python -m rl.finetuning --model_file examples/transport/model.jani --goal_file examples/transport/goal.jani --start_file examples/transport/start.jani --safe_file examples/transport/safe.jani --policy_file models/testing_stuff/best_model.zip --n_steps 2048
+    python -m rl.finetuning --model_file examples/transport/model.jani --goal_file examples/transport/goal.jani --start_file examples/transport/start.jani --safe_file examples/transport/safe.jani --policy_file models/testing_stuff/final_model.zip --n_steps 2048
 
