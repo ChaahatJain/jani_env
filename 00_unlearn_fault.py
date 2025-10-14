@@ -1,11 +1,70 @@
+import argparse
 import random
+from pathlib import Path
 
+import numpy as np
+import pandas as pd
 import torch 
+from sb3_contrib import MaskablePPO
+from stable_baselines3.common.policies import obs_as_tensor, load_from_vector
 
 from unlearning import losses 
 from unlearning import utils
-from nn.simple_model import SimpleMLP
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+def parse_args():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description='Unlearning script for a model',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    
+    parser.add_argument('--model_file', type=str, 
+                       default='models/testing_stuff/final_model.zip',
+                       help='Path to the model file (stable-baseline3)')
+    parser.add_argument('--faults_file', type=str, 
+                       default='faults/faults.csv',
+                       help='Path to the faults csv file')
+                       
+    return parser.parse_args()
+
+def load_policy(policy_file_path):
+    """Load a trained MaskablePPO policy from file."""
+    if not Path(policy_file_path).exists():
+        raise FileNotFoundError(f"Policy file not found: {policy_file_path}")
+    
+    try:
+        policy = MaskablePPO.load(policy_file_path)
+        print(f"Successfully loaded policy from: {policy_file_path}")
+        return policy
+    except Exception as e:
+        raise RuntimeError(f"Failed to load policy from {policy_file_path}: {e}")
+
+
+def load_faults(faults_path):
+    df = pd.read_csv(faults_path, sep=',')
+    return df
+
+def main(args):
+    p_model = load_policy(args.model_file) #.to(device)
+    faults = load_faults(args.faults_file)
+    # Iterate over states and ask policy for a prediction:
+    for str_state in faults["State"]:
+        print(str_state)
+        print(p_model.policy.device)
+        state = np.fromstring(str_state, sep=",")
+        obs = load_from_vector(state)
+        print(obs)
+        obs = obs_as_tensor(state, p_model.policy.device)
+        #probs = p_model.policy.get_distribution(obs)
+        action, _states = p_model.predict(obs)
+        print("Obs: ", obs)
+        print("Probs: ", probs)
+        print("Action: ", action)
+        print("Next states: ", _states)
+    
+"""    
 # Load model
 # Use CPU for development and testing
 device = "cpu" #torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
@@ -85,3 +144,8 @@ for x,y in zip(x_data,y_data):
     print(f"Predicted: {torch.argmax(model(x))} ---- True: {torch.argmax(y)}")
 
 torch.save(model.state_dict(), "models/simple_mlp_unlearned.pt")
+"""
+
+if __name__ == "__main__":
+    args = parse_args()
+    main(args)
