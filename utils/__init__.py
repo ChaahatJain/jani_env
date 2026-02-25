@@ -32,7 +32,8 @@ def create_env(file_args: dict, n_envs: int = 1, monitor: bool = False, time_lim
             use_oracle=file_args.get("use_oracle", False),
             failure_reward=file_args["failure_reward"],
             unsafe_reward=file_args.get("unsafe_reward", -0.01),
-            disable_oracle_cache=file_args.get("disable_oracle_cache", False)
+            disable_oracle_cache=file_args.get("disable_oracle_cache", False),
+            reduced_memory_mode=file_args.get("reduced_memory_mode", False)
         ) 
 
         if time_limited:

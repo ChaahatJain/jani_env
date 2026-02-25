@@ -16,6 +16,8 @@ class TarjanOracle {
     JANIEngine* engine;
     // Disable caching if needed to save memory
     bool disable_cache;
+    // Reduced memory mode: Empty the cache after every call of stateSafetyWithAction
+    bool reduced_memory_mode;
     // Cache the safety results for states
     std::unordered_map<State, std::tuple<bool, int>, StateHasher> cache;
     // The main Tarjan's DFS function
@@ -26,9 +28,12 @@ class TarjanOracle {
                     std::vector<State>& stack,
                     std::unordered_map<State, std::unique_ptr<TarjanNode>, StateHasher>& on_stack_map);
 public:
-    TarjanOracle(JANIEngine* eng, bool disable_cache = true) : engine(eng), disable_cache(disable_cache) {
+    TarjanOracle(JANIEngine* eng, bool disable_cache = false, bool reduced_memory_mode = false) : engine(eng), disable_cache(disable_cache), reduced_memory_mode(reduced_memory_mode) {
         if (disable_cache) {
             std::cout << "Oracle cache is disabled to save memory." << std::endl;
+        }
+        if (reduced_memory_mode) {
+            std::cout << "Reduced memory mode is enabled: the oracle cache will be cleared after each query." << std::endl;
         }
     }
     
@@ -49,6 +54,11 @@ public:
         // int safe = std::get<0>(result) ? 1 : 0;
         if (!disable_cache){
             cache[state] = result;
+        }
+        if (reduced_memory_mode) {
+            if (cache.size() > 10000000) { // Clear the cache if it grows too large (this threshold can be adjusted)
+                std::unordered_map<State, std::tuple<bool, int>, StateHasher>().swap(cache); // Clear the cache after each query
+            }
         }
         #ifndef NDEBUG
         std::cout << "DEBUG: State is marked " << (std::get<0>(result) ? "safe." : "unsafe.") << std::endl;

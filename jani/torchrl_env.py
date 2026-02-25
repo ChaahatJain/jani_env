@@ -29,6 +29,7 @@ class JANIEnv(EnvBase):
                  failure_reward: float = -1.0,
                  use_oracle: bool = False,
                  disable_oracle_cache: bool = False,
+                 reduced_memory_mode: bool = False,
                  unsafe_reward: float = -0.01) -> None:
         super().__init__()
         self._engine = JANIEngine(jani_model_path, 
@@ -41,7 +42,8 @@ class JANIEnv(EnvBase):
         self._failure_reward: float = failure_reward
         self._oracle: Optional[TarjanOracle] = TarjanOracle(
             self._engine, 
-            disable_oracle_cache)
+            disable_oracle_cache,
+            reduced_memory_mode)
         self._use_oracle = use_oracle
         self._unsafe_reward: Optional[float] = None
         if self._use_oracle:

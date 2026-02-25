@@ -26,7 +26,8 @@ class JANIEnv(gym.Env):
                  use_oracle: bool = False,
                  use_strict_rules: bool = False, # Whether to use strict safety rules (i.e., consider actions's safety but not next state safety when determining unsafe actions)
                  unsafe_reward: float = -0.01,
-                 disable_oracle_cache: bool = False) -> None:
+                 disable_oracle_cache: bool = False,
+                 reduced_memory_mode: bool = False) -> None:
         super().__init__()
         # print(f"DEBUG: Initializing JANIEnv with model: {jani_model_path}, property: {jani_property_path}, start states: {start_states_path}, objective: {objective_path}, failure property: {failure_property_path}, seed: {seed}")
         self._engine = JANIEngine(jani_model_path, 
@@ -39,7 +40,8 @@ class JANIEnv(gym.Env):
         self._failure_reward: float = failure_reward
         self._oracle: Optional[TarjanOracle] = None
         self._use_oracle: bool = use_oracle
-        self._oracle = TarjanOracle(self._engine, disable_oracle_cache) # Always setup the oracle
+        print(f"DEBUG: Setting up oracle with disable_cache={disable_oracle_cache}, reduced_memory_mode={reduced_memory_mode}")
+        self._oracle = TarjanOracle(self._engine, disable_oracle_cache, reduced_memory_mode) # Always setup the oracle
         self._use_strict_rules: bool = use_strict_rules
         if self._use_strict_rules:
             assert self._use_oracle, "Strict rules require oracle to be enabled."

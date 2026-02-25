@@ -410,33 +410,90 @@ def train(args: dict, file_args: dict, hyperparams: dict, device: torch.device =
 
 def main():
     parser = argparse.ArgumentParser(description="Train Masked PPO on JANI Environments")
-    parser.add_argument('--jani_model', type=str, required=True, help="Path to the JANI model file.")
-    parser.add_argument('--jani_property', type=str, default="", help="Path to the JANI property file.")
-    parser.add_argument('--start_states', type=str, required=True, help="Path to the start states file.")
-    parser.add_argument('--objective', type=str, default="", help="Path to the objective file.")
-    parser.add_argument('--failure_property', type=str, default="", help="Path to the failure property file.")
-    parser.add_argument('--eval_start_states', type=str, default="", help="Path to the evaluation start states file.")
-    parser.add_argument('--policy_path', type=str, required=True, help="Path to the initial policy file for DAgger.")
-    parser.add_argument('--goal_reward', type=float, default=1.0, help="Reward for reaching the goal.")
-    parser.add_argument('--failure_reward', type=float, default=-1.0, help="Reward for reaching failure state.")
-    parser.add_argument('--disable_oracle_cache', action='store_true', help="Disable caching in the oracle.")
-    parser.add_argument('--unsafe_reward', type=float, default=-0.01, help="Reward for unsafe states when using oracle.")
-    parser.add_argument('--num_init_states', type=int, default=10000, help="Number of initial states to sample from.")
-    parser.add_argument('--num_iterations', type=int, default=200, help="Number of DAgger iterations to perform.")
-    parser.add_argument('--steps_per_iteration', type=int, default=5, help="Number of training steps per DAgger iteration.")
-    parser.add_argument('--use_strict_rule', action='store_true', help="Use strict rules for trajectory collection.")
-    parser.add_argument('--use_multiprocessors', action='store_true', help="Use multiprocessors for rollout collection.")
-    parser.add_argument('--num_workers', type=int, default=8, help="Number of workers for multiprocessor rollout collection.")
-    parser.add_argument('--empty_buffer', action='store_true', help="Empty the replay buffer at each iteration.")
-    parser.add_argument('--device', type=str, default="cpu", help="Device to use for training (cpu or cuda).")
-    parser.add_argument('--seed', type=int, default=42, help="Random seed for reproducibility.")
-    parser.add_argument('--max_steps', type=int, default=1000, help="Max steps per episode.")
-    parser.add_argument('--wandb_project', type=str, default="dagger", help="Weights & Biases project name.")
-    parser.add_argument('--wandb_entity', type=str, default=None, help="Weights & Biases entity name.")
-    parser.add_argument('--experiment_name', type=str, default="", help="Name of the experiment.")
-    parser.add_argument('--log_directory', type=str, default="./logs", help="Directory to save logs and checkpoints.")
-    parser.add_argument('--model_save_dir', type=str, default="./models", help="Directory to save trained models.")
-    parser.add_argument('--disable_wandb', action='store_true', help="Disable Weights & Biases logging.")
+    parser.add_argument(
+        '--jani_model', 
+        type=str, required=True, help="Path to the JANI model file.")
+    parser.add_argument(
+        '--jani_property', 
+        type=str, default="", help="Path to the JANI property file.")
+    parser.add_argument(
+        '--start_states', 
+        type=str, required=True, help="Path to the start states file.")
+    parser.add_argument(
+        '--objective', 
+        type=str, default="", help="Path to the objective file.")
+    parser.add_argument(
+        '--failure_property', 
+        type=str, default="", help="Path to the failure property file.")
+    parser.add_argument(
+        '--eval_start_states', 
+        type=str, default="", help="Path to the evaluation start states file.")
+    parser.add_argument(
+        '--policy_path', 
+        type=str, required=True, help="Path to the initial policy file for DAgger.")
+    parser.add_argument(
+        '--goal_reward', 
+        type=float, default=1.0, help="Reward for reaching the goal.")
+    parser.add_argument(
+        '--failure_reward', 
+        type=float, default=-1.0, help="Reward for reaching failure state.")
+    parser.add_argument(
+        '--disable_oracle_cache', 
+        action='store_true', help="Disable caching in the oracle.")
+    parser.add_argument(
+        '--reduced_memory_mode', 
+        action='store_true', help="Enable reduced memory mode in the oracle (clears cache after each query).")
+    parser.add_argument(
+        '--unsafe_reward', 
+        type=float, default=-0.01, help="Reward for unsafe states when using oracle.")
+    parser.add_argument(
+        '--num_init_states', 
+        type=int, default=10000, help="Number of initial states to sample from.")
+    parser.add_argument(
+        '--num_iterations', 
+        type=int, default=200, help="Number of DAgger iterations to perform.")
+    parser.add_argument(
+        '--steps_per_iteration', 
+        type=int, default=5, help="Number of training steps per DAgger iteration.")
+    parser.add_argument(
+        '--use_strict_rule', 
+        action='store_true', help="Use strict rules for trajectory collection.")
+    parser.add_argument(
+        '--use_multiprocessors', 
+        action='store_true', help="Use multiprocessors for rollout collection.")
+    parser.add_argument(
+        '--num_workers', 
+        type=int, default=8, help="Number of workers for multiprocessor rollout collection.")
+    parser.add_argument(
+        '--empty_buffer', 
+        action='store_true', help="Empty the replay buffer at each iteration.")
+    parser.add_argument(
+        '--device', 
+        type=str, default="cpu", help="Device to use for training (cpu or cuda).")
+    parser.add_argument(
+        '--seed', 
+        type=int, default=42, help="Random seed for reproducibility.")
+    parser.add_argument(
+        '--max_steps', 
+        type=int, default=1000, help="Max steps per episode.")
+    parser.add_argument(
+        '--wandb_project', 
+        type=str, default="dagger", help="Weights & Biases project name.")
+    parser.add_argument(
+        '--wandb_entity', 
+        type=str, default=None, help="Weights & Biases entity name.")
+    parser.add_argument(
+        '--experiment_name', 
+        type=str, default="", help="Name of the experiment.")
+    parser.add_argument(
+        '--log_directory', 
+        type=str, default="./logs", help="Directory to save logs and checkpoints.")
+    parser.add_argument(
+        '--model_save_dir', 
+        type=str, default="./models", help="Directory to save trained models.")
+    parser.add_argument(
+        '--disable_wandb', 
+        action='store_true', help="Disable Weights & Biases logging.")
     args = parser.parse_args()
 
     file_args = {
@@ -449,6 +506,7 @@ def main():
         'failure_reward': args.failure_reward,
         'unsafe_reward': args.unsafe_reward,
         'disable_oracle_cache': args.disable_oracle_cache,
+        'reduced_memory_mode': args.reduced_memory_mode,
         'seed': args.seed,
         'use_oracle': True, # Always use oracle during DAgger training
         'max_steps': args.max_steps

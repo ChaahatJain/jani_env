@@ -47,7 +47,7 @@ NB_MODULE(backend, m) {
         .def("step", &JANIEngine::step);
 
     nb::class_<TarjanOracle>(m, "TarjanOracle")
-        .def(nb::init<JANIEngine*, bool>(), nb::arg("engine"), nb::arg("disable_cache"))
+        .def(nb::init<JANIEngine*, bool, bool>(), nb::arg("engine"), nb::arg("disable_cache"), nb::arg("reduced_memory_mode"))
         .def("get_engine_current_state_vector", &TarjanOracle::getEngineCurrentStateVector) // For debugging
         .def("is_engine_state_safe", &TarjanOracle::isEngineStateSafe)
         .def("is_engine_state_action_safe", &TarjanOracle::isEngineStateActionSafe)
