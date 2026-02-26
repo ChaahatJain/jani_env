@@ -380,6 +380,9 @@ public:
                 std::vector<State> outcomes = it->getAllPossibleOutcomes(s);
                 successor_states.insert(successor_states.end(), outcomes.begin(), outcomes.end());
                 num_transitions++;
+                // TODO: Maybe make this better format in the future.
+                // Currently, only two-way-line could have multiple avaliable transitions, but that is fine
+                break;
             }
         }
         return successor_states;
@@ -443,6 +446,8 @@ public:
                 num_enabled++;
                 // Apply the transition
                 new_state = it->apply(current_state, rng);
+                // TODO: Again, see the note in get_all_successor_states
+                break;
             }
         }
         if (num_enabled == 0) {
