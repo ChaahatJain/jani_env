@@ -81,8 +81,9 @@ std::tuple<bool, int>TarjanOracle::tarjan_dfs(
             print_indent(index);
             std::cout << "DEBUG: Exiting state: " << node->state.toString() << std::endl;
             #endif
-
-            return cache[node->state]; // If the state has been cached
+            
+            if (start_action_id == -1)
+                return cache[node->state]; // If the state has been cached
         }
         // TODO: Check whether this inputs the reference of the state
         if (engine->reach_goal(node->state)) {

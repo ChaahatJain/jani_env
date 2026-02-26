@@ -329,7 +329,9 @@ def train(args: dict, file_args: dict, hyperparams: dict, device: torch.device =
                     progress.advance(task, advance=1)
 
         # Check whether all trajectories are safe
-        all_safe = all([eval_rollout[1]["is_safe_trajectory"] for eval_rollout in eval_rollouts])
+        all_eval_safe = all([eval_rollout[1]["is_safe_trajectory"] for eval_rollout in eval_rollouts])
+        all_train_safe = all([rollout[1]["is_safe_trajectory"] for rollout in rollouts])
+        all_safe = all_eval_safe or all_train_safe
         percentage_safe = sum([eval_rollout[1]["is_safe_trajectory"] for eval_rollout in eval_rollouts]) / len(eval_rollouts) * 100.0
         avg_reward = sum([eval_rollout[1]["final_reward"] for eval_rollout in eval_rollouts]) / len(eval_rollouts)
         # Log safety statistics
