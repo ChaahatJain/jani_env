@@ -41,8 +41,8 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     experiment_name = args.experiment_name or f"jani_training_{timestamp}"
     
-    log_dir = Path(args.log_dir) / experiment_name
-    model_save_dir = Path(args.model_save_dir) / experiment_name
+    log_dir = Path(args.log_dir)
+    model_save_dir = Path(args.model_save_dir)
     log_dir.mkdir(parents=True, exist_ok=True)
     model_save_dir.mkdir(parents=True, exist_ok=True)
     
