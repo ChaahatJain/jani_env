@@ -240,6 +240,7 @@ def train(args: dict, file_args: dict, hyperparams: dict, device: torch.device =
 
     # Main training loop
     num_iterations = hyperparams.get("num_iterations", 10000)
+    num_samples = hyperparams.get("num_samples", 256)
     if RAY_AVAILABLE and args.get("use_multiprocessors", False):
         rollout_manager = ray_workers.RolloutManager(
             file_args=safety_eval_file_args,
@@ -280,9 +281,9 @@ def train(args: dict, file_args: dict, hyperparams: dict, device: torch.device =
                 transient=False,
                 disable=DISABLE_BAR
             ) as progress:
-                task = progress.add_task("Collecting Trajectories for Training", total=3000)
+                task = progress.add_task("Collecting Trajectories for Training", total=num_samples)
                 # Collect trajectories sequentially
-                for _ in range(3000):
+                for _ in range(num_samples):
                     if args.get("use_strict_rule", False):
                         rollout = collect_trajectory_with_stricted_rule(
                             env=env, 
@@ -319,7 +320,8 @@ def train(args: dict, file_args: dict, hyperparams: dict, device: torch.device =
                             env=safety_eval_env, 
                             policy=policy, 
                             idx=idx, 
-                            max_horizon=hyperparams.get("max_horizon", 1024))
+                            max_horizon=hyperparams.get("max_horizon", 1024),
+                            no_safety_check=args.get("no_safety_check", False))
                     else:
                         eval_rollout = collect_trajectory(
                             env=safety_eval_env, 
@@ -349,35 +351,6 @@ def train(args: dict, file_args: dict, hyperparams: dict, device: torch.device =
                 'safe_eval/average_reward': avg_reward,
                 'safe_eval/iteration': iter
             })
-
-        if all_safe:
-            # Save final policy
-            model_save_dir = Path(args.get("model_save_dir", "./models"))
-            model_save_dir.mkdir(parents=True, exist_ok=True)
-            save_path = model_save_dir / f"dagger_policy_final_iter_{iter}.pth"
-            torch.save({
-                'input_dim': checkpoint['input_dim'],
-                'output_dim': checkpoint['output_dim'],
-                'hidden_dims': checkpoint['hidden_dims'],
-                'state_dict': policy.state_dict()
-            }, save_path)
-            print(f"Saved final policy to {save_path}")
-            
-            final_safety_coverage, final_avg_reward = evaluate_policy_safety(
-                args=args, 
-                hyperparams=hyperparams, 
-                file_args=safety_coverage_file_args, 
-                network_paras={
-                    'input_dim': checkpoint['input_dim'],
-                    'output_dim': checkpoint['output_dim'],
-                    'hidden_dims': checkpoint['hidden_dims']
-                }, 
-                policy=policy
-            )
-            print(f"Final Safety Coverage: {final_safety_coverage*100.0:.2f}%, Average Reward: {final_avg_reward:.2f}")
-            with open(final_info_file, 'w') as f:
-                f.write(f"{final_safety_coverage:.4f}\t{final_avg_reward:.2f}")
-            return
         # Process and add rollouts to replay buffer
         rb.add_rollouts(rollouts)
 
@@ -458,6 +431,11 @@ def main():
         '--steps_per_iteration', 
         type=int, default=5, help="Number of training steps per DAgger iteration.")
     parser.add_argument(
+        '--num_samples', 
+        type=int, default=256, help="Number of samples to collect per iteration.")
+    parser.add_argument('--batch_size', 
+        type=int, default=64, help="Batch size for training.")
+    parser.add_argument(
         '--use_strict_rule', 
         action='store_true', help="Use strict rules for trajectory collection.")
     parser.add_argument(
@@ -469,6 +447,9 @@ def main():
     parser.add_argument(
         '--empty_buffer', 
         action='store_true', help="Empty the replay buffer at each iteration.")
+    parser.add_argument(
+        '--no_safety_check',
+        action='store_true', help="Disable safety check during evaluation (treat all states as unsafe).")
     parser.add_argument(
         '--device', 
         type=str, default="cpu", help="Device to use for training (cpu or cuda).")
@@ -493,6 +474,9 @@ def main():
     parser.add_argument(
         '--model_save_dir', 
         type=str, default="./models", help="Directory to save trained models.")
+    parser.add_argument(
+        '--save_interval', 
+        type=int, default=1, help="Interval (in iterations) to save intermediate policies.")
     parser.add_argument(
         '--disable_wandb', 
         action='store_true', help="Disable Weights & Biases logging.")
@@ -519,7 +503,8 @@ def main():
         'learning_rate': 1e-3,
         'replay_buffer_capacity': 10000,
         'num_iterations': args.num_iterations,
-        'batch_size': 256,
+        'batch_size': args.batch_size,
+        'num_samples': args.num_samples,
         'num_workers': args.num_workers, # Ensure not to exceed available CPUs
         'steps_per_iteration': args.steps_per_iteration,
         'max_horizon': args.max_steps

@@ -415,6 +415,9 @@ def main():
         '--max_steps', 
         type=int, default=1000, help="Max steps per episode.")
     parser.add_argument(
+        '--no_memory_reduced_mode',
+        action='store_true', help="Disable memory reduced mode in the environment")
+    parser.add_argument(
         '--log_dir', 
         type=str, default="", help="Directory for logging.")
     parser.add_argument(
@@ -452,6 +455,7 @@ def main():
         'seed': args.seed,
         'use_oracle': args.use_oracle,
         'unsafe_reward': args.unsafe_reward,
+        'reduced_memory_mode': not args.no_memory_reduced_mode,
     }
     env = JANIEnv(**file_args)
 

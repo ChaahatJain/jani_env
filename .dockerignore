@@ -8,4 +8,5 @@ build/
 **/*.dylib
 **/*.dll
 **/*.exe
+wandb/
 cluster_utils/

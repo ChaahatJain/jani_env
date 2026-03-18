@@ -197,6 +197,8 @@ def main():
                         help="Use Tarjan oracle for unsafe state detection.")
     parser.add_argument('--disable_oracle_cache', action='store_true', 
                         help="Disable caching in the oracle.")
+    parser.add_argument('--no_memory_reduced_mode', action='store_true',
+                        help="Disable memory reduced mode in the environment.")
     
     # Training hyperparameters
     parser.add_argument('--seed', type=int, default=42, 
@@ -276,7 +278,8 @@ def main():
         'seed': args.seed,
         'use_oracle': args.use_oracle,
         'max_steps': args.max_steps,
-        'disable_oracle_cache': args.disable_oracle_cache
+        'disable_oracle_cache': args.disable_oracle_cache,
+        'reduced_memory_mode': not args.no_memory_reduced_mode,
     }
     if args.use_separate_eval_env:
         assert args.eval_start_states != "", "Evaluation start states file must be provided when using separate eval env."

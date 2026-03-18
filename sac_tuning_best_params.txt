@@ -1,0 +1,19 @@
+Best trial: 4
+Best safety rate: 0.6583
+
+Best hyperparameters:
+  n_layers: 4
+  hidden_size: 512
+  activation: Tanh
+  lr_actor: 3.717011699483322e-05
+  lr_critic: 3.0749609115849576e-05
+  alpha_init: 0.7246829950662079
+  fixed_alpha: False
+  tau: 0.08415958378032311
+  batch_size: 128
+  n_updates_per_step: 16
+  target_update_freq: 10
+  max_grad_norm: 1.6056208528511062
+  replay_buffer_size: 100000
+  warmup_steps: 1000
+  dropout: 0.12700688691355158

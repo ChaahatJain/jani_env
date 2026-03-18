@@ -106,7 +106,13 @@ def collect_trajectory(env: JANIEnv, policy: nn.Module, idx: int, max_horizon: i
     return (trajectory, info)
 
 
-def collect_trajectory_with_stricted_rule(env: JANIEnv, policy: nn.Module, idx: int, max_horizon: int = 1024) -> tuple[TensorDict, bool]:
+def collect_trajectory_with_stricted_rule(
+        env: JANIEnv, 
+        policy: nn.Module, 
+        idx: int, 
+        max_horizon: int = 1024,
+        no_safety_check: bool = False
+    ) -> tuple[TensorDict, bool]:
     """Collect trajectories using the given policy, but subject to the stricted safety rule."""
     policy.cpu() # Ensure policy is on CPU
     policy.eval() # Set policy to evaluation mode
@@ -137,7 +143,10 @@ def collect_trajectory_with_stricted_rule(env: JANIEnv, policy: nn.Module, idx: 
         action_masks.append(action_mask.astype(int)) # Record action mask
 
         # Check whether the action is safe under the current state (before stepping)
-        is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
+        if not no_safety_check:
+            is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
+        else:
+            is_state_safe, safe_action = False, -1 # If safety check is disabled, we consider all states as safe and there is no safe action
         safety.append(is_state_safe)
         safe_actions.append(safe_action)
         if safe_action != -1 and safe_action != action:
