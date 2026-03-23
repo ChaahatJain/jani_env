@@ -59,18 +59,23 @@ class MockOracle:
         self.corrected_action = 0
     
     def evaluate_and_correct(self, obs, action, mask):
-        """
-        Returns (is_safe, corrected_action)
-        """
-        is_safe = True
-        corrected_action = action
+        self.query_count += 1
         
-        if self.unsafe_at_step is not None and self.call_count == self.unsafe_at_step:
-            is_safe = False
-            corrected_action = (action + 1) % 3  # Return different action
+        if isinstance(mask, (list, tuple)):
+            mask = np.array(mask)
         
-        self.call_count += 1
-        return is_safe, corrected_action
+        try:
+            # ✅ CORRECT: Actually check oracle safety
+            is_safe = self.oracle.is_engine_state_action_safe(action)
+            
+            if is_safe:
+                return True, action
+            else:
+                # Action is unsafe - get a safe alternative
+                is_state_safe, safe_action = self.oracle.engine_state_safety_with_action(action)
+                return False, safe_action
+        except:
+            return True, action
 
 
 # ============================================================================

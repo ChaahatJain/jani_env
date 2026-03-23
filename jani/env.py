@@ -170,3 +170,15 @@ class JANIEnv(gym.Env):
             raise RuntimeError("Oracle is not enabled in this environment.")
         safety_result = self._oracle.engine_state_safety_with_action(action)
         return safety_result
+    
+    def is_state_action_fault(self, obs: np.ndarray, action: int) -> bool:
+        """
+        Check if a (state, action) pair is a fault (leads to unsafe successor).
+        Returns True if the action from this state leads to an unsafe state.
+        """
+        if self._oracle is None:
+            raise RuntimeError("Oracle is not enabled in this environment.")
+        # Convert observation to list for the oracle call
+        state_vector = obs.tolist() if isinstance(obs, np.ndarray) else obs
+        is_fault = self._oracle.state_action_is_fault(state_vector, action)
+        return is_fault
