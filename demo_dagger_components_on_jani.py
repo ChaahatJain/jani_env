@@ -252,19 +252,19 @@ if all_safe_actions:
     policy_counter = Counter(all_policy_actions)
     oracle_counter = Counter(all_safe_actions)
 
-    print("\n✅ Ideal DAgger regime verification:")
-    print(f"  • Few faults: {disagreements} disagreements found")
-    print(f"  • Policy preference: {policy_counter.most_common(1)}")
-    print(f"  • Oracle preference: {oracle_counter.most_common(1)}")
+    print("\n Ideal DAgger verification:")
+    print(f"  Few faults: {disagreements} disagreements found")
+    print(f"  Policy preference: {policy_counter.most_common(1)}")
+    print(f"  Oracle preference: {oracle_counter.most_common(1)}")
 
     if disagreements > 0 and len(set(all_safe_actions)) > 1:
-        print("  ✓ Learning signal is REAL (policy and oracle have different preferences)")
+        print("  Learning signal is REAL (policy and oracle have different preferences)")
     elif disagreements == 0:
-        print("  ⚠ No disagreements - policy may already be optimal")
+        print(" No disagreements - policy may already be optimal")
     else:
-        print("  ⚠ Degenerate case - investigate further")
+        print("  Degenerate case - investigate further")
 else:
-    print("\n⚠ No oracle supervision found in traces!")
+    print("\n No oracle supervision found in traces!")
 
 print("\n" + "="*50 + "\n")
 

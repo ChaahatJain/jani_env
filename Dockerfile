@@ -5,58 +5,47 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-# ---- Build metadata ----
+# ---- Add tags to identify the image ----
 ARG GIT_SHA=unknown
 ARG BUILD_TIME=unknown
 
 LABEL org.opencontainers.image.revision=$GIT_SHA
 LABEL org.opencontainers.image.created=$BUILD_TIME
 
-# ---- System dependencies (clean + minimal) ----
+# ---- System deps for building your C++/CMake parts ----
 RUN apt-get update && apt-get install -y --no-install-recommends \
     cmake \
     build-essential \
     libbz2-dev \
     libz-dev \
     libicu-dev \
-    libboost-system-dev \
-    libboost-filesystem-dev \
- && rm -rf /var/lib/apt/lists/*
+    libboost-all-dev
 
-# ---- Set working directory ----
+ENV PATH="/usr/bin:${PATH}"
+RUN which cmake && cmake --version
+# ---- Copy your repo (no git clone needed) ----
 WORKDIR /jani_env
+COPY . /jani_env
 
-# =========================================================
-# 1. Install Python deps FIRST (cache-friendly)
-# =========================================================
-COPY requirements_training.txt .
+# ---- Python deps ----
+# (PyTorch image already has python + torch; you install your extras.)
+# RUN python -m venv /opt/venv
+# ENV PATH="/opt/venv/bin:${PATH}"
+RUN pip install --no-cache-dir --break-system-packages -r requirements_training.txt
 
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install --no-cache-dir --break-system-packages -r requirements_training.txt
-
-# =========================================================
-# 2. Build C++ engine separately (cache-friendly)
-# =========================================================
-COPY jani/engine /jani_env/jani/engine
-
+# ---- Build the C++ engine ----
 WORKDIR /jani_env/jani/engine
-
-RUN mkdir -p build && cd build && \
+RUN mkdir -p build && \
+    cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release .. && \
-    make -j$(nproc)
+    make -j"$(nproc)"
 
-# =========================================================
-# 3. Copy rest of project (does NOT invalidate above layers)
-# =========================================================
+# ---- Runtime env ----
 WORKDIR /jani_env
-COPY . .
-
-# ---- Runtime config ----
 ENV PYTHONPATH=/jani_env
 
-# ---- Optional sanity check ----
+# Optional quick self-check (comment out after debugging):
 RUN python -c "import mask_ppo.train; import dagger.train; print('Import OK')"
-
-# ---- Image version file ----
+# Checking the image version
 RUN echo "GIT_SHA=$GIT_SHA" > /IMAGE_VERSION && \
     echo "BUILD_TIME=$BUILD_TIME" >> /IMAGE_VERSION
