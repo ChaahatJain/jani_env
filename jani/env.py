@@ -76,7 +76,7 @@ class JANIEnv(gym.Env):
         if self._use_oracle and (not self._use_strict_rules):
             # If we use strict safety rules, we do not need to provide safety info at reset
             if (options is None) or ("no_safety_info" not in options):
-                is_current_state_safe, current_safe_action = self._oracle.engine_state_safety_with_action()
+                is_current_state_safe, current_safe_action = self._oracle.engine_state_safety_with_action(-1)
                 reset_info["current_state_safety"] = is_current_state_safe
                 reset_info["current_safe_action"] = current_safe_action
 
@@ -103,7 +103,7 @@ class JANIEnv(gym.Env):
         if self._use_oracle and (not self._use_strict_rules):
             assert self._unsafe_reward is not None
             assert self._engine.get_current_state_vector() == self._oracle.get_engine_current_state_vector() == next_state_vec, "After step, engine state does not match oracle state. Engine {}, Oracle {}".format(self._engine.get_current_state_vector(), self._oracle.get_engine_current_state_vector())
-            is_next_state_safe, next_safe_action = self._oracle.engine_state_safety_with_action()
+            is_next_state_safe, next_safe_action = self._oracle.engine_state_safety_with_action(action)
             info["next_state_safety"] = is_next_state_safe
             info["next_safe_action"] = next_safe_action
         

@@ -52,5 +52,6 @@ NB_MODULE(backend, m) {
         .def("is_engine_state_safe", &TarjanOracle::isEngineStateSafe)
         .def("is_engine_state_action_safe", &TarjanOracle::isEngineStateActionSafe)
         .def("is_state_safe_from_vector", &TarjanOracle::isStateSafeFromVector)
-        .def("engine_state_safety_with_action", &TarjanOracle::engineStateSafetyWithAction, nb::arg("start_action_id") = -1);
+        .def("engine_state_safety_with_action", &TarjanOracle::engineStateSafetyWithAction, nb::arg("start_action_id") = -1)
+        .def("state_action_is_fault", &TarjanOracle::stateActionIsFault, nb::arg("state_vector"), nb::arg("action_id"));
 }

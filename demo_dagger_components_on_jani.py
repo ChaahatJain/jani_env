@@ -14,9 +14,9 @@ print("\n=== DAgger demo on JANI env ===\n")
 # -------------------- config --------------------
 
 JANI_CONFIG = {
-    "jani_model": "examples/one_way_line_15_10/model.jani",
-    "jani_property": "examples/one_way_line_15_10/property.jani",
-    "start_states": "examples/one_way_line_15_10/property.jani",
+    "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
+    "jani_property": "examples/bouncing_ball/property.jani",
+    "start_states": "examples/bouncing_ball/property.jani",
     "objective": "",
     "failure_property": "",
     "seed": 42,
@@ -160,9 +160,9 @@ class JANIOracle:
                 valid = np.where(mask)[0]
                 if len(valid) > 0:
                     return False, valid[0]
-            return True, action
+            return False, action
         except:
-            return True, action
+            return False, action
 
 
 oracle = JANIOracle(env)

@@ -36,6 +36,23 @@ public:
             std::cout << "Reduced memory mode is enabled: the oracle cache will be cleared after each query." << std::endl;
         }
     }
+
+    bool stateActionIsFault(const State& state, int action_id) {
+        // Check whether a state is unsafe under a specific action
+        bool state_safe = isStateSafe(state);
+        if (!state_safe) {
+            return false; // If the state is already in the unsafe region, it cannot be a fault. Also, no action will make us escape from the safe region to the unsafe region. 
+        }
+
+        auto successors = engine->get_all_successor_states(state, action_id);
+        for (auto successor : successors) {
+            bool succ_safe = isStateSafe(successor);
+            if (!succ_safe) {
+                return true; // If any successor is unsafe, then this action is a fault
+            }
+        }
+        return false; // If all successors are safe, then this action is not a fault
+    }
     
     std::tuple<bool, int> stateSafetyWithAction(const State& state, int start_action_id = -1) {
         /*Check whether a state is safe. Return the safety result and a safe action starting from the state
