@@ -67,38 +67,96 @@ print("action space:", env.action_space)
 
 # -------------------- policy --------------------
 
-from sb3_contrib import MaskablePPO
+import torch
+from torchrl.modules import MaskedCategorical
+from dagger.policy import Policy
 
 print("\nloading policy...")
 
+# Model paths to try (update based on your training output)
+MODEL_PATHS = [
+    # .pth format (mask_ppo output)
+    "models/ppo/bouncing_ball/final_actor.pth",
+    "models/ppo/bouncing_ball/best_actor.pth",
+    "/jani_env/models/ppo/bouncing_ball/final_actor.pth",
+    "/jani_env/models/ppo/bouncing_ball/best_actor.pth",
+]
+
+
+def load_policy_from_checkpoint(checkpoint_path):
+    """Load policy from .pth checkpoint (mask_ppo format)."""
+    checkpoint = torch.load(checkpoint_path, map_location=torch.device('cpu'), weights_only=False)
+    input_dim = checkpoint['input_dim']
+    output_dim = checkpoint['output_dim']
+    hidden_dims = checkpoint['hidden_dims']
+    policy_net = Policy(input_dim, output_dim, hidden_dims)
+
+    # Check if state_dict needs mapping (SB3 format) or is direct (DAgger format)
+    state_dict = checkpoint['state_dict']
+    if 'mlp_extractor.policy_net.0.weight' in state_dict:
+        # SB3 format - need to map keys
+        mapped = {
+            "model.0.weight": state_dict["mlp_extractor.policy_net.0.weight"],
+            "model.0.bias": state_dict["mlp_extractor.policy_net.0.bias"],
+            "model.2.weight": state_dict["mlp_extractor.policy_net.2.weight"],
+            "model.2.bias": state_dict["mlp_extractor.policy_net.2.bias"],
+            "model.4.weight": state_dict["action_net.weight"],
+            "model.4.bias": state_dict["action_net.bias"],
+        }
+        policy_net.load_state_dict(mapped, strict=True)
+    else:
+        # Direct format (DAgger saved)
+        policy_net.load_state_dict(state_dict, strict=True)
+
+    return policy_net
+
+
+class PolicyWrapper:
+    """Wraps Policy (nn.Module) to implement get_action for DAgger sampler."""
+    def __init__(self, policy_net):
+        self.policy_net = policy_net
+        self.policy_net.eval()
+
+    def get_action(self, state, action_mask=None):
+        obs_tensor = torch.tensor(state, dtype=torch.float32).unsqueeze(0)
+
+        if action_mask is not None:
+            mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)
+        else:
+            mask_tensor = torch.ones(1, self.policy_net.model[-1].out_features, dtype=torch.bool)
+
+        with torch.no_grad():
+            logits = self.policy_net(obs_tensor)
+            action_dist = MaskedCategorical(logits=logits, mask=mask_tensor)
+            action = action_dist.sample().squeeze(0).item()
+
+        return int(action)
+
+
 policy = None
-for p in ["logs/best_model.zip", "logs/final_model.zip"]:
+loaded_model = None
+
+for p in MODEL_PATHS:
     if Path(p).exists():
         try:
-            policy = MaskablePPO.load(p)
+            loaded_model = load_policy_from_checkpoint(p)
             print("loaded:", p)
             break
         except Exception as e:
-            print("failed:", p)
+            print(f"failed to load {p}: {e}")
 
-if policy is None:
+if loaded_model is not None:
+    policy = PolicyWrapper(loaded_model)
+else:
     print("no model found -> using random policy")
 
     class SimpleRandomPolicy:
         def __init__(self, env):
             self.env = env
             self.num_actions = env.action_space.n
-            self.unsafe_rate = 0.4
-
-        def predict(self, obs, state=None, episode_start=None, deterministic=False):
-            if np.random.random() < self.unsafe_rate:
-                return np.random.randint(0, self.num_actions), None
-
-            mask = self.env.unwrapped.action_mask()
-            valid = np.where(mask)[0]
-            return (np.random.choice(valid) if len(valid) > 0 else 0), None
 
         def get_action(self, state, action_mask=None):
+            # Always respect the mask - invalid actions crash the environment
             if action_mask is not None:
                 valid = np.where(action_mask)[0]
                 if len(valid) > 0:
@@ -111,7 +169,7 @@ print("policy:", type(policy).__name__)
 
 # -------------------- components --------------------
 
-from dagger.interfaces import TraceSamplerInterface, FaultCollectorInterface
+from dagger.interfaces import TraceSamplerInterface, FaultCollectorInterface, OracleInterface
 from dagger.sampler import StandardTraceSampler
 from dagger.fault_collector import OracleFaultCollector
 
@@ -145,76 +203,99 @@ if len(t0["observations"]) > 0:
     if "action_masks" in t0:
         print("  action_masks present:", len(t0["action_masks"]), "entries")
         print("  first mask:", t0["action_masks"][0])
+    if "state_safety" in t0:
+        safe_count = sum(1 for s in t0["state_safety"] if s)
+        print(f"  state_safety: {safe_count}/{len(t0['state_safety'])} steps were safe")
+    if "safe_actions" in t0:
+        has_safe = sum(1 for a in t0["safe_actions"] if a != -1)
+        print(f"  safe_actions: {has_safe}/{len(t0['safe_actions'])} steps had a safe action")
+        # Compare what oracle wanted vs what policy chose
+        mismatches = sum(1 for sa, a in zip(t0["safe_actions"], t0["actions"]) if sa != -1 and sa != a)
+        print(f"  mismatches (safe_action != action): {mismatches}/{len(t0['safe_actions'])}")
+        # Show first few for debugging
+        print(f"  first 10 (safe_action, action): {list(zip(t0['safe_actions'][:10], t0['actions'][:10]))}")
+    if "next_state_safety" in t0:
+        safe_next = sum(1 for s in t0["next_state_safety"] if s)
+        print(f"  next_state_safety: {safe_next}/{len(t0['next_state_safety'])} transitions led to safe states")
+
+# -------------------- sanity check: verify DAgger regime --------------------
+
+from collections import Counter
+
+print("\n=== SANITY CHECK: Action Distribution ===")
+print("Verifying ideal DAgger regime conditions...\n")
+
+# Aggregate action distributions across all traces
+all_safe_actions = []
+all_policy_actions = []
+
+for t in traces:
+    if "safe_actions" in t and "actions" in t:
+        # Only collect where oracle has a preference (safe_action != -1)
+        for safe_act, policy_act in zip(t["safe_actions"], t["actions"]):
+            if safe_act != -1:  # Oracle has a recommended action
+                all_safe_actions.append(safe_act)
+                all_policy_actions.append(policy_act)
+
+print(f"Steps where oracle provided supervision: {len(all_safe_actions)}")
+print(f"\nOracle recommendations (safe_actions):")
+print(Counter(all_safe_actions))
+
+print(f"\nPolicy choices (actions) at those same steps:")
+print(Counter(all_policy_actions))
+
+if all_safe_actions:
+    disagreements = sum(1 for s, p in zip(all_safe_actions, all_policy_actions) if s != p)
+    print(f"\nDisagreements: {disagreements}/{len(all_safe_actions)} ({100*disagreements/len(all_safe_actions):.1f}%)")
+
+    # Check for ideal DAgger conditions
+    policy_counter = Counter(all_policy_actions)
+    oracle_counter = Counter(all_safe_actions)
+
+    print("\n✅ Ideal DAgger regime verification:")
+    print(f"  • Few faults: {disagreements} disagreements found")
+    print(f"  • Policy preference: {policy_counter.most_common(1)}")
+    print(f"  • Oracle preference: {oracle_counter.most_common(1)}")
+
+    if disagreements > 0 and len(set(all_safe_actions)) > 1:
+        print("  ✓ Learning signal is REAL (policy and oracle have different preferences)")
+    elif disagreements == 0:
+        print("  ⚠ No disagreements - policy may already be optimal")
     else:
-        print("  WARNING: action_masks NOT in trace!")
+        print("  ⚠ Degenerate case - investigate further")
+else:
+    print("\n⚠ No oracle supervision found in traces!")
 
-# -------------------- oracle --------------------
+print("\n" + "="*50 + "\n")
 
-class JANIOracle:
+# -------------------- oracle (optional - for reference) --------------------
+
+# Note: Fault detection now uses safety info recorded in the trace during sampling.
+# The oracle is kept here for potential future use (e.g., online querying).
+
+class JANIOracle(OracleInterface):
+    """
+    Oracle that determines if a (state, action) pair is unsafe.
+    Can query the environment for safety information.
+    """
     def __init__(self, env):
         self.env = env
         self.query_count = 0
-        # Store reference to the actual oracle in the environment
-        self._oracle = env._oracle if hasattr(env, '_oracle') else None
 
-    def evaluate_and_correct(self, obs, action, mask):
+    def is_state_action_fault(self, obs, action, mask=None):
+        """Check if action is unsafe at the given state."""
         self.query_count += 1
-        print(f"[DEBUG] evaluate_and_correct called: action={action}, mask={mask}")
-        if isinstance(mask, (list, tuple)):
-            mask = np.array(mask)
-        try:
-            if not mask[action]:
-                valid = np.where(mask)[0]
-                print(f"[DEBUG]   action {action} is UNSAFE, correcting to {valid[0]}")
-                if len(valid) > 0:
-                    return True, valid[0]  # True indicates fault detected
-            print(f"[DEBUG]   action {action} is SAFE")
-            return False, action  # False indicates no fault
-        except Exception as e:
-            print(f"[DEBUG]   exception in evaluate_and_correct: {e}")
-            return False, action
-    
-    def is_state_action_fault(self, obs, action):
-        """Check if this (state, action) pair is unsafe"""
-        # Convert to numpy if needed
-        if isinstance(obs, (list, tuple)):
-            obs = np.array(obs)
-        
-        try:
-            # Try using the environment's action mask first
-            mask = self.env.unwrapped.action_mask()
-            
-            # If action is not in mask, it's invalid/unsafe
-            if isinstance(mask, (list, tuple)):
-                mask = np.array(mask)
-            
-            is_fault = not mask[action]
-            # print(f"[DEBUG] is_state_action_fault: action={action}, mask={mask}, is_fault={is_fault}")
-            return is_fault
-        except Exception as e:
-            # print(f"[DEBUG] is_state_action_fault ERROR: {type(e).__name__}: {e}")
-            return False
-    
-    def state_safety_with_action(self, state_vector, action):
-        """Get safe action for this state - called by fault collector"""
-        print(f"[DEBUG] state_safety_with_action called for action {action}")
-        if self._oracle is not None:
+
+        # Use environment's safety checking if available
+        if hasattr(self.env.unwrapped, 'current_state_safety_with_action'):
             try:
-                return self._oracle.state_safety_with_action(state_vector, action)
-            except Exception as e:
-                print(f"[DEBUG] state_safety_with_action error: {e}")
-        
-        # Fallback: get current action mask and pick first valid action
-        try:
-            mask = self.env.unwrapped.action_mask()
-            if isinstance(mask, (list, tuple)):
-                mask = np.array(mask)
-            valid = np.where(mask)[0]
-            safe_action = valid[0] if len(valid) > 0 else 0
-            return True, safe_action
-        except Exception as e:
-            print(f"[DEBUG] fallback error: {e}")
-            return True, 0
+                is_safe, safe_action = self.env.unwrapped.current_state_safety_with_action(action)
+                # Fault if state is safe but we're not taking the safe action
+                return is_safe and safe_action != -1 and safe_action != action
+            except Exception:
+                pass
+
+        return False
 
 
 oracle = JANIOracle(env)
@@ -242,13 +323,14 @@ for i, t in enumerate(traces):
         traceback.print_exc()
 
 print("\ntotal faults:", len(all_faults))
-print("oracle calls:", oracle.query_count)
+print("(faults detected using trace safety info, not oracle queries)")
 
 if all_faults:
     f = all_faults[0]
     print("\nexample fault:")
     print("  step:", f.get("step"))
-    print("  bad:", f["faulty_action"], "->", f["action"])
+    print(f"  faulty action: {f['faulty_action']} -> corrected to: {f['action']}")
+    print(f"  state was safe: {f.get('was_state_safe')}, next state safe: {f.get('is_next_safe')}")
 
 # -------------------- checks --------------------
 

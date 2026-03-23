@@ -6,8 +6,24 @@ class PolicyInterface(ABC):
     def get_action(self, state: Any, action_mask: Any = None) -> Any:
         """
         Returns an action given a state and an optional action mask.
-        This interface is deliberately decoupled from PyTorch, allowing 
+        This interface is deliberately decoupled from PyTorch, allowing
         the use of different representations such as STL shields or heuristics.
+        """
+        pass
+
+class OracleInterface(ABC):
+    @abstractmethod
+    def is_state_action_fault(self, obs: Any, action: Any, mask: Any = None) -> bool:
+        """
+        Checks if a (state, action) pair is unsafe/faulty.
+
+        Args:
+            obs: The observation/state
+            action: The action taken
+            mask: Optional action mask (required for offline trace analysis)
+
+        Returns:
+            True if the action is a fault (unsafe), False otherwise
         """
         pass
 
@@ -19,7 +35,7 @@ class TraceSamplerInterface(ABC):
 
 class FaultCollectorInterface(ABC):
     @abstractmethod
-    def collect_faults(self, trace: Dict[str, Any], oracle: Any) -> List[Dict[str, Any]]:
+    def collect_faults(self, trace: Dict[str, Any], oracle: OracleInterface) -> List[Dict[str, Any]]:
         """
         Iterates through a trace and runs the oracle on each (state, action) pair.
         Returns a list of faults (unsafe states and their corrected actions).
