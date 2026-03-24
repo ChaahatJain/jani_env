@@ -38,24 +38,13 @@ class StandardTraceSampler(TraceSamplerInterface):
             observations.append(obs)
             actions.append(action)
             action_masks.append(action_mask)
-
-            # Get pre-step safety info if available (JANI env provides this)
-            if hasattr(env.unwrapped, 'current_state_safety_with_action'):
-                is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
-                state_safety.append(is_state_safe)
-                safe_actions.append(safe_action)
-            else:
-                state_safety.append(True)
-                safe_actions.append(-1)
-
+            
             next_obs, reward, done, truncated, info = env.step(action)
-
-            # Track next state safety
-            is_next_safe = info.get("next_state_safety", True)
-            next_state_safety.append(is_next_safe)
+            print("Next observation:", next_obs, "Done", done, "reward", reward)
 
             # Determine if the current step rendered the trace unsafe
-            if not is_next_safe or info.get("is_unsafe", False):
+            if done and reward == env._failure_reward:
+                print("This happens!")
                 is_safe_trajectory = False
 
             rewards.append(reward)

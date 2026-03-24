@@ -14,9 +14,12 @@ print("\n=== DAgger demo on JANI env ===\n")
 # -------------------- config --------------------
 
 JANI_CONFIG = {
-    "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
-    "jani_property": "examples/bouncing_ball/property.jani",
-    "start_states": "examples/bouncing_ball/property.jani",
+    # "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
+    # "jani_property": "examples/bouncing_ball/property.jani",
+    # "start_states": "examples/bouncing_ball/property.jani",
+    "jani_model": "examples/one_way_line_15_10/model.jani",
+    "jani_property": "examples/one_way_line_15_10/property.jani",
+    "start_states": "examples/one_way_line_15_10/property.jani",
     "objective": "",
     "failure_property": "",
     "seed": 42,
@@ -76,10 +79,7 @@ print("\nloading policy...")
 # Model paths to try (update based on your training output)
 MODEL_PATHS = [
     # .pth format (mask_ppo output)
-    "models/ppo/bouncing_ball/final_actor.pth",
-    "models/ppo/bouncing_ball/best_actor.pth",
-    "/jani_env/models/ppo/bouncing_ball/final_actor.pth",
-    "/jani_env/models/ppo/bouncing_ball/best_actor.pth",
+    "/jani_env/examples/one_way_line_15_10/policy/final_actor.pth",
 ]
 
 
@@ -169,9 +169,10 @@ print("policy:", type(policy).__name__)
 
 # -------------------- components --------------------
 
-from dagger.interfaces import TraceSamplerInterface, FaultCollectorInterface, OracleInterface
+from dagger.interfaces import TraceSamplerInterface, FaultCollectorInterface, OracleInterface, PolicyUpdaterInterface
 from dagger.sampler import StandardTraceSampler
 from dagger.fault_collector import OracleFaultCollector
+from dagger.updater import MILPPolicyUpdater
 
 print("\ncomponents loaded")
 
@@ -203,20 +204,6 @@ if len(t0["observations"]) > 0:
     if "action_masks" in t0:
         print("  action_masks present:", len(t0["action_masks"]), "entries")
         print("  first mask:", t0["action_masks"][0])
-    if "state_safety" in t0:
-        safe_count = sum(1 for s in t0["state_safety"] if s)
-        print(f"  state_safety: {safe_count}/{len(t0['state_safety'])} steps were safe")
-    if "safe_actions" in t0:
-        has_safe = sum(1 for a in t0["safe_actions"] if a != -1)
-        print(f"  safe_actions: {has_safe}/{len(t0['safe_actions'])} steps had a safe action")
-        # Compare what oracle wanted vs what policy chose
-        mismatches = sum(1 for sa, a in zip(t0["safe_actions"], t0["actions"]) if sa != -1 and sa != a)
-        print(f"  mismatches (safe_action != action): {mismatches}/{len(t0['safe_actions'])}")
-        # Show first few for debugging
-        print(f"  first 10 (safe_action, action): {list(zip(t0['safe_actions'][:10], t0['actions'][:10]))}")
-    if "next_state_safety" in t0:
-        safe_next = sum(1 for s in t0["next_state_safety"] if s)
-        print(f"  next_state_safety: {safe_next}/{len(t0['next_state_safety'])} transitions led to safe states")
 
 # -------------------- sanity check: verify DAgger regime --------------------
 
@@ -282,16 +269,17 @@ class JANIOracle(OracleInterface):
         self.env = env
         self.query_count = 0
 
-    def is_state_action_fault(self, obs, action, mask=None):
+    def is_state_action_fault(self, obs, action):
         """Check if action is unsafe at the given state."""
         self.query_count += 1
+        return True #TODO: Change later on
 
         # Use environment's safety checking if available
-        if hasattr(self.env.unwrapped, 'current_state_safety_with_action'):
+        if hasattr(self.env.unwrapped, 'is_state_action_fault'):
             try:
-                is_safe, safe_action = self.env.unwrapped.current_state_safety_with_action(action)
+                is_fault = self.env.unwrapped.is_state_action_fault(obs, action)
                 # Fault if state is safe but we're not taking the safe action
-                return is_safe and safe_action != -1 and safe_action != action
+                return is_fault
             except Exception:
                 pass
 
@@ -323,14 +311,13 @@ for i, t in enumerate(traces):
         traceback.print_exc()
 
 print("\ntotal faults:", len(all_faults))
-print("(faults detected using trace safety info, not oracle queries)")
 
 if all_faults:
     f = all_faults[0]
-    print("\nexample fault:")
-    print("  step:", f.get("step"))
-    print(f"  faulty action: {f['faulty_action']} -> corrected to: {f['action']}")
-    print(f"  state was safe: {f.get('was_state_safe')}, next state safe: {f.get('is_next_safe')}")
+    print(f)
+    # print("  step:", f.get("step"))
+    # print(f"  faulty action: {f['faulty_action']} -> corrected to: {f['action']}")
+    # print(f"  state was safe: {f.get('was_state_safe')}, next state safe: {f.get('is_next_safe')}")
 
 # -------------------- checks --------------------
 
@@ -349,3 +336,8 @@ print("traces:", len(traces))
 print("steps:", total_steps)
 print("faults:", len(all_faults))
 print("done\n")
+
+
+#---------------------------- policy fixing step ------------------------------
+updater = MILPPolicyUpdater()
+updater.update_policy(loaded_model, all_faults)

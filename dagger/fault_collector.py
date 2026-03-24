@@ -14,50 +14,43 @@ class OracleFaultCollector(FaultCollectorInterface):
 
     Uses safety information recorded in the trace during sampling.
     """
-    def collect_faults(self, trace: Dict[str, Any], oracle: Any = None) -> List[Dict[str, Any]]:
+    def collect_faults(self, trace: Dict[str, Any], oracle: Any) -> List[Dict[str, Any]]:
         faults = []
         observations = trace["observations"]
         actions = trace["actions"]
         action_masks = trace["action_masks"]
-
-        # Get safety info from trace (recorded by sampler)
-        state_safety = trace.get("state_safety", [])
-        safe_actions = trace.get("safe_actions", [])
-        next_state_safety = trace.get("next_state_safety", [])
-
-        for step in range(len(observations)):
-            obs = observations[step]
-            action = actions[step]
-            mask = action_masks[step]
-
-            # Convert mask to numpy array if needed
-            if isinstance(mask, (list, tuple)):
-                mask = np.array(mask)
-
-            # Get safety info for this step
-            was_state_safe = state_safety[step] if step < len(state_safety) else True
-            safe_action = safe_actions[step] if step < len(safe_actions) else -1
-            is_next_safe = next_state_safety[step] if step < len(next_state_safety) else True
-
-            # A fault occurs when:
-            # - The state was safe (we had a choice)
-            # - The action led to an unsafe state OR there was a different safe action
-            # - A safe alternative action exists and differs from what was taken
-            is_fault = (
-                was_state_safe and
-                safe_action != -1 and
-                safe_action != action
-            )
-
+        
+        for obs, action, mask in zip(observations, actions, action_masks):
+            # Check if action is a fault (leads to unsafe state)
+            is_fault = oracle.is_state_action_fault(obs, action)
+            print("Action", action, "is", ("a" if is_fault else "not a"), "fault for state", obs)
+            
+            
+            
             if is_fault:
-                faults.append({
-                    "step": step,
+                # Find a safe action by checking all possible actions
+                state_vector = obs.tolist() if isinstance(obs, np.ndarray) else obs
+                safe_action = None
+                for candidate_action in range(len(mask)):
+                    if mask[candidate_action] > 0:  # Action is allowed by mask
+                        if not oracle.is_state_action_fault(obs, candidate_action):
+                            safe_action = candidate_action
+                            break
+                
+                # If we found a safe action, record the fault
+                if safe_action is not None:
+                    faults.append({
                     "observation": obs,
                     "action_mask": mask,
-                    "action": safe_action,  # The corrected (safe) action
-                    "faulty_action": action,  # The action that was taken
-                    "was_state_safe": was_state_safe,
-                    "is_next_safe": is_next_safe
+                    "action": safe_action,
+                    "faulty_action": action
                 })
-
+                    
+                else: # TODO: This is bogus. Gotta remove it eventually.
+                    faults.append({
+                    "observation": obs,
+                    "action_mask": mask,
+                    "faulty_action": action
+                })
+        
         return faults

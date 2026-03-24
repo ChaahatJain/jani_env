@@ -33,3 +33,6 @@ psutil
 
 # Ray for distributed training
 ray[default]>=2.0.0
+
+# MILP repair
+gurobipy==11.0.3
