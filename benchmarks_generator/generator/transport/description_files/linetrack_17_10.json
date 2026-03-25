@@ -1,0 +1,244 @@
+{
+  "name": "linetrack_17_10",
+  "drive-actions": [
+    "drive_forward",
+    "drive_backward"
+  ],
+  "locations": [
+    {
+      "id": 0,
+      "roads": [
+        {
+          "to": 1,
+          "capacity": 17,
+          "label": "drive_forward"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "roads": [
+        {
+          "to": 2,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 0,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "roads": [
+        {
+          "to": 3,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 1,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "roads": [
+        {
+          "to": 4,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 2,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "roads": [
+        {
+          "to": 5,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 3,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "roads": [
+        {
+          "to": 6,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 4,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "roads": [
+        {
+          "to": 7,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 5,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "roads": [
+        {
+          "to": 8,
+          "capacity": 17,
+          "label": "drive_forward"
+        },
+        {
+          "to": 6,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "roads": [
+        {
+          "to": 9,
+          "capacity": 1,
+          "label": "drive_forward"
+        },
+        {
+          "to": 7,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "roads": [
+        {
+          "to": 8,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    }
+  ],
+  "goal": 9,
+  "trucks": [
+    {
+      "start": 0,
+      "end": 9,
+      "capacity": 17
+    }
+  ],
+  "packages": [
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    }
+  ]
+}

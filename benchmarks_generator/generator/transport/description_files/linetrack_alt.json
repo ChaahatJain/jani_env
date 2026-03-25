@@ -1,0 +1,36 @@
+{
+  "name": "linetrack",
+  "drive-actions": ["drive_forward", "drive_backward"],
+  "locations": [
+    { "id": 0, "roads": [ {"to":  1, "capacity":  15, "label": "drive_forward"} ] },
+    { "id": 1, "roads": [ {"to":  2, "capacity":  15, "label": "drive_forward"}, {"to":  0, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 2, "roads": [ {"to":  3, "capacity":  15, "label": "drive_forward"}, {"to":  1, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 3, "roads": [ {"to":  4, "capacity":  15, "label": "drive_forward"}, {"to":  2, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 4, "roads": [ {"to":  5, "capacity":  15, "label": "drive_forward"}, {"to":  3, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 5, "roads": [ {"to":  6, "capacity":  15, "label": "drive_forward"}, {"to":  4, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 6, "roads": [ {"to":  7, "capacity":  15, "label": "drive_forward"}, {"to":  5, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 7, "roads": [ {"to":  8, "capacity":  15, "label": "drive_forward"}, {"to":  6, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 8, "roads": [ {"to":  9, "capacity":  15, "label": "drive_forward"}, {"to":  7, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 9, "roads": [ {"to":  10, "capacity":  15, "label": "drive_forward"}, {"to":  8, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 10, "roads": [ {"to":  11, "capacity":  15, "label": "drive_forward"}, {"to":  9, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 11, "roads": [ {"to":  12, "capacity":  15, "label": "drive_forward"}, {"to":  10, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 12, "roads": [ {"to":  13, "capacity":  15, "label": "drive_forward"}, {"to":  11, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 13, "roads": [ {"to":  14, "capacity":  1, "label": "drive_forward"}, {"to":  12, "capacity":  0, "label": "drive_backward"} ] },
+    { "id": 14, "roads": [ {"to":  13, "capacity":  0, "label": "drive_backward"} ] }
+  ],
+  "trucks": [
+    {"start":  0, "end":  9, "capacity":  10}
+  ],
+  "packages": [
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9},
+    {"start": 0, "end": 9}
+  ]
+}

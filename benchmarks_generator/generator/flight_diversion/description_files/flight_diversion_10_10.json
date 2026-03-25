@@ -1,0 +1,12 @@
+{
+    "name": "flight_diversion",
+    "bounds": [
+      { "x": [-10, 10]},
+      { "y": [-10, 10]},
+      { "z": [-10, 10]}
+    ],
+    "unsafe_regions": [{"x": [3, 4], "y": [6, 8], "z": [-9, -7]}],
+    "goal_region": [{"x": [5,7], "y": [9, 10], "z": [-5, -3]}],
+    "fuel_capacity": 10,
+    "max_speed": 2
+  }

@@ -1,0 +1,2845 @@
+{
+    "op": "states-values",
+    "values": [
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 3,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 4,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 1,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 3,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 2,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 2,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 2,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 4,
+                    "var": "block_0"
+                },
+                {
+                    "value": 1,
+                    "var": "block_1"
+                },
+                {
+                    "value": 3,
+                    "var": "block_2"
+                },
+                {
+                    "value": 4,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 1,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 2,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 3,
+                    "var": "block_3"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_3"
+                }
+            ]
+        },
+        {
+            "variables": [
+                {
+                    "value": 2,
+                    "var": "table-counter"
+                },
+                {
+                    "value": 3,
+                    "var": "block_0"
+                },
+                {
+                    "value": 4,
+                    "var": "block_1"
+                },
+                {
+                    "value": 1,
+                    "var": "block_2"
+                },
+                {
+                    "value": 1,
+                    "var": "block_3"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_0"
+                },
+                {
+                    "value": 1,
+                    "var": "clear_1"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_2"
+                },
+                {
+                    "value": 0,
+                    "var": "clear_3"
+                }
+            ]
+        }
+    ]
+}

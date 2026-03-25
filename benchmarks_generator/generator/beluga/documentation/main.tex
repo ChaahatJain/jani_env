@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{url}
+
+\newcommand{\numRacks}[0]{\ensuremath{\# r}}
+\newcommand{\numTrailers}[0]{\ensuremath{\# t}}
+\newcommand{\numJigs}[0]{\ensuremath{\# j}}
+\newcommand{\numHangars}[0]{\ensuremath{\# h}}
+\newcommand{\numBelugas}[0]{\ensuremath{\# b}}
+
+\title{Beluga Domain in JANI}
+
+\author{Chaahat Jain}
+
+\date{2023}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+This document provides an overview of JANI~\cite{budde:etal:tacas-17} model encodings of Beluga introduced by airbus for TUPLES.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Beluga}
+
+Beluga is a TUPLES domain regarding transporting parts from a Beluga flight to a factory in a pre-determined order.
+Since each jig can hold atmost one part, we consider jigs and parts to be the same object.
+
+\subsection{Objects}
+In this use case, we have the following objects:
+\begin{itemize}
+    \item Jigs: These are the parts that need to be delivered to the factory.
+    \item Trailer: These are used to move jigs from one location to another.
+    \item Beluga: The flight carrying the jigs to be delivered to the factory.
+    \item Hangar: These are used to deliver the trailer carrying a jig to the factory.
+    \item Storage: This is a location where multiple trailers start of at initially.
+    \item Racks: These are used to store jigs. Jigs can be pushed/popped from either side of the rack. Only one trailer can stay on one side of the rack.
+    \item Truck: A temporary stop for moving between two racks.
+\end{itemize}
+
+\subsection{State Variables}
+A \textbf{state} in Beluga corresponds to a tuple of the variables described below.\\
+
+\paragraph*{Jigs:} For each jig, we have three variables. $jig_j$ is used to denote the position of the jig. 
+$front\_jig\_j$ is used to denote the jig in front of this jig. $back\_jig\_j$ is used to denote the jig behind this jig. The default value when no jig is present is $-1$.\\
+
+\paragraph*{Trailers:} For each trailer, we have two variables. $trailer_t$ is used to denote the position of the trailer. 
+$empty\_trailer_t$ is used to check if the trailer is empty ($1$ when trailer is empty). \\
+
+\paragraph*{Beluga:} For each beluga flight, we have two variables. $beluga_b$ is used to denote the number of jigs on the beluga. 
+$beluga_b\_phase$ is used to denote whether the beluga in in loading or unloading phase.\\
+
+\paragraph*{Hangar:} For each hangar, we have one variable. $hangar_h$ is used to denote if the hangar is empty.\\
+
+\paragraph*{Racks:} For each rack, we have four variables. $rack\_load_r$ is used to denote the remaining capacity of the rack. $num\_jigs\_on\_rack_r$ denotes how many jigs are on a rack. 
+$front\_rack_r$ and $back\_rack_r$ are used to find the first and last jigs on a rack.\\
+
+\paragraph*{Truck:} We have one variable for the truck, denoting whether the truck is currently free.\\
+
+\paragraph*{Factory}: We have one variable for how many jigs have been delivered to the factory.
+
+\subsection{Global Constants}
+For any given state, we know the total number of racks, jigs, hangars, belugas and trailers. This is represented as $\numRacks, \numJigs, \numHangars, \numBelugas, \numTrailers$ respectively.
+
+\subsection{Assignments}
+For the position of trailer, the position of jigs and the order of sending jigs to the factory, we define the following assignments.\\
+
+\paragraph*{Sending Jigs to Factory}: Our naming of jigs is according to the order in which they need to go to the factory. For example, $jig_0$ is the first jig required by the factory.\\
+
+\paragraph*{Position of Jigs:} Every jig can either be on a rack, on the beluga or in a trailer. We interpret the beluga to be a stack. Positions of jigs on the beluga are encoded as distance from the bottom of the stack. As such, we can use the following function:
+\begin{equation*}
+    jig_j =\begin{cases*}
+        \numJigs*b + i, & \text{jig on beluga b, at distance} i ~\text{from bottom}\\
+        \numJigs*\numBelugas + r, & \text{jig on rack} {r} \\
+        \numJigs*\numBelugas + \numRacks + t, & \text{jig on trailer} {t}
+        \end{cases*}
+\end{equation*}
+
+\paragraph*{Position of Trailers:} Every trailer can either be in front of or behind a rack, or it can be on a hangar, or in storage, or in front of a beluga or in front of a truck.
+\begin{equation*}
+    trailer_t =\begin{cases*}
+        -r - 1, & \text{trailer behind rack} {r}\\
+        r, & \text{trailer in front of rack} {r} \\
+        \numRacks + h, & \text{trailer on hangar} {h} \\
+        \numRacks + \numHangars + b, & \text{trailer in front of beluga} {b}\\
+        \numHangars + \numRacks + \numBelugas, & \text{trailer in storage}\\
+        \numHangars + \numRacks + \numBelugas + 1, & \text{trailer in front of truck}
+        \end{cases*}
+\end{equation*}
+
+
+\subsection{Actions}
+The actions have been encoded exactly as presented in the Beluga Use Case document from: \url{https://drive.google.com/file/d/1ZsEBH6jiQV85ZAttSmqpsBO_R-l0bKeC/view}.
+
+\subsection{Goal Condition and Safety}
+The current \textbf{goal condition} we look at is to deliver all parts to the factory and then load the jigs back onto the beluga.
+The \textbf{safety condition} currently checks that neither rack is filled more than $80\%$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Beluga PDDL To JANI}
+A simpler version of beluga is used for the PDDL version when training ASNets. In this section, we describe an equivalent encoding in JANI. 
+
+\subsection{Changes to original version}
+The following simplification are made:
+\begin{itemize}
+    \item Hangars have been totally removed. We have exactly 1 trailer. The trailer position does not matter since this trailer can always unload belugas and push jigs on racks.
+
+    \item We do not load jigs back into beluga. We are only unloading from beluga and sending to factory.
+    
+    \item We can always unload from beluga as long as a trailer is empty. We can load onto a rack without worrying about this trailer position.
+    
+    \item We can take jig from rack and directly put on truck in one action. 
+    
+    \item Only items on trucks are sent to the factory.
+\end{itemize}
+
+\subsection{Action}
+We consider the following actions:
+\begin{enumerate}
+    \item Unloading from Beluga 
+    \begin{itemize}
+        \item Removes the top jig of the Beluga stack as long as the trailer is empty.
+    \end{itemize}
+    \item Pushing to front of rack r 
+    \begin{itemize}
+        \item Only done when there is enough space on the racks to hold the jig.
+        \item We split into two cases based on whether the rack is empty. 
+        \item Variable for back of jig must be updated. Variables for front of rack must be updated. Trailer is now empty.
+    \end{itemize}
+    \item Pushing to back of rack r
+    \begin{itemize}
+        \item Only done when there is enough space on rack to hold the jig.
+        \item We split into two cases based on whether the rack is empty. 
+        \item Variable for front of jig must be updated. Variables for back of rack must be updated. Trailer is now empty.
+    \end{itemize}
+    \item Popping front of rack r to truck
+    \begin{itemize}
+        \item Only done when truck is empty.
+        \item We split into two cases based on whether the rack will be empty after the pop. 
+        \item Variable for front of rack must be updated. Truck is now not empty.
+    \end{itemize}
+    \item Popping back of rack r to truck     
+    \begin{itemize}
+        \item Only done when truck is empty.
+        \item We split into two cases based on whether the rack will be empty after the pop. 
+        \item Variable for back of rack must be updated. Truck is now not empty.
+    \end{itemize}
+    \item Pushing truck to front of rack r    
+    \begin{itemize}
+        \item Only done when truck is not empty and rack has enough space to hold jig.
+        \item We split into two cases based on whether the rack is empty. 
+        \item Variable for front of rack must be updated. Variable for back of jig must be updated. Truck is now empty.
+    \end{itemize}
+    \item Pushing truck to back of rack r   
+    \begin{itemize}
+        \item Only done when truck is not empty and rack has enough space to hold jig.
+        \item We split into two cases based on whether the rack is empty. 
+        \item Variable for back of rack must be updated. Variable for front of jig must be updated. Truck is now empty.
+    \end{itemize}
+    \item Sending to factory    
+    \begin{itemize}
+        \item Only done when truck is not empty and jig held in truck is next to be sent to factory.
+        \item Truck is now empty. The number of parts delivered to factory increase by 1. We do not update jig position yet because this is simplification.
+    \end{itemize}
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}

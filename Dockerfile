@@ -42,7 +42,7 @@ RUN mkdir -p build && \
 
 # ---- Runtime env ----
 WORKDIR /jani_env
-ENV PYTHONPATH=/jani_env:/jani_env/jani/engine/build
+ENV PYTHONPATH=/jani_env:/jani_env/jani/engine/build:/jani_env/benchmarks_generator/benchmarks_library/jani_generation:/jani_env/benchmarks_generator/benchmarks_library:/jani_env/benchmarks_generator/python_library/jani_generation:/jani_env/benchmarks_generator/python_library
 ENV GRB_LICENSE_FILE=/opt/gurobi/gurobi.lic
 
 # Optional quick self-check (comment out after debugging):
