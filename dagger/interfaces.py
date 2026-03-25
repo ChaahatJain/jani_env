@@ -13,17 +13,19 @@ class PolicyInterface(ABC):
 
 class OracleInterface(ABC):
     @abstractmethod
-    def is_state_action_fault(self, obs: Any, action: Any, mask: Any = None) -> bool:
+    def evaluate_action(self, obs: Any, action: Any, mask: Any = None) -> tuple:
         """
-        Checks if a (state, action) pair is unsafe/faulty.
+        Evaluates a (state, action) pair and determines if it's a fault.
 
         Args:
             obs: The observation/state
             action: The action taken
-            mask: Optional action mask (required for offline trace analysis)
+            mask: Optional action mask
 
         Returns:
-            True if the action is a fault (unsafe), False otherwise
+            Tuple of (is_fault: bool, corrected_action: int or -1)
+            - is_fault: True if the action is a fault (unsafe)
+            - corrected_action: The safe action to take instead (-1 if no correction available)
         """
         pass
 

@@ -16,7 +16,7 @@ print("\n=== DAgger demo on JANI env ===\n")
 JANI_CONFIG = {
     "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
     "jani_property": "examples/bouncing_ball/property.jani",
-    "start_states": "examples/bouncing_ball/property.jani",
+    "start_states": "examples/bouncing_ball/start.jani",  # Use dedicated start file
     "objective": "",
     "failure_property": "",
     "seed": 42,
@@ -180,7 +180,7 @@ print("\ncomponents loaded")
 sampler = StandardTraceSampler()
 
 traces = []
-num_traces = 5
+num_traces = 100
 
 print("\nsampling traces...")
 
@@ -199,138 +199,61 @@ if len(t0["observations"]) > 0:
     print("  obs shape:", t0["observations"][0].shape)
     print("  action:", t0["actions"][0])
     print("  reward:", t0["rewards"][0])
-    print("  trace keys:", t0.keys())
+    print("  trace keys:", list(t0.keys()))
     if "action_masks" in t0:
         print("  action_masks present:", len(t0["action_masks"]), "entries")
-        print("  first mask:", t0["action_masks"][0])
-    if "state_safety" in t0:
-        safe_count = sum(1 for s in t0["state_safety"] if s)
-        print(f"  state_safety: {safe_count}/{len(t0['state_safety'])} steps were safe")
-    if "safe_actions" in t0:
-        has_safe = sum(1 for a in t0["safe_actions"] if a != -1)
-        print(f"  safe_actions: {has_safe}/{len(t0['safe_actions'])} steps had a safe action")
-        # Compare what oracle wanted vs what policy chose
-        mismatches = sum(1 for sa, a in zip(t0["safe_actions"], t0["actions"]) if sa != -1 and sa != a)
-        print(f"  mismatches (safe_action != action): {mismatches}/{len(t0['safe_actions'])}")
+    print("  is_safe_trajectory:", t0.get("is_safe_trajectory", "unknown"))
+
+    # Show oracle data recorded during sampling
+    if "oracle_is_state_safe" in t0:
+        safe_count = sum(1 for s in t0["oracle_is_state_safe"] if s)
+        print(f"  oracle_is_state_safe: {safe_count}/{len(t0['oracle_is_state_safe'])} states were safe")
+    if "oracle_safe_action" in t0:
+        has_safe = sum(1 for a in t0["oracle_safe_action"] if a != -1)
+        print(f"  oracle_safe_action: {has_safe}/{len(t0['oracle_safe_action'])} had safe action")
         # Show first few for debugging
-        print(f"  first 10 (safe_action, action): {list(zip(t0['safe_actions'][:10], t0['actions'][:10]))}")
-    if "next_state_safety" in t0:
-        safe_next = sum(1 for s in t0["next_state_safety"] if s)
-        print(f"  next_state_safety: {safe_next}/{len(t0['next_state_safety'])} transitions led to safe states")
-
-# -------------------- sanity check: verify DAgger regime --------------------
-
-from collections import Counter
-
-print("\n=== SANITY CHECK: Action Distribution ===")
-print("Verifying ideal DAgger regime conditions...\n")
-
-# Aggregate action distributions across all traces
-all_safe_actions = []
-all_policy_actions = []
-
-for t in traces:
-    if "safe_actions" in t and "actions" in t:
-        # Only collect where oracle has a preference (safe_action != -1)
-        for safe_act, policy_act in zip(t["safe_actions"], t["actions"]):
-            if safe_act != -1:  # Oracle has a recommended action
-                all_safe_actions.append(safe_act)
-                all_policy_actions.append(policy_act)
-
-print(f"Steps where oracle provided supervision: {len(all_safe_actions)}")
-print(f"\nOracle recommendations (safe_actions):")
-print(Counter(all_safe_actions))
-
-print(f"\nPolicy choices (actions) at those same steps:")
-print(Counter(all_policy_actions))
-
-if all_safe_actions:
-    disagreements = sum(1 for s, p in zip(all_safe_actions, all_policy_actions) if s != p)
-    print(f"\nDisagreements: {disagreements}/{len(all_safe_actions)} ({100*disagreements/len(all_safe_actions):.1f}%)")
-
-    # Check for ideal DAgger conditions
-    policy_counter = Counter(all_policy_actions)
-    oracle_counter = Counter(all_safe_actions)
-
-    print("\n Ideal DAgger verification:")
-    print(f"  Few faults: {disagreements} disagreements found")
-    print(f"  Policy preference: {policy_counter.most_common(1)}")
-    print(f"  Oracle preference: {oracle_counter.most_common(1)}")
-
-    if disagreements > 0 and len(set(all_safe_actions)) > 1:
-        print("  Learning signal is REAL (policy and oracle have different preferences)")
-    elif disagreements == 0:
-        print(" No disagreements - policy may already be optimal")
-    else:
-        print("  Degenerate case - investigate further")
-else:
-    print("\n No oracle supervision found in traces!")
-
-print("\n" + "="*50 + "\n")
-
-# -------------------- oracle (optional - for reference) --------------------
-
-# Note: Fault detection now uses safety info recorded in the trace during sampling.
-# The oracle is kept here for potential future use (e.g., online querying).
-
-class JANIOracle(OracleInterface):
-    """
-    Oracle that determines if a (state, action) pair is unsafe.
-    Can query the environment for safety information.
-    """
-    def __init__(self, env):
-        self.env = env
-        self.query_count = 0
-
-    def is_state_action_fault(self, obs, action, mask=None):
-        """Check if action is unsafe at the given state."""
-        self.query_count += 1
-
-        # Use environment's safety checking if available
-        if hasattr(self.env.unwrapped, 'current_state_safety_with_action'):
-            try:
-                is_safe, safe_action = self.env.unwrapped.current_state_safety_with_action(action)
-                # Fault if state is safe but we're not taking the safe action
-                return is_safe and safe_action != -1 and safe_action != action
-            except Exception:
-                pass
-
-        return False
-
-
-oracle = JANIOracle(env)
+        print(f"  first 10 (safe_action, action): {list(zip(t0['oracle_safe_action'][:10], t0['actions'][:10]))}")
 
 # -------------------- faults --------------------
 
 collector = OracleFaultCollector()
 
-print("\ncollecting faults...")
+print("\ncollecting faults (using recorded oracle data)...")
 
 all_faults = []
 
 for i, t in enumerate(traces):
     print(f"\n[DEBUG] Processing trace {i+1}:")
-    print(f"[DEBUG]   observations: {len(t['observations'])}")
-    print(f"[DEBUG]   actions: {len(t['actions'])}")
-    print(f"[DEBUG]   action_masks in trace: {'action_masks' in t}")
+    print(f"[DEBUG]   steps: {len(t['observations'])}")
+    print(f"[DEBUG]   is_safe_trajectory: {t.get('is_safe_trajectory', 'unknown')}")
+
+    # Show oracle data for first few steps
+    if "oracle_is_state_safe" in t and "oracle_safe_action" in t:
+        print(f"[DEBUG]   First 5 steps oracle data:")
+        for step in range(min(5, len(t['observations']))):
+            is_safe = t['oracle_is_state_safe'][step]
+            safe_act = t['oracle_safe_action'][step]
+            taken_act = t['actions'][step]
+            is_fault = is_safe and safe_act != -1 and safe_act != taken_act
+            print(f"[DEBUG]     Step {step}: is_safe={is_safe}, safe_action={safe_act}, taken={taken_act}, is_fault={is_fault}")
+
     try:
-        f = collector.collect_faults(t, oracle)
+        f = collector.collect_faults(t)  # No oracle needed - uses recorded data
         all_faults.extend(f)
-        print(f"  trace {i+1}: {len(f)} faults")
+        print(f"  trace {i+1}: {len(f)} faults found")
     except Exception as e:
         print(f"[ERROR] collect_faults failed: {type(e).__name__}: {e}")
         import traceback
         traceback.print_exc()
 
 print("\ntotal faults:", len(all_faults))
-print("(faults detected using trace safety info, not oracle queries)")
+print("(faults detected using oracle data recorded during sampling)")
 
 if all_faults:
     f = all_faults[0]
     print("\nexample fault:")
     print("  step:", f.get("step"))
     print(f"  faulty action: {f['faulty_action']} -> corrected to: {f['action']}")
-    print(f"  state was safe: {f.get('was_state_safe')}, next state safe: {f.get('is_next_safe')}")
 
 # -------------------- checks --------------------
 

@@ -4,8 +4,11 @@ from .interfaces import TraceSamplerInterface, PolicyInterface
 class StandardTraceSampler(TraceSamplerInterface):
     """
     Samples a trace given a policy and an environment state.
-    Tracks trajectory details and determines whether the entire trace is safe or unsafe.
-    Also captures per-step safety information for fault detection.
+
+    Records observations, actions, masks, rewards, and raw oracle responses.
+    The fault determination LOGIC is NOT here - that's in the FaultCollector.
+
+    This sampler only records what the oracle says at each step (if available).
     """
     def sample_trace(self, env: Any, policy: PolicyInterface, init_state_idx: int = -1, max_steps: int = 1024) -> Dict[str, Any]:
         # Initialize environment state
@@ -22,10 +25,9 @@ class StandardTraceSampler(TraceSamplerInterface):
         action_masks = []
         rewards = []
 
-        # Per-step safety tracking
-        state_safety = []  # Was this state safe before taking the action?
-        safe_actions = []  # What was the safe action at this state? (-1 if none)
-        next_state_safety = []  # Is the resulting state safe?
+        # Raw oracle responses at each step (recorded, not interpreted)
+        oracle_is_state_safe = []
+        oracle_safe_action = []
 
         is_safe_trajectory = True
 
@@ -39,23 +41,23 @@ class StandardTraceSampler(TraceSamplerInterface):
             actions.append(action)
             action_masks.append(action_mask)
 
-            # Get pre-step safety info if available (JANI env provides this)
+            # Record raw oracle response BEFORE stepping (if oracle available)
             if hasattr(env.unwrapped, 'current_state_safety_with_action'):
-                is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
-                state_safety.append(is_state_safe)
-                safe_actions.append(safe_action)
+                try:
+                    is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
+                    oracle_is_state_safe.append(is_state_safe)
+                    oracle_safe_action.append(safe_action)
+                except Exception:
+                    oracle_is_state_safe.append(True)
+                    oracle_safe_action.append(-1)
             else:
-                state_safety.append(True)
-                safe_actions.append(-1)
+                oracle_is_state_safe.append(True)
+                oracle_safe_action.append(-1)
 
             next_obs, reward, done, truncated, info = env.step(action)
 
-            # Track next state safety
-            is_next_safe = info.get("next_state_safety", True)
-            next_state_safety.append(is_next_safe)
-
-            # Determine if the current step rendered the trace unsafe
-            if not is_next_safe or info.get("is_unsafe", False):
+            # Track overall trajectory safety from environment info
+            if info.get("is_unsafe", False) or not info.get("next_state_safety", True):
                 is_safe_trajectory = False
 
             rewards.append(reward)
@@ -67,9 +69,8 @@ class StandardTraceSampler(TraceSamplerInterface):
             "actions": actions,
             "action_masks": action_masks,
             "rewards": rewards,
-            "state_safety": state_safety,
-            "safe_actions": safe_actions,
-            "next_state_safety": next_state_safety,
+            "oracle_is_state_safe": oracle_is_state_safe,  # Raw oracle data
+            "oracle_safe_action": oracle_safe_action,       # Raw oracle data
             "is_safe_trajectory": is_safe_trajectory,
             "final_reward": rewards[-1] if rewards else 0.0
         }

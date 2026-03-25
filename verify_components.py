@@ -82,7 +82,7 @@ class MockEnv:
     def step(self, action):
         self.steps += 1
         done = self.steps >= 3
-        return np.array([1, 2, 3, 4], dtype=float), 1.0, done, False, {"is_unsafe": False}
+        return np.array([1, 2, 3, 4], dtype=float), 1.0, done, False, {"is_unsafe": False, "next_state_safety": True}
 
     def action_mask(self):
         return np.array([True, True, True])
@@ -93,8 +93,9 @@ class MockEnv:
 
 
 class MockOracle:
-    def evaluate_and_correct(self, obs, action, mask):
-        return True, action
+    def evaluate_action(self, obs, action, mask):
+        # No faults in this mock - all actions are safe
+        return (False, -1)
 
 
 # sampler without oracle
