@@ -14,12 +14,12 @@ print("\n=== DAgger demo on JANI env ===\n")
 # -------------------- config --------------------
 
 JANI_CONFIG = {
-    # "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
-    # "jani_property": "examples/bouncing_ball/property.jani",
-    # "start_states": "examples/bouncing_ball/property.jani",
-    "jani_model": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
-    "jani_property": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
-    "start_states": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/pa_model_random_starts_20000.jani",
+    "jani_model": "examples/one_way_line_15_10/model.jani",
+    "jani_property": "examples/one_way_line_15_10/property.jani",
+    "start_states": "examples/one_way_line_15_10/eval_start_states.jani",
+    # "jani_model": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
+    # "jani_property": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
+    # "start_states": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/pa_model_random_starts_20000.jani",
     "objective": "",
     "failure_property": "",
     "seed": 42,
@@ -79,7 +79,7 @@ print("\nloading policy...")
 # Model paths to try (update based on your training output)
 MODEL_PATHS = [
     # .pth format (mask_ppo output)
-    # "/jani_env/examples/one_way_line_15_10/policy/final_actor.pth",
+    "/jani_env/examples/one_way_line_15_10/policy/final_actor.pth",
 ]
 
 
@@ -172,7 +172,7 @@ print("policy:", type(policy).__name__)
 from dagger.interfaces import TraceSamplerInterface, FaultCollectorInterface, OracleInterface, PolicyUpdaterInterface
 from dagger.sampler import StandardTraceSampler
 from dagger.fault_collector import OracleFaultCollector
-from dagger.updater import MILPPolicyUpdater
+from dagger.updater import MILPPolicyUpdater, SpecRepairPolicyUpdater
 
 print("\ncomponents loaded")
 
@@ -339,5 +339,12 @@ print("done\n")
 
 
 #---------------------------- policy fixing step ------------------------------
+
+#-------------------------- Spec repair --------------------
+optimizer = torch.optim.Adam(loaded_model.parameters(), lr=1e-4)
+updater = SpecRepairPolicyUpdater(optimizer=optimizer)
+blah = updater.update_policy(loaded_model, all_faults)
+print(blah)
+#-------------------------- MILP repair ---------------------
 updater = MILPPolicyUpdater()
 updater.update_policy(loaded_model, all_faults)
