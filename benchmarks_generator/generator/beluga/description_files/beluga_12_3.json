@@ -1,0 +1,28 @@
+{
+  "name": "beluga_12_3",
+  "racks": 3,
+  "trailers": 1,
+  "hangars": 1,
+  "jigs": 12,
+  "belugas": 1,
+  "cost-aware": false,
+  "move-aware": false,
+  "load-aware": false,
+  "production-lines": 2,
+  "pl0": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    7
+  ],
+  "pl1": [
+    4,
+    6,
+    8,
+    9,
+    10,
+    11
+  ]
+}

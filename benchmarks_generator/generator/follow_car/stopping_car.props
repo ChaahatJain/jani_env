@@ -1,0 +1,4 @@
+"eventually_goal" : F((1000 <= episode) & (11200 <= ego_position))
+"always_not_unsafe": A(!(lead_position <= ego_position))
+"state": episode = 0 & lead_position= 40.493400 & ego_position= 29.104200 & ego_velocity= 31.547500
+"not_a_bug":  state -> always_not_unsafe AND (eventually_goal OR A X true)

@@ -1,0 +1,47 @@
+{
+  "name": "mod_linetrack_20",
+  "locations": [
+    { "id": 0, "roads": [ {"to":  1}] },
+    { "id": 1, "roads": [ {"to":  2} ]},
+    { "id": 2, "roads": [ {"to":  3} ]},
+    { "id": 3, "roads": [ {"to":  4}]},
+    { "id": 4, "roads": [ {"to":  5}]},
+    { "id": 5, "roads": [ {"to":  6} ]},
+    { "id": 6, "roads": [ {"to":  7}]},
+    { "id": 7, "roads": [ {"to":  8} ]},
+    { "id": 8, "roads": [ {"to":  9} ]},
+    { "id": 9, "roads": [ ]}
+  ],
+  "goal": 9,
+  "bounds": [
+    {"id": 7, "bound": 3},
+    {"id": 8, "bound": 2}, 
+    {"id": 9, "bound": 1}
+  ], 
+  "trucks": [
+    {"start":  0, "end":  9, "capacity": 20}
+  ],
+  "packages": [
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9},
+    {"start": 0, "end": 9, "goal": 9}
+  ],
+  "icy": [4, 5]
+}

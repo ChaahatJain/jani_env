@@ -1,0 +1,759 @@
+{
+  "name": "linetrack_60_30",
+  "drive-actions": [
+    "drive_forward",
+    "drive_backward"
+  ],
+  "locations": [
+    {
+      "id": 0,
+      "roads": [
+        {
+          "to": 1,
+          "capacity": 60,
+          "label": "drive_forward"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "roads": [
+        {
+          "to": 2,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 0,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "roads": [
+        {
+          "to": 3,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 1,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "roads": [
+        {
+          "to": 4,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 2,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "roads": [
+        {
+          "to": 5,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 3,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "roads": [
+        {
+          "to": 6,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 4,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "roads": [
+        {
+          "to": 7,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 5,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "roads": [
+        {
+          "to": 8,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 6,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "roads": [
+        {
+          "to": 9,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 7,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "roads": [
+        {
+          "to": 10,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 8,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "roads": [
+        {
+          "to": 11,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 9,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "roads": [
+        {
+          "to": 12,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 10,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "roads": [
+        {
+          "to": 13,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 11,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "roads": [
+        {
+          "to": 14,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 12,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "roads": [
+        {
+          "to": 15,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 13,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "roads": [
+        {
+          "to": 16,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 14,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "roads": [
+        {
+          "to": 17,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 15,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "roads": [
+        {
+          "to": 18,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 16,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "roads": [
+        {
+          "to": 19,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 17,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "roads": [
+        {
+          "to": 20,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 18,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "roads": [
+        {
+          "to": 21,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 19,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "roads": [
+        {
+          "to": 22,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 20,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "roads": [
+        {
+          "to": 23,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 21,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "roads": [
+        {
+          "to": 24,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 22,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "roads": [
+        {
+          "to": 25,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 23,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "roads": [
+        {
+          "to": 26,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 24,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "roads": [
+        {
+          "to": 27,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 25,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "roads": [
+        {
+          "to": 28,
+          "capacity": 60,
+          "label": "drive_forward"
+        },
+        {
+          "to": 26,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "roads": [
+        {
+          "to": 29,
+          "capacity": 1,
+          "label": "drive_forward"
+        },
+        {
+          "to": 27,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "roads": [
+        {
+          "to": 28,
+          "capacity": 0,
+          "label": "drive_backward"
+        }
+      ]
+    }
+  ],
+  "goal": 29,
+  "trucks": [
+    {
+      "start": 0,
+      "end": 29,
+      "capacity": 60
+    }
+  ],
+  "packages": [
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    },
+    {
+      "start": 0,
+      "end": 29,
+      "goal": 29
+    }
+  ]
+}

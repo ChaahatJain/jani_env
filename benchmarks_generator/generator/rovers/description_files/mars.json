@@ -1,0 +1,20 @@
+
+
+{
+  "name": "mars",
+  "map": [
+    ["LC", 0, "R"],
+    [0, "S2R2", 0],
+    ["S", 0, "O"]
+  ],
+  "path-capacity": {
+    "default": 3,
+    "per-direction": {
+      "up": [
+        { "capacity": 2, "srcs": [ {"x": 1, "y": 2} ] }
+      ]
+    }
+  },
+  "rovers": [ {"capacity":  5, "battery": 30} ],
+  "energy-consumption": {"move":  1, "sample":  2, "drop":  0, "take-image":  2}
+}

@@ -1,0 +1,251 @@
+{
+  "name": "two_way_line_20_10",
+  "locations": [
+    {
+      "id": 0,
+      "roads": [
+        {
+          "to": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "roads": [
+        {
+          "to": 2
+        },
+        {
+          "to": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "roads": [
+        {
+          "to": 3
+        },
+        {
+          "to": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "roads": [
+        {
+          "to": 4
+        },
+        {
+          "to": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "roads": [
+        {
+          "to": 5
+        },
+        {
+          "to": 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "roads": [
+        {
+          "to": 6
+        },
+        {
+          "to": 4
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "roads": [
+        {
+          "to": 7
+        },
+        {
+          "to": 5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "roads": [
+        {
+          "to": 8
+        },
+        {
+          "to": 6
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "roads": [
+        {
+          "to": 9
+        },
+        {
+          "to": 7
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "roads": [
+        {
+          "to": 8
+        }
+      ]
+    }
+  ],
+  "goal": 9,
+  "bounds": [
+    {
+      "id": 0,
+      "bound": -1
+    },
+    {
+      "id": 1,
+      "bound": -2
+    },
+    {
+      "id": 2,
+      "bound": -3
+    },
+    {
+      "id": 7,
+      "bound": 3
+    },
+    {
+      "id": 8,
+      "bound": 2
+    },
+    {
+      "id": 9,
+      "bound": 1
+    }
+  ],
+  "trucks": [
+    {
+      "start": 0,
+      "end": 9,
+      "capacity": 20
+    }
+  ],
+  "packages": [
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    },
+    {
+      "start": 0,
+      "end": 9,
+      "goal": 9
+    }
+  ],
+  "icy": [
+    2,
+    4,
+    5
+  ],
+  "speed": 3
+}

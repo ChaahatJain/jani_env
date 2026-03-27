@@ -14,9 +14,12 @@ print("\n=== DAgger demo on JANI env ===\n")
 # -------------------- config --------------------
 
 JANI_CONFIG = {
-    "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
-    "jani_property": "examples/bouncing_ball/property.jani",
-    "start_states": "examples/bouncing_ball/start.jani",  # Use dedicated start file
+    # "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
+    # "jani_property": "examples/bouncing_ball/property.jani",
+    # "start_states": "examples/bouncing_ball/start.jani",  # Use dedicated start file
+       "jani_model": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
+    "jani_property": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
+    "start_states": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/pa_model_random_starts_20000.jani",
     "objective": "",
     "failure_property": "",
     "seed": 42,

@@ -1,0 +1,16 @@
+{
+  "name": "beluga",
+  "racks": 3,
+  "trailers": 1, 
+  "hangars": 1,
+  "jigs": 5,
+  "belugas": 1, 
+  "max_swaps": 50,
+  "move-aware": false,
+  "load-aware": false, 
+  "production-lines": 2,
+  "pl0": [0, 1, 3],
+  "pl1": [2, 4],
+  "delivered_pl0": 2,
+  "delivered_pl1": 1
+}
