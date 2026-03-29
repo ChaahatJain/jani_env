@@ -17,9 +17,9 @@ JANI_CONFIG = {
     # "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
     # "jani_property": "examples/bouncing_ball/property.jani",
     # "start_states": "examples/bouncing_ball/start.jani",  # Use dedicated start file
-       "jani_model": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
-    "jani_property": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/model.jani",
-    "start_states": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_15_10/pa_model_random_starts_20000.jani",
+       "jani_model": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani",
+    "jani_property": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani",
+    "start_states": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/pa_model_random_starts_20000.jani",
     "objective": "",
     "failure_property": "",
     "seed": 42,
@@ -79,10 +79,11 @@ print("\nloading policy...")
 # Model paths to try (update based on your training output)
 MODEL_PATHS = [
     # .pth format (mask_ppo output)
-    "models/ppo/bouncing_ball/final_actor.pth",
-    "models/ppo/bouncing_ball/best_actor.pth",
-    "/jani_env/models/ppo/bouncing_ball/final_actor.pth",
-    "/jani_env/models/ppo/bouncing_ball/best_actor.pth",
+     "models/two_way_line_80_40/final_actor.pth",
+    # "models/ppo/bouncing_ball/final_actor.pth",
+    # "models/ppo/bouncing_ball/best_actor.pth",
+    # "/jani_env/models/ppo/bouncing_ball/final_actor.pth",
+    # "/jani_env/models/ppo/bouncing_ball/best_actor.pth",
 ]
 
 

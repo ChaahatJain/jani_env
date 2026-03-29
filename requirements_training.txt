@@ -21,7 +21,7 @@ pandas>=1.3.0
 
 # General utilities
 pathlib2>=2.3.0  # For older Python versions
-
+jupyterlab>=4.0.0
 # Visualization
 matplotlib>=3.4.0
 seaborn>=0.11.0
@@ -33,3 +33,6 @@ psutil
 
 # Ray for distributed training
 ray[default]>=2.0.0
+
+# MILP repair
+gurobipy==11.0.3
