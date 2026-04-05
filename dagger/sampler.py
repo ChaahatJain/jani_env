@@ -25,9 +25,6 @@ class StandardTraceSampler(TraceSamplerInterface):
         action_masks = []
         rewards = []
 
-        # Raw oracle responses at each step (recorded, not interpreted)
-        oracle_is_state_safe = []
-        oracle_safe_action = []
 
         is_safe_trajectory = True
 
@@ -40,20 +37,6 @@ class StandardTraceSampler(TraceSamplerInterface):
             observations.append(obs)
             actions.append(action)
             action_masks.append(action_mask)
-
-            # Record raw oracle response BEFORE stepping (if oracle available)
-            if hasattr(env.unwrapped, 'current_state_safety_with_action'):
-                try:
-                    print("Calling the oracle")
-                    is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
-                    oracle_is_state_safe.append(is_state_safe)
-                    oracle_safe_action.append(safe_action)
-                except Exception:
-                    oracle_is_state_safe.append(True)
-                    oracle_safe_action.append(-1)
-            else:
-                oracle_is_state_safe.append(True)
-                oracle_safe_action.append(-1)
 
             next_obs, reward, done, truncated, info = env.step(action)
 
@@ -70,8 +53,6 @@ class StandardTraceSampler(TraceSamplerInterface):
             "actions": actions,
             "action_masks": action_masks,
             "rewards": rewards,
-            "oracle_is_state_safe": oracle_is_state_safe,  # Raw oracle data
-            "oracle_safe_action": oracle_safe_action,       # Raw oracle data
             "is_safe_trajectory": is_safe_trajectory,
             "final_reward": rewards[-1] if rewards else 0.0
         }

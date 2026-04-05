@@ -1,5 +1,6 @@
 import argparse
 import json
+import time
 from argparse import Namespace
 from pathlib import Path
 from typing import Any
@@ -175,7 +176,7 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         eval_freq=2048,
         n_eval_episodes=10,
         load_policy_path="",
-        save_all_checkpoints=False,
+        save_all_checkpoints=True,
         eval_safety=False,
         disable_eval=True,
         wandb_project="jani_rl",
@@ -329,22 +330,33 @@ def main() -> None:
         traces = []
         all_faults = []
         total_steps = 0
-
+        sampling_seconds = 0.0
+        oracle_seconds = 0.0
+        
         for _ in range(args.traces_per_iteration):
+            trace_start_time = time.perf_counter()
             init_state_idx = maybe_pick_init_state(env, rng, args.sample_from_init_pool) # Randomly sample initial state # TODO: Fix to training start states
+            
+            # Sample a trace and store it along with whether we reached safety or unsafety.
             trace = sampler.sample_trace(
                 env=env,
                 policy=policy,
                 init_state_idx=init_state_idx,
                 max_steps=args.max_steps,
             )
-            traces.append(trace) # TODO: @Hasanat, we run fault analysis on the unsafe traces found here to get more informative fixes
+            traces.append(trace) 
+            sampling_seconds += time.perf_counter() - trace_start_time
             total_steps += len(trace["observations"])
-            all_faults.extend(collector.collect_faults(trace))
+            
+            if not trace["is_safe_trajectory"]: # We run fault analysis on the unsafe traces found here to get more informative fixes
+                trace_fa_time = time.perf_counter()
+                all_faults.extend(collector.collect_faults(trace, env))
+                oracle_seconds += time.perf_counter() - trace_fa_time
 
         num_faults = len(all_faults)
         print(
-            f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults}"
+            f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults}, "
+            f"sampling_seconds={sampling_seconds:.2f}, oracle_seconds={oracle_seconds:.2f}"
         )
 
         metrics = {
@@ -352,6 +364,8 @@ def main() -> None:
             "num_traces": len(traces),
             "total_steps": total_steps,
             "num_faults": num_faults,
+            "sampling_seconds": sampling_seconds,
+            "oracle_seconds": oracle_seconds
         }
 
         if num_faults == 0:

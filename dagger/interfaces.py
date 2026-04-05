@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List
-
+from jani.env import JANIEnv
 class PolicyInterface(ABC):
     @abstractmethod
     def get_action(self, state: Any, action_mask: Any = None) -> Any:
@@ -37,7 +37,7 @@ class TraceSamplerInterface(ABC):
 
 class FaultCollectorInterface(ABC):
     @abstractmethod
-    def collect_faults(self, trace: Dict[str, Any], oracle: OracleInterface) -> List[Dict[str, Any]]:
+    def collect_faults(self, trace: Dict[str, Any], env: JANIEnv) -> List[Dict[str, Any]]:
         """
         Iterates through a trace and runs the oracle on each (state, action) pair.
         Returns a list of faults (unsafe states and their corrected actions).
