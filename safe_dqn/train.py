@@ -1,5 +1,6 @@
 # python -m safe_dqn.train --jani_model examples/one_way_line_15_10/model.jani --jani_property examples/one_way_line_15_10/property.jani --start_states examples/one_way_line_15_10/property.jani --eval_start_states examples/one_way_line_15_10/eval_start_states.jani --goal_reward 1.0 --failure_reward -1.0 --unsafe_reward -0.01   --max_steps 256 --total_timesteps 1000 --n_eval_episodes 100 --experiment_name one_way_line_15_10_det   --log_dir /jani_env/logs/ppo/one_way_line_15_10 --model_save_dir /jani_env/models/ppo/one_way_line_15_10 --disable_eval --enumate_all_init_states --log_reward --eval_freq 1025 --eval_safety --disable_wandb --verbose 1 --device cpu --seed 50
 
+# TODO: @Songtuan please review
 
 import argparse
 import torch

@@ -17,7 +17,7 @@ file_name=$(basename $description .json)
 model_file=../../benchmarks//transport_${prefix}/${file_name}/model.jani
 python3 generator.py --generation 0 --description ${description} --dropping-prob ${dropping_prob} --tank-capacity ${tank_capacity} ${flags} --out ${model_file}
 
-property_type="random_starts_20000"
+property_type="random_starts_100000"
 #
 prefix=""
 #

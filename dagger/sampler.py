@@ -44,6 +44,7 @@ class StandardTraceSampler(TraceSamplerInterface):
             # Record raw oracle response BEFORE stepping (if oracle available)
             if hasattr(env.unwrapped, 'current_state_safety_with_action'):
                 try:
+                    print("Calling the oracle")
                     is_state_safe, safe_action = env.unwrapped.current_state_safety_with_action(action)
                     oracle_is_state_safe.append(is_state_safe)
                     oracle_safe_action.append(safe_action)

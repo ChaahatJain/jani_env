@@ -152,6 +152,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
         callbacks.append(safety_eval_callback)
 
     # Start training
+    print("Starting training with timesteps:", args.total_timesteps)
     model.learn(
         total_timesteps=args.total_timesteps,
         callback=callbacks,

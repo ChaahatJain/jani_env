@@ -17,9 +17,9 @@ JANI_CONFIG = {
     # "jani_model": "examples/bouncing_ball/bouncing_ball.jani",
     # "jani_property": "examples/bouncing_ball/property.jani",
     # "start_states": "examples/bouncing_ball/start.jani",  # Use dedicated start file
-       "jani_model": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani",
-    "jani_property": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani",
-    "start_states": "benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/pa_model_random_starts_20000.jani",
+       "jani_model": "benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/model.jani",
+    "jani_property": "benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/model.jani",
+    "start_states": "benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/pa_model_random_starts_100000.jani",
     "objective": "",
     "failure_property": "",
     "seed": 42,
@@ -29,7 +29,7 @@ JANI_CONFIG = {
     "max_steps": 100,
     "use_oracle": True,
     "disable_oracle_cache": False,
-    "reduced_memory_mode": True
+    "reduced_memory_mode": False
 }
 
 print("checking files...")
@@ -79,7 +79,7 @@ print("\nloading policy...")
 # Model paths to try (update based on your training output)
 MODEL_PATHS = [
     # .pth format (mask_ppo output)
-     "models/two_way_line_80_40/final_actor.pth",
+     "models/one_way_line_80_40/final_actor.pth",
     # "models/ppo/bouncing_ball/final_actor.pth",
     # "models/ppo/bouncing_ball/best_actor.pth",
     # "/jani_env/models/ppo/bouncing_ball/final_actor.pth",
@@ -189,7 +189,8 @@ num_traces = 100
 print("\nsampling traces...")
 
 for i in range(num_traces):
-    t = sampler.sample_trace(env, policy, max_steps=100)
+    print("Sampling Trace:", i)
+    t = sampler.sample_trace(env, policy, max_steps=500)
     traces.append(t)
     print(f"  trace {i+1}: {len(t['observations'])} steps")
 

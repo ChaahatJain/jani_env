@@ -219,7 +219,7 @@ class SpecRepairPolicyUpdater(PolicyUpdaterInterface):
     Training continues until all faults in the batch are resolved or the
     penalty weights exceed a maximum threshold.
     """
-    def __init__(self, optimizer: torch.optim.Optimizer, batch_size: int = 256, initial_penalty_weight: float = 1.0, max_penalty_weight: float = 1024.0, margin: float = 0.0, device: torch.device = torch.device("cpu")):
+    def __init__(self, optimizer: torch.optim.Optimizer, batch_size: int = 256, initial_penalty_weight: float = 1.0, max_penalty_weight: float = 16384.0, margin: float = 0.0, device: torch.device = torch.device("cpu")):
         self.optimizer = optimizer
         self.batch_size = batch_size
         self.initial_penalty_weight = initial_penalty_weight
@@ -270,6 +270,18 @@ class SpecRepairPolicyUpdater(PolicyUpdaterInterface):
         action_masks = torch.stack([torch.from_numpy(item["action_mask"]) for item in batch]).to(self.device)
         faulty_actions = torch.tensor([item["faulty_action"] for item in batch], dtype=torch.long).to(self.device)
 
+        # Count how many actions are available per row
+        valid_counts = action_masks.sum(dim=1)
+
+        # Keep only rows with more than 1 valid action
+        keep = valid_counts > 1
+
+        # Apply filter
+        observations = observations[keep]
+        action_masks = action_masks[keep]
+        faulty_actions = faulty_actions[keep]
+
+
         # Per-sample penalty weights, doubled whenever a fault persists
         penalty_weights = torch.full(
             (observations.size(0),), self.initial_penalty_weight,
@@ -281,7 +293,7 @@ class SpecRepairPolicyUpdater(PolicyUpdaterInterface):
         total_penalty_loss = 0.0
         steps = 0
         iterations = 0
-        while True and iterations < 5:
+        while True and iterations < 1000:
             iterations = iterations + 1
             logits = policy(observations)
             masked_logits = logits.masked_fill(~action_masks.bool(), float("-inf"))
@@ -293,6 +305,7 @@ class SpecRepairPolicyUpdater(PolicyUpdaterInterface):
             if not still_faulty.any():
                 break
 
+            print(masked_logits[still_faulty][0], faulty_actions[still_faulty][0])
             # task_loss = self.task_loss_fn(logp, expert_actions.long())
             penalty_loss = self._penalty_loss(masked_logits, faulty_actions.long(), penalty_weights)
             loss = penalty_loss

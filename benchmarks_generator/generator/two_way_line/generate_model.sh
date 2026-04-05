@@ -21,7 +21,7 @@ model_file=../../benchmarks//two_way_line_${prefix}/${file_name}/model.jani
 python3 generator.py --generation 0 --description ${description} --dropping-prob ${dropping_prob} --slipping-prob ${slipping_prob} --icy-prob ${icy_prob} --tank-capacity ${tank_capacity} --add-parking ${parking} --fail-dec-on-ice ${fail_dec_on_ice} ${flags} --out ${model_file}
 
 echo "Here ${model_file}"
-property_type="random_starts_20000"
+property_type="random_starts_100000"
 #
 flags=""
 flags=${flags}"--property-inline"

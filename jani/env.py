@@ -29,7 +29,7 @@ class JANIEnv(gym.Env):
                  disable_oracle_cache: bool = False,
                  reduced_memory_mode: bool = False) -> None:
         super().__init__()
-        # print(f"DEBUG: Initializing JANIEnv with model: {jani_model_path}, property: {jani_property_path}, start states: {start_states_path}, objective: {objective_path}, failure property: {failure_property_path}, seed: {seed}")
+        print(f"DEBUG: Initializing JANIEnv with model: {jani_model_path}, property: {jani_property_path}, start states: {start_states_path}, objective: {objective_path}, failure property: {failure_property_path}, seed: {seed}")
         self._engine = JANIEngine(jani_model_path, 
                                   jani_property_path, 
                                   start_states_path, 

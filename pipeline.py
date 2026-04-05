@@ -13,7 +13,7 @@ from dagger.fault_collector import OracleFaultCollector
 from dagger.policy import Policy
 from dagger.policy_wrapper import NNPolicyWrapper
 from dagger.sampler import StandardTraceSampler
-from dagger.updater import SupervisedPolicyUpdater
+from dagger.updater import SupervisedPolicyUpdater, MILPPolicyUpdater, SpecRepairPolicyUpdater
 from jani.env import JANIEnv
 from mask_ppo.train import train_model
 
@@ -46,9 +46,11 @@ def parse_args() -> argparse.Namespace:
         default="",
         help="Checkpoint (.pth) to start from. If missing, policy is bootstrapped with MaskedPPO.",
     )
-    parser.add_argument("--bootstrap_timesteps", type=int, default=20000)
+    parser.add_argument("--bootstrap_timesteps", type=int, default=100_000)
     parser.add_argument("--bootstrap_n_steps", type=int, default=256)
     parser.add_argument("--bootstrap_use_oracle", action="store_true")
+    
+    parser.add_argument("--repair_method", type=str, default="milp") # All options are milp, dagger, spec
 
     # DAgger loop settings
     parser.add_argument("--max_iterations", type=int, default=10)
@@ -200,7 +202,7 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         "reduced_memory_mode": args.reduced_memory_mode,
     }
 
-    train_model(train_args, file_args)
+    train_model(train_args, file_args) # TODO: @Songtuan, how do we guarantee that the training start states are different from the eval start states?
     bootstrapped = bootstrap_dir / "models" / "final_actor.pth"
 
     if not bootstrapped.exists():
@@ -274,6 +276,7 @@ def main() -> None:
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
 
+    # Initialize stuff
     device = torch.device(args.device)
     output_dir = Path(args.output_dir)
     checkpoints_dir = output_dir / "checkpoints"
@@ -281,33 +284,45 @@ def main() -> None:
     checkpoints_dir.mkdir(parents=True, exist_ok=True)
     logs_dir.mkdir(parents=True, exist_ok=True)
 
+    # Train and load the policy
     policy_path = bootstrap_policy_if_needed(args, output_dir)
     policy_model = load_policy_checkpoint(policy_path, device=device)
     policy_model.to(device)
+    policy = NNPolicyWrapper(policy_model, device=device)
 
+    # Create the environment
     env = build_env(args, use_oracle=True)
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.n
 
-    policy = NNPolicyWrapper(policy_model, device=device)
     sampler = StandardTraceSampler()
     collector = OracleFaultCollector()
 
-    optimizer = torch.optim.Adam(policy_model.parameters(), lr=args.learning_rate)
-    updater = SupervisedPolicyUpdater(
-        optimizer=optimizer,
-        batch_size=args.updater_batch_size,
-        steps_per_iteration=args.updater_steps,
-        device=device,
-    )
+    # Create repair method
+    ml_repair_method = args.repair_method != "milp"
+    if ml_repair_method:
+        optimizer = torch.optim.Adam(policy_model.parameters(), lr=args.learning_rate)
+        if args.repair_method == "dagger":
+            updater = SupervisedPolicyUpdater(
+                optimizer=optimizer,
+                batch_size=args.updater_batch_size,
+                steps_per_iteration=args.updater_steps,
+                device=device,
+            )
+        elif args.repair_method == "spec":
+            updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=args.updater_batch_size, device=device)
+    else:
+        updater = MILPPolicyUpdater()
 
     replay_buffer = DAggerBuffer(buffer_size=args.buffer_size)
     rng = np.random.default_rng(args.seed)
 
     metrics_file = logs_dir / "iterations.jsonl"
     converged = False
+    
+    #TODO: @Songtuan, we need a method of evaluating the safety and goal reaching of the original policy
 
-    print("Starting DAgger pipeline loop...")
+    print("Starting fault analysis and repair loop...")
     print(f"Initial policy: {policy_path}")
 
     for iteration in range(1, args.max_iterations + 1):
@@ -316,14 +331,14 @@ def main() -> None:
         total_steps = 0
 
         for _ in range(args.traces_per_iteration):
-            init_state_idx = maybe_pick_init_state(env, rng, args.sample_from_init_pool)
+            init_state_idx = maybe_pick_init_state(env, rng, args.sample_from_init_pool) # Randomly sample initial state # TODO: Fix to training start states
             trace = sampler.sample_trace(
                 env=env,
                 policy=policy,
                 init_state_idx=init_state_idx,
                 max_steps=args.max_steps,
             )
-            traces.append(trace)
+            traces.append(trace) # TODO: @Hasanat, we run fault analysis on the unsafe traces found here to get more informative fixes
             total_steps += len(trace["observations"])
             all_faults.extend(collector.collect_faults(trace))
 
@@ -345,16 +360,19 @@ def main() -> None:
                 f.write(json.dumps(metrics) + "\n")
             print("No faults found. Pipeline converged.")
             break
-
+        # Collect faults
         if not args.accumulate_faults:
             replay_buffer.empty()
-
+            assert False, "This should never be called. Unless we decide to later for experimental reasons."
         positive, negative = faults_to_tensordict(all_faults, obs_dim=obs_dim, n_actions=n_actions)
         replay_buffer.add_samples(positive, negative)
 
-        update_info = updater.update_policy(policy_model, replay_buffer)
-        metrics.update({"update_loss": float(update_info["loss"])})
-
+        # Repair policy based on collected faults
+        update_info = updater.update_policy(policy_model, replay_buffer) if args.repair_method == "dagger" else updater.update_policy(policy_model, all_faults)
+        if ml_repair_method:
+            metrics.update({"update_loss": float(update_info["loss"])}) # Is NONE for MILP policy repair
+        
+        # Save intermediate policies
         ckpt_path = checkpoints_dir / f"policy_iter_{iteration:03d}.pth"
         save_policy_checkpoint(policy_model, ckpt_path, input_dim=obs_dim, output_dim=n_actions)
         metrics.update({"checkpoint": str(ckpt_path)})
@@ -363,10 +381,12 @@ def main() -> None:
             f.write(json.dumps(metrics) + "\n")
 
         print(f"Updated policy saved: {ckpt_path}")
-        print(f"Iteration {iteration} update loss: {update_info['loss']:.6f}")
+        if ml_repair_method:
+            print(f"Iteration {iteration} update loss: {update_info['loss']:.6f}")
 
     final_path = checkpoints_dir / "final_policy.pth"
     save_policy_checkpoint(policy_model, final_path, input_dim=obs_dim, output_dim=n_actions)
+    #TODO: @Songtuan, we need a method of evaluating the safety and goal reaching of the repaired policy
 
     print("\n=== Pipeline summary ===")
     print(f"Converged: {converged}")
