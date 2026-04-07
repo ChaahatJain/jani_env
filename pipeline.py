@@ -18,6 +18,9 @@ from dagger.updater import SupervisedPolicyUpdater, MILPPolicyUpdater, SpecRepai
 from jani.env import JANIEnv
 from mask_ppo.train import train_model
 
+from torchrl.modules.distributions import MaskedCategorical
+
+
 # python pipeline.py --jani_model benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --jani_property benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --initial_policy artifacts/pipeline/two_way_line_det/two_way_line_80_40/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 10 --output_dir artifacts/pipeline/two_way_line_det/two_way_line_80_40/ --device cpu --accumulate_faults --repair_method milp
 
 # python pipeline.py --jani_model benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/model.jani --jani_property benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/model.jani --initial_policy artifacts/pipeline/one_way_line_det/one_way_line_80_40/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 10 --output_dir artifacts/pipeline/one_way_line_det/one_way_line_80_40/ --device cpu --accumulate_faults --repair_method milp
@@ -275,6 +278,65 @@ def maybe_pick_init_state(env: JANIEnv, rng: np.random.Generator, sample_from_po
     return int(rng.integers(0, pool_size))
 
 
+def evaluate_policy(
+        env: JANIEnv, 
+        policy: torch.nn.Module, 
+        init_state_indices: list[int], 
+        max_steps: int = 256,
+        deterministic: bool = False
+    ) -> dict[str, Any]:
+    num_total_states = len(init_state_indices)
+    num_unsafe_runs = 0
+    num_goal_reached = 0
+    num_failed_runs = 0
+    for idx in init_state_indices:
+        obs, _ = env.reset(options={"idx": idx})
+        done = False
+        step_count = 0
+        is_safe_run = True
+        last_reward = None # Keep track of the last reward to determine if we reached the goal at the end of the episode
+        while not done and step_count < max_steps:
+            obs_tensor = torch.tensor(obs, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+            action_mask = env.unwrapped.action_mask().astype(int)
+            action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
+            with torch.no_grad():
+                logits = policy(obs_tensor)
+                action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
+                if deterministic:
+                    action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
+                else:
+                    action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension
+
+            # Check whether the action is safe
+            if is_safe_run:
+                is_action_safe = env.unwrapped.is_current_state_action_safe(action)
+                if not is_action_safe:
+                    is_safe_run = False
+                    num_unsafe_runs += 1
+            
+            # Step the environment
+            obs, reward, done, _, _ = env.step(action)
+            step_count += 1
+            last_reward = reward
+
+        if last_reward == 1.0: # We reached the goal
+            num_goal_reached += 1
+        elif last_reward == -1.0: # We reached a failure state
+            num_failed_runs += 1
+
+    frac_unsafe = num_unsafe_runs / num_total_states if num_total_states > 0 else 0.0
+    frac_goal = num_goal_reached / num_total_states if num_total_states > 0 else 0.0
+    frac_failure = num_failed_runs / num_total_states if num_total_states > 0 else 0.0
+
+    return {
+        "frac_unsafe": frac_unsafe,
+        "frac_goal": frac_goal,
+        "frac_failure": frac_failure,
+    }    
+    
+
+
+
 def main() -> None:
     args = parse_args()
     np.random.seed(args.seed)
@@ -325,6 +387,11 @@ def main() -> None:
     converged = False
     
     #TODO: @Songtuan, we need a method of evaluating the safety and goal reaching of the original policy
+    results = evaluate_policy(env, policy_model, init_state_indices=list(range(10)))
+    print("Initial policy results:")
+    for metric, value in results.items():
+        print(f"  {metric}: {value}")
+    
 
     print("Starting fault analysis and repair loop...")
     print(f"Initial policy: {policy_path}")

@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 import json
 import random
+import sys
+sys.path.append("../../benchmarks_library")
+sys.path.append("../../python_library")
 
 from jani_generation.jani_model_generator import BoundedVariable, VarSplitSpec, JaniModelGenerationOptionParser, JaniModelGenerator
 from jani_generation.jani_structure_generator import Je, JaniStructureGenerator, JaniModelType
