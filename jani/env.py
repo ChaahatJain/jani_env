@@ -73,16 +73,7 @@ class JANIEnv(gym.Env):
         self._reseted = True
         assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
         reset_info = {}
-        if self._use_oracle and (not self._use_strict_rules):
-            # If we use strict safety rules, we do not need to provide safety info at reset
-            if (options is None) or ("no_safety_info" not in options):
-                is_current_state_safe, current_safe_action = self._oracle.engine_state_safety_with_action(-1)
-                reset_info["current_state_safety"] = is_current_state_safe
-                reset_info["current_safe_action"] = current_safe_action
-
-                self._prev_state_safe = is_current_state_safe
-                self._prev_safe_action = current_safe_action
-                self._prev_obs = state_vec
+        self._prev_obs = state_vec
         return np.array(state_vec, dtype=np.float32), reset_info
 
     def step(self, action: int) -> tuple[np.ndarray, float, bool, bool, dict]:
@@ -93,19 +84,9 @@ class JANIEnv(gym.Env):
             assert self._prev_obs == self._engine.get_current_state_vector(), "Current observation does not match engine state. Expected {}, got {}".format(self._prev_obs, self._engine.get_current_state_vector())
             assert self._engine.get_current_state_vector() == self._oracle.get_engine_current_state_vector(), "Engine state does not match oracle state. Engine {}, Oracle {}".format(self._engine.get_current_state_vector(), self._oracle.get_engine_current_state_vector())
 
-        if self._use_strict_rules:
-            # If strict safety rule is used, check whether the current state-action pair is safe
-            is_action_safe = self._engine.is_engine_state_action_safe(action)
-
         next_state_vec = self._engine.step(action) # The current state should be automatically updated in the engine
 
         info = {}
-        if self._use_oracle and (not self._use_strict_rules):
-            assert self._unsafe_reward is not None
-            assert self._engine.get_current_state_vector() == self._oracle.get_engine_current_state_vector() == next_state_vec, "After step, engine state does not match oracle state. Engine {}, Oracle {}".format(self._engine.get_current_state_vector(), self._oracle.get_engine_current_state_vector())
-            is_next_state_safe, next_safe_action = self._oracle.engine_state_safety_with_action(action)
-            info["next_state_safety"] = is_next_state_safe
-            info["next_safe_action"] = next_safe_action
         
         # Compute reward and done flag
         reward = None
@@ -120,22 +101,9 @@ class JANIEnv(gym.Env):
             reward = 0.0
             done = True
         else:
-            if self._use_oracle and (not self._use_strict_rules) and (not is_next_state_safe):
-                reward = self._unsafe_reward
-                if self._prev_state_safe:
-                    # Just transitioned from safe to unsafe
-                    assert action != self._prev_safe_action, f"From last obs: {self._prev_obs} to current obs: {next_state_vec}: Expect taken action {action} differ from previous safe action {self._prev_safe_action} when transitioning to unsafe state."
-            elif self._use_oracle and self._use_strict_rules and (not is_action_safe):
-                reward = self._unsafe_reward
-            else:
-                reward = 0.0
+            reward = 0.0
             done = False
-
-        if self._use_oracle and (not self._use_strict_rules):
-            self._prev_state_safe = is_next_state_safe
-            self._prev_safe_action = next_safe_action
-            self._prev_obs = next_state_vec
-
+        self._prev_obs = next_state_vec
         return np.array(next_state_vec, dtype=np.float32), reward, done, False, info
 
     def action_mask(self) -> np.ndarray:

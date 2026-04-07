@@ -18,6 +18,9 @@ from dagger.updater import SupervisedPolicyUpdater, MILPPolicyUpdater, SpecRepai
 from jani.env import JANIEnv
 from mask_ppo.train import train_model
 
+# python pipeline.py --jani_model benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --jani_property benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --initial_policy artifacts/pipeline/two_way_line_det/two_way_line_80_40/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 10 --output_dir artifacts/pipeline/two_way_line_det/two_way_line_80_40/ --device cpu --accumulate_faults --repair_method milp
+
+# python pipeline.py --jani_model benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/model.jani --jani_property benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/model.jani --initial_policy artifacts/pipeline/one_way_line_det/one_way_line_80_40/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/one_way_line_det/one_way_line_80_40/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 10 --output_dir artifacts/pipeline/one_way_line_det/one_way_line_80_40/ --device cpu --accumulate_faults --repair_method milp
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -326,17 +329,20 @@ def main() -> None:
     print("Starting fault analysis and repair loop...")
     print(f"Initial policy: {policy_path}")
 
+    all_faults = []
+    total_steps = 0
     for iteration in range(1, args.max_iterations + 1):
         traces = []
-        all_faults = []
-        total_steps = 0
+        new_faults = []
         sampling_seconds = 0.0
         oracle_seconds = 0.0
+        repair_seconds = 0.0
         
         for _ in range(args.traces_per_iteration):
             trace_start_time = time.perf_counter()
+            print("Starting index selection")
             init_state_idx = maybe_pick_init_state(env, rng, args.sample_from_init_pool) # Randomly sample initial state # TODO: Fix to training start states
-            
+            print("Init state index selected as:", init_state_idx, " in time:", time.perf_counter() - trace_start_time)
             # Sample a trace and store it along with whether we reached safety or unsafety.
             trace = sampler.sample_trace(
                 env=env,
@@ -350,12 +356,14 @@ def main() -> None:
             
             if not trace["is_safe_trajectory"]: # We run fault analysis on the unsafe traces found here to get more informative fixes
                 trace_fa_time = time.perf_counter()
-                all_faults.extend(collector.collect_faults(trace, env))
+                faults = collector.collect_faults(trace, env)
+                new_faults.extend(faults)
+                all_faults.extend(faults)
                 oracle_seconds += time.perf_counter() - trace_fa_time
-
+        num_new_faults = len(new_faults)
         num_faults = len(all_faults)
         print(
-            f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults}, "
+            f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults} total {num_new_faults} new, "
             f"sampling_seconds={sampling_seconds:.2f}, oracle_seconds={oracle_seconds:.2f}"
         )
 
@@ -364,11 +372,12 @@ def main() -> None:
             "num_traces": len(traces),
             "total_steps": total_steps,
             "num_faults": num_faults,
+            "it_faults": num_new_faults,
             "sampling_seconds": sampling_seconds,
             "oracle_seconds": oracle_seconds
         }
 
-        if num_faults == 0:
+        if num_new_faults == 0:
             converged = True
             with metrics_file.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(metrics) + "\n")
@@ -382,7 +391,10 @@ def main() -> None:
         replay_buffer.add_samples(positive, negative)
 
         # Repair policy based on collected faults
+        repair_time = time.perf_counter()
         update_info = updater.update_policy(policy_model, replay_buffer) if args.repair_method == "dagger" else updater.update_policy(policy_model, all_faults)
+        repair_seconds += time.perf_counter() - repair_time 
+        metrics.update({"repair_seconds": repair_seconds})
         if ml_repair_method:
             metrics.update({"update_loss": float(update_info["loss"])}) # Is NONE for MILP policy repair
         
