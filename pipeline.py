@@ -278,24 +278,78 @@ def maybe_pick_init_state(env: JANIEnv, rng: np.random.Generator, sample_from_po
     return int(rng.integers(0, pool_size))
 
 
+def is_policy_safe(
+        env: JANIEnv, 
+        policy: Policy, 
+        observation: np.ndarray, 
+        visited_obs: dict, 
+        deterministic: bool=True,
+        depth: int=0) -> bool:
+    # print("  " * depth + f"Checking safety for observation: {env.debug_show_state(observation)}")
+
+    if env.unwrapped.obs_reach_goal(observation):
+        # print("  " * depth + "Reached goal state during safety check.")
+        return True
+    if env.unwrapped.obs_reach_failure(observation):
+        # print("  " * depth + "Reached failure state during safety check.")
+        return False
+    
+    # Cache the visited obs
+    visited_obs[observation.tobytes()] = 0
+
+    # Get policy's action
+    obs_tensor = torch.tensor(observation, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+    action_mask = env.unwrapped.action_mask_for_obs(observation).astype(int)
+    action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
+    with torch.no_grad():
+        logits = policy(obs_tensor)
+        action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
+        if deterministic:
+            action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
+        else:
+            action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension
+
+    # Recursively check all successor states
+    successor_obs = env.unwrapped.get_successor_obs(observation, action)
+    # print("  " * depth + f"Policy action: {action}, Successor count: {len(successor_obs)}")
+    for succ_obs in successor_obs:
+        if succ_obs.tobytes() in visited_obs:
+            # print("  " * depth + "Already visited successor, skipping to avoid cycles.")
+            if visited_obs[succ_obs.tobytes()] == -1:
+                # print("  " * depth + "But it's currently being explored, so we have a cycle. Marking unsafe.")
+                visited_obs[observation.tobytes()] = -1
+                return False
+            else:
+                continue
+        if not is_policy_safe(env, policy, succ_obs, visited_obs, deterministic, depth + 1):
+            # print("  " * depth + "Found unsafe successor.")
+            visited_obs[observation.tobytes()] = -1
+            return False
+    visited_obs[observation.tobytes()] = 1
+    return True
+
 def evaluate_policy(
         env: JANIEnv, 
         policy: torch.nn.Module, 
         init_state_indices: list[int], 
         max_steps: int = 256,
-        deterministic: bool = False
+        deterministic: bool = True
     ) -> dict[str, Any]:
     num_total_states = len(init_state_indices)
     num_unsafe_runs = 0
     num_goal_reached = 0
     num_failed_runs = 0
-    for idx in init_state_indices:
+
+    from tqdm import tqdm
+    for idx in tqdm(init_state_indices):
         obs, _ = env.reset(options={"idx": idx})
+        if not is_policy_safe(env, policy, obs, {}, deterministic):
+            num_unsafe_runs += 1
         done = False
         step_count = 0
-        is_safe_run = True
         last_reward = None # Keep track of the last reward to determine if we reached the goal at the end of the episode
         while not done and step_count < max_steps:
+            # print(f"Step {step_count}: Current observation: {env.debug_show_state(obs)}")
             obs_tensor = torch.tensor(obs, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
             action_mask = env.unwrapped.action_mask().astype(int)
             action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
@@ -306,13 +360,7 @@ def evaluate_policy(
                     action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
                 else:
                     action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension
-
-            # Check whether the action is safe
-            if is_safe_run:
-                is_action_safe = env.unwrapped.is_current_state_action_safe(action)
-                if not is_action_safe:
-                    is_safe_run = False
-                    num_unsafe_runs += 1
+            # print(f"Step {step_count}: Action taken: {action}")
             
             # Step the environment
             obs, reward, done, _, _ = env.step(action)
@@ -387,7 +435,7 @@ def main() -> None:
     converged = False
     
     #TODO: @Songtuan, we need a method of evaluating the safety and goal reaching of the original policy
-    results = evaluate_policy(env, policy_model, init_state_indices=list(range(10)))
+    results = evaluate_policy(env, policy_model, init_state_indices=list(range(1000)))
     print("Initial policy results:")
     for metric, value in results.items():
         print(f"  {metric}: {value}")

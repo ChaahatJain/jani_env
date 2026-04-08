@@ -261,6 +261,11 @@ public:
         return std::get<bool>(result);
     }
 
+    bool reach_goal_state_vector(const std::vector<double>& state_vec) {
+        State s = create_state_from_vector(state_vec);
+        return reach_goal(s);
+    }
+
     bool reach_goal_current() {
         return reach_goal(current_state);
     }
@@ -280,6 +285,11 @@ public:
 
     bool reach_failure_current() {
         return reach_failure(current_state);
+    }
+
+    bool reach_failure_state_vector(const std::vector<double>& state_vec) {
+        State s = create_state_from_vector(state_vec);
+        return reach_failure(s);
     }
 
     std::vector<bool> get_action_mask_for_obs(const std::vector<double>& obs) {
@@ -386,6 +396,16 @@ public:
             }
         }
         return successor_states;
+    }
+
+    std::vector<std::vector<double>> get_all_successor_states_as_vectors(const std::vector<double> &state_vec, int action_id) {
+        State s = create_state_from_vector(state_vec);
+        std::vector<State> successor_states = get_all_successor_states(s, action_id);
+        std::vector<std::vector<double>> successor_vectors;
+        for (const auto& state : successor_states) {
+            successor_vectors.push_back(state.toRealVector());
+        }
+        return successor_vectors;
     }
 
     std::vector<double> reset() {
@@ -809,6 +829,11 @@ public:
 
     void testSetFailureExpression(std::unique_ptr<Expression> expr) {
         failure_expression = std::move(expr);
+    }
+
+    std::string debugShowState(const std::vector<double>& state_vec) {
+        State s = create_state_from_vector(state_vec);
+        return s.toString();
     }
 };
 #endif // JANI_ENGINE_H

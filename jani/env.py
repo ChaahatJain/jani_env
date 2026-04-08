@@ -105,6 +105,15 @@ class JANIEnv(gym.Env):
             done = False
         self._prev_obs = next_state_vec
         return np.array(next_state_vec, dtype=np.float32), reward, done, False, info
+    
+    def obs_reach_goal(self, obs: np.ndarray) -> bool:
+        return self._engine.reach_goal_state_vector(obs.tolist())
+    
+    def obs_reach_failure(self, obs: np.ndarray) -> bool:
+        return self._engine.reach_failure_state_vector(obs.tolist())
+    
+    def debug_show_state(self, obs: np.ndarray) -> str:
+        return self._engine.debug_show_state(obs.tolist())
 
     def action_mask(self) -> np.ndarray:
         if not self._reseted:
@@ -115,7 +124,7 @@ class JANIEnv(gym.Env):
     def action_mask_for_obs(self, obs: np.ndarray):
         # print(f"DEBUG: Getting action mask for obs: {obs}")
         # print(f"DEBUG: Obs shape: {obs.shape}, Obs dtype: {obs.dtype}")
-        return [self._engine.get_action_mask_for_obs(single_obs.tolist()) for single_obs in obs]
+        return np.array(self._engine.get_action_mask_for_obs(obs.tolist()), dtype=np.float32)
     
     def get_init_state_pool_size(self) -> int:
         return self._engine.get_init_state_pool_size()
@@ -126,6 +135,10 @@ class JANIEnv(gym.Env):
 
     def get_failure_reward(self) -> float:
         return self._failure_reward
+    
+    def get_successor_obs(self, obs: np.ndarray, action: int) -> list[np.ndarray]:
+        successor_obs = self._engine.get_all_successor_states_as_vectors(obs.tolist(), action)
+        return [np.array(succ_obs, dtype=np.float32) for succ_obs in successor_obs]
 
     def is_current_state_action_safe(self, action: int) -> bool:
         if self._oracle is None:
