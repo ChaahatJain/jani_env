@@ -14,9 +14,12 @@ from dagger.fault_collector import OracleFaultCollector
 from dagger.policy import Policy
 from dagger.policy_wrapper import NNPolicyWrapper
 from dagger.sampler import StandardTraceSampler
-from dagger.updater import SupervisedPolicyUpdater, MILPPolicyUpdater, SpecRepairPolicyUpdater
+from updater.supervised import SupervisedPolicyUpdater
+from updater.goldberger import MILPPolicyUpdater
+from updater.spec_repair import SpecRepairPolicyUpdater
 from jani.env import JANIEnv
 from mask_ppo.train import train_model
+from torchrl.modules.distributions import MaskedCategorical
 
 # python pipeline.py --jani_model benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --jani_property benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --initial_policy artifacts/pipeline/two_way_line_det/two_way_line_80_40/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 10 --output_dir artifacts/pipeline/two_way_line_det/two_way_line_80_40/ --device cpu --accumulate_faults --repair_method milp
 
@@ -94,9 +97,143 @@ def build_env(args: argparse.Namespace, use_oracle: bool) -> JANIEnv:
         disable_oracle_cache=args.disable_oracle_cache,
         reduced_memory_mode=args.reduced_memory_mode,
     )
+    
+def repair_metrics(policy: torch.nn.Module, dataset: Any, verbose = False):
+        states = torch.tensor([f["observation"] for f in dataset], dtype=torch.float32) 
+        applicable_actions = [[i for i, a in enumerate(f["action_mask"]) if int(a) == 1] for f in dataset]       
+        faults = [int(f["faulty_action"]) for f in dataset]
+        logits = policy(states)
+        mask = torch.zeros_like(logits, dtype=torch.bool)
+        for i, valid_actions in enumerate(applicable_actions):
+            mask[i, valid_actions] = True
+        masked_logits = logits.masked_fill(~mask, float('-inf'))
+        predicted_actions = torch.log_softmax(masked_logits, dim=-1).argmax(dim=-1)
+        faults_tensor = torch.tensor(faults)
+        fixed_count = (predicted_actions != faults_tensor).sum().item()
+        
+        if verbose:
+            print(f"{'#':<6} {'Faulty Action':<16} {'New Action':<12} {'Fixed?':<8} {'Observation'}")
+            print("-" * 80)
+            for i, (obs, fault, pred) in enumerate(zip(dataset, faults, predicted_actions.tolist())):
+                fixed = "✓" if pred != fault else "✗"
+                print(f"{i:<6} {fault:<16} {pred:<12} {fixed:<8} {obs['observation']}")
+            print("-" * 80)
+            print(f"Fixed: {fixed_count} / {len(dataset)}")
+        
+        return fixed_count
+    
+def is_policy_safe(
+        env: JANIEnv, 
+        policy: Policy, 
+        observation: np.ndarray, 
+        visited_obs: dict, 
+        deterministic: bool=True,
+        depth: int=0) -> bool:
+    # This is a strict definition of unsafety where we exhaustively check the entire policy envelope. This is expensive but gives a more accurate measure of whether the policy can crash from a given start state.
+    # print("  " * depth + f"Checking safety for observation: {env.debug_show_state(observation)}")
+
+    if env.unwrapped.obs_reach_goal(observation):
+        # print("  " * depth + "Reached goal state during safety check.")
+        return True
+    if env.unwrapped.obs_reach_failure(observation):
+        # print("  " * depth + "Reached failure state during safety check.")
+        return False
+    
+    # Cache the visited obs
+    visited_obs[observation.tobytes()] = 0
+
+    # Get policy's action
+    obs_tensor = torch.tensor(observation, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+    action_mask = env.unwrapped.action_mask_for_obs(observation).astype(int)
+    action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
+    with torch.no_grad():
+        logits = policy(obs_tensor)
+        action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
+        if deterministic:
+            action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
+        else:
+            action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension
+
+    # Recursively check all successor states
+    successor_obs = env.unwrapped.get_successor_obs(observation, action)
+    # print("  " * depth + f"Policy action: {action}, Successor count: {len(successor_obs)}")
+    for succ_obs in successor_obs:
+        if succ_obs.tobytes() in visited_obs:
+            # print("  " * depth + "Already visited successor, skipping to avoid cycles.")
+            if visited_obs[succ_obs.tobytes()] == -1:
+                # print("  " * depth + "But it's currently being explored, so we have a cycle. Marking unsafe.")
+                visited_obs[observation.tobytes()] = -1
+                return False
+            else:
+                continue
+        if not is_policy_safe(env, policy, succ_obs, visited_obs, deterministic, depth + 1):
+            # print("  " * depth + "Found unsafe successor.")
+            visited_obs[observation.tobytes()] = -1
+            return False
+    visited_obs[observation.tobytes()] = 1
+    return True
+
+def evaluate_policy(
+        env: JANIEnv, 
+        policy: torch.nn.Module, 
+        init_state_indices: list[int], 
+        max_steps: int = 1100,
+        deterministic: bool = True
+    ) -> dict[str, Any]:
+    assert deterministic, "We always look at deterministic policies when evaluating these metrics"
+    num_total_states = len(init_state_indices)
+    num_unsafe_runs = 0 # Runs where we reach an unsafe state: State where no safe policy exists.
+    num_goal_reached = 0 # Runs where we reach a goal state
+    num_failed_runs = 0 # Runs where we reach a fail state. This met
+    
+    from tqdm import tqdm
+    
+    for idx in tqdm(init_state_indices):
+        seen_obs = set() # cache for cycle detection
+        obs, _ = env.reset(options={"idx": idx})
+        if not is_policy_safe(env, policy, obs, {}, deterministic):
+            num_unsafe_runs += 1
+        done = False
+        step_count = 0
+        last_reward = None # Keep track of the last reward to determine if we reached the goal at the end of the episode
+        while not done and step_count < max_steps:
+            obs_key = obs.tobytes()
+            if obs_key in seen_obs:
+                break # Early termination cycle
+            seen_obs.add(obs_key)
+            obs_tensor = torch.tensor(obs, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+            action_mask = env.unwrapped.action_mask().astype(int)
+            action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
+            with torch.no_grad():
+                logits = policy(obs_tensor)
+                action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
+                if deterministic:
+                    action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
+                else:
+                    action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension            
+            # Step the environment
+            obs, reward, done, _, _ = env.step(action)
+            step_count += 1
+            last_reward = reward
+
+        if last_reward == 1.0: # We reached the goal
+            num_goal_reached += 1
+        elif last_reward == -1.0: # We reached a failure state
+            num_failed_runs += 1
+
+    frac_unsafe = num_unsafe_runs / num_total_states if num_total_states > 0 else 0.0
+    frac_goal = num_goal_reached / num_total_states if num_total_states > 0 else 0.0
+    frac_failure = num_failed_runs / num_total_states if num_total_states > 0 else 0.0
+
+    return {
+        "frac_unsafe": frac_unsafe,
+        "frac_goal": frac_goal,
+        "frac_failure": frac_failure,
+    }
 
 
 def load_policy_checkpoint(checkpoint_path: Path, device: torch.device) -> Policy:
+    print("Loading policy from path:", checkpoint_path)
     checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
     input_dim = checkpoint["input_dim"]
     output_dim = checkpoint["output_dim"]
@@ -260,21 +397,6 @@ def faults_to_tensordict(faults: list[dict[str, Any]], obs_dim: int, n_actions: 
 
     return positive_samples, negative_samples
 
-
-def maybe_pick_init_state(env: JANIEnv, rng: np.random.Generator, sample_from_pool: bool) -> int:
-    if not sample_from_pool:
-        return -1
-
-    pool_size = None
-    if hasattr(env.unwrapped, "get_init_state_pool_size"):
-        pool_size = env.unwrapped.get_init_state_pool_size()
-
-    if pool_size is None or pool_size <= 0:
-        return -1
-
-    return int(rng.integers(0, pool_size))
-
-
 def main() -> None:
     args = parse_args()
     np.random.seed(args.seed)
@@ -298,7 +420,15 @@ def main() -> None:
     env = build_env(args, use_oracle=True)
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.n
-
+    num_start_states = env.get_init_state_pool_size()
+    all_indices = np.random.permutation(num_start_states)
+    if num_start_states >= 2*args.traces_per_iteration:
+        repair_indices = all_indices[:args.traces_per_iteration]
+        eval_indices   = all_indices[args.traces_per_iteration:2*args.traces_per_iteration]
+    else:
+        repair_indices = all_indices
+        eval_indices = all_indices
+        
     sampler = StandardTraceSampler()
     collector = OracleFaultCollector()
 
@@ -319,36 +449,48 @@ def main() -> None:
         updater = MILPPolicyUpdater()
 
     replay_buffer = DAggerBuffer(buffer_size=args.buffer_size)
-    rng = np.random.default_rng(args.seed)
 
     metrics_file = logs_dir / "iterations.jsonl"
     converged = False
     
-    #TODO: @Songtuan, we need a method of evaluating the safety and goal reaching of the original policy
-
     print("Starting fault analysis and repair loop...")
     print(f"Initial policy: {policy_path}")
 
     all_faults = []
     total_steps = 0
+    fault_cache = set()
     for iteration in range(1, args.max_iterations + 1):
         traces = []
         new_faults = []
         sampling_seconds = 0.0
         oracle_seconds = 0.0
         repair_seconds = 0.0
+        performance_evaluation_seconds = 0.0
         
-        for _ in range(args.traces_per_iteration):
+        # if iteration > 1:
+        #     print("NEW ITERATION REACHED HERE")
+        #     it = iteration - 1
+        #     policy_path = checkpoints_dir / f"policy_iter_{it:03d}.pth"
+        #     policy_model = load_policy_checkpoint(policy_path, device=device)
+        #     policy_model.to(device)
+        #     policy = NNPolicyWrapper(policy_model, device=device)
+        #     repair_metrics(policy_model, all_faults)
+        
+        performance_evaluation_time = time.perf_counter()
+        train_pol_performance = evaluate_policy(env, policy_model, repair_indices)
+        eval_pol_performance = evaluate_policy(env, policy_model, eval_indices)
+        performance_evaluation_seconds = time.perf_counter() - performance_evaluation_time
+        duplicates = 0
+        for i in range(args.traces_per_iteration):
             trace_start_time = time.perf_counter()
-            print("Starting index selection")
-            init_state_idx = maybe_pick_init_state(env, rng, args.sample_from_init_pool) # Randomly sample initial state # TODO: Fix to training start states
-            print("Init state index selected as:", init_state_idx, " in time:", time.perf_counter() - trace_start_time)
+            init_state_idx = repair_indices[i] # Randomly sample initial state from repair start states
             # Sample a trace and store it along with whether we reached safety or unsafety.
             trace = sampler.sample_trace(
                 env=env,
                 policy=policy,
                 init_state_idx=init_state_idx,
                 max_steps=args.max_steps,
+                verbose = False
             )
             traces.append(trace) 
             sampling_seconds += time.perf_counter() - trace_start_time
@@ -357,14 +499,18 @@ def main() -> None:
             if not trace["is_safe_trajectory"]: # We run fault analysis on the unsafe traces found here to get more informative fixes
                 trace_fa_time = time.perf_counter()
                 faults = collector.collect_faults(trace, env)
-                new_faults.extend(faults)
-                all_faults.extend(faults)
                 oracle_seconds += time.perf_counter() - trace_fa_time
+
+                new = [f for f in faults if (tuple(f["observation"]), f["faulty_action"]) not in fault_cache]
+                new_faults.extend(new)
+                all_faults.extend(new)
+                duplicates += len(faults) - len(new)
+                fault_cache.update((tuple(f["observation"]), f["faulty_action"]) for f in new)
         num_new_faults = len(new_faults)
         num_faults = len(all_faults)
         print(
-            f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults} total {num_new_faults} new, "
-            f"sampling_seconds={sampling_seconds:.2f}, oracle_seconds={oracle_seconds:.2f}"
+            f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults} total {num_new_faults} new {duplicates} duplicates, "
+            f"sampling_seconds={sampling_seconds:.2f}, oracle_seconds={oracle_seconds:.2f}, evaluation_seconds={performance_evaluation_seconds:.2f}"
         )
 
         metrics = {
@@ -373,11 +519,20 @@ def main() -> None:
             "total_steps": total_steps,
             "num_faults": num_faults,
             "it_faults": num_new_faults,
+            "duplicate_faults": duplicates,
             "sampling_seconds": sampling_seconds,
-            "oracle_seconds": oracle_seconds
+            "oracle_seconds": oracle_seconds,
+            "evaluation_seconds": performance_evaluation_seconds,
+            "TrainGoalFrac": train_pol_performance["frac_goal"],
+            "TrainFailFrac": train_pol_performance["frac_failure"],
+            "TrainUnsafeFrac": train_pol_performance["frac_unsafe"],
+            "EvalGoalFrac": eval_pol_performance["frac_goal"],
+            "EvalFailFrac": eval_pol_performance["frac_failure"],
+            "EvalUnsafeFrac": eval_pol_performance["frac_unsafe"],            
         }
 
         if num_new_faults == 0:
+            metrics.update({"num_faults_fixed": num_faults})
             converged = True
             with metrics_file.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(metrics) + "\n")
@@ -394,7 +549,9 @@ def main() -> None:
         repair_time = time.perf_counter()
         update_info = updater.update_policy(policy_model, replay_buffer) if args.repair_method == "dagger" else updater.update_policy(policy_model, all_faults)
         repair_seconds += time.perf_counter() - repair_time 
+        num_fixed = repair_metrics(policy_model, all_faults)
         metrics.update({"repair_seconds": repair_seconds})
+        metrics.update({"num_faults_fixed": num_fixed})
         if ml_repair_method:
             metrics.update({"update_loss": float(update_info["loss"])}) # Is NONE for MILP policy repair
         
@@ -412,7 +569,6 @@ def main() -> None:
 
     final_path = checkpoints_dir / "final_policy.pth"
     save_policy_checkpoint(policy_model, final_path, input_dim=obs_dim, output_dim=n_actions)
-    #TODO: @Songtuan, we need a method of evaluating the safety and goal reaching of the repaired policy
 
     print("\n=== Pipeline summary ===")
     print(f"Converged: {converged}")

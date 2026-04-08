@@ -11,14 +11,16 @@ class StandardTraceSampler(TraceSamplerInterface):
 
     This sampler only records what the oracle says at each step (if available).
     """
-    def sample_trace(self, env: Any, policy: PolicyInterface, init_state_idx: int = -1, max_steps: int = 1024) -> Dict[str, Any]:
-        # Initialize environment state
+    def sample_trace(self, env: Any, policy: PolicyInterface, init_state_idx: int = -1, max_steps: int = 1024, verbose = False) -> Dict[str, Any]:
         t = time.perf_counter()
+        # Initialize environment state
         if init_state_idx != -1:
-            obs, info = env.reset(options={"init_state_idx": init_state_idx})
+            obs, info = env.reset(options={"idx": init_state_idx})
+            if verbose:
+                print("Inside sample trace with obs:", obs)
         else:
             obs, info = env.reset()
-        print("Env resetting time:", time.perf_counter() - t)
+            
         done = False
         step_count = 0
 
@@ -31,33 +33,33 @@ class StandardTraceSampler(TraceSamplerInterface):
         is_safe_trajectory = True
 
         while not done and step_count < max_steps:
-            t = time.perf_counter()
             action_mask = env.action_mask()
-            print("Action mask time:", time.perf_counter() - t)
             # Fetch action dynamically (supports NN, Shields, etc.)
-            t = time.perf_counter()
             action = policy.get_action(obs, action_mask)
-            print("Policy action get:", time.perf_counter() - t)
             
             observations.append(obs)
             actions.append(action)
             action_masks.append(action_mask)
-            t = time.perf_counter()
-            next_obs, reward, done, truncated, info = env.step(action)
-            print("Env step", time.perf_counter() - t)
+            next_obs, reward, done, _, info = env.step(action)
+            
             # Track overall trajectory safety from environment info
-            if info.get("is_unsafe", False) or not info.get("next_state_safety", True):
+            if info.get("reached_fail", False):
                 is_safe_trajectory = False
+                
+            is_goal_trajectory = info.get("reached_goal", False)
 
             rewards.append(reward)
             obs = next_obs
             step_count += 1
-
+        if verbose:
+            print(observations)
+            print(actions)
         return {
             "observations": observations,
             "actions": actions,
             "action_masks": action_masks,
             "rewards": rewards,
             "is_safe_trajectory": is_safe_trajectory,
-            "final_reward": rewards[-1] if rewards else 0.0
+            "final_reward": rewards[-1] if rewards else 0.0,
+            "is_goal_trajectory": is_goal_trajectory
         }

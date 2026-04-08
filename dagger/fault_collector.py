@@ -30,7 +30,7 @@ class OracleFaultCollector(FaultCollectorInterface):
         actions = trace["actions"]
         action_masks = trace["action_masks"]
 
-        for step in range(len(observations)):
+        for step in range(len(observations) - 1, -1, -1): # Traverse policy paths backwards.
             obs = observations[step]
             action = actions[step]
             mask = action_masks[step]
@@ -48,5 +48,6 @@ class OracleFaultCollector(FaultCollectorInterface):
                     "faulty_action": action,  # The action that was taken
                     "action" : -1, # No safe action at the moment. TODO: @Songtuan, anyway to change this?
                 })
+                break; # Break after finding the first fault in a trace
 
         return faults

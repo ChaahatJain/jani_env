@@ -7,7 +7,6 @@ from .interfaces import (
 )
 from .sampler import StandardTraceSampler
 from .fault_collector import OracleFaultCollector
-from .updater import SupervisedPolicyUpdater
 from .policy_wrapper import NNPolicyWrapper
 
 __all__ = [
@@ -18,6 +17,5 @@ __all__ = [
     "PolicyUpdaterInterface",
     "StandardTraceSampler",
     "OracleFaultCollector",
-    "SupervisedPolicyUpdater",
     "NNPolicyWrapper",
 ]
