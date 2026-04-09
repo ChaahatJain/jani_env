@@ -10,14 +10,14 @@ python pipeline.py --jani_model benchmarks_generator/benchmarks/one_way_line_det
 python pipeline.py --jani_model benchmarks_generator/benchmarks/two_way_line_det/two_way_line_20_10/model.jani --jani_property benchmarks_generator/benchmarks/two_way_line_det/two_way_line_20_10/model.jani --initial_policy artifacts/pipeline/two_way_line_det/two_way_line_20_10/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/two_way_line_det/two_way_line_20_10/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 5 --output_dir artifacts/pipeline/two_way_line_det/two_way_line_20_10/ --device cpu --accumulate_faults --repair_method milp
 
 ## TODOS:
-TODO Songtuan: For each intermediate checkpoint (from RL), we want Total timesteps (in terms of start states and trajectories), Total Time to reach here. Get this in a usable log file format.
+TODO Songtuan: Ensure PPO-Lag is working smoothly. Need a simulator for Lava domain from Minigrid. Here, faults are the last transition (from domain knowledge).
 
-TODO Chaahat: Implement targeted MILP repair. This actually becomes a MIQP.
+TODO Chaahat: Start running experiments (one way line and two way line at minimum). Would be great to get control benchmarks + transport as well. Work on plots. Implement targeted MILP repair. This actually becomes a MIQP.
 
-TODO Hasanat: Priority number 1 is running experiments. Please get me experiments for one way and two way line by end of week if possible. Remember to rebuild the environment.
+TODO Hasanat: Connect the model editing updater to what I have in the codebase. Then work on the next point in "Nice to have"
 
 Nice to have:
- Have a look at JiUng's model editing codebase. Try to create a policy updater taking inspiration from there. 
+ DONE: Have a look at JiUng's model editing codebase. Try to create a policy updater taking inspiration from there. 
  Another policy updater to implement is: https://arxiv.org/pdf/2012.01872. 
  Also, adapt the supervised learning updater to use a similar input if possible.
 

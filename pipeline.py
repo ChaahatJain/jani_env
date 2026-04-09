@@ -53,14 +53,14 @@ def parse_args() -> argparse.Namespace:
         default="",
         help="Checkpoint (.pth) to start from. If missing, policy is bootstrapped with MaskedPPO.",
     )
-    parser.add_argument("--bootstrap_timesteps", type=int, default=100_000)
+    parser.add_argument("--bootstrap_timesteps", type=int, default=500_000)
     parser.add_argument("--bootstrap_n_steps", type=int, default=256)
     parser.add_argument("--bootstrap_use_oracle", action="store_true")
     
     parser.add_argument("--repair_method", type=str, default="milp") # All options are milp, dagger, spec
 
-    # DAgger loop settings
-    parser.add_argument("--max_iterations", type=int, default=10)
+    # Repair settings
+    parser.add_argument("--max_iterations", type=int, default=1000)
     parser.add_argument("--traces_per_iteration", type=int, default=100)
     parser.add_argument("--updater_batch_size", type=int, default=256)
     parser.add_argument("--updater_steps", type=int, default=10)
@@ -287,7 +287,7 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         return initial
 
     print("No existing policy checkpoint found. Bootstrapping with MaskedPPO training...")
-    bootstrap_dir = output_dir / "bootstrap"
+    bootstrap_dir = output_dir / "rl_training"
     bootstrap_dir.mkdir(parents=True, exist_ok=True)
 
     train_args = Namespace(
@@ -309,11 +309,11 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         max_steps=args.max_steps,
         n_steps=args.bootstrap_n_steps,
         log_dir=str(bootstrap_dir / "logs"),
-        log_reward=False,
+        log_reward=True,
         model_save_dir=str(bootstrap_dir / "models"),
         use_separate_eval_env=False,
         enumate_all_init_states=False,
-        eval_freq=2048,
+        eval_freq=100,
         n_eval_episodes=10,
         load_policy_path="",
         save_all_checkpoints=True,
@@ -322,7 +322,7 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         wandb_project="jani_rl",
         wandb_entity=None,
         experiment_name="pipeline_bootstrap",
-        verbose=1,
+        verbose=0,
         device=args.device,
         disable_wandb=True,
     )
@@ -343,7 +343,7 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         "reduced_memory_mode": args.reduced_memory_mode,
     }
 
-    train_model(train_args, file_args) # TODO: @Songtuan, how do we guarantee that the training start states are different from the eval start states?
+    train_model(train_args, file_args)
     bootstrapped = bootstrap_dir / "models" / "final_actor.pth"
 
     if not bootstrapped.exists():
@@ -405,8 +405,8 @@ def main() -> None:
     # Initialize stuff
     device = torch.device(args.device)
     output_dir = Path(args.output_dir)
-    checkpoints_dir = output_dir / "checkpoints"
-    logs_dir = output_dir / "logs"
+    checkpoints_dir = output_dir / "repair_checkpoints"
+    logs_dir = output_dir / "repair_logs"
     checkpoints_dir.mkdir(parents=True, exist_ok=True)
     logs_dir.mkdir(parents=True, exist_ok=True)
 
