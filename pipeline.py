@@ -58,7 +58,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bootstrap_n_steps", type=int, default=256)
     parser.add_argument("--bootstrap_use_oracle", action="store_true")
     
-    parser.add_argument("--repair_method", type=str, default="milp") # All options are milp, dagger, spec
+    parser.add_argument("--repair_method", type=str, default="milp") # All options are milp, dagger, spec, retain_unlearn
 
     # Repair settings
     parser.add_argument("--max_iterations", type=int, default=1000)
@@ -310,7 +310,7 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         max_steps=args.max_steps,
         n_steps=args.bootstrap_n_steps,
         log_dir=str(bootstrap_dir / "logs"),
-        log_reward=True,
+        log_reward=False,
         model_save_dir=str(bootstrap_dir / "models"),
         use_separate_eval_env=False,
         enumate_all_init_states=False,
@@ -406,7 +406,7 @@ def main() -> None:
     # Initialize stuff
     device = torch.device(args.device)
     output_dir = Path(args.output_dir)
-    checkpoints_dir = output_dir / "repair_checkpoints"
+    checkpoints_dir = output_dir / "repair_checkpoints" / f"{args.repair_method}"
     logs_dir = output_dir / "repair_logs"
     checkpoints_dir.mkdir(parents=True, exist_ok=True)
     logs_dir.mkdir(parents=True, exist_ok=True)
@@ -458,7 +458,7 @@ def main() -> None:
 
     replay_buffer = DAggerBuffer(buffer_size=args.buffer_size)
 
-    metrics_file = logs_dir / "iterations.jsonl"
+    metrics_file = logs_dir / f"{args.repair_method}.jsonl"
     converged = False
     
     print("Starting fault analysis and repair loop...")
