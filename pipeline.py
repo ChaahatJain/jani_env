@@ -467,6 +467,7 @@ def main() -> None:
     all_faults = []
     total_steps = 0
     fault_cache = set()
+    fixed = True
     for iteration in range(1, args.max_iterations + 1):
         traces = []
         new_faults = []
@@ -539,7 +540,7 @@ def main() -> None:
             "EvalUnsafeFrac": eval_pol_performance["frac_unsafe"],            
         }
 
-        if num_new_faults == 0:
+        if num_new_faults == 0 and fixed:
             metrics.update({"num_faults_fixed": num_faults})
             converged = True
             with metrics_file.open("a", encoding="utf-8") as f:
@@ -560,6 +561,8 @@ def main() -> None:
         num_fixed = repair_metrics(policy_model, all_faults)
         metrics.update({"repair_seconds": repair_seconds})
         metrics.update({"num_faults_fixed": num_fixed})
+        if num_fixed < num_faults:
+            fixed = False
         if ml_repair_method:
             metrics.update({"update_loss": float(update_info["loss"])}) # Is NONE for MILP policy repair
         
