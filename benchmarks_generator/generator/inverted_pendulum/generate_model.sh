@@ -8,7 +8,7 @@ gravity=9.8607
 terminal_unsafe=0
 flags="--safety-in-model"
 
-property_type="random_starts_20000"
+property_type="random_starts_100000"
 flags_state=""
 flags_state=${flags_state}"--property-inline"
 flags_state=${flags_state}" --use-goal-potential"

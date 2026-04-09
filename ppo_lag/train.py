@@ -12,6 +12,8 @@ Design principles:
     (mean_episode_cost - cost_limit).
 """
 
+# TODO: @Songtuan please review
+
 # python -m ppo_lag.train --jani_model examples/one_way_line_15_10/model.jani --jani_property examples/one_way_line_15_10/property.jani --start_states examples/one_way_line_15_10/property.jani --eval_start_states examples/one_way_line_15_10/eval_start_states.jani --goal_reward 1.0 --failure_reward -1.0 --unsafe_reward -0.01   --max_steps 256 --total_timesteps 1000 --n_eval_episodes 100 --experiment_name one_way_line_15_10_det --model_save_dir /jani_env/models/ppo/one_way_line_15_10 --disable_eval --disable_wandb --verbose 1 --device cpu --seed 50
 
 import argparse

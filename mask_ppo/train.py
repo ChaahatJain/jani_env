@@ -118,6 +118,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
 
     # Checkpoint callback to save actor at intervals
     if args.save_all_checkpoints:
+        print("Saving checkpoints to", model_save_dir)
         save_actor_callback = SaveActorCallback(
             save_freq=args.eval_freq,
             save_path=model_save_dir,
@@ -152,6 +153,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
         callbacks.append(safety_eval_callback)
 
     # Start training
+    print("Starting training with timesteps:", args.total_timesteps)
     model.learn(
         total_timesteps=args.total_timesteps,
         callback=callbacks,
@@ -203,7 +205,7 @@ def main():
     # Training hyperparameters
     parser.add_argument('--seed', type=int, default=42, 
                         help="Random seed for reproducibility.")
-    parser.add_argument('--total_timesteps', type=int, default=1_000_000, 
+    parser.add_argument('--total_timesteps', type=int, default=200_000, 
                         help="Total timesteps for training.")
     parser.add_argument('--n_envs', type=int, default=1, 
                         help="Number of parallel environments.")

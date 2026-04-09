@@ -22,4 +22,4 @@ class NNPolicyWrapper(PolicyInterface):
         with torch.no_grad():
             logits = self.model(obs_tensor)
             action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
-            return action_dist.sample().squeeze(0).item()
+            return action_dist.probs.argmax(dim=-1).squeeze(0).item()

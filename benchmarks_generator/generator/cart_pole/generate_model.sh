@@ -18,7 +18,7 @@ python3 generator.py --generation 0 --timestep ${timestep} --cart_mass ${cart_ma
 
 #!/bin/sh
 
-property_type="random_starts_20000"
+property_type="random_starts_100000"
 flags=""
 flags=${flags}"--property-inline"
 # flags=${flags}" --reuse-random-state ./cached_random_states"

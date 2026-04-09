@@ -35,7 +35,7 @@ python3 generator.py --generation 0 --num-blocks ${num_blocks} --table-limit ${t
 
 #!/bin/sh
 
-property_type="random_starts_20000"
+property_type="random_starts_100000"
 flags=""
 flags=${flags}" --property-inline"
 # flags=${flags}" --reuse-random-state ./cached_random_states" # _old

@@ -13,7 +13,7 @@ model_file=../../benchmarks/beluga_${prefix}/${file_name}/model.jani
 python3 generator.py --generation 0 --description ${description} --terminal-at-unsafe 0 --failing-prob ${failing_prob} ${flags} --out ${model_file}
 
 
-property_type="random_starts_20000"
+property_type="random_starts_100000"
 #
 flags=""
 flags=${flags}"--property-inline"

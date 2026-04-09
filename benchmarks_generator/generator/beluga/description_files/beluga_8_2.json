@@ -10,15 +10,15 @@
   "load-aware": false,
   "production-lines": 2,
   "pl0": [
-    3,
-    5,
+    2,
+    4,
     6,
     7
   ],
   "pl1": [
     0,
     1,
-    2,
-    4
+    3,
+    5
   ]
 }

@@ -41,10 +41,10 @@ public:
         State state;
         state = engine->create_state_from_vector(state_vector); // Convert vector to State
         // Check whether a state is unsafe under a specific action
-        std::cout << state.toString().c_str() << std::endl;
+        // std::cout << state.toString().c_str() << std::endl;
         bool state_safe = isStateSafe(state);
         if (!state_safe) {
-            std::cout << "Returning false because unsafe state" << std::endl;
+            // std::cout << "Returning false because unsafe state" << std::endl;
             return false; // If the state is already in the unsafe region, it cannot be a fault. Also, no action will make us escape from the safe region to the unsafe region. 
         }
 
@@ -52,11 +52,11 @@ public:
         for (auto successor : successors) {
             bool succ_safe = isStateSafe(successor);
             if (!succ_safe) {
-                std::cout << "Returning true because we found unsafe successor:" << successor.toString().c_str() << std::endl;
+                // std::cout << "Returning true because we found unsafe successor:" << successor.toString().c_str() << std::endl;
                 return true; // If any successor is unsafe, then this action is a fault
             }
         }
-        std::cout << "No successors were foud unsafe" << std::endl;
+        // std::cout << "No successors were foud unsafe" << std::endl;
         return false; // If all successors are safe, then this action is not a fault
     }
     
