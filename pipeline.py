@@ -14,6 +14,7 @@ from dagger.fault_collector import OracleFaultCollector
 from dagger.policy import Policy
 from dagger.policy_wrapper import NNPolicyWrapper
 from dagger.sampler import StandardTraceSampler
+from updater.retain_aware_unlearning import RetainAwareUnlearningUpdater
 from updater.supervised import SupervisedPolicyUpdater
 from updater.goldberger import MILPPolicyUpdater
 from updater.spec_repair import SpecRepairPolicyUpdater
@@ -442,6 +443,13 @@ def main() -> None:
                 batch_size=args.updater_batch_size,
                 steps_per_iteration=args.updater_steps,
                 device=device,
+            )
+        elif args.repair_method == "retain_unlearn":
+            updater = RetainAwareUnlearningUpdater(
+            optimizer=optimizer,
+            batch_size=args.updater_batch_size,
+            steps_per_iteration=args.updater_steps,
+            device=device,
             )
         elif args.repair_method == "spec":
             updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=args.updater_batch_size, device=device)
