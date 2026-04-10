@@ -1,11 +1,10 @@
 import json
+import argparse
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import numpy as np
 from pathlib import Path
-import sys
-
-PIPELINE_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
+import re
 
 COLORS = [
     "#3266ad", "#d9534f", "#3b6d11", "#ba7517",
@@ -14,108 +13,174 @@ COLORS = [
 
 def load_jsonl(path):
     records = []
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line:
                 records.append(json.loads(line))
     return [r for r in records if "repair_seconds" in r]
 
-jsonl_files = sorted(PIPELINE_DIR.glob("*.jsonl"))
-if not jsonl_files:
-    raise FileNotFoundError(f"No .jsonl files found in {PIPELINE_DIR}")
+def slugify(value: str) -> str:
+    slug = re.sub(r"[^a-zA-Z0-9]+", "_", value.strip().lower()).strip("_")
+    return slug or "comparison"
 
-methods = {}
-for path in jsonl_files:
-    records = load_jsonl(path)
-    if records:
-        methods[path.stem] = records
 
-n_methods = len(methods)
-if n_methods == 0:
-    raise ValueError("No valid repair records found in any .jsonl file.")
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Plot repair pipeline metrics from one or more log directories."
+    )
+    parser.add_argument(
+        "pipeline_dirs",
+        nargs="+",
+        type=Path,
+        help="One or more directories containing .jsonl log files.",
+    )
+    parser.add_argument(
+        "--title",
+        default="Repair pipeline comparison",
+        help="Title shown at the top of the plot.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Output image filename (for example plots/my_run.png).",
+    )
+    return parser.parse_args()
 
-fig = plt.figure(figsize=(14, 5 + 4 * n_methods))
-fig.suptitle("Repair pipeline — 2 way line (20, 10) det", fontsize=14, fontweight="bold", y=0.99)
 
-gs = gridspec.GridSpec(n_methods + 1, 2, figure=fig, hspace=0.55, wspace=0.35)
+def find_jsonl_files(pipeline_dirs):
+    jsonl_files = []
+    for pipeline_dir in pipeline_dirs:
+        if not pipeline_dir.exists() or not pipeline_dir.is_dir():
+            raise FileNotFoundError(f"Directory not found: {pipeline_dir}")
+        jsonl_files.extend(sorted(pipeline_dir.glob("*.jsonl")))
+    return sorted(jsonl_files)
 
-bar_width = 0.8 / max(n_methods, 1)
 
-for m_idx, (method_name, records) in enumerate(methods.items()):
-    color      = COLORS[m_idx % len(COLORS)]
-    num_traces = [r["num_traces"] * r["iteration"] for r in records]
-    train_goal = [r["TrainGoalFrac"] for r in records]
-    train_fail = [r["TrainFailFrac"] for r in records]
-    train_unsafe = [r["TrainUnsafeFrac"] for r in records]
-    eval_goal  = [r["EvalGoalFrac"]  for r in records]
-    eval_fail  = [r["EvalFailFrac"]  for r in records]
-    eval_unsafe = [r["EvalUnsafeFrac"] for r in records]
+def build_methods(jsonl_files, include_parent_prefix):
+    methods = {}
+    for path in jsonl_files:
+        records = load_jsonl(path)
+        if not records:
+            continue
 
-    ax = fig.add_subplot(gs[m_idx, :])
-    ax.plot(num_traces, train_goal, marker="o", label="Train goal", color="#3266ad",     linewidth=2)
-    ax.plot(num_traces, train_fail, marker="o", label="Train fail", color="#d9534f", linewidth=2)
-    ax.plot(num_traces, train_unsafe, marker="o", label="Train unsafe", color="#0f6e56", linewidth=2)
-    ax.plot(num_traces, eval_goal,  marker="s", label="Eval goal",  color="#7f77dd",     linewidth=2, linestyle="--", alpha=0.6)
-    ax.plot(num_traces, eval_fail,  marker="s", label="Eval fail",  color="#f0a0a0", linewidth=2, linestyle="--", alpha=0.6)
-    ax.plot(num_traces, eval_unsafe, marker="s", label="Eval unsafe", color="#3b6d11", linewidth=2, linestyle="--", alpha=0.6)
-    ax.set_xlabel("Number of episodes (cumulative)")
-    ax.set_ylabel("Fraction")
-    ax.set_ylim(-0.05, 1.1)
-    ax.set_xticks(num_traces)
-    ax.legend(loc="upper right", fontsize=9)
-    ax.set_title(f"{method_name} — train / eval fractions", fontsize=11)
-    ax.grid(True, alpha=0.3)
+        method_name = f"{path.parent.name}/{path.stem}" if include_parent_prefix else path.stem
 
-# ── bottom left: faults (stacked bars per method) ────────────────────────────
-ax_faults = fig.add_subplot(gs[n_methods, 0])
+        if method_name in methods:
+            suffix = 2
+            candidate = f"{method_name}_{suffix}"
+            while candidate in methods:
+                suffix += 1
+                candidate = f"{method_name}_{suffix}"
+            method_name = candidate
 
-for m_idx, (method_name, records) in enumerate(methods.items()):
-    color       = COLORS[m_idx % len(COLORS)]
-    num_traces  = [r["num_traces"] * r["iteration"] for r in records]
-    faults_cum  = [r["num_faults"] for r in records]
-    faults_iter = [r["it_faults"]  for r in records]
-    faults_base = [c - i for c, i in zip(faults_cum, faults_iter)]
+        methods[method_name] = records
+    return methods
 
-    x_m    = np.arange(len(num_traces))
-    offset = (m_idx - n_methods / 2 + 0.5) * bar_width
 
-    # Solid bars for previous (accumulated) faults
-    ax_faults.bar(x_m + offset, faults_base, bar_width,
-                  label=method_name, color=color, alpha=0.85)
+def default_output_path(title):
+    return Path(f"repair_pipeline_{slugify(title)}.png")
 
-    # Hatched bars for new faults this iteration, same color
-    ax_faults.bar(x_m + offset, faults_iter, bar_width, color=color, alpha=0.4,
-                  bottom=faults_base, hatch="///", edgecolor=color, linewidth=0.5)
 
-    ax_faults.set_xticks(x_m)
-    ax_faults.set_xticklabels(num_traces)
+def main():
+    args = parse_args()
+    jsonl_files = find_jsonl_files(args.pipeline_dirs)
 
-ax_faults.set_xlabel("Number of episodes (cumulative)")
-ax_faults.set_ylabel("Faults")
-ax_faults.set_title("Faults fixed (solid = prev, hatched = new this iter)", fontsize=11)
-ax_faults.legend(fontsize=8, ncol=1)
-ax_faults.grid(True, alpha=0.3, axis="y")
+    if not jsonl_files:
+        joined_dirs = ", ".join(str(p) for p in args.pipeline_dirs)
+        raise FileNotFoundError(f"No .jsonl files found in: {joined_dirs}")
 
-# ── bottom right: repair runtime ──────────────────────────────────────────────
-ax_rt = fig.add_subplot(gs[n_methods, 1])
+    methods = build_methods(jsonl_files, include_parent_prefix=len(args.pipeline_dirs) > 1)
+    n_methods = len(methods)
+    if n_methods == 0:
+        raise ValueError("No valid repair records found in any .jsonl file.")
 
-for m_idx, (method_name, records) in enumerate(methods.items()):
-    color       = COLORS[m_idx % len(COLORS)]
-    repair_secs = [r["repair_seconds"] for r in records]
-    x_m         = np.arange(len(repair_secs))
-    offset      = (m_idx - n_methods / 2 + 0.5) * bar_width
-    ax_rt.bar(x_m + offset, repair_secs, bar_width,
-              label=method_name, color=color, alpha=0.85)
-    ax_rt.set_xticks(x_m)
-    ax_rt.set_xticklabels([r["num_traces"] * r["iteration"] for r in records])
+    output_path = args.output if args.output is not None else default_output_path(args.title)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
-ax_rt.set_xlabel("Number of episodes (cumulative)")
-ax_rt.set_ylabel("Seconds (log scale)")
-ax_rt.set_yscale('log')
-ax_rt.set_title("Repair runtime per method", fontsize=11)
-ax_rt.legend(fontsize=9)
-ax_rt.grid(True, alpha=0.3, axis="y")
+    fig = plt.figure(figsize=(14, 5 + 4 * n_methods))
+    fig.suptitle(args.title, fontsize=14, fontweight="bold", y=0.99)
 
-plt.savefig("repair_pipeline_comparison.png", dpi=150, bbox_inches="tight")
-plt.show()
+    gs = gridspec.GridSpec(n_methods + 1, 2, figure=fig, hspace=0.55, wspace=0.35)
+    bar_width = 0.8 / max(n_methods, 1)
+
+    for m_idx, (method_name, records) in enumerate(methods.items()):
+        num_traces = [r["num_traces"] * r["iteration"] for r in records]
+        train_goal = [r["TrainGoalFrac"] for r in records]
+        train_fail = [r["TrainFailFrac"] for r in records]
+        train_unsafe = [r["TrainUnsafeFrac"] for r in records]
+        eval_goal = [r["EvalGoalFrac"] for r in records]
+        eval_fail = [r["EvalFailFrac"] for r in records]
+        eval_unsafe = [r["EvalUnsafeFrac"] for r in records]
+
+        ax = fig.add_subplot(gs[m_idx, :])
+        ax.plot(num_traces, train_goal, marker="o", label="Train goal", color="#3266ad", linewidth=2)
+        ax.plot(num_traces, train_fail, marker="o", label="Train fail", color="#d9534f", linewidth=2)
+        ax.plot(num_traces, train_unsafe, marker="o", label="Train unsafe", color="#0f6e56", linewidth=2)
+        ax.plot(num_traces, eval_goal, marker="s", label="Eval goal", color="#7f77dd", linewidth=2, linestyle="--", alpha=0.6)
+        ax.plot(num_traces, eval_fail, marker="s", label="Eval fail", color="#f0a0a0", linewidth=2, linestyle="--", alpha=0.6)
+        ax.plot(num_traces, eval_unsafe, marker="s", label="Eval unsafe", color="#3b6d11", linewidth=2, linestyle="--", alpha=0.6)
+        ax.set_xlabel("Number of episodes (cumulative)")
+        ax.set_ylabel("Fraction")
+        ax.set_ylim(-0.05, 1.1)
+        ax.set_xticks(num_traces)
+        ax.legend(loc="upper right", fontsize=9)
+        ax.set_title(f"{method_name} - train / eval fractions", fontsize=11)
+        ax.grid(True, alpha=0.3)
+
+    ax_faults = fig.add_subplot(gs[n_methods, 0])
+    for m_idx, (method_name, records) in enumerate(methods.items()):
+        color = COLORS[m_idx % len(COLORS)]
+        num_traces = [r["num_traces"] * r["iteration"] for r in records]
+        faults_cum = [r["num_faults"] for r in records]
+        faults_iter = [r["it_faults"] for r in records]
+        faults_base = [c - i for c, i in zip(faults_cum, faults_iter)]
+
+        x_m = np.arange(len(num_traces))
+        offset = (m_idx - n_methods / 2 + 0.5) * bar_width
+        ax_faults.bar(x_m + offset, faults_base, bar_width, label=method_name, color=color, alpha=0.85)
+        ax_faults.bar(
+            x_m + offset,
+            faults_iter,
+            bar_width,
+            color=color,
+            alpha=0.4,
+            bottom=faults_base,
+            hatch="///",
+            edgecolor=color,
+            linewidth=0.5,
+        )
+        ax_faults.set_xticks(x_m)
+        ax_faults.set_xticklabels(num_traces)
+
+    ax_faults.set_xlabel("Number of episodes (cumulative)")
+    ax_faults.set_ylabel("Faults")
+    ax_faults.set_title("Faults fixed (solid = prev, hatched = new this iter)", fontsize=11)
+    ax_faults.legend(fontsize=8, ncol=1)
+    ax_faults.grid(True, alpha=0.3, axis="y")
+
+    ax_rt = fig.add_subplot(gs[n_methods, 1])
+    for m_idx, (method_name, records) in enumerate(methods.items()):
+        color = COLORS[m_idx % len(COLORS)]
+        repair_secs = [r["repair_seconds"] for r in records]
+        x_m = np.arange(len(repair_secs))
+        offset = (m_idx - n_methods / 2 + 0.5) * bar_width
+        ax_rt.bar(x_m + offset, repair_secs, bar_width, label=method_name, color=color, alpha=0.85)
+        ax_rt.set_xticks(x_m)
+        ax_rt.set_xticklabels([r["num_traces"] * r["iteration"] for r in records])
+
+    ax_rt.set_xlabel("Number of episodes (cumulative)")
+    ax_rt.set_ylabel("Seconds (log scale)")
+    ax_rt.set_yscale("log")
+    ax_rt.set_title("Repair runtime per method", fontsize=11)
+    ax_rt.legend(fontsize=9)
+    ax_rt.grid(True, alpha=0.3, axis="y")
+
+    plt.savefig(output_path, dpi=150, bbox_inches="tight")
+    print(f"Saved plot to: {output_path}")
+    plt.show()
+
+
+if __name__ == "__main__":
+    main()
