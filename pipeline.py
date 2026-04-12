@@ -17,6 +17,7 @@ from dagger.sampler import StandardTraceSampler
 from dagger.updater import SupervisedPolicyUpdater, MILPPolicyUpdater, SpecRepairPolicyUpdater
 from jani.env import JANIEnv
 from mask_ppo.train import train_model
+from custom_gym.lava import CustomLavaGapEnv
 
 from torchrl.modules.distributions import MaskedCategorical
 
@@ -329,7 +330,7 @@ def is_policy_safe(
     return True
 
 def evaluate_policy(
-        env: JANIEnv, 
+        env: JANIEnv | CustomLavaGapEnv, 
         policy: torch.nn.Module, 
         init_state_indices: list[int], 
         max_steps: int = 256,
@@ -343,14 +344,20 @@ def evaluate_policy(
     from tqdm import tqdm
     for idx in tqdm(init_state_indices):
         obs, _ = env.reset(options={"idx": idx})
-        if not is_policy_safe(env, policy, obs, {}, deterministic):
-            num_unsafe_runs += 1
+        if isinstance(env, JANIEnv):
+            # When the environment is a JANIEnv, call the custom safety checker
+            if not is_policy_safe(env, policy, obs, {}, deterministic):
+                num_unsafe_runs += 1
         done = False
+        truncated = False
         step_count = 0
         last_reward = None # Keep track of the last reward to determine if we reached the goal at the end of the episode
-        while not done and step_count < max_steps:
+        while (not done) and (not truncated) and (step_count < max_steps):
             # print(f"Step {step_count}: Current observation: {env.debug_show_state(obs)}")
-            obs_tensor = torch.tensor(obs, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+            if isinstance(env, CustomLavaGapEnv):
+                obs_tensor = torch.tensor(obs['image'], dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+            else:
+                obs_tensor = torch.tensor(obs, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
             action_mask = env.unwrapped.action_mask().astype(int)
             action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
             with torch.no_grad():
@@ -363,14 +370,25 @@ def evaluate_policy(
             # print(f"Step {step_count}: Action taken: {action}")
             
             # Step the environment
-            obs, reward, done, _, _ = env.step(action)
+            obs, reward, done, truncated, _ = env.step(action)
             step_count += 1
             last_reward = reward
 
-        if last_reward == 1.0: # We reached the goal
-            num_goal_reached += 1
-        elif last_reward == -1.0: # We reached a failure state
-            num_failed_runs += 1
+        if isinstance(env, JANIEnv):
+            if last_reward == 1.0: # We reached the goal
+                num_goal_reached += 1
+            elif last_reward == -1.0: # We reached a failure state
+                num_failed_runs += 1
+        else:
+            if done:
+                assert not truncated, "Episode ended due to truncation, which should not happen."
+                # For Lava Env, episode done while the last reward is 0 means failure
+                if last_reward == 0.0:
+                    num_failed_runs += 1
+                    num_unsafe_runs += 1
+                else:
+                    num_goal_reached += 1
+                
 
     frac_unsafe = num_unsafe_runs / num_total_states if num_total_states > 0 else 0.0
     frac_goal = num_goal_reached / num_total_states if num_total_states > 0 else 0.0
