@@ -26,8 +26,6 @@ class CustomLavaGapEnv(LavaGapEnv):
         num_init: int | None = None,
         **kwargs
     ):
-        self.init_states: list[StateConfig] = []
-
         # Initialize the environment first to set up observation_space, action_space, etc.
         super().__init__(
             size=size,
@@ -35,6 +33,8 @@ class CustomLavaGapEnv(LavaGapEnv):
             max_steps=max_steps,
             **kwargs
         )
+
+        self.init_states: list[StateConfig] = []
 
         # Sample and store initial states after initialization
         if num_init is not None:
