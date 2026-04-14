@@ -18,7 +18,7 @@ def load_jsonl(path):
             line = line.strip()
             if line:
                 records.append(json.loads(line))
-    return [r for r in records if "repair_seconds" in r]
+    return [r for r in records]
 
 def slugify(value: str) -> str:
     slug = re.sub(r"[^a-zA-Z0-9]+", "_", value.strip().lower()).strip("_")
@@ -76,6 +76,7 @@ def build_methods(jsonl_files, include_parent_prefix):
             method_name = candidate
 
         methods[method_name] = records
+        # methods = {k: v for k, v in methods.items() if not k.startswith("retain_unlearn")}
     return methods
 
 
@@ -86,10 +87,10 @@ def default_output_path(title):
 def main():
     args = parse_args()
     jsonl_files = find_jsonl_files(args.pipeline_dirs)
-
     if not jsonl_files:
         joined_dirs = ", ".join(str(p) for p in args.pipeline_dirs)
-        raise FileNotFoundError(f"No .jsonl files found in: {joined_dirs}")
+        print(f"No .jsonl files found in: {joined_dirs}")
+        exit()
 
     methods = build_methods(jsonl_files, include_parent_prefix=len(args.pipeline_dirs) > 1)
     n_methods = len(methods)
@@ -117,14 +118,14 @@ def main():
         ax = fig.add_subplot(gs[m_idx, :])
         ax.plot(num_traces, train_goal, marker="o", label="Train goal", color="#3266ad", linewidth=2)
         ax.plot(num_traces, train_fail, marker="o", label="Train fail", color="#d9534f", linewidth=2)
-        ax.plot(num_traces, train_unsafe, marker="o", label="Train unsafe", color="#0f6e56", linewidth=2)
+        # ax.plot(num_traces, train_unsafe, marker="o", label="Train unsafe", color="#0f6e56", linewidth=2)
         ax.plot(num_traces, eval_goal, marker="s", label="Eval goal", color="#7f77dd", linewidth=2, linestyle="--", alpha=0.6)
         ax.plot(num_traces, eval_fail, marker="s", label="Eval fail", color="#f0a0a0", linewidth=2, linestyle="--", alpha=0.6)
-        ax.plot(num_traces, eval_unsafe, marker="s", label="Eval unsafe", color="#3b6d11", linewidth=2, linestyle="--", alpha=0.6)
+        # ax.plot(num_traces, eval_unsafe, marker="s", label="Eval unsafe", color="#3b6d11", linewidth=2, linestyle="--", alpha=0.6)
         ax.set_xlabel("Number of episodes (cumulative)")
         ax.set_ylabel("Fraction")
         ax.set_ylim(-0.05, 1.1)
-        ax.set_xticks(num_traces)
+        # ax.set_xticks(num_traces)
         ax.legend(loc="upper right", fontsize=9)
         ax.set_title(f"{method_name} - train / eval fractions", fontsize=11)
         ax.grid(True, alpha=0.3)
@@ -132,54 +133,41 @@ def main():
     ax_faults = fig.add_subplot(gs[n_methods, 0])
     for m_idx, (method_name, records) in enumerate(methods.items()):
         color = COLORS[m_idx % len(COLORS)]
-        num_traces = [r["num_traces"] * r["iteration"] for r in records]
+        x_vals = [r["num_traces"] * r["iteration"] for r in records]
         faults_cum = [r["num_faults"] for r in records]
-        faults_iter = [r["it_faults"] for r in records]
-        faults_base = [c - i for c, i in zip(faults_cum, faults_iter)]
+        ax_faults.plot(x_vals, faults_cum, label=method_name, color=color, marker="o", markersize=3)
 
-        x_m = np.arange(len(num_traces))
-        offset = (m_idx - n_methods / 2 + 0.5) * bar_width
-        ax_faults.bar(x_m + offset, faults_base, bar_width, label=method_name, color=color, alpha=0.85)
-        ax_faults.bar(
-            x_m + offset,
-            faults_iter,
-            bar_width,
-            color=color,
-            alpha=0.4,
-            bottom=faults_base,
-            hatch="///",
-            edgecolor=color,
-            linewidth=0.5,
-        )
-        ax_faults.set_xticks(x_m)
-        ax_faults.set_xticklabels(num_traces)
+    longest_records = max(methods.values(), key=len)
+    x_max = longest_records[-1]["num_traces"] * longest_records[-1]["iteration"]
+    ax_faults.set_xlim(0, x_max)
 
     ax_faults.set_xlabel("Number of episodes (cumulative)")
     ax_faults.set_ylabel("Faults")
-    ax_faults.set_title("Faults fixed (solid = prev, hatched = new this iter)", fontsize=11)
+    ax_faults.set_title("Faults fixed", fontsize=11)
     ax_faults.legend(fontsize=8, ncol=1)
     ax_faults.grid(True, alpha=0.3, axis="y")
 
-    ax_rt = fig.add_subplot(gs[n_methods, 1])
-    for m_idx, (method_name, records) in enumerate(methods.items()):
-        color = COLORS[m_idx % len(COLORS)]
-        repair_secs = [r["repair_seconds"] for r in records]
-        x_m = np.arange(len(repair_secs))
-        offset = (m_idx - n_methods / 2 + 0.5) * bar_width
-        ax_rt.bar(x_m + offset, repair_secs, bar_width, label=method_name, color=color, alpha=0.85)
-        ax_rt.set_xticks(x_m)
-        ax_rt.set_xticklabels([r["num_traces"] * r["iteration"] for r in records])
+    if "repair_seconds" in records[0]:
+        ax_rt = fig.add_subplot(gs[n_methods, 1])
+        for m_idx, (method_name, records) in enumerate(methods.items()):
+            color = COLORS[m_idx % len(COLORS)]
+            repair_secs = [r["repair_seconds"] for r in records[:-1]]
+            x_vals = [r["num_traces"] * r["iteration"] for r in records[:-1]]
+            ax_rt.plot(x_vals, repair_secs, label=method_name, color=color, marker="o", markersize=3)
 
-    ax_rt.set_xlabel("Number of episodes (cumulative)")
-    ax_rt.set_ylabel("Seconds (log scale)")
-    ax_rt.set_yscale("log")
-    ax_rt.set_title("Repair runtime per method", fontsize=11)
-    ax_rt.legend(fontsize=9)
-    ax_rt.grid(True, alpha=0.3, axis="y")
+        longest_records = max(methods.values(), key=len)
+        x_max = longest_records[-2]["num_traces"] * longest_records[-2]["iteration"]  # -2 because you slice [:-1]
+        ax_rt.set_xlim(0, x_max)
+
+        ax_rt.set_xlabel("Number of episodes (cumulative)")
+        ax_rt.set_ylabel("Seconds (log scale)")
+        ax_rt.set_yscale("log")
+        ax_rt.set_title("Repair runtime per method", fontsize=11)
+        ax_rt.legend(fontsize=9)
+        ax_rt.grid(True, alpha=0.3, axis="y")
 
     plt.savefig(output_path, dpi=150, bbox_inches="tight")
     print(f"Saved plot to: {output_path}")
-    plt.show()
 
 
 if __name__ == "__main__":

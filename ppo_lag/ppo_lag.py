@@ -24,6 +24,8 @@ import numpy as np
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
 from datetime import datetime
+import time
+import csv
 
 from utils import create_env, create_eval_file_args
 
@@ -167,6 +169,8 @@ class PPOLagrangian:
         cost_limit:     float,
         device:         str,
         verbose:        int = 1,
+        goal_reward:    float = 1.0,
+        failure_reward: float = -1.0,
     ):
         self.env           = env
         self.n_steps       = n_steps
@@ -181,6 +185,8 @@ class PPOLagrangian:
         self.cost_vf_coef  = cost_vf_coef
         self.max_grad_norm = max_grad_norm
         self.verbose       = verbose
+        self.goal_reward   = goal_reward
+        self.failure_reward= failure_reward
         self.device        = torch.device(device)
 
         obs_dim = env.observation_space.shape[0]
@@ -352,10 +358,14 @@ class PPOLagrangian:
         obs, _           = self.env.reset()
         timestep         = 0
         best_eval_reward = -float("inf")
-
+        episodes = 0
+        checkpoint_idx = 0
+        time_now = time.time()
         while timestep < total_timesteps:
             rollout, obs, mean_ep_cost = self._collect_rollout(obs)
             timestep += self.n_steps
+            episodes += 1
+            print(episodes, timestep)
 
             self.lagrangian.update(mean_ep_cost)
             lam = float(self.lagrangian)
@@ -373,25 +383,27 @@ class PPOLagrangian:
 
             if (eval_args is not None
                     and not eval_args.get("disable_eval", False)
-                    and timestep % eval_args["eval_freq"] == 0):
-                mean_r, mean_c = self._evaluate(eval_args["eval_env"],
+                    and episodes % eval_args["eval_freq"] == 0):
+                performance_file = eval_args.get("performance_file", None)
+                mean_r, goal_frac, avoid_frac = self._evaluate(eval_args["eval_env"],
                                                 eval_args["n_eval_episodes"])
-                print(f"  ↳ eval  reward={mean_r:.3f}  cost={mean_c:.3f}")
+                with open(performance_file, "a", newline="") as f:
+                    elapsed = time.time() - time_now
+                    writer = csv.writer(f)
+                    writer.writerow([
+                        checkpoint_idx, timestep, round(elapsed, 2),
+                        round(mean_r, 4), round(goal_frac, 4), round(avoid_frac, 4),
+                        episodes
+                    ])
+                    f.flush()
+                if eval_args.get("save_all_checkpoints", False):
+                    print("Here", model_save_dir / f"actor_iter_{checkpoint_idx}.pth")
+                    self._save(model_save_dir / f"actor_iter_{checkpoint_idx}.pth")
+                checkpoint_idx += 1
 
-                if WANDB_AVAILABLE and wandb.run is not None:
-                    wandb.log({"eval/mean_reward": mean_r, "eval/mean_cost": mean_c,
-                               "timestep": timestep})
-
-                if mean_r > best_eval_reward:
-                    best_eval_reward = mean_r
-                    self._save(model_save_dir / "best_actor.pth")
-                    print(f"    ✓ new best (reward={best_eval_reward:.3f})")
-
-            if (eval_args is not None
-                    and eval_args.get("save_all_checkpoints", False)
-                    and timestep % eval_args["eval_freq"] == 0):
-                self._save(model_save_dir / f"actor_step{timestep}.pth")
-
+                print(f"  ↳ eval  reward={mean_r:.3f}  goal_frac={goal_frac}, avoid_frac={avoid_frac}")
+                # assert False, "Stop after first eval for debugging. Remove this line to continue training."
+                
         self._save(model_save_dir / "final_actor.pth")
         print(f"Saved final actor → {model_save_dir / 'final_actor.pth'}")
 
@@ -399,26 +411,48 @@ class PPOLagrangian:
     # Evaluation
     # ------------------------------------------------------------------
 
-    def _evaluate(self, eval_env, n_episodes: int) -> Tuple[float, float]:
+    def _evaluate(self, eval_env, n_episodes=10, enumate_all_init_states=False) -> Tuple[float, float, float]:
         self.policy.eval()
-        rewards, costs = [], []
-        for _ in range(n_episodes):
-            e_obs, _ = eval_env.reset()
-            ep_r = ep_c = 0.0
+        num_iter = n_episodes
+        rewards = []
+        if enumate_all_init_states:
+            # unwrap the environment to get JANIEnv
+            unwrapped_env = eval_env
+            while hasattr(unwrapped_env, 'env'):
+                unwrapped_env = unwrapped_env.env
+            if hasattr(unwrapped_env, 'unwrapped'):
+                unwrapped_env = unwrapped_env.unwrapped
+            # Set the number of iterations to size of initial state pool
+            num_iter = unwrapped_env.get_init_state_pool_size()
+        goal_count = 0
+        avoid_count = 0
+        for i in range(num_iter):
+            if enumate_all_init_states:
+                e_obs, _ = eval_env.reset(options={"idx": i})
+            else:
+                e_obs, _ = eval_env.reset()
+            ep_r = 0.0
+            
+            seen_obs = set()
             while True:
                 obs_t  = torch.tensor(e_obs, dtype=torch.float32, device=self.device).unsqueeze(0)
+                seen_obs.add(e_obs.tobytes())
                 mask_t = self._mask(eval_env)
                 with torch.no_grad():
                     action, _, _, _ = self.policy.act(obs_t, mask_t)
-                e_obs, r, terminated, truncated, info = eval_env.step(int(action.item()))
+                e_obs, r, terminated, truncated, _ = eval_env.step(int(action.item()))
                 ep_r += float(r)
-                if isinstance(info, dict):
-                    ep_c += 0.0 if info.get("next_state_safety", True) else 1.0
+                if e_obs.tobytes() in seen_obs:
+                    break
+                
                 if terminated or truncated:
+                    if r == self.goal_reward:
+                        goal_count += 1
+                    if r == self.failure_reward:
+                        avoid_count += 1
                     break
             rewards.append(ep_r)
-            costs.append(ep_c)
-        return float(np.mean(rewards)), float(np.mean(costs))
+        return float(np.mean(rewards)), goal_count / num_iter, avoid_count / num_iter
 
     # ------------------------------------------------------------------
     # Persistence
@@ -434,6 +468,98 @@ class PPOLagrangian:
         ckpt = torch.load(path, map_location=self.device, weights_only=False)
         self.policy.load_state_dict(ckpt["state_dict"])
 
+def run(args):
+
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(args.seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark     = False
+
+    file_args = {
+        "jani_model":           args.jani_model,
+        "jani_property":        args.jani_property,
+        "start_states":         args.start_states,
+        "objective":            args.objective,
+        "failure_property":     args.failure_property,
+        "goal_reward":          args.goal_reward,
+        "failure_reward":       args.failure_reward,
+        "unsafe_reward":        args.unsafe_reward,
+        "seed":                 args.seed,
+        "use_oracle":           args.use_oracle,
+        "max_steps":            args.max_steps,
+        "disable_oracle_cache": args.disable_oracle_cache,
+        "reduced_memory_mode":  not args.no_memory_reduced_mode,
+    }
+
+    model_save_dir  = Path(args.model_save_dir)
+    experiment_name = args.experiment_name or f"ppo_lag_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    performance_file = Path(args.perf_file)
+    performance_file.parent.mkdir(parents=True, exist_ok=True)
+    if performance_file.exists():
+        performance_file.unlink()
+
+    with open(performance_file, "a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
+        f.flush()
+
+    print("Creating training environment...")
+    train_env = create_env(file_args, n_envs=1, monitor=False, time_limited=True)
+
+    trainer = PPOLagrangian(
+        env           = train_env,
+        pi_hidden     = args.pi_net_arch,
+        vf_hidden     = args.vf_net_arch,
+        lr            = args.learning_rate,
+        n_steps       = args.n_steps,
+        batch_size    = args.batch_size,
+        n_epochs      = args.n_epochs,
+        gamma         = args.gamma,
+        cost_gamma    = args.cost_gamma,
+        gae_lambda    = args.gae_lambda,
+        clip_range    = args.clip_range,
+        ent_coef      = args.ent_coef,
+        vf_coef       = args.vf_coef,
+        cost_vf_coef  = args.cost_vf_coef,
+        max_grad_norm = args.max_grad_norm,
+        init_lambda   = args.init_lambda,
+        lr_lambda     = args.lr_lambda,
+        cost_limit    = args.cost_limit,
+        device        = args.device,
+        verbose       = args.verbose,
+        goal_reward   = args.goal_reward,
+        failure_reward= args.failure_reward,
+    )
+
+    if args.load_policy_path:
+        print(f"Loading pre-trained policy from {args.load_policy_path}...")
+        trainer.load(Path(args.load_policy_path))
+
+    if WANDB_AVAILABLE and not args.disable_wandb:
+        wandb.init(project=args.wandb_project, entity=args.wandb_entity,
+                   name=experiment_name, config=vars(args))
+
+    eval_args = None
+    if not args.disable_eval:
+        eval_file_args = create_eval_file_args(file_args, args.use_separate_eval_env)
+        eval_env       = create_env(eval_file_args, n_envs=1, monitor=False, time_limited=True)
+        eval_args = {
+            "eval_env":             eval_env,
+            "eval_freq":            args.eval_freq,
+            "n_eval_episodes":      args.n_eval_episodes,
+            "disable_eval":         args.disable_eval,
+            "save_all_checkpoints": args.save_all_checkpoints,
+            "performance_file":       performance_file,
+        }
+
+    trainer.learn(total_timesteps=args.total_timesteps,
+                  model_save_dir=model_save_dir,
+                  eval_args=eval_args)
+
+    if WANDB_AVAILABLE and not args.disable_wandb:
+        wandb.finish()
 
 # ---------------------------------------------------------------------------
 # Entry point
@@ -496,87 +622,10 @@ def main():
     parser.add_argument("--disable_wandb",   action="store_true")
     parser.add_argument("--verbose",         type=int, default=1)
     parser.add_argument("--device",          type=str, default="cpu")
+    parser.add_argument("--perf_file", type=str, default="ppo_lag_performance.csv")
 
     args = parser.parse_args()
-
-    np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(args.seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark     = False
-
-    file_args = {
-        "jani_model":           args.jani_model,
-        "jani_property":        args.jani_property,
-        "start_states":         args.start_states,
-        "objective":            args.objective,
-        "failure_property":     args.failure_property,
-        "goal_reward":          args.goal_reward,
-        "failure_reward":       args.failure_reward,
-        "unsafe_reward":        args.unsafe_reward,
-        "seed":                 args.seed,
-        "use_oracle":           args.use_oracle,
-        "max_steps":            args.max_steps,
-        "disable_oracle_cache": args.disable_oracle_cache,
-        "reduced_memory_mode":  not args.no_memory_reduced_mode,
-    }
-
-    model_save_dir  = Path(args.model_save_dir)
-    experiment_name = args.experiment_name or f"ppo_lag_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-
-    print("Creating training environment...")
-    train_env = create_env(file_args, n_envs=1, monitor=False, time_limited=True)
-
-    trainer = PPOLagrangian(
-        env           = train_env,
-        pi_hidden     = args.pi_net_arch,
-        vf_hidden     = args.vf_net_arch,
-        lr            = args.learning_rate,
-        n_steps       = args.n_steps,
-        batch_size    = args.batch_size,
-        n_epochs      = args.n_epochs,
-        gamma         = args.gamma,
-        cost_gamma    = args.cost_gamma,
-        gae_lambda    = args.gae_lambda,
-        clip_range    = args.clip_range,
-        ent_coef      = args.ent_coef,
-        vf_coef       = args.vf_coef,
-        cost_vf_coef  = args.cost_vf_coef,
-        max_grad_norm = args.max_grad_norm,
-        init_lambda   = args.init_lambda,
-        lr_lambda     = args.lr_lambda,
-        cost_limit    = args.cost_limit,
-        device        = args.device,
-        verbose       = args.verbose,
-    )
-
-    if args.load_policy_path:
-        print(f"Loading pre-trained policy from {args.load_policy_path}...")
-        trainer.load(Path(args.load_policy_path))
-
-    if WANDB_AVAILABLE and not args.disable_wandb:
-        wandb.init(project=args.wandb_project, entity=args.wandb_entity,
-                   name=experiment_name, config=vars(args))
-
-    eval_args = None
-    if not args.disable_eval:
-        eval_file_args = create_eval_file_args(file_args, args.use_separate_eval_env)
-        eval_env       = create_env(eval_file_args, n_envs=1, monitor=False, time_limited=True)
-        eval_args = {
-            "eval_env":             eval_env,
-            "eval_freq":            args.eval_freq,
-            "n_eval_episodes":      args.n_eval_episodes,
-            "disable_eval":         args.disable_eval,
-            "save_all_checkpoints": args.save_all_checkpoints,
-        }
-
-    trainer.learn(total_timesteps=args.total_timesteps,
-                  model_save_dir=model_save_dir,
-                  eval_args=eval_args)
-
-    if WANDB_AVAILABLE and not args.disable_wandb:
-        wandb.finish()
+    run(args)
 
 
 if __name__ == "__main__":

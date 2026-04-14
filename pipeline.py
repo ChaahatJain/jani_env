@@ -4,6 +4,7 @@ import time
 from argparse import Namespace
 from pathlib import Path
 from typing import Any
+import os
 
 import numpy as np
 import torch
@@ -561,8 +562,7 @@ def main() -> None:
         num_fixed = repair_metrics(policy_model, all_faults)
         metrics.update({"repair_seconds": repair_seconds})
         metrics.update({"num_faults_fixed": num_fixed})
-        if num_fixed < num_faults:
-            fixed = False
+        fixed = num_fixed >= num_faults
         if ml_repair_method:
             metrics.update({"update_loss": float(update_info["loss"])}) # Is NONE for MILP policy repair
         

@@ -28,7 +28,7 @@ class StandardTraceSampler(TraceSamplerInterface):
         actions = []
         action_masks = []
         rewards = []
-
+        visited = set()
 
         is_safe_trajectory = True
 
@@ -36,6 +36,7 @@ class StandardTraceSampler(TraceSamplerInterface):
             action_mask = env.action_mask()
             # Fetch action dynamically (supports NN, Shields, etc.)
             action = policy.get_action(obs, action_mask)
+            visited.add(obs.tobytes())  # Track visited states for early termination of cycles
             
             observations.append(obs)
             actions.append(action)
@@ -49,6 +50,8 @@ class StandardTraceSampler(TraceSamplerInterface):
             is_goal_trajectory = info.get("reached_goal", False)
 
             rewards.append(reward)
+            if next_obs.tobytes() in visited:
+                break  # Early termination if we revisit a state (cycle detected)
             obs = next_obs
             step_count += 1
         if verbose:

@@ -18,6 +18,9 @@ from callbacks import EvalCallback, SafetyEvalCallback, WandbCallback, SaveActor
 from jani.env import JANIEnv
 from utils import create_env, create_eval_file_args, create_safety_eval_file_args
 
+import csv
+import time
+
 try:
     import wandb
     WANDB_AVAILABLE = True
@@ -320,7 +323,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     eval_env = None
     if not args.disable_eval:
         eval_file_args = create_eval_file_args(file_args, args.use_separate_eval_env)
-        eval_env = create_env(eval_file_args, 1, monitor=True, time_limited=True)
+        eval_env = create_env(eval_file_args, 1, monitor=False, time_limited=True)
 
     # ----- training loop -----
     obs, _ = train_env.reset()
@@ -330,7 +333,10 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     episode_count   = 0
     best_eval_reward = -float("inf")
 
-    metrics_window = deque(maxlen=100)  # rolling episode stats
+    metrics_window = deque(maxlen=100)  # rolling episode stats'
+
+    time_start = time.time()
+    checkpoint_idx = 0
 
     for global_step in range(1, args.total_timesteps + 1):
         epsilon = linear_epsilon_schedule(
@@ -386,47 +392,31 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
             agent.soft_update_target()
 
         # ----- evaluation -----
-        if not args.disable_eval and eval_env is not None and global_step % args.eval_freq == 0:
-            eval_rewards = []
-            eval_costs   = []
-            for _ in range(args.n_eval_episodes):
-                e_obs, _ = eval_env.reset()
-                ep_r = ep_c = 0.0
-                while True:
-                    e_mask = eval_env.env_method("action_masks")[0] if hasattr(eval_env, "env_method") \
-                             else eval_env.action_masks()
-                    e_act  = agent.select_action(e_obs, e_mask, epsilon=0.0)
-                    e_obs, e_r, e_term, e_trunc, e_info = eval_env.step(e_act)
-                    ep_r += e_r
-                    ep_c += float(e_info.get("cost", 0.0)) if isinstance(e_info, dict) else 0.0
-                    if e_term or e_trunc:
-                        break
-                eval_rewards.append(ep_r)
-                eval_costs.append(ep_c)
-
-            mean_eval_reward = float(np.mean(eval_rewards))
-            mean_eval_cost   = float(np.mean(eval_costs))
-            print(
-                f"[Step {global_step:>8d}] eval_reward={mean_eval_reward:.3f} "
-                f"eval_cost={mean_eval_cost:.3f}  eps={epsilon:.3f}"
-            )
+        if not args.disable_eval and eval_env is not None and episode_count % args.eval_freq == 0:
+            mean_reward, goal_fraction, avoid_fraction = _evaluate(agent, eval_env, n_episodes=args.n_eval_episodes, enumate_all_init_states=args.enumate_all_init_states, goal_reward=file_args.get("goal_reward", 1.0), failure_reward=file_args.get("failure_reward", -1.0))
+            performance_file = file_args.get("performance_file", None)
 
             if WANDB_AVAILABLE and not args.disable_wandb:
                 wandb.log({
-                    "eval/mean_reward": mean_eval_reward,
-                    "eval/mean_cost":   mean_eval_cost,
+                    "eval/mean_reward": mean_reward,
                     "timestep":         global_step,
                 })
 
-            # Save best model
-            if mean_eval_reward > best_eval_reward:
-                best_eval_reward = mean_eval_reward
-                agent.save(model_save_dir / "best_actor.pth")
-                print(f"  ↳ New best model saved (reward={best_eval_reward:.3f})")
+            with open(performance_file, "a", newline="") as f:
+                    elapsed = time.time() - time_start
+                    writer = csv.writer(f)
+                    writer.writerow([
+                        checkpoint_idx, global_step, round(elapsed, 2),
+                        round(mean_reward, 4), round(goal_fraction, 4), round(avoid_fraction, 4),
+                        episode_count
+                    ])
+                    f.flush()
+            if args.save_all_checkpoints:
+                print("Here", model_save_dir / f"actor_iter_{checkpoint_idx}.pth")
+                agent.save(model_save_dir / f"actor_iter_{checkpoint_idx}.pth")
+            checkpoint_idx += 1
 
-        # ----- periodic checkpoint -----
-        if args.save_all_checkpoints and global_step % args.eval_freq == 0:
-            agent.save(model_save_dir / f"actor_step{global_step}.pth")
+            print(f"  ↳ eval  reward={mean_reward:.3f}  goal_frac={goal_fraction}, avoid_frac={avoid_fraction}")
 
     # ----- final save -----
     final_path = model_save_dir / "final_actor.pth"
@@ -436,6 +426,84 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     if WANDB_AVAILABLE and not args.disable_wandb:
         wandb.finish()
 
+def _evaluate(agent, eval_env, n_episodes=10, enumate_all_init_states=False, goal_reward=1.0, failure_reward=-1.0) -> Tuple[float, float, float]:
+        num_iter = n_episodes
+        rewards = []
+        if enumate_all_init_states:
+            # unwrap the environment to get JANIEnv
+            unwrapped_env = eval_env
+            while hasattr(unwrapped_env, 'env'):
+                unwrapped_env = unwrapped_env.env
+            if hasattr(unwrapped_env, 'unwrapped'):
+                unwrapped_env = unwrapped_env.unwrapped
+            # Set the number of iterations to size of initial state pool
+            num_iter = unwrapped_env.get_init_state_pool_size()
+        goal_count = 0
+        avoid_count = 0
+        for i in range(num_iter):
+            if enumate_all_init_states:
+                e_obs, _ = eval_env.reset(options={"idx": i})
+            else:
+                e_obs, _ = eval_env.reset()
+            ep_r = 0.0
+            
+            seen_obs = set()
+            while True:
+                e_mask = eval_env.action_masks()
+                e_act  = agent.select_action(e_obs, e_mask, epsilon=0.0)
+                seen_obs.add(e_obs.tobytes())
+                e_obs, r, terminated, truncated, _ = eval_env.step(e_act)
+                ep_r += float(r)
+                if e_obs.tobytes() in seen_obs:
+                    break
+                
+                if terminated or truncated:
+                    if r == goal_reward:
+                        goal_count += 1
+                    if r == failure_reward:
+                        avoid_count += 1
+                    break
+            rewards.append(ep_r)
+
+        return float(np.mean(rewards)), goal_count / num_iter, avoid_count / num_iter
+
+def run(args):
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(args.seed)
+        torch.cuda.manual_seed_all(args.seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark     = False
+
+    performance_file = Path(args.perf_file)
+    performance_file.parent.mkdir(parents=True, exist_ok=True)
+    if performance_file.exists():
+        performance_file.unlink()
+
+    with open(performance_file, "a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
+        f.flush()
+
+    file_args = {
+        "jani_model":        args.jani_model,
+        "jani_property":     args.jani_property,
+        "start_states":      args.start_states,
+        "objective":         args.objective,
+        "failure_property":  args.failure_property,
+        "goal_reward":       args.goal_reward,
+        "failure_reward":    args.failure_reward,
+        "unsafe_reward":     args.unsafe_reward,
+        "seed":              args.seed,
+        "use_oracle":        args.use_oracle,
+        "max_steps":         args.max_steps,
+        "disable_oracle_cache": args.disable_oracle_cache,
+        "reduced_memory_mode":  not args.no_memory_reduced_mode,
+        "performance_file": str(performance_file)
+    }
+    
+    train_model(args, file_args)
 
 # ---------------------------------------------------------------------------
 # Entry point
@@ -466,16 +534,16 @@ def main():
     parser.add_argument("--cost_threshold",     type=float, default=0.1,
                         help="Max tolerated per-action cost for safety masking.")
     parser.add_argument("--hidden_dims",        type=int,   nargs="+", default=[64, 64])
-    parser.add_argument("--buffer_capacity",    type=int,   default=100_000)
+    parser.add_argument("--buffer_capacity",    type=int,   default=400_000)
     parser.add_argument("--batch_size",         type=int,   default=64)
     parser.add_argument("--tau",                type=float, default=0.005,
                         help="Soft update coefficient for target network.")
     parser.add_argument("--eps_start",          type=float, default=1.0)
     parser.add_argument("--eps_end",            type=float, default=0.05)
-    parser.add_argument("--eps_decay_steps",    type=int,   default=50_000)
-    parser.add_argument("--learning_starts",    type=int,   default=1_000)
+    parser.add_argument("--eps_decay_steps",    type=int,   default=200_000)
+    parser.add_argument("--learning_starts",    type=int,   default=500)
     parser.add_argument("--train_freq",         type=int,   default=4)
-    parser.add_argument("--target_update_freq", type=int,   default=1_000)
+    parser.add_argument("--target_update_freq", type=int,   default=5_000)
 
     # Training / evaluation settings (mirrors train_ppo.py)
     parser.add_argument("--seed",                    type=int,  default=42)
@@ -500,35 +568,11 @@ def main():
     parser.add_argument("--verbose",          type=int,  default=1)
     parser.add_argument("--device",           type=str,  default="cpu")
     parser.add_argument("--disable_wandb",    action="store_true")
+    parser.add_argument("--perf_file",       type=str,  default="performance_metrics.csv")
 
     args = parser.parse_args()
-
-    np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed(args.seed)
-        torch.cuda.manual_seed_all(args.seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark     = False
-
-    file_args = {
-        "jani_model":        args.jani_model,
-        "jani_property":     args.jani_property,
-        "start_states":      args.start_states,
-        "objective":         args.objective,
-        "failure_property":  args.failure_property,
-        "goal_reward":       args.goal_reward,
-        "failure_reward":    args.failure_reward,
-        "unsafe_reward":     args.unsafe_reward,
-        "seed":              args.seed,
-        "use_oracle":        args.use_oracle,
-        "max_steps":         args.max_steps,
-        "disable_oracle_cache": args.disable_oracle_cache,
-        "reduced_memory_mode":  not args.no_memory_reduced_mode,
-    }
-
-    train_model(args, file_args)
-
+    run(args)
+    
 
 if __name__ == "__main__":
     main()

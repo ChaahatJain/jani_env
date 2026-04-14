@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
 from datetime import datetime
 
-from callbacks import EvalCallback, SafetyEvalCallback, WandbCallback, SaveActorCallback, LoggingCallback
+from callbacks import SafetyEvalCallback, WandbCallback, SaveActorCallback
 from jani.env import JANIEnv
-from utils import create_env, create_eval_file_args, create_safety_eval_file_args
+from utils import create_env, create_safety_eval_file_args
 
 from sb3_contrib import MaskablePPO
 from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
@@ -103,42 +103,24 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
         wandb_callback = WandbCallback()
         callbacks.append(wandb_callback)
 
-    # Create evaluation environment and callback
-    if not args.disable_eval:
-        eval_file_args = create_eval_file_args(file_args, args.use_separate_eval_env)
-        eval_env = create_env(eval_file_args, 1, monitor=True, time_limited=True)
-        eval_callback = EvalCallback(
-            eval_env=eval_env,
-            eval_freq=args.eval_freq,
-            n_eval_episodes=args.n_eval_episodes,
-            enumate_all_init_states=args.enumate_all_init_states,
-            best_model_save_path=str(model_save_dir)
-        )
-        callbacks.append(eval_callback)
 
     # Checkpoint callback to save actor at intervals
     if args.save_all_checkpoints:
         print("Saving checkpoints to", model_save_dir)
-        save_actor_callback = SaveActorCallback(
-            save_freq=args.eval_freq,
-            save_path=model_save_dir,
-            verbose=args.verbose
-        )
-        callbacks.append(save_actor_callback)
-
-    # Logging callback for rewards
-    if args.log_reward:
         safety_eval_file_args = create_safety_eval_file_args(file_args, vars(args), use_oracle=False)
-        safety_eval_env = create_env(safety_eval_file_args, 1, monitor=True, time_limited=True)
-        logging_callback = LoggingCallback(
-            log_dir=log_dir,
-            log_freq=args.eval_freq,
-            eval_env=safety_eval_env,
+        safety_eval_env = create_env(safety_eval_file_args, 1, monitor=False, time_limited=True)
+        save_actor_callback = SaveActorCallback(
+            eval_env = safety_eval_env,
             n_eval_episodes=args.n_eval_episodes,
             enumate_all_init_states=args.enumate_all_init_states,
-            verbose=args.verbose
+            save_freq=args.eval_freq,
+            save_path=model_save_dir,
+            log_path=args.perf_file,
+            verbose=args.verbose,
+            goal_reward=args.goal_reward,
+            failure_reward=args.failure_reward,
         )
-        callbacks.append(logging_callback)
+        callbacks.append(save_actor_callback)
 
     # Create safety evaluation environment and callback
     if args.eval_safety:
@@ -251,6 +233,7 @@ def main():
                         help="Device to use for training (cpu or cuda).")
     parser.add_argument('--disable_wandb', action='store_true', 
                         help="Disable Weights & Biases logging.")
+    parser.add_argument("--perf_file", type=str)
     
 
     args = parser.parse_args()

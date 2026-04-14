@@ -17,3 +17,7 @@ cluster_utils/one_way_line_only
 cluster_utils/bouncing_ball_linetrack
 pipeline*
 artifacts/
+cluster/*
+results_parser/plots/*
+results_parser/test/*
+results_parser/*.png

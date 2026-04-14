@@ -64,6 +64,12 @@ class JANIEnv(gym.Env):
         self._prev_safe_action = -1
         self._prev_obs = None
 
+    def goal_reward(self) -> float:
+        return self._goal_reward
+    
+    def failure_reward(self) -> float:
+        return self._failure_reward
+
     def reset(self, seed: Optional[int] = None, options: Optional[dict] = None) -> tuple[dict, dict]:
         super().reset(seed=seed)
         if options is not None and "idx" in options:

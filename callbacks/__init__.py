@@ -46,7 +46,7 @@ def save_policy(policy: torch.nn.Module, network_paras: dict, save_path: Path, n
     }, actor_path)
 
 
-def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_states=False) -> float:
+def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_states=False, goal_reward=1.0, failure_reward=-1.0) -> float:
     rewards = []
     num_iter = n_eval_episodes
 
@@ -69,48 +69,56 @@ def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_st
         done = False
         truncated = False
         episode_rewards = 0.0
+        goal_count = avoid_count = 0
+        seen_obs = set()
         while not done and not truncated:
+            if obs.tobytes() in seen_obs:
+                break # Avoid infinite loops in case of cycles
             action_masks = get_action_masks(eval_env)
             action_masks = np.expand_dims(action_masks, axis=0)  # shape (1, n_actions)
             action, _ = model.predict(obs, action_masks=action_masks)
+            seen_obs.add(obs.tobytes())
             obs, reward, done, truncated, _ = eval_env.step(action)
             episode_rewards += reward
+        if done:
+            if reward == goal_reward:
+                goal_count += 1
+            elif reward == failure_reward:
+                avoid_count += 1
         rewards.append(episode_rewards)
     mean_reward = np.mean(rewards)
-    return mean_reward
+    return mean_reward, goal_count / num_iter, avoid_count / num_iter
 
 import csv
 import time
 class SaveActorCallback(BaseCallback):
     """Callback for saving the model at regular intervals."""
-    def __init__(self, save_freq: int, save_path: Path, verbose=0):
+    def __init__(self, eval_env, n_eval_episodes : int, enumate_all_init_states: bool, save_freq: int, save_path: Path, log_path: Path, verbose=0, goal_reward = 1.0, failure_reward = -1.0):
         super().__init__(verbose)
         self.save_freq = save_freq  # now means episodes, not steps
         self.save_path = save_path
         self.save_path.mkdir(parents=True, exist_ok=True)
         self.start_time = None
-        self.log_path = save_path / "checkpoint_log.csv"
-        self.goal_count = 0
-        self.failure_count = 0
+        self.log_path = log_path
         self.episodes_since_last_save = 0
         self.total_episodes = 0
         self.checkpoint_idx = 0
+        self.eval_env = eval_env
+        self.enumate_all_init_states = enumate_all_init_states
+        self.n_eval_episodes = n_eval_episodes
+        self.goal_reward = goal_reward
+        self.failure_reward = failure_reward
 
     def _on_training_start(self) -> None:
         self.start_time = time.time()
-        self.goal_count = self.failure_count = self.episodes_count = 0
+        self.episodes_count = 0
         with open(self.log_path, "w", newline="") as f:
-            csv.writer(f).writerow(["checkpoint", "timestep", "elapsed_seconds", "avg_reward", "goal_fraction", "failure_fraction", "episodes"])
+            csv.writer(f).writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
             
     def _on_step(self) -> bool:
-        rewards = self.locals.get("rewards", [])
         dones = self.locals.get("dones", [])
-        for r, d in zip(rewards, dones):
+        for d in dones:
             if d:
-                if r == 1.0:
-                    self.goal_count += 1
-                elif r == -1.0:
-                    self.failure_count += 1
                 self.episodes_since_last_save += 1
                 self.total_episodes += 1
 
@@ -127,12 +135,7 @@ class SaveActorCallback(BaseCallback):
             )
 
             elapsed = time.time() - self.start_time
-            avg_reward = (
-                np.mean([ep["r"] for ep in self.model.ep_info_buffer])
-                if self.model.ep_info_buffer else float("nan")
-            )
-            goal_frac    = self.goal_count / self.episodes_since_last_save
-            failure_frac = self.failure_count / self.episodes_since_last_save
+            avg_reward, goal_frac, failure_frac = compute_mean_reward(self.eval_env, self.model, self.n_eval_episodes, self.enumate_all_init_states, self.goal_reward, self.failure_reward)
 
             with open(self.log_path, "a", newline="") as f:
                 writer = csv.writer(f)
@@ -151,75 +154,9 @@ class SaveActorCallback(BaseCallback):
                     f"episodes={self.episodes_since_last_save}"
                 )
 
-            self.goal_count = 0
-            self.failure_count = 0
             self.episodes_since_last_save = 0
             self.checkpoint_idx += 1
 
-        return True
-    
-
-class LoggingCallback(BaseCallback):
-    """Custom logging callback."""
-    def __init__(self, log_dir, log_freq, eval_env, enumate_all_init_states=False, n_eval_episodes=100, verbose=0):
-        super().__init__(verbose)
-        self.log_dir = log_dir
-        self.log_freq = log_freq
-        self.eval_env = eval_env
-        self.enumate_all_init_states = enumate_all_init_states
-        self.n_eval_episodes = n_eval_episodes
-        self.log_dir.mkdir(parents=True, exist_ok=True)
-        self.log_file = self.log_dir / "avg_rewards.txt"
-        open(self.log_file, 'w').close()  # Create or clear log file
-
-    def _on_step(self) -> bool:
-        # Custom logging logic can be added here
-        if self.log_freq > 0 and self.n_calls % self.log_freq == 0:
-            mean_reward = compute_mean_reward(self.eval_env, self.model, self.n_eval_episodes, self.enumate_all_init_states)
-            with open(self.log_file, 'a') as f:
-                f.write(f"{self.num_timesteps}\t{mean_reward}\n")
-        return True
-
-
-class EvalCallback(BaseCallback):
-    """Custom evaluation callback."""
-    def __init__(self, eval_env, eval_freq: int, n_eval_episodes: int, best_model_save_path: Optional[str] = None, enumate_all_init_states=False):
-        super().__init__()
-        self.eval_env = eval_env
-        self.eval_freq = eval_freq
-        self.n_eval_episodes = n_eval_episodes
-        self.enumate_all_init_states = enumate_all_init_states
-        self.best_model_save_path = best_model_save_path
-        self.best_mean_reward = -float('inf')
-        self.last_mean_reward = -float('inf')
-
-    def _on_step(self) -> bool:
-        if self.eval_freq > 0 and self.n_calls % self.eval_freq == 0:
-            # mean_reward, _ = evaluate_policy(self.model, self.eval_env, n_eval_episodes=self.n_eval_episodes)
-            mean_reward = compute_mean_reward(self.eval_env, self.model, self.n_eval_episodes, self.enumate_all_init_states)
-            self.last_mean_reward = mean_reward
-            if self.best_model_save_path is not None:
-                if mean_reward > self.best_mean_reward:
-                    self.best_mean_reward = mean_reward
-                    policy = self.model.policy
-                    network_paras = {
-                        'input_dim': self.training_env.observation_space.shape[0],
-                        'output_dim': self.training_env.action_space.n,
-                        'hidden_dims': policy.net_arch['pi']
-                    }
-                    save_policy(
-                        policy, network_paras, 
-                        Path(self.best_model_save_path), "best_model"
-                    )
-            if WANDB_AVAILABLE and wandb.run is not None:
-                wandb.log({
-                    'eval/mean_reward': mean_reward,
-                    'eval/best_mean_reward': self.best_mean_reward,
-                    'eval/timesteps': self.n_calls
-                })
-            self.logger.record('eval/mean_reward', mean_reward)
-            self.logger.record('eval/best_mean_reward', self.best_mean_reward)
-            self.logger.record('eval/timesteps', self.n_calls)
         return True
 
 
