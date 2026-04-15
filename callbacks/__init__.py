@@ -22,6 +22,16 @@ from stable_baselines3.common.callbacks import BaseCallback
 from sb3_contrib.common.maskable.evaluation import evaluate_policy
 from sb3_contrib.common.maskable.utils import get_action_masks
 
+from dagger.sampler import StandardTraceSampler
+from dagger.fault_collector import OracleFaultCollector
+from updater.goldberger import MILPPolicyUpdater
+
+from dagger.policy import Policy
+from dagger.policy_wrapper import NNPolicyWrapper
+
+import torch
+from typing import Any
+
 
 p = psutil.Process(os.getpid())
 tracemalloc.start()
@@ -44,12 +54,37 @@ def save_policy(policy: torch.nn.Module, network_paras: dict, save_path: Path, n
         'hidden_dims': network_paras.get('hidden_dims'),
         'state_dict': policy.state_dict()
     }, actor_path)
+    
+def repair_metrics(policy: torch.nn.Module, dataset: Any, verbose = False):
+        states = torch.tensor([f["observation"] for f in dataset], dtype=torch.float32) 
+        applicable_actions = [[i for i, a in enumerate(f["action_mask"]) if int(a) == 1] for f in dataset]       
+        faults = [int(f["faulty_action"]) for f in dataset]
+        logits = policy(states)
+        mask = torch.zeros_like(logits, dtype=torch.bool)
+        for i, valid_actions in enumerate(applicable_actions):
+            mask[i, valid_actions] = True
+        masked_logits = logits.masked_fill(~mask, float('-inf'))
+        predicted_actions = torch.log_softmax(masked_logits, dim=-1).argmax(dim=-1)
+        faults_tensor = torch.tensor(faults)
+        fixed_count = (predicted_actions != faults_tensor).sum().item()
+        
+        if verbose:
+            print(f"{'#':<6} {'Faulty Action':<16} {'New Action':<12} {'Fixed?':<8} {'Observation'}")
+            print("-" * 80)
+            for i, (obs, fault, pred) in enumerate(zip(dataset, faults, predicted_actions.tolist())):
+                fixed = "✓" if pred != fault else "✗"
+                print(f"{i:<6} {fault:<16} {pred:<12} {fixed:<8} {obs['observation']}")
+            print("-" * 80)
+            print(f"Fixed: {fixed_count} / {len(dataset)}")
+        
+        return fixed_count
 
 
 def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_states=False, goal_reward=1.0, failure_reward=-1.0) -> float:
     rewards = []
     num_iter = n_eval_episodes
-
+    goal_count = avoid_count = 0
+    
     # If enumerating all initial states for evaluation, set num_iter accordingly
     if enumate_all_init_states:
         # unwrap the environment to get JANIEnv
@@ -68,10 +103,11 @@ def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_st
             obs, _ = eval_env.reset()
         done = False
         truncated = False
-        episode_rewards = 0.0
-        goal_count = avoid_count = 0
+        
         seen_obs = set()
-        while not done and not truncated:
+        episode_reward = 0.0
+        
+        while True:
             if obs.tobytes() in seen_obs:
                 break # Avoid infinite loops in case of cycles
             action_masks = get_action_masks(eval_env)
@@ -79,14 +115,20 @@ def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_st
             action, _ = model.predict(obs, action_masks=action_masks)
             seen_obs.add(obs.tobytes())
             obs, reward, done, truncated, _ = eval_env.step(action)
-            episode_rewards += reward
-        if done:
-            if reward == goal_reward:
-                goal_count += 1
-            elif reward == failure_reward:
-                avoid_count += 1
-        rewards.append(episode_rewards)
+            episode_reward += reward
+            
+            if truncated:
+                break
+            if done:
+                if reward == goal_reward:
+                    goal_count += 1
+                elif reward == failure_reward:
+                    avoid_count += 1
+                break
+        
+        rewards.append(episode_reward)
     mean_reward = np.mean(rewards)
+    print("Evaluation statistics:", mean_reward, goal_count, avoid_count, num_iter)
     return mean_reward, goal_count / num_iter, avoid_count / num_iter
 
 import csv
@@ -159,6 +201,172 @@ class SaveActorCallback(BaseCallback):
 
         return True
 
+class ModelRepairCallback(BaseCallback):
+    """
+    Periodically samples traces from the repair environment, collects faults
+    on unsafe trajectories, and repairs the policy's final layer via MILP.
+    Maintains a fault cache across all repair rounds to avoid duplicates and
+    use the full fault history for each repair.
+    """
+
+    def __init__(
+        self,
+        repair_env,
+        repair_freq: int,
+        n_episodes_for_repair: int,
+        save_actor_callback: SaveActorCallback,
+        max_steps : int,
+        log_file : Path,
+        verbose: bool,
+        device: torch.device = torch.device("cpu"),
+    ):
+        super().__init__()
+        self.repair_env = repair_env
+        self.repair_freq = repair_freq
+        self.n_episodes_for_repair = n_episodes_for_repair
+        self.save_actor_callback = save_actor_callback
+        self.max_steps = max_steps
+        self.device = device
+
+        self.sampler = StandardTraceSampler()
+        self.collector = OracleFaultCollector()
+        self.updater = MILPPolicyUpdater()
+
+        self.total_episodes = 0
+        self.episodes_since_last_repair = 0
+        self.verbose = verbose
+
+        self.log_file = log_file
+        with open(self.log_file, "w", newline="") as f:
+            csv.writer(f).writerow(["Episodes", "RepairTime", "NumFaultsTotal", "NumFaultsThisRound"])
+
+        # Fault cache — persists across all repair rounds
+        self.all_faults: list = []
+        self.fault_cache: set = set()
+
+    def _build_policy_wrapper(self) -> NNPolicyWrapper:
+        """Extract current SB3 policy weights into a Policy wrapper for the sampler."""
+        sb3_policy = self.model.policy
+        state_dict = sb3_policy.state_dict()
+
+        input_dim = self.model.observation_space.shape[0]
+        output_dim = self.model.action_space.n
+        hidden_dims = sb3_policy.net_arch["pi"]
+
+        policy_model = Policy(input_dim, output_dim, hidden_dims)
+        mapped = {
+            "model.0.weight": state_dict["mlp_extractor.policy_net.0.weight"],
+            "model.0.bias":   state_dict["mlp_extractor.policy_net.0.bias"],
+            "model.2.weight": state_dict["mlp_extractor.policy_net.2.weight"],
+            "model.2.bias":   state_dict["mlp_extractor.policy_net.2.bias"],
+            "model.4.weight": state_dict["action_net.weight"],
+            "model.4.bias":   state_dict["action_net.bias"],
+        }
+        policy_model.load_state_dict(mapped, strict=True)
+        policy_model.to(self.device)
+        return NNPolicyWrapper(policy_model, device=self.device)
+
+    def _collect_new_faults(self, traces: list) -> list:
+        """
+        Run fault analysis on unsafe traces, deduplicate against the cache,
+        and update the persistent fault store.
+        """
+        new_faults_this_round = []
+        duplicates = 0
+
+        for trace in traces:
+            if not trace["is_safe_trajectory"]:
+                faults = self.collector.collect_faults(trace, self.repair_env)
+                new = [
+                    f for f in faults
+                    if (tuple(f["observation"]), f["faulty_action"]) not in self.fault_cache
+                ]
+                duplicates += len(faults) - len(new)
+                new_faults_this_round.extend(new)
+                self.all_faults.extend(new)
+                self.fault_cache.update(
+                    (tuple(f["observation"]), f["faulty_action"]) for f in new
+                )
+
+        if self.verbose:
+            print(
+                f"[ModelRepairCallback] faults this round: {len(new_faults_this_round)} new, "
+                f"{duplicates} duplicates | total in cache: {len(self.all_faults)}"
+            )
+
+        return new_faults_this_round
+
+    def _on_step(self) -> bool:
+        # --- Track episode completions ---
+        dones = self.locals.get("dones", [])
+        for d in dones:
+            if d:
+                self.episodes_since_last_repair += 1
+                self.total_episodes += 1
+
+        if self.episodes_since_last_repair < self.repair_freq:
+            return True
+
+        self.episodes_since_last_repair = 0
+
+        # 1. Wrap live SB3 weights into the Policy interface the sampler expects
+        policy_wrapper = self._build_policy_wrapper()
+        policy_model = policy_wrapper.model
+        # 2. Sample traces
+        traces = []
+        for _ in range(self.n_episodes_for_repair):
+            trace = self.sampler.sample_trace(
+                env=self.repair_env,
+                policy=policy_wrapper,
+                init_state_idx=-1,
+                max_steps=self.max_steps,
+                verbose=False,
+            )
+            traces.append(trace)
+            
+        if not traces:
+            return True
+
+        # 3. Collect faults from unsafe traces, deduplicated against full history
+        new_faults = self._collect_new_faults(traces)
+        print("New faults found:", len(new_faults))
+
+        # 4. Skip repair if no new faults found this round — policy is safe on sampled traces
+        if not new_faults:
+            if self.verbose:
+                print("[ModelRepairCallback] No new faults found this round — skipping repair.")
+            return True
+
+        # 5. Repair using the full fault history — mutates self.model.policy in-place
+        repair_time_start = time.perf_counter()
+        update_info = self.updater.update_policy(policy_model, self.all_faults)
+        repair_time = time.perf_counter() - repair_time_start
+        # 6. Sync repaired weights back into SB3 policy
+        repaired_state = policy_model.state_dict()
+        sb3_state = self.model.policy.state_dict()
+        sb3_state["mlp_extractor.policy_net.0.weight"] = repaired_state["model.0.weight"]
+        sb3_state["mlp_extractor.policy_net.0.bias"]   = repaired_state["model.0.bias"]
+        sb3_state["mlp_extractor.policy_net.2.weight"] = repaired_state["model.2.weight"]
+        sb3_state["mlp_extractor.policy_net.2.bias"]   = repaired_state["model.2.bias"]
+        sb3_state["action_net.weight"]                 = repaired_state["model.4.weight"]
+        sb3_state["action_net.bias"]                   = repaired_state["model.4.bias"]
+        self.model.policy.load_state_dict(sb3_state)
+
+        if self.verbose:
+            print(f"[ModelRepairCallback] update_info: {update_info}")
+            # repair_metrics(self._build_policy_wrapper().model, self.all_faults, self.verbose)
+
+        with open(self.log_file, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    self.total_episodes, round(repair_time, 2), len(self.all_faults), len(new_faults)
+                ])
+                f.flush()
+
+        # 6. Inflate SaveActorCallback counter so it fires on next step
+        self.save_actor_callback.episodes_since_last_save += self.n_episodes_for_repair
+
+        return True
 
 class SafetyEvalCallback(BaseCallback):
     """Custom safety evaluation callback."""

@@ -28,6 +28,11 @@ import time
 import csv
 
 from utils import create_env, create_eval_file_args
+from dagger.sampler import StandardTraceSampler
+from dagger.fault_collector import OracleFaultCollector
+from updater.goldberger import MILPPolicyUpdater
+from dagger.policy_wrapper import NNPolicyWrapper
+from dagger.policy import Policy
 
 try:
     import wandb
@@ -153,6 +158,7 @@ class PPOLagrangian:
         pi_hidden:      List[int],
         vf_hidden:      List[int],
         lr:             float,
+        max_steps:      int,
         n_steps:        int,
         batch_size:     int,
         n_epochs:       int,
@@ -173,6 +179,7 @@ class PPOLagrangian:
         failure_reward: float = -1.0,
     ):
         self.env           = env
+        self.max_steps     = max_steps
         self.n_steps       = n_steps
         self.batch_size    = batch_size
         self.n_epochs      = n_epochs
@@ -223,7 +230,7 @@ class PPOLagrangian:
         cv_buf   = np.zeros(self.n_steps, dtype=np.float32)
         done_buf = np.zeros(self.n_steps, dtype=np.float32)
         mask_buf = np.zeros((self.n_steps, act_dim), dtype=bool)
-
+        num_completed = 0
         episode_costs: List[float] = []
         ep_cost_acc = 0.0
 
@@ -262,6 +269,7 @@ class PPOLagrangian:
                 episode_costs.append(ep_cost_acc)
                 ep_cost_acc = 0.0
                 obs, _ = self.env.reset()
+                num_completed += 1
 
         # Bootstrap
         with torch.no_grad():
@@ -277,7 +285,7 @@ class PPOLagrangian:
 
         return dict(obs=obs_buf, actions=act_buf, old_logp=logp_buf,
                     r_adv=r_adv, r_ret=r_ret, c_adv=c_adv, c_ret=c_ret,
-                    masks=mask_buf), obs, mean_ep_cost
+                    masks=mask_buf, completed=num_completed), obs, mean_ep_cost
 
     # ------------------------------------------------------------------
     # Policy update
@@ -349,24 +357,71 @@ class PPOLagrangian:
         d = max(n_updates, 1)
         return {k: v / d for k, v in totals.items()}
 
+    def _repair_init(self):
+        self.sampler = StandardTraceSampler()
+        self.collector = OracleFaultCollector()
+        self.updater = MILPPolicyUpdater()
+        # Fault cache — persists across all repair rounds
+        self.all_faults: list = []
+        self.fault_cache: set = set()
+
+    def _build_policy_wrapper(self) -> NNPolicyWrapper:
+        """Extract current SB3 policy weights into a Policy wrapper for the sampler."""
+        return NNPolicyWrapper(self.policy.actor, device=self.device)
+
+    def _collect_new_faults(self, traces: list) -> list:
+        """
+        Run fault analysis on unsafe traces, deduplicate against the cache,
+        and update the persistent fault store.
+        """
+        new_faults_this_round = []
+        duplicates = 0
+
+        for trace in traces:
+            if not trace["is_safe_trajectory"]:
+                faults = self.collector.collect_faults(trace, self.repair_env)
+                new = [
+                    f for f in faults
+                    if (tuple(f["observation"]), f["faulty_action"]) not in self.fault_cache
+                ]
+                duplicates += len(faults) - len(new)
+                new_faults_this_round.extend(new)
+                self.all_faults.extend(new)
+                self.fault_cache.update(
+                    (tuple(f["observation"]), f["faulty_action"]) for f in new
+                )
+
+        if self.verbose:
+            print(
+                f"[ModelRepairCallback] faults this round: {len(new_faults_this_round)} new, "
+                f"{duplicates} duplicates | total in cache: {len(self.all_faults)}"
+            )
+
+        return new_faults_this_round
     # ------------------------------------------------------------------
     # Main training loop
     # ------------------------------------------------------------------
 
     def learn(self, total_timesteps: int, model_save_dir: Path,
-              eval_args: Optional[Dict] = None):
+              eval_args: Optional[Dict] = None, repair_args: Optional[Dict] = None):
         obs, _           = self.env.reset()
         timestep         = 0
         best_eval_reward = -float("inf")
         episodes = 0
+        episodes_since_last_eval = 0
+        episodes_since_last_repair = 0
         checkpoint_idx = 0
+        if repair_args is not None:
+            self._repair_init()
         time_now = time.time()
         while timestep < total_timesteps:
             rollout, obs, mean_ep_cost = self._collect_rollout(obs)
             timestep += self.n_steps
-            episodes += 1
-            print(episodes, timestep)
+            episodes += rollout["completed"]
+            episodes_since_last_eval += rollout["completed"]
+            episodes_since_last_repair += rollout["completed"]
 
+            print("Episode", episodes, "timesteps", timestep)
             self.lagrangian.update(mean_ep_cost)
             lam = float(self.lagrangian)
             m   = self._update(rollout, lam)
@@ -383,7 +438,8 @@ class PPOLagrangian:
 
             if (eval_args is not None
                     and not eval_args.get("disable_eval", False)
-                    and episodes % eval_args["eval_freq"] == 0):
+                    and episodes_since_last_eval >= eval_args["eval_freq"]):
+                episodes_since_last_eval = 0
                 performance_file = eval_args.get("performance_file", None)
                 mean_r, goal_frac, avoid_frac = self._evaluate(eval_args["eval_env"],
                                                 eval_args["n_eval_episodes"])
@@ -403,6 +459,52 @@ class PPOLagrangian:
 
                 print(f"  ↳ eval  reward={mean_r:.3f}  goal_frac={goal_frac}, avoid_frac={avoid_frac}")
                 # assert False, "Stop after first eval for debugging. Remove this line to continue training."
+
+            if (repair_args is not None and episodes_since_last_repair >= repair_args["repair_freq"]): ## Repair the policy by sampling repair_episodes, running fault analysis and updating the policy 
+                episodes_since_last_repair = 0
+                print("Starting policy repair phase...")
+                # 1. Build a policy wrapper around the current SB3 policy for the sampler and updater to use
+                policy_wrapper = self._build_policy_wrapper()
+
+                # 2. Sample traces
+                traces = []
+                for _ in range(repair_args["repair_episodes"]):
+                    trace = self.sampler.sample_trace(
+                        env=self.env.env.env, # Unwrap time and action masker
+                        policy=policy_wrapper,
+                        init_state_idx=-1,
+                        max_steps=self.max_steps,
+                        verbose=False,
+                    )
+                    traces.append(trace)
+                    timestep += len(trace["observations"])  # Account for the additional timesteps used for sampling traces
+                    
+                if not traces:
+                    continue
+
+                # 3. Collect faults from unsafe traces, deduplicated against full history
+                new_faults = self._collect_new_faults(traces)
+                print("New faults found:", len(new_faults))
+
+                # 4. Skip repair if no new faults found this round — policy is safe on sampled traces
+                if not new_faults:
+                    if self.verbose:
+                        print("[ModelRepairCallback] No new faults found this round — skipping repair.")
+                    continue
+
+                # 5. Repair using the full fault history — mutates self.model.policy in-place
+                repair_time_start = time.perf_counter()
+                _ = self.updater.update_policy(self.policy.actor, self.all_faults)
+                repair_time = time.perf_counter() - repair_time_start
+
+                with open(self.log_file, "a", newline="") as f:
+                    writer = csv.writer(f)
+                    writer.writerow([
+                        episodes, round(repair_time, 2), len(self.all_faults), len(new_faults)
+                    ])
+                    f.flush()
+                episodes += repair_args["repair_episodes"]  # Account for the additional episodes used for repair
+
                 
         self._save(model_save_dir / "final_actor.pth")
         print(f"Saved final actor → {model_save_dir / 'final_actor.pth'}")
@@ -505,6 +607,16 @@ def run(args):
         writer.writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
         f.flush()
 
+    repair_file = Path(args.repair_log_file)
+    repair_file.parent.mkdir(parents=True, exist_ok=True)
+    if repair_file.exists():
+        repair_file.unlink()
+
+    with open(repair_file, "a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Episodes", "RepairTime", "NumFaultsTotal", "NumFaultsThisRound"])
+        f.flush()
+
     print("Creating training environment...")
     train_env = create_env(file_args, n_envs=1, monitor=False, time_limited=True)
 
@@ -513,6 +625,7 @@ def run(args):
         pi_hidden     = args.pi_net_arch,
         vf_hidden     = args.vf_net_arch,
         lr            = args.learning_rate,
+        max_steps     = args.max_steps,
         n_steps       = args.n_steps,
         batch_size    = args.batch_size,
         n_epochs      = args.n_epochs,
@@ -554,9 +667,18 @@ def run(args):
             "performance_file":       performance_file,
         }
 
+    repair_args = None
+    if args.enable_repair:
+        repair_args = {
+            "repair_freq": args.repair_freq,
+            "repair_episodes": args.repair_episodes,
+            "repair_algo": args.repair_algo,
+            "repair_file": repair_file
+        }
+
     trainer.learn(total_timesteps=args.total_timesteps,
                   model_save_dir=model_save_dir,
-                  eval_args=eval_args)
+                  eval_args=eval_args, repair_args=repair_args)
 
     if WANDB_AVAILABLE and not args.disable_wandb:
         wandb.finish()
@@ -623,6 +745,13 @@ def main():
     parser.add_argument("--verbose",         type=int, default=1)
     parser.add_argument("--device",          type=str, default="cpu")
     parser.add_argument("--perf_file", type=str, default="ppo_lag_performance.csv")
+
+    # Interleaving repair
+    parser.add_argument("--enable_repair", action="store_true")
+    parser.add_argument("--repair_freq",    type=int, default=10_000)
+    parser.add_argument("--repair_episodes",   type=int, default=100)
+    parser.add_argument("--repair_algo", type=str)
+    parser.add_argument("--repair_log_file", type=str, default="ppo_lag_repair_log.csv")
 
     args = parser.parse_args()
     run(args)

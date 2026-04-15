@@ -14,9 +14,14 @@ from datetime import datetime
 from collections import deque
 import random
 
-from callbacks import EvalCallback, SafetyEvalCallback, WandbCallback, SaveActorCallback, LoggingCallback
-from jani.env import JANIEnv
-from utils import create_env, create_eval_file_args, create_safety_eval_file_args
+
+from utils import create_env, create_eval_file_args
+from dagger.sampler import StandardTraceSampler
+from dagger.policy import Policy
+from dagger.policy_wrapper import NNPolicyWrapper
+from dagger.fault_collector import OracleFaultCollector
+
+from updater.goldberger import MILPPolicyUpdater
 
 import csv
 import time
@@ -56,6 +61,34 @@ class SafeDQNNetwork(nn.Module):
         features = self.feature_net(x)
         return self.q_head(features), self.c_head(features)
 
+# Create a wrapper around your SafeDQNNetwork that only exposes Q-values
+class QValueOnlyWrapper(nn.Module):
+    """
+    Wraps SafeDQNNetwork to expose only Q-values as logits for the policy.
+    """
+    def __init__(self, safe_dqn_net: SafeDQNNetwork):
+        super().__init__()
+        self.safe_dqn_net = safe_dqn_net
+    
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        q_vals, _ = self.safe_dqn_net(x)
+        return q_vals  # Return only Q-values as the "logits"
+    
+    @property
+    def model(self):
+        """Make policy.model work in the updater."""
+        return self
+    
+    def __getitem__(self, idx):
+        """Support policy.model[:-1] and policy.model[-1] indexing."""
+        if idx == -1:
+            # Return the Q-head as the final layer
+            return self.safe_dqn_net.q_head
+        elif isinstance(idx, slice) and idx == slice(None, -1, None):
+            # Return feature extractor (everything before the final layer)
+            return self.safe_dqn_net.feature_net
+        else:
+            raise IndexError(f"Only -1 (head) and [:-1] (feature extractor) are supported")
 
 # ---------------------------------------------------------------------------
 # Replay buffer
@@ -96,7 +129,6 @@ class SafeDQNAgent:
     """
     Safe DQN with action masking and a cost-value head.
 
-    Safety is enforced at action-selection time:
       1. Invalid actions are masked out (set to -inf).
       2. Among valid actions, any action whose estimated cost C(s,a) exceeds
          `cost_threshold` is further masked unless *all* valid actions are unsafe
@@ -251,6 +283,30 @@ def linear_epsilon_schedule(step: int, eps_start: float, eps_end: float, eps_dec
 # Main training loop
 # ---------------------------------------------------------------------------
 
+def repair_metrics(policy: torch.nn.Module, dataset: Any, verbose = False):
+    states = torch.tensor([f["observation"] for f in dataset], dtype=torch.float32) 
+    applicable_actions = [[i for i, a in enumerate(f["action_mask"]) if int(a) == 1] for f in dataset]       
+    faults = [int(f["faulty_action"]) for f in dataset]
+    logits = policy(states)
+    mask = torch.zeros_like(logits, dtype=torch.bool)
+    for i, valid_actions in enumerate(applicable_actions):
+        mask[i, valid_actions] = True
+    masked_logits = logits.masked_fill(~mask, float('-inf'))
+    predicted_actions = torch.log_softmax(masked_logits, dim=-1).argmax(dim=-1)
+    faults_tensor = torch.tensor(faults)
+    fixed_count = (predicted_actions != faults_tensor).sum().item()
+    
+    if verbose:
+        print(f"{'#':<6} {'Faulty Action':<16} {'New Action':<12} {'Fixed?':<8} {'Observation'}")
+        print("-" * 80)
+        for i, (obs, fault, pred) in enumerate(zip(dataset, faults, predicted_actions.tolist())):
+            fixed = "✓" if pred != fault else "✗"
+            print(f"{i:<6} {fault:<16} {pred:<12} {fixed:<8} {obs['observation']}")
+        print("-" * 80)
+        print(f"Fixed: {fixed_count} / {len(dataset)}")
+    
+    return fixed_count
+
 def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str, Any]] = None):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     experiment_name = args.experiment_name or f"safe_dqn_{timestamp}"
@@ -308,6 +364,13 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
         agent.online_net.load_state_dict(checkpoint["state_dict"])
         agent.target_net.load_state_dict(checkpoint["state_dict"])
 
+    if args.enable_repair:
+        sampler = StandardTraceSampler()
+        collector = OracleFaultCollector()
+        updater = MILPPolicyUpdater()
+        all_faults: list = []
+        fault_cache: set = set()
+
     replay_buffer = ReplayBuffer(hyperparams["buffer_capacity"])
 
     # ----- wandb -----
@@ -331,6 +394,8 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     episode_cost    = 0.0
     episode_len     = 0
     episode_count   = 0
+    episodes_since_last_eval = 0
+    episodes_since_last_repair = 0
     best_eval_reward = -float("inf")
 
     metrics_window = deque(maxlen=100)  # rolling episode stats'
@@ -372,6 +437,8 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
                 "ep_len":    episode_len,
             })
             episode_count  += 1
+            episodes_since_last_eval += 1
+            episodes_since_last_repair += 1
             episode_reward  = 0.0
             episode_cost    = 0.0
             episode_len     = 0
@@ -392,7 +459,8 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
             agent.soft_update_target()
 
         # ----- evaluation -----
-        if not args.disable_eval and eval_env is not None and episode_count % args.eval_freq == 0:
+        if not args.disable_eval and eval_env is not None and episodes_since_last_eval >= args.eval_freq:
+            episodes_since_last_eval = 0
             mean_reward, goal_fraction, avoid_fraction = _evaluate(agent, eval_env, n_episodes=args.n_eval_episodes, enumate_all_init_states=args.enumate_all_init_states, goal_reward=file_args.get("goal_reward", 1.0), failure_reward=file_args.get("failure_reward", -1.0))
             performance_file = file_args.get("performance_file", None)
 
@@ -418,6 +486,59 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
 
             print(f"  ↳ eval  reward={mean_reward:.3f}  goal_frac={goal_fraction}, avoid_frac={avoid_fraction}")
 
+        # ----- repair ------
+        if args.enable_repair and episodes_since_last_repair >= args.repair_freq:
+            episodes_since_last_repair = 0
+            # Placeholder for repair logic - to be implemented
+            q_value_wrapper = QValueOnlyWrapper(agent.online_net)
+            policy_wrapper = NNPolicyWrapper(q_value_wrapper, device=args.device)
+
+            # 2. Sample traces
+            traces = []
+            for _ in range(args.repair_episodes):
+                trace = sampler.sample_trace(
+                    env=train_env.env.env, # Unwrap time and action masker
+                    policy=policy_wrapper,
+                    init_state_idx=-1,
+                    max_steps=args.max_steps,
+                    verbose=False,
+                )
+                traces.append(trace)
+                global_step += len(trace["observations"])  # Account for the additional timesteps used for sampling traces
+                
+            if not traces:
+                continue
+
+            # 3. Collect faults from unsafe traces, deduplicated against full history
+            new_faults_this_round = []
+            duplicates = 0
+
+            for trace in traces:
+                if not trace["is_safe_trajectory"]:
+                    faults = collector.collect_faults(trace, train_env.env.env)  # Unwrap time and action masker
+                    new =  new = [f for f in faults if (tuple(f["observation"]), f["faulty_action"]) not in fault_cache]
+                    duplicates += len(faults) - len(new)
+                    new_faults_this_round.extend(new)
+                    all_faults.extend(new)
+                    fault_cache.update((tuple(f["observation"]), f["faulty_action"]) for f in new)
+            if args.verbose > 0:
+                print(f"Repair iteration: Collected {len(new_faults_this_round)} new faults, {duplicates} duplicates (total unique faults: {len(fault_cache)})")
+            
+
+            
+            repair_time_start = time.perf_counter()
+            _ = updater.update_policy(q_value_wrapper, all_faults)
+            repair_time = time.perf_counter() - repair_time_start
+
+            with open(args.repair_log_file, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    episode_count, round(repair_time, 2), len(all_faults), len(new_faults_this_round)
+                ])
+                f.flush()
+            episode_count += args.repair_episodes
+
+            # repair_metrics(QValueOnlyWrapper(agent.online_net), all_faults, verbose=args.verbose > 0)
     # ----- final save -----
     final_path = model_save_dir / "final_actor.pth"
     agent.save(final_path)
@@ -486,6 +607,16 @@ def run(args):
         writer.writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
         f.flush()
 
+    repair_file = Path(args.repair_log_file)
+    repair_file.parent.mkdir(parents=True, exist_ok=True)
+    if repair_file.exists():
+        repair_file.unlink()
+
+    with open(repair_file, "a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Episodes", "RepairTime", "NumFaultsTotal", "NumFaultsThisRound"])
+        f.flush()
+
     file_args = {
         "jani_model":        args.jani_model,
         "jani_property":     args.jani_property,
@@ -500,7 +631,8 @@ def run(args):
         "max_steps":         args.max_steps,
         "disable_oracle_cache": args.disable_oracle_cache,
         "reduced_memory_mode":  not args.no_memory_reduced_mode,
-        "performance_file": str(performance_file)
+        "performance_file": str(performance_file),
+        "repair_file": str(repair_file)
     }
     
     train_model(args, file_args)
@@ -569,6 +701,13 @@ def main():
     parser.add_argument("--device",           type=str,  default="cpu")
     parser.add_argument("--disable_wandb",    action="store_true")
     parser.add_argument("--perf_file",       type=str,  default="performance_metrics.csv")
+    
+    # Repair
+    parser.add_argument("--enable_repair", action="store_true")
+    parser.add_argument("--repair_freq",    type=int, default=10_000)
+    parser.add_argument("--repair_episodes",   type=int, default=100)
+    parser.add_argument("--repair_algo", type=str)
+    parser.add_argument("--repair_log_file", type=str, default="safe_dqn_repair_log.csv")
 
     args = parser.parse_args()
     run(args)

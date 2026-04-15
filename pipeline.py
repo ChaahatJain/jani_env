@@ -491,7 +491,7 @@ def main() -> None:
         eval_pol_performance = evaluate_policy(env, policy_model, eval_indices)
         performance_evaluation_seconds = time.perf_counter() - performance_evaluation_time
         duplicates = 0
-        for i in range(args.traces_per_iteration):
+        for i in range(len(repair_indices)):
             trace_start_time = time.perf_counter()
             init_state_idx = repair_indices[i] # Randomly sample initial state from repair start states
             # Sample a trace and store it along with whether we reached safety or unsafety.

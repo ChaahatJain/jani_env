@@ -6,12 +6,13 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
 from datetime import datetime
 
-from callbacks import SafetyEvalCallback, WandbCallback, SaveActorCallback
+from callbacks import SafetyEvalCallback, WandbCallback, SaveActorCallback, ModelRepairCallback
 from jani.env import JANIEnv
 from utils import create_env, create_safety_eval_file_args
 
 from sb3_contrib import MaskablePPO
 from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
+
 
 # Optional imports for advanced features
 try:
@@ -37,6 +38,7 @@ except ImportError:
 
 def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str, Any]] = None):
     """Train the model with given hyperparameters."""
+
     # Set up logging directories
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     experiment_name = args.experiment_name or f"jani_training_{timestamp}"
@@ -120,6 +122,17 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
             goal_reward=args.goal_reward,
             failure_reward=args.failure_reward,
         )
+        if args.enable_repair:
+            repair_callback = ModelRepairCallback(
+                repair_env = train_env.env.env,
+                repair_freq=args.repair_freq,
+                n_episodes_for_repair=args.repair_episodes,
+               save_actor_callback=save_actor_callback,
+               max_steps = args.max_steps,
+               log_file = args.repair_log_file,
+               verbose=args.verbose
+            )
+            callbacks.append(repair_callback)
         callbacks.append(save_actor_callback)
 
     # Create safety evaluation environment and callback
@@ -139,7 +152,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     model.learn(
         total_timesteps=args.total_timesteps,
         callback=callbacks,
-        tb_log_name="PPO",
+        tb_log_name=f"{model_save_dir}/PPO",
         reset_num_timesteps=reset_timesteps
     )
 
@@ -234,6 +247,13 @@ def main():
     parser.add_argument('--disable_wandb', action='store_true', 
                         help="Disable Weights & Biases logging.")
     parser.add_argument("--perf_file", type=str)
+
+    # Interleaving repair
+    parser.add_argument("--enable_repair", action="store_true")
+    parser.add_argument("--repair_freq",    type=int, default=10_000)
+    parser.add_argument("--repair_episodes",   type=int, default=100)
+    parser.add_argument("--repair_algo", type=str)
+    parser.add_argument("--repair_log_file", type=str, default="repair_log.csv")
     
 
     args = parser.parse_args()

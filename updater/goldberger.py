@@ -46,16 +46,18 @@ class MILPPolicyUpdater(PolicyUpdaterInterface):
         
         def add_output_constraints(hidden, forbidden_action, app_actions, index=0):
             good_actions = list(set(g for g in app_actions if g != forbidden_action))
-            # print(good_actions)
+            hidden = hidden * 100 # scale up hidden values to avoid numerical issues with small values
+            print(good_actions)
             z = model.addVars(good_actions, vtype=GRB.BINARY, name=f"z_{index}") # binary variables for the disjunction
-
+            assert good_actions != [], f"No good actions for forbidden action {forbidden_action} at index {index} with applicable actions {app_actions}!"
             # at least one must hold
             model.addConstr(quicksum(z[g] for g in good_actions) >= 1)
 
             for g in good_actions:
+                assert n_hidden > 0, "No hidden layer found! The method only supports tuning the final layer of a neural network with at least one hidden layer."
                 good_expr = quicksum(w[g,j] * hidden[j] for j in range(n_hidden)) + biases[g]
                 bad_expr  = quicksum(w[forbidden_action, j] * hidden[j] for j in range(n_hidden)) + biases[forbidden_action]
-
+                
                 # indicator constraint
                 model.addGenConstrIndicator(z[g], True, good_expr >= bad_expr + eps)
         
@@ -105,15 +107,15 @@ class MILPPolicyUpdater(PolicyUpdaterInterface):
             print(f"\t\t- problem INFEASIBLE! (runtime: {m.Runtime:.3f} s)")
 
             # # Analyze infeasible instances (now in ad hoc file)
-            # m.computeIIS()
+            m.computeIIS()
         
             # # Save to a file (optional)
-            # m.write("model.ilp")  # or "model.iis" in LP format
+            m.write("model.ilp")  # or "model.iis" in LP format
             
             # # Print out the IIS
-            # for c in m.getConstrs():
-            #     if c.IISConstr:  # This constraint is part of the IIS
-            #         print(f"Infeasible constraint: {c.constrName}")
+            for c in m.getConstrs():
+                if c.IISConstr:  # This constraint is part of the IIS
+                    print(f"Infeasible constraint: {c.constrName}")
         
             status = "infeasible"
             return status, None
@@ -153,7 +155,19 @@ class MILPPolicyUpdater(PolicyUpdaterInterface):
         head = policy.model[-1]                # Linear(64, output_dim)
         hidden = feature_extractor(states).detach()  # shape: [batch, 64]
         model, new_weights = self.get_linear_problem(yforb=faults, applicable_actions=applicable_actions, hidden_values=hidden, final_layer_weights=head.weight.detach().numpy(), biases=head.bias.detach().numpy(), eps=1e-4, verbose=False)
-        status, updated_weights = self.solve_linear_problem(model, head.weight.detach().numpy(), new_weights)  
+        status, updated_weights = self.solve_linear_problem(model, head.weight.detach().numpy(), new_weights)
+        if status == "infeasible":
+            model.write("infeasible_model.lp")
+            print("\t\t- no weight update possible to fix all faults! (infeasible problem)")
+            print(f"{'#':<6} {'Faulty Action':<16}  {'Observation'}")
+            print("-" * 80)
+            for i, (obs, fault) in enumerate(zip(dataset, faults)):
+                print(f"{i:<6} {fault:<16} {obs['observation']}")
+                if i > 5:
+                    break
+            print("-" * 80)
+            assert False
+            return {"status": "infeasible"}
         if updated_weights is not None:
             head.weight = nn.Parameter(torch.tensor(updated_weights, dtype=torch.float32))      
 

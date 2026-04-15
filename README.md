@@ -35,9 +35,9 @@ We should also try running a naive variant where we just continue RL for 1 milli
 
 ## Commands I am using on my side for running RL
 
-python -m learning --algo mask_ppo --jani_model benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/model.jani --jani_property benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/model.jani --start_states benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/pa_model_random_starts_100000.jani --goal_reward 1.0 --failure_reward -1.0 --max_steps 256 --total_timesteps 30000 --n_eval_episodes 50 --eval_freq 10 --experiment_name one_way_line_15_10_det --model_save_dir /jani_env/models/ppo/one_way_line_15_10 --disable_wandb --verbose 1 --device cpu --seed 50 --perf_file logs/ppo.csv --save_all_checkpoints
+Mask PPO without repair: python -m learning --algo mask_ppo --jani_model benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/model.jani --jani_property benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/model.jani --start_states benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/pa_model_random_starts_100000.jani --goal_reward 1.0 --failure_reward -1.0 --max_steps 256 --total_timesteps 30000 --n_eval_episodes 50 --eval_freq 10 --experiment_name one_way_line_15_10_det --model_save_dir /jani_env/models/ppo/one_way_line_15_10 --disable_wandb --verbose 1 --device cpu --seed 50 --perf_file logs/ppo_with_repair.csv --save_all_checkpoints
 
-Remember to change the save directories and perf_files for these methods!!
+SAfeDQN with repair: python -m learning --algo safe_dqn --jani_model benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/model.jani --jani_property benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/model.jani --start_states benchmarks_generator/benchmarks/one_way_line_det/one_way_line_15_10/pa_model_random_starts_100000.jani --goal_reward 1.0 --failure_reward -1.0 --max_steps 3000 --total_timesteps 300000 --n_eval_episodes 50 --eval_freq 10 --experiment_name one_way_line_15_10_det --n_steps 1000 --model_save_dir /jani_env/models/ppo/one_way_line_15_10 --disable_wandb --verbose 1 --device cpu --seed 50 --perf_file logs/safe_dqn_with_repair.csv --save_all_checkpoints --enable_repair --repair_freq 20 --repair_episodes 100 --repair_algo milp
 
 The algo we support are: mask_ppo, ppo_lag and safe_dqn. 
 Note that safe_dqn requires far larger parameters than ppo. I show two examples below.
@@ -45,3 +45,6 @@ Note that safe_dqn requires far larger parameters than ppo. I show two examples 
 PPO Lagrangian hyperparams: --total_timesteps 100_000 
 
 SafeDQN hyperparams: --total_timesteps 1_000_000 (even this is not sufficient to get meaningful enough results)!
+
+
+Note that for running RL with repair, currently only MILP is supported!

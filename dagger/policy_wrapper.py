@@ -11,6 +11,7 @@ class NNPolicyWrapper(PolicyInterface):
     def __init__(self, model: torch.nn.Module, device: torch.device):
         self.model = model
         self.device = device
+    
         
     def get_action(self, state: Any, action_mask: Any = None) -> Any:
         self.model.eval()

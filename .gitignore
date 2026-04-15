@@ -21,3 +21,6 @@ cluster/*
 results_parser/plots/*
 results_parser/test/*
 results_parser/*.png
+*.lp
+*.ilp
+results_parser/*.png
