@@ -17,7 +17,8 @@ class JANIEnumEnv(JANIEnv):
                  use_strict_rules: bool = False, 
                  unsafe_reward: float = -0.01,
                  disable_oracle_cache: bool = False,
-                 reduced_memory_mode: bool = False) -> None:
+                 reduced_memory_mode: bool = False,
+                 max_training_idx: int = 80000) -> None:
         super().__init__(jani_model_path, 
                          jani_property_path, 
                          start_states_path, 
@@ -33,10 +34,11 @@ class JANIEnumEnv(JANIEnv):
                          reduced_memory_mode)
         
         self._init_idx = 0 # Track the current index for enumeration of initial states
+        self._max_training_idx = max_training_idx # Maximum index for training
 
     def reset(self, seed: int | None = None, options: dict | None = None) -> tuple[dict, dict]:
-        if self._init_idx >= self._engine.get_num_init_states():
-            self._init_idx = 0 # Reset index if it exceeds the number of initial states
+        if self._init_idx >= self._max_training_idx:
+            self._init_idx = 0 # Reset index if it exceeds the maximum training index
 
         # Set the initial state to the specified one based on the current index    
         state_vec = self._engine.reset_with_index(self._init_idx)
