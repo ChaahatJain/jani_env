@@ -576,7 +576,21 @@ class PPOLagrangian:
 
     def load(self, path: Path):
         ckpt = torch.load(path, map_location=self.device, weights_only=False)
-        self.policy.load_state_dict(ckpt["state_dict"])
+        saved_sd = ckpt["state_dict"]
+
+        # Detect simple Policy checkpoint (keys like "model.0.weight")
+        if any(k.startswith("model.") for k in saved_sd):
+            print("Detected simple Policy checkpoint – remapping weights to ActorCritic...")
+            new_sd = self.policy.state_dict()
+            # Map simple model layers → actor layers (same structure)
+            for k, v in saved_sd.items():
+                actor_key = k.replace("model.", "actor.", 1)
+                if actor_key in new_sd:
+                    new_sd[actor_key] = v
+            # reward_vf and cost_vf keep random init (no value info in simple Policy)
+            self.policy.load_state_dict(new_sd)
+        else:
+            self.policy.load_state_dict(saved_sd)
 
 def run(args):
 

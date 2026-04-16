@@ -362,8 +362,33 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     if args.load_policy_path:
         print(f"Loading pre-trained policy from {args.load_policy_path}...")
         checkpoint = torch.load(args.load_policy_path, map_location=args.device, weights_only=False)
-        agent.online_net.load_state_dict(checkpoint["state_dict"])
-        agent.target_net.load_state_dict(checkpoint["state_dict"])
+        saved_sd = checkpoint["state_dict"]
+
+        # Detect simple Policy checkpoint (keys like "model.0.weight")
+        if any(k.startswith("model.") for k in saved_sd):
+            print("Detected simple Policy checkpoint – remapping weights to SafeDQNNetwork...")
+            new_sd = agent.online_net.state_dict()
+            # Identify hidden vs output layers in simple Policy
+            layer_keys = sorted(
+                [k for k in saved_sd if k.startswith("model.") and "weight" in k],
+                key=lambda k: int(k.split(".")[1]),
+            )
+            hidden_indices = [int(k.split(".")[1]) for k in layer_keys[:-1]]
+            output_index = int(layer_keys[-1].split(".")[1])
+
+            # Hidden layers → feature_net
+            for feat_idx, src_idx in enumerate(hidden_indices):
+                for suffix in ("weight", "bias"):
+                    new_sd[f"feature_net.{feat_idx * 2}.{suffix}"] = saved_sd[f"model.{src_idx}.{suffix}"]
+            # Output layer → q_head (c_head stays random-initialized)
+            for suffix in ("weight", "bias"):
+                new_sd[f"q_head.{suffix}"] = saved_sd[f"model.{output_index}.{suffix}"]
+
+            agent.online_net.load_state_dict(new_sd)
+            agent.target_net.load_state_dict(new_sd)
+        else:
+            agent.online_net.load_state_dict(saved_sd)
+            agent.target_net.load_state_dict(saved_sd)
 
     if args.enable_repair:
         sampler = StandardTraceSampler()

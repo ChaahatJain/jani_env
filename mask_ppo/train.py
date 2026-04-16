@@ -85,7 +85,35 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     if args.load_policy_path:
         print(f"Loading pre-trained policy from {args.load_policy_path}...")
         checkpoint = torch.load(args.load_policy_path, map_location=args.device, weights_only=False)
-        model.policy.load_state_dict(checkpoint['state_dict'])
+        saved_sd = checkpoint['state_dict']
+
+        # Detect if checkpoint comes from a simple Policy (dagger.policy.Policy)
+        # which uses keys like "model.0.weight" instead of SB3's policy keys.
+        if any(k.startswith("model.") for k in saved_sd):
+            print("Detected simple Policy checkpoint – remapping weights to MaskableActorCriticPolicy...")
+            # Separate hidden-layer weights from the output-layer weights.
+            # Simple Policy: model.0, model.2 = hidden layers; last Linear = action head.
+            layer_keys = sorted(
+                [k for k in saved_sd if k.startswith("model.") and "weight" in k],
+                key=lambda k: int(k.split(".")[1]),
+            )
+            # The last linear layer maps to action_net; earlier layers map to mlp_extractor
+            hidden_indices = [int(k.split(".")[1]) for k in layer_keys[:-1]]
+            output_index = int(layer_keys[-1].split(".")[1])
+
+            new_sd = model.policy.state_dict()  # start from current (randomly initialized) state
+            for pi_idx, src_idx in enumerate(hidden_indices):
+                for suffix in ("weight", "bias"):
+                    src_key = f"model.{src_idx}.{suffix}"
+                    new_sd[f"mlp_extractor.policy_net.{pi_idx * 2}.{suffix}"] = saved_sd[src_key]
+                    new_sd[f"mlp_extractor.value_net.{pi_idx * 2}.{suffix}"] = saved_sd[src_key].clone()
+            for suffix in ("weight", "bias"):
+                src_key = f"model.{output_index}.{suffix}"
+                new_sd[f"action_net.{suffix}"] = saved_sd[src_key]
+
+            model.policy.load_state_dict(new_sd)
+        else:
+            model.policy.load_state_dict(saved_sd)
     
     # Placeholder for callbacks
     callbacks = []
