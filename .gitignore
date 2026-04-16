@@ -17,3 +17,4 @@ cluster_utils/one_way_line_only
 cluster_utils/bouncing_ball_linetrack
 pipeline*
 artifacts/
+benchmarks_generator/generator/*
