@@ -37,11 +37,15 @@ class JANIEnumEnv(JANIEnv):
         self._max_training_idx = max_training_idx # Maximum index for training
 
     def reset(self, seed: int | None = None, options: dict | None = None) -> tuple[dict, dict]:
-        if self._init_idx >= self._max_training_idx:
-            self._init_idx = 0 # Reset index if it exceeds the maximum training index
+        if options is not None and "idx" in options:
+            idx = options["idx"]
+        else:
+            if self._init_idx > self._max_training_idx:
+                self._init_idx = 0 # Reset index if it exceeds the maximum training index
+            idx = self._init_idx
 
         # Set the initial state to the specified one based on the current index    
-        state_vec = self._engine.reset_with_index(self._init_idx)
+        state_vec = self._engine.reset_with_index(idx)
         
         self._init_idx += 1 # Increment index for the next reset
         self._reseted = True

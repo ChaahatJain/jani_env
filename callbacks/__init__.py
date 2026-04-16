@@ -89,7 +89,7 @@ class SaveActorCallback(BaseCallback):
         self.save_path.mkdir(parents=True, exist_ok=True)
 
     def _on_step(self) -> bool:
-        if self.save_freq > 0 and self.n_calls % self.save_freq == 0:
+        if self.save_freq > 0 and (self.n_calls - 1) % self.save_freq == 0:
             policy = self.model.policy
             network_paras = {
                 'input_dim': self.training_env.observation_space.shape[0],
