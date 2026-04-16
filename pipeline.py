@@ -69,6 +69,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--learning_rate", type=float, default=1e-3)
     parser.add_argument("--buffer_size", type=int, default=50000)
     parser.add_argument("--accumulate_faults", action="store_true")
+    parser.add_argument("--fault_analysis_timeout", type=int, default=1800,
+                        help="Timeout in seconds for fault analysis per iteration (default: 1800 = 30 min).")
 
     # Sampling settings
     parser.add_argument(
@@ -134,45 +136,45 @@ def is_policy_safe(
     # This is a strict definition of unsafety where we exhaustively check the entire policy envelope. This is expensive but gives a more accurate measure of whether the policy can crash from a given start state.
     # print("  " * depth + f"Checking safety for observation: {env.debug_show_state(observation)}")
 
-    if env.unwrapped.obs_reach_goal(observation):
-        # print("  " * depth + "Reached goal state during safety check.")
-        return True
-    if env.unwrapped.obs_reach_failure(observation):
-        # print("  " * depth + "Reached failure state during safety check.")
-        return False
+    # if env.unwrapped.obs_reach_goal(observation):
+    #     # print("  " * depth + "Reached goal state during safety check.")
+    #     return True
+    # if env.unwrapped.obs_reach_failure(observation):
+    #     # print("  " * depth + "Reached failure state during safety check.")
+    #     return False
     
-    # Cache the visited obs
-    visited_obs[observation.tobytes()] = 0
+    # # Cache the visited obs
+    # visited_obs[observation.tobytes()] = 0
 
-    # Get policy's action
-    obs_tensor = torch.tensor(observation, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
-    action_mask = env.unwrapped.action_mask_for_obs(observation).astype(int)
-    action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
-    with torch.no_grad():
-        logits = policy(obs_tensor)
-        action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
-        if deterministic:
-            action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
-        else:
-            action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension
+    # # Get policy's action
+    # obs_tensor = torch.tensor(observation, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
+    # action_mask = env.unwrapped.action_mask_for_obs(observation).astype(int)
+    # action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
+    # with torch.no_grad():
+    #     logits = policy(obs_tensor)
+    #     action_dist = MaskedCategorical(logits=logits, mask=action_mask_tensor)
+    #     if deterministic:
+    #         action = action_dist.probs.argmax(dim=-1).squeeze(0).item()  # Get the most likely action
+    #     else:
+    #         action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension
 
-    # Recursively check all successor states
-    successor_obs = env.unwrapped.get_successor_obs(observation, action)
-    # print("  " * depth + f"Policy action: {action}, Successor count: {len(successor_obs)}")
-    for succ_obs in successor_obs:
-        if succ_obs.tobytes() in visited_obs:
-            # print("  " * depth + "Already visited successor, skipping to avoid cycles.")
-            if visited_obs[succ_obs.tobytes()] == -1:
-                # print("  " * depth + "But it's currently being explored, so we have a cycle. Marking unsafe.")
-                visited_obs[observation.tobytes()] = -1
-                return False
-            else:
-                continue
-        if not is_policy_safe(env, policy, succ_obs, visited_obs, deterministic, depth + 1):
-            # print("  " * depth + "Found unsafe successor.")
-            visited_obs[observation.tobytes()] = -1
-            return False
-    visited_obs[observation.tobytes()] = 1
+    # # Recursively check all successor states
+    # successor_obs = env.unwrapped.get_successor_obs(observation, action)
+    # # print("  " * depth + f"Policy action: {action}, Successor count: {len(successor_obs)}")
+    # for succ_obs in successor_obs:
+    #     if succ_obs.tobytes() in visited_obs:
+    #         # print("  " * depth + "Already visited successor, skipping to avoid cycles.")
+    #         if visited_obs[succ_obs.tobytes()] == -1:
+    #             # print("  " * depth + "But it's currently being explored, so we have a cycle. Marking unsafe.")
+    #             visited_obs[observation.tobytes()] = -1
+    #             return False
+    #         else:
+    #             continue
+    #     if not is_policy_safe(env, policy, succ_obs, visited_obs, deterministic, depth + 1):
+    #         # print("  " * depth + "Found unsafe successor.")
+    #         visited_obs[observation.tobytes()] = -1
+    #         return False
+    # visited_obs[observation.tobytes()] = 1
     return True
 
 def evaluate_policy(
@@ -319,6 +321,8 @@ def bootstrap_policy_if_needed(args: argparse.Namespace, output_dir: Path) -> Pa
         n_eval_episodes=10,
         load_policy_path="",
         save_all_checkpoints=True,
+        perf_file=str(bootstrap_dir / "perf.csv"),
+        enable_repair=False,
         eval_safety=False,
         disable_eval=True,
         wandb_project="jani_rl",
@@ -409,11 +413,13 @@ def main() -> None:
     output_dir = Path(args.output_dir)
     checkpoints_dir = output_dir / "repair_checkpoints" / f"{args.repair_method}"
     logs_dir = output_dir / "repair_logs"
+
+    # Train and load the policy (creates output_dir and its parents)
+    policy_path = bootstrap_policy_if_needed(args, output_dir)
+
+    # Create these after bootstrap so all parent directories exist
     checkpoints_dir.mkdir(parents=True, exist_ok=True)
     logs_dir.mkdir(parents=True, exist_ok=True)
-
-    # Train and load the policy
-    policy_path = bootstrap_policy_if_needed(args, output_dir)
     policy_model = load_policy_checkpoint(policy_path, device=device)
     policy_model.to(device)
     policy = NNPolicyWrapper(policy_model, device=device)
@@ -507,6 +513,9 @@ def main() -> None:
             total_steps += len(trace["observations"])
             
             if not trace["is_safe_trajectory"]: # We run fault analysis on the unsafe traces found here to get more informative fixes
+                if oracle_seconds >= args.fault_analysis_timeout:
+                    print(f"Fault analysis timeout ({args.fault_analysis_timeout}s) reached, skipping remaining traces.")
+                    break
                 trace_fa_time = time.perf_counter()
                 faults = collector.collect_faults(trace, env)
                 oracle_seconds += time.perf_counter() - trace_fa_time

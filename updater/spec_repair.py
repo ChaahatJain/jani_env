@@ -56,6 +56,9 @@ class SpecRepairPolicyUpdater(PolicyUpdaterInterface):
         return (penalty_weights * per_sample_penalty).mean()
 
     def update_policy(self, policy: torch.nn.Module, dataset: Any) -> Dict[str, float]:
+        if not dataset:
+            return {"status": "no_faults"}
+
         policy.train()
         policy.to(self.device)
 

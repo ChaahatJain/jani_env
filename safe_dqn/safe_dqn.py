@@ -22,6 +22,7 @@ from dagger.policy_wrapper import NNPolicyWrapper
 from dagger.fault_collector import OracleFaultCollector
 
 from updater.goldberger import MILPPolicyUpdater
+from updater.spec_repair import SpecRepairPolicyUpdater
 
 import csv
 import time
@@ -367,7 +368,11 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     if args.enable_repair:
         sampler = StandardTraceSampler()
         collector = OracleFaultCollector()
-        updater = MILPPolicyUpdater()
+        if args.repair_algo == "spec":
+            optimizer = optim.Adam(agent.online_net.parameters(), lr=hyperparams["lr"])
+            updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=hyperparams["batch_size"], device=args.device)
+        else:
+            updater = MILPPolicyUpdater()
         all_faults: list = []
         fault_cache: set = set()
 

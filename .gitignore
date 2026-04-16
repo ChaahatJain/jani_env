@@ -24,3 +24,4 @@ results_parser/*.png
 *.lp
 *.ilp
 results_parser/*.png
+test_logs/

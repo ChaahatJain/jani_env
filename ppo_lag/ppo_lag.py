@@ -31,6 +31,7 @@ from utils import create_env, create_eval_file_args
 from dagger.sampler import StandardTraceSampler
 from dagger.fault_collector import OracleFaultCollector
 from updater.goldberger import MILPPolicyUpdater
+from updater.spec_repair import SpecRepairPolicyUpdater
 from dagger.policy_wrapper import NNPolicyWrapper
 from dagger.policy import Policy
 
@@ -357,10 +358,14 @@ class PPOLagrangian:
         d = max(n_updates, 1)
         return {k: v / d for k, v in totals.items()}
 
-    def _repair_init(self):
+    def _repair_init(self, repair_algo="milp"):
         self.sampler = StandardTraceSampler()
         self.collector = OracleFaultCollector()
-        self.updater = MILPPolicyUpdater()
+        if repair_algo == "spec":
+            optimizer = torch.optim.Adam(self.policy.actor.parameters(), lr=1e-3)
+            self.updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=64, device=self.device)
+        else:
+            self.updater = MILPPolicyUpdater()
         # Fault cache — persists across all repair rounds
         self.all_faults: list = []
         self.fault_cache: set = set()
@@ -379,7 +384,7 @@ class PPOLagrangian:
 
         for trace in traces:
             if not trace["is_safe_trajectory"]:
-                faults = self.collector.collect_faults(trace, self.repair_env)
+                faults = self.collector.collect_faults(trace, self.env.env.env)
                 new = [
                     f for f in faults
                     if (tuple(f["observation"]), f["faulty_action"]) not in self.fault_cache
@@ -412,7 +417,8 @@ class PPOLagrangian:
         episodes_since_last_repair = 0
         checkpoint_idx = 0
         if repair_args is not None:
-            self._repair_init()
+            self._repair_init(repair_args.get("repair_algo", "milp"))
+            self.log_file = repair_args["repair_file"]
         time_now = time.time()
         while timestep < total_timesteps:
             rollout, obs, mean_ep_cost = self._collect_rollout(obs)
