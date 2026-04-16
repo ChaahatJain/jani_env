@@ -82,6 +82,8 @@ class ActorCritic(nn.Module):
         Returns (action, log_prob, reward_value, cost_value).
         """
         logits = self.actor(obs).masked_fill(~mask, -float('inf'))
+        if not mask.any():
+            logits = torch.zeros_like(logits)
         dist   = torch.distributions.Categorical(logits=logits)
         action = dist.sample()
         rv, cv = self.get_values(obs)
@@ -503,14 +505,14 @@ class PPOLagrangian:
                 _ = self.updater.update_policy(self.policy.actor, self.all_faults)
                 repair_time = time.perf_counter() - repair_time_start
 
-                with open(self.log_file, "a", newline="") as f:
+                with open(repair_args["repair_file"], "a", newline="") as f:
                     writer = csv.writer(f)
                     writer.writerow([
                         episodes, round(repair_time, 2), len(self.all_faults), len(new_faults)
                     ])
                     f.flush()
                 episodes += repair_args["repair_episodes"]  # Account for the additional episodes used for repair
-
+                episodes_since_last_eval += repair_args["repair_episodes"]
                 
         self._save(model_save_dir / "final_actor.pth")
         print(f"Saved final actor → {model_save_dir / 'final_actor.pth'}")

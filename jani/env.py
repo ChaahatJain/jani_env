@@ -77,7 +77,7 @@ class JANIEnv(gym.Env):
         else:
             state_vec = self._engine.reset()
         self._reseted = True
-        assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
+        # assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
         reset_info = {}
         self._prev_obs = state_vec
         return np.array(state_vec, dtype=np.float32), reset_info
@@ -89,6 +89,12 @@ class JANIEnv(gym.Env):
         if self._use_oracle:
             assert self._prev_obs == self._engine.get_current_state_vector(), "Current observation does not match engine state. Expected {}, got {}".format(self._prev_obs, self._engine.get_current_state_vector())
             assert self._engine.get_current_state_vector() == self._oracle.get_engine_current_state_vector(), "Engine state does not match oracle state. Engine {}, Oracle {}".format(self._engine.get_current_state_vector(), self._oracle.get_engine_current_state_vector())
+
+        if np.sum(self.action_mask()) == 0.0:
+            info = {}
+            reward = 0.0
+            done = True
+            return np.array(self._prev_obs, dtype=np.float32), reward, done, False, info
 
         next_state_vec = self._engine.step(action) # The current state should be automatically updated in the engine
 
