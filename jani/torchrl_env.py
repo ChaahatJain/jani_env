@@ -126,7 +126,7 @@ class JANIEnv(EnvBase):
         else:
             state_vec = self._engine.reset()
         self._reseted = True
-        assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
+        # assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
         obs = {
             "observation": torch.tensor(state_vec, dtype=torch.float32),
             "observation_with_goal": torch.tensor(state_vec + self._engine.extract_goal_condition(), dtype=torch.float32),

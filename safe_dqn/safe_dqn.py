@@ -537,6 +537,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
                 ])
                 f.flush()
             episode_count += args.repair_episodes
+            episodes_since_last_eval += args.repair_episodes
 
             # repair_metrics(QValueOnlyWrapper(agent.online_net), all_faults, verbose=args.verbose > 0)
     # ----- final save -----

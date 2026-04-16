@@ -1,5 +1,7 @@
 import torch
 from dagger.interfaces import PolicyUpdaterInterface
+import os
+os.environ["LC_ALL"] = "C"
 from gurobipy import Model, GRB, quicksum
 from typing import Any, Dict
 import time
@@ -46,8 +48,9 @@ class MILPPolicyUpdater(PolicyUpdaterInterface):
         
         def add_output_constraints(hidden, forbidden_action, app_actions, index=0):
             good_actions = list(set(g for g in app_actions if g != forbidden_action))
-            hidden = hidden * 100 # scale up hidden values to avoid numerical issues with small values
-            print(good_actions)
+            # hidden = hidden * 100 # scale up hidden values to avoid numerical issues with small values
+            # biases = biases * 100 # scale up biases to avoid numerical issues? 
+            # print(good_actions)
             z = model.addVars(good_actions, vtype=GRB.BINARY, name=f"z_{index}") # binary variables for the disjunction
             assert good_actions != [], f"No good actions for forbidden action {forbidden_action} at index {index} with applicable actions {app_actions}!"
             # at least one must hold
@@ -151,8 +154,9 @@ class MILPPolicyUpdater(PolicyUpdaterInterface):
         applicable_actions = [[i for i, a in enumerate(f["action_mask"]) if int(a) == 1] for f in dataset]
         faults = [int(f["faulty_action"]) for f in dataset]
         
-        feature_extractor = policy.model[:-1]  # [..., Linear(64,64), ReLU]
-        head = policy.model[-1]                # Linear(64, output_dim)
+        seq = policy.model if hasattr(policy, 'model') else policy
+        feature_extractor = seq[:-1]
+        head = seq[-1]
         hidden = feature_extractor(states).detach()  # shape: [batch, 64]
         model, new_weights = self.get_linear_problem(yforb=faults, applicable_actions=applicable_actions, hidden_values=hidden, final_layer_weights=head.weight.detach().numpy(), biases=head.bias.detach().numpy(), eps=1e-4, verbose=False)
         status, updated_weights = self.solve_linear_problem(model, head.weight.detach().numpy(), new_weights)

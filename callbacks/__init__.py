@@ -128,7 +128,7 @@ def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_st
         
         rewards.append(episode_reward)
     mean_reward = np.mean(rewards)
-    print("Evaluation statistics:", mean_reward, goal_count, avoid_count, num_iter)
+    # print("Evaluation statistics:", mean_reward, goal_count, avoid_count, num_iter)
     return mean_reward, goal_count / num_iter, avoid_count / num_iter
 
 import csv
@@ -154,6 +154,7 @@ class SaveActorCallback(BaseCallback):
     def _on_training_start(self) -> None:
         self.start_time = time.time()
         self.episodes_count = 0
+        Path(self.log_path).parent.mkdir(parents=True, exist_ok=True)
         with open(self.log_path, "w", newline="") as f:
             csv.writer(f).writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
             
@@ -237,6 +238,7 @@ class ModelRepairCallback(BaseCallback):
         self.verbose = verbose
 
         self.log_file = log_file
+        Path(self.log_file).parent.mkdir(parents=True, exist_ok=True)
         with open(self.log_file, "w", newline="") as f:
             csv.writer(f).writerow(["Episodes", "RepairTime", "NumFaultsTotal", "NumFaultsThisRound"])
 
@@ -352,6 +354,13 @@ class ModelRepairCallback(BaseCallback):
         sb3_state["action_net.bias"]                   = repaired_state["model.4.bias"]
         self.model.policy.load_state_dict(sb3_state)
 
+        optimizer = self.model.policy.optimizer
+        # Find and reset state only for action_net parameters
+        for name, param in self.model.policy.named_parameters():
+            if "action_net" in name or "policy_net" in name:
+                if param in optimizer.state:
+                    optimizer.state[param] = {}
+
         if self.verbose:
             print(f"[ModelRepairCallback] update_info: {update_info}")
             # repair_metrics(self._build_policy_wrapper().model, self.all_faults, self.verbose)
@@ -362,6 +371,8 @@ class ModelRepairCallback(BaseCallback):
                     self.total_episodes, round(repair_time, 2), len(self.all_faults), len(new_faults)
                 ])
                 f.flush()
+
+        
 
         # 6. Inflate SaveActorCallback counter so it fires on next step
         self.save_actor_callback.episodes_since_last_save += self.n_episodes_for_repair
