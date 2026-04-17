@@ -1,5 +1,5 @@
 # -------- Config --------
-IMAGE := garricklin/jani_env
+IMAGE := garricklin/jani_env_forked
 SHA := $(shell git rev-parse --short HEAD)
 BUILD_TIME := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 
