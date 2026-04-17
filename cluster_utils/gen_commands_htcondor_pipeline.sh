@@ -5,6 +5,11 @@
 
 set -e
 
+# Helper function to normalize paths (remove trailing slashes and double slashes)
+normalize_path() {
+    echo "$1" | sed 's:/*$::' | sed 's://*:/:g' | sed 's:/\./:/:g' | sed 's:^\./::'
+}
+
 # Default values
 LOG_DIR="logs"
 MODEL_SAVE_DIR="models"
@@ -95,6 +100,12 @@ if [[ -z "$OUTPUT_FILE" ]]; then
     exit 1
 fi
 
+# Normalize input paths (strip trailing slashes and double slashes)
+ROOT_DIR=$(normalize_path "$ROOT_DIR")
+CONDOR_PREFIX=$(normalize_path "$CONDOR_PREFIX")
+LOG_DIR=$(normalize_path "$LOG_DIR")
+MODEL_SAVE_DIR=$(normalize_path "$MODEL_SAVE_DIR")
+
 # Function to generate command for a single benchmark
 gen_command_for_benchmark() {
     local benchmark_dir="$1"
@@ -119,23 +130,34 @@ gen_command_for_benchmark() {
     benchmark_name=$(basename "$benchmark_dir")
 
     # Create log directories
-    local domain_log_dir="${CONDOR_PREFIX}/${LOG_DIR}/${domain_name}"
-    local benchmark_log_dir="${domain_log_dir}/${benchmark_name}"
+    local domain_log_dir
+    domain_log_dir=$(normalize_path "${CONDOR_PREFIX}/${LOG_DIR}/${domain_name}")
+    local benchmark_log_dir
+    benchmark_log_dir=$(normalize_path "${domain_log_dir}/${benchmark_name}")
     mkdir -p "$benchmark_log_dir"
 
     # Create model save directories
-    local domain_model_save_dir="${CONDOR_PREFIX}/${MODEL_SAVE_DIR}/${domain_name}"
-    local benchmark_model_save_dir="${domain_model_save_dir}/${benchmark_name}"
-    local rl_policy_save_dir="${benchmark_model_save_dir}/rl_policies"
-    local repair_policy_save_dir="${benchmark_model_save_dir}/repair_policies"
+    local domain_model_save_dir
+    domain_model_save_dir=$(normalize_path "${CONDOR_PREFIX}/${MODEL_SAVE_DIR}/${domain_name}")
+    local benchmark_model_save_dir
+    benchmark_model_save_dir=$(normalize_path "${domain_model_save_dir}/${benchmark_name}")
+    local rl_policy_save_dir
+    rl_policy_save_dir=$(normalize_path "${benchmark_model_save_dir}/rl_policies")
+    local repair_policy_save_dir
+    repair_policy_save_dir=$(normalize_path "${benchmark_model_save_dir}/repair_policies")
     mkdir -p "$rl_policy_save_dir"
     mkdir -p "$repair_policy_save_dir"
 
     # Build command (prepend CONDOR_PREFIX to model/property paths)
+    local jani_model_path
+    jani_model_path=$(normalize_path "${CONDOR_PREFIX}/${jani_model}")
+    local property_file_path
+    property_file_path=$(normalize_path "${CONDOR_PREFIX}/${property_file}")
+
     local cmd="pipeline_enum.py"
-    cmd+=" --jani_model ${CONDOR_PREFIX}/${jani_model}"
-    cmd+=" --jani_property ${CONDOR_PREFIX}/${property_file}"
-    cmd+=" --start_states ${CONDOR_PREFIX}/${property_file}"
+    cmd+=" --jani_model ${jani_model_path}"
+    cmd+=" --jani_property ${property_file_path}"
+    cmd+=" --start_states ${property_file_path}"
     cmd+=" --disable_wandb"
     cmd+=" --max_iterations ${MAX_ITERATIONS}"
     cmd+=" --num_traces_per_iter ${NUM_TRACES_PER_ITER}"
