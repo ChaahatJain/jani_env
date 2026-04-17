@@ -196,10 +196,8 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
         for batch in dataloader:
             forget_input = (batch["input"], batch["fault"])
             retain_input = (batch["input"], batch["valid"])
-            print(forget_input)
-            print(retain_input)
-            
-            forget_loss, regularization_loss = self.get_simple_loss(policy, forget_input, retain_input)
+
+            forget_loss, retain_loss = self.get_simple_loss(policy, forget_input, retain_input)
 
             loss = self.forget_loss_lambda * forget_loss + self.retain_loss_lambda * retain_loss
 
