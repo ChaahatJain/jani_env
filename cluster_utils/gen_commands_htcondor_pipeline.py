@@ -27,9 +27,9 @@ def gen_command_for_benchmark(benchmark_dir: Path | str, domain_name: str, share
     repair_policy_save_dir.mkdir(parents=True, exist_ok=True)
 
     cmd_args = {
-        "jani_model": str(jani_model),
-        "jani_property": str(property_file),
-        "start_states": str(property_file),
+        "jani_model": str(condor_prefix / jani_model),
+        "jani_property": str(condor_prefix / property_file),
+        "start_states": str(condor_prefix / property_file),
         "disable_wandb": True,
         "max_iterations": shared_args.get("max_iterations", 10),
         "num_traces_per_iter": shared_args.get("num_traces_per_iter", 10),

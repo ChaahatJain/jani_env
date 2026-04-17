@@ -131,11 +131,11 @@ gen_command_for_benchmark() {
     mkdir -p "$rl_policy_save_dir"
     mkdir -p "$repair_policy_save_dir"
 
-    # Build command
+    # Build command (prepend CONDOR_PREFIX to model/property paths)
     local cmd="pipeline_enum.py"
-    cmd+=" --jani_model ${jani_model}"
-    cmd+=" --jani_property ${property_file}"
-    cmd+=" --start_states ${property_file}"
+    cmd+=" --jani_model ${CONDOR_PREFIX}/${jani_model}"
+    cmd+=" --jani_property ${CONDOR_PREFIX}/${property_file}"
+    cmd+=" --start_states ${CONDOR_PREFIX}/${property_file}"
     cmd+=" --disable_wandb"
     cmd+=" --max_iterations ${MAX_ITERATIONS}"
     cmd+=" --num_traces_per_iter ${NUM_TRACES_PER_ITER}"
