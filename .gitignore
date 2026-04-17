@@ -15,5 +15,4 @@ cluster_utils/commands_no_oracle.txt
 cluster_utils/ready_benchmarks*
 cluster_utils/one_way_line_only
 cluster_utils/bouncing_ball_linetrack
-pipeline*
 artifacts/

@@ -18,7 +18,7 @@ class StandardTraceSampler(TraceSamplerInterface):
             obs, info = env.reset(options={"init_state_idx": init_state_idx})
         else:
             obs, info = env.reset()
-        print("Env resetting time:", time.perf_counter() - t)
+        # print("Env resetting time:", time.perf_counter() - t)
         done = False
         step_count = 0
 
@@ -33,20 +33,20 @@ class StandardTraceSampler(TraceSamplerInterface):
         while not done and step_count < max_steps:
             t = time.perf_counter()
             action_mask = env.action_mask()
-            print("Action mask time:", time.perf_counter() - t)
+            # print("Action mask time:", time.perf_counter() - t)
             # Fetch action dynamically (supports NN, Shields, etc.)
             t = time.perf_counter()
             action = policy.get_action(obs, action_mask)
-            print("Policy action get:", time.perf_counter() - t)
+            # print("Policy action get:", time.perf_counter() - t)
             
             observations.append(obs)
             actions.append(action)
             action_masks.append(action_mask)
             t = time.perf_counter()
             next_obs, reward, done, truncated, info = env.step(action)
-            print("Env step", time.perf_counter() - t)
+            # print("Env step", time.perf_counter() - t)
             # Track overall trajectory safety from environment info
-            if info.get("is_unsafe", False) or not info.get("next_state_safety", True):
+            if reward == env.unwrapped.get_failure_reward():
                 is_safe_trajectory = False
 
             rewards.append(reward)
