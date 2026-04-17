@@ -75,7 +75,7 @@ def build_parser() -> argparse.ArgumentParser:
     # ── PPO hyperparameters (mask_ppo + ppo_lag) ─────────────────────────────
     ppo = parser.add_argument_group("PPO hyperparameters (mask_ppo / ppo_lag)")
     ppo.add_argument("--n_steps",       type=int,   default=256)
-    ppo.add_argument("--n_epochs",      type=int,   default=10)
+    ppo.add_argument("--n_epochs",      type=int,   default=5)
     ppo.add_argument("--gae_lambda",    type=float, default=0.95)
     ppo.add_argument("--clip_range",    type=float, default=0.2)
     ppo.add_argument("--ent_coef",      type=float, default=0.0)
