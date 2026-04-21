@@ -127,7 +127,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     # ── Logging (shared) ─────────────────────────────────────────────────────
     lg = parser.add_argument_group("Logging")
-    lg.add_argument("--save_freq",       type=int, default=1000)
+    lg.add_argument("--save_freq",       type=int, default=256)
     lg.add_argument("--log_dir",         type=str, default="./logs")
     lg.add_argument("--perf_file",       type=str, default="./performance.csv")
     lg.add_argument("--model_save_dir",  type=str, default="./models")
