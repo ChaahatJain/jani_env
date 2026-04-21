@@ -46,7 +46,6 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
         '''
         # forget_loss
         forget_loss = self.ga_simple_loss(model, input_forget)
-
         # regularization_loss
         regularization_loss = self.gd_simple_loss(model, input_retain)
 
@@ -57,19 +56,20 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
         # The first element of the data tuple is the target data
         x_forget, y_forget = input_forget
         # Compute the Cross entropy loss for the answer
-        loss_fn = torch.nn.CrossEntropyLoss() 
+        loss_fn = torch.nn.NLLLoss() 
         y_pred = model(x_forget)
+        
         #reversing the sign for gradient ascent
-        forget_loss = -1 * loss_fn(y_forget, y_pred)
+        forget_loss = -1 * loss_fn(y_pred, y_forget)
         return  forget_loss
 
     # Regularization Loss: GD
     def gd_simple_loss(self, model, input_retain):
         x_retain, y_retain = input_retain
         # Compute the Cross entropy loss for the answer
-        loss_fn = torch.nn.CrossEntropyLoss() 
+        loss_fn = torch.nn.NLLLoss() 
         y_pred = model(x_retain)   
-        retain_loss = loss_fn(y_retain, y_pred)
+        retain_loss = loss_fn(y_pred, y_retain)
 
         return retain_loss
 
@@ -78,8 +78,6 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
     def update_policy(self, policy: torch.nn.Module, dataset: Any) -> Dict[str, float]:
         policy.train()
         policy.to(self.device)
-        
-        print(dataset)
         
         total_loss = 0.0
         total_forget_loss = 0.0
@@ -106,11 +104,11 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
             loss.backward()
             self.optimizer.step()
 
-            total_loss += float(loss.item())
-            total_forget_loss += float(forget_loss.item())
-            total_retain_loss += float(retain_loss.item())
+            total_loss += loss.item()
+            total_forget_loss += forget_loss.item()
+            total_retain_loss += retain_loss.item()
 
-        denom = float(max(self.steps_per_iteration, 1))
+        denom = max(self.steps_per_iteration, 1)
         return {
             "loss": total_loss / denom,
             "forget_loss": total_forget_loss / denom,

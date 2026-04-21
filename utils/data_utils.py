@@ -29,7 +29,8 @@ class FaultDataset(Dataset):
         for element in self.data:
             self.inputs.append(element["observation"])
             # get indices of valid actions:
-            self.faulty_actions.append(F.one_hot(torch.tensor(element["faulty_action"]), self.action_dim).to(torch.float))
+            # self.faulty_actions.append(F.one_hot(torch.tensor(element["faulty_action"]), self.action_dim).to(torch.float))
+            self.faulty_actions.append(torch.tensor(element["faulty_action"]))
             # all valid actions
             all_actions = element["action_mask"]
             # mask faulty action
@@ -38,7 +39,8 @@ class FaultDataset(Dataset):
             all_actions_idx = torch.flatten(torch.nonzero(torch.tensor(all_actions)))
             self.all_valid_actions.append(all_actions_idx)
             valid_idx = random.randint(0, len(all_actions_idx)-1)
-            self.sampled_valid_actions.append(F.one_hot(all_actions_idx[valid_idx], self.action_dim).to(torch.float))
+            #self.sampled_valid_actions.append(F.one_hot(all_actions_idx[valid_idx], self.action_dim).to(torch.float))
+            self.sampled_valid_actions.append(all_actions_idx[valid_idx])
             
     def __len__(self):
         return len(self.data)

@@ -103,6 +103,7 @@ def build_env(args: argparse.Namespace, use_oracle: bool) -> JANIEnv:
     )
     
 def repair_metrics(policy: torch.nn.Module, dataset: Any, verbose = False):
+        #print(dataset)
         states = torch.tensor([f["observation"] for f in dataset], dtype=torch.float32) 
         applicable_actions = [[i for i, a in enumerate(f["action_mask"]) if int(a) == 1] for f in dataset]       
         faults = [int(f["faulty_action"]) for f in dataset]
