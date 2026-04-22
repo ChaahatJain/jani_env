@@ -52,7 +52,7 @@ class SafeDQNNetwork(nn.Module):
         layers = []
         prev = input_dim
         for h in hidden_dims:
-            layers += [nn.Linear(prev, h), nn.ReLU()]
+            layers += [nn.Linear(prev, h), nn.LeakyReLU(negative_slope=0.01)]
             prev = h
         self.feature_net = nn.Sequential(*layers)
         self.q_head = nn.Linear(prev, output_dim)
