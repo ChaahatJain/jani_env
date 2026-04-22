@@ -436,15 +436,13 @@ def main() -> None:
     obs_dim = env.observation_space.shape[0]
     n_actions = env.action_space.n
     num_start_states = env.get_init_state_pool_size()
-
-    def sample_indices():
-        """Return a fresh random pair of (repair, eval) index arrays each call."""
-        shuffled = np.random.permutation(num_start_states)
-        if num_start_states >= 2 * args.traces_per_iteration:
-            return shuffled[:args.traces_per_iteration], shuffled[args.traces_per_iteration:2*args.traces_per_iteration]
-        return shuffled, shuffled
-
-    repair_indices, eval_indices = sample_indices()
+    all_indices = np.random.permutation(num_start_states)
+    if num_start_states >= 2*args.traces_per_iteration:
+        repair_indices = all_indices[:args.traces_per_iteration]
+        eval_indices   = all_indices[args.traces_per_iteration:2*args.traces_per_iteration]
+    else:
+        repair_indices = all_indices
+        eval_indices = all_indices
         
     sampler = StandardTraceSampler()
     collector = OracleFaultCollector()
@@ -502,7 +500,6 @@ def main() -> None:
         #     repair_metrics(policy_model, all_faults)
         
         performance_evaluation_time = time.perf_counter()
-        repair_indices, eval_indices = sample_indices()
         train_pol_performance = evaluate_policy(env, policy_model, repair_indices)
         eval_pol_performance = evaluate_policy(env, policy_model, eval_indices)
         performance_evaluation_seconds = time.perf_counter() - performance_evaluation_time
