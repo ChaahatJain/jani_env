@@ -47,4 +47,4 @@ class FaultDataset(Dataset):
 
     def __getitem__(self, idx):
         
-        return {"input":self.inputs[idx], "fault":self.faulty_actions[idx], "valid":self.sampled_valid_actions[idx], "all_valid":self.all_valid_actions[idx]}
+        return {"input":self.inputs[idx], "fault":self.faulty_actions[idx], "valid":self.sampled_valid_actions[idx]}
