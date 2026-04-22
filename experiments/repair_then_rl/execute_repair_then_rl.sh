@@ -20,7 +20,7 @@ export TORCHDYNAMO_CACHE_DIR="${TORCHDYNAMO_CACHE_DIR:-$XDG_CACHE_HOME/torch/dyn
 export TMPDIR="${TMPDIR:-$HOME/tmp}"
 mkdir -p "$TORCHINDUCTOR_CACHE_DIR" "$TORCHDYNAMO_CACHE_DIR" "$TMPDIR"
 export LC_ALL=C
-export GRB_LICENSE_FILE=/home/neuronet_team119/gurobi.lic
+export GRB_LICENSE_FILE=/home/jain/gurobi.lic
 
 echo "=== Gurobi License Check ==="
 if [[ ! -f "$GRB_LICENSE_FILE" ]]; then
@@ -40,7 +40,7 @@ except Exception as e:
 EOF
 echo "============================"
 
-cd /home/neuronet_team119/jani_env
+cd /home/jain/jani_env
 
 # ── Parse arguments ──
 # We split arguments into two groups separated by "---"
