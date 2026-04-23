@@ -565,7 +565,8 @@ def main():
 
     print("Evaluating RL policies on all checkpoints...")
     rl_metric_result_file = log_dir / f"rl_results.json"
-    for checkpoint_path in Path(args.model_save_dir).glob("actor_iter_*.pth"):
+    rl_checkpoints = sorted(Path(args.model_save_dir).glob("actor_iter_*.pth"), key=lambda p: int(p.stem.split("_")[-1]))
+    for checkpoint_path in rl_checkpoints:
         actor_model = load_policy_checkpoint(checkpoint_path, device=args.device)
         results = evaluate_policy(
             env=eval_env,
@@ -579,7 +580,8 @@ def main():
 
     print("Evaluating repaired policies on all checkpoints...")
     repairer_result_file = log_dir / f"repairer_results.json"
-    for checkpoint_path in Path(args.repair_save_dir).glob("actor_iter_*.pth"):
+    repair_checkpoints = sorted(Path(args.repair_save_dir).glob("actor_iter_*.pth"), key=lambda p: int(p.stem.split("_")[-1]))
+    for checkpoint_path in repair_checkpoints:
         actor_model = load_policy_checkpoint(checkpoint_path, device=args.device)
         results = evaluate_policy(
             env=eval_env,
