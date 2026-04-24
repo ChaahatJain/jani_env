@@ -100,6 +100,7 @@ class SaveActorCallback(BaseCallback):
                 policy, network_paras, self.save_path, 
                 f"actor_iter_{self.n_calls // self.save_freq}"
             )
+            print(f"Saved policy at iteration {self.n_calls} to actor_iter_{self.n_calls // self.save_freq}.pth")
         return True
     
 

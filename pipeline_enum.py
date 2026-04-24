@@ -337,7 +337,7 @@ def evaluate_policy(
     from tqdm import tqdm
     for idx in tqdm(init_state_indices):
         obs, _ = env.reset(options={"idx": idx})
-        if isinstance(env, JANIEnumEnv):
+        if isinstance(env.unwrapped, JANIEnumEnv):
             # When the environment is a JANIEnumEnv, call the custom safety checker
             if not is_policy_safe(env, policy, obs, {}, deterministic):
                 num_unsafe_runs += 1
@@ -364,7 +364,7 @@ def evaluate_policy(
             step_count += 1
             last_reward = reward
 
-        if isinstance(env, JANIEnumEnv):
+        if isinstance(env.unwrapped, JANIEnumEnv):
             if last_reward == 1.0: # We reached the goal
                 num_goal_reached += 1
             elif last_reward == -1.0: # We reached a failure state
@@ -518,7 +518,7 @@ def main():
 
             if step_count > (args.save_freq * num_saved_checkpoints):
                 print(f"Saving repaired policy at step count {step_count}...")
-                save_policy(actor_model, network_params, Path(args.repair_save_dir), f"actor_iter_{num_saved_checkpoints}.pth")
+                save_policy(actor_model, network_params, Path(args.repair_save_dir), f"actor_iter_{num_saved_checkpoints}")
                 num_saved_checkpoints += 1
 
             trajectories.append(trajectory)
