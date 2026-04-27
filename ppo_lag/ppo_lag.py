@@ -32,8 +32,11 @@ from dagger.sampler import StandardTraceSampler
 from dagger.fault_collector import OracleFaultCollector
 from updater.goldberger import MILPPolicyUpdater
 from updater.spec_repair import SpecRepairPolicyUpdater
+from updater.retain_aware_unlearning import RetainAwareUnlearningUpdater
 from dagger.policy_wrapper import NNPolicyWrapper
 from dagger.policy import Policy
+
+
 
 try:
     import wandb
@@ -366,6 +369,13 @@ class PPOLagrangian:
         if repair_algo == "spec":
             optimizer = torch.optim.Adam(self.policy.actor.parameters(), lr=1e-3)
             self.updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=64, device=self.device)
+        elif args.repair_algo == "retain_unlearn":
+            optimizer = optim.Adam(torch.optim.Adam(self.policy.actor.parameters(), lr=self.lr)
+            updater = RetainAwareUnlearningUpdater(
+            optimizer=optimizer,
+            batch_size=self.batch_size,
+            device=self.device,
+            )
         else:
             self.updater = MILPPolicyUpdater()
         # Fault cache — persists across all repair rounds
