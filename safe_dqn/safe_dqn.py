@@ -23,6 +23,7 @@ from dagger.fault_collector import OracleFaultCollector
 
 from updater.goldberger import MILPPolicyUpdater
 from updater.spec_repair import SpecRepairPolicyUpdater
+from updater.retain_aware_unlearning import RetainAwareUnlearningUpdater
 
 import csv
 import time
@@ -396,6 +397,13 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
         if args.repair_algo == "spec":
             optimizer = optim.Adam(agent.online_net.parameters(), lr=hyperparams["lr"])
             updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=hyperparams["batch_size"], device=args.device)
+        elif args.repair_algo == "retain_unlearn":
+            optimizer = optim.Adam(agent.online_net.parameters(), lr=hyperparams["lr"])
+            updater = RetainAwareUnlearningUpdater(
+            optimizer=optimizer,
+            batch_size=hyperparams["batch_size"],
+            device=args.device,
+            )
         else:
             updater = MILPPolicyUpdater()
         all_faults: list = []

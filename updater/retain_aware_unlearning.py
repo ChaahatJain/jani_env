@@ -26,7 +26,6 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
         self,
         optimizer: torch.optim.Optimizer,
         batch_size: int = 256,
-        steps_per_iteration: int = 10,
         forget_loss_lambda: float = 1.0,
         retain_loss_lambda: float = 1.0,
         kl_loss_lambda: float = 1.0,
@@ -34,7 +33,6 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
     ):
         self.optimizer = optimizer
         self.batch_size = batch_size
-        self.steps_per_iteration = steps_per_iteration
         self.forget_loss_lambda = forget_loss_lambda
         self.retain_loss_lambda = retain_loss_lambda
         self.device = device
@@ -108,12 +106,10 @@ class RetainAwareUnlearningUpdater(PolicyUpdaterInterface):
             total_forget_loss += forget_loss.item()
             total_retain_loss += retain_loss.item()
 
-        denom = max(self.steps_per_iteration, 1)
         return {
-            "loss": total_loss / denom,
-            "forget_loss": total_forget_loss / denom,
-            "retain_supervised_loss": total_retain_loss / denom,
-            "steps": int(self.steps_per_iteration),
+            "loss": total_loss ,
+            "forget_loss": total_forget_loss ,
+            "retain_supervised_loss": total_retain_loss ,
             "steps_with_forget": int(steps_with_forget),
         }
         
