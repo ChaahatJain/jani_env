@@ -25,6 +25,8 @@ from sb3_contrib.common.maskable.utils import get_action_masks
 from dagger.sampler import StandardTraceSampler
 from dagger.fault_collector import OracleFaultCollector
 from updater.goldberger import MILPPolicyUpdater
+from updater.spec_repair import SpecRepairPolicyUpdater
+from updater.retain_aware_unlearning import RetainAwareUnlearningUpdater
 
 from dagger.policy import Policy
 from dagger.policy_wrapper import NNPolicyWrapper
@@ -220,6 +222,9 @@ class ModelRepairCallback(BaseCallback):
         log_file : Path,
         verbose: bool,
         device: torch.device = torch.device("cpu"),
+        repair_algo = "milp",
+        batch_size = 64,
+        lr = 0.01,
     ):
         super().__init__()
         self.repair_env = repair_env
@@ -231,7 +236,15 @@ class ModelRepairCallback(BaseCallback):
 
         self.sampler = StandardTraceSampler()
         self.collector = OracleFaultCollector()
-        self.updater = MILPPolicyUpdater()
+        
+        if repair_algo == "spec":
+            self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
+            self.updater = SpecRepairPolicyUpdater(optimizer=optimizer, batch_size=batch_size, device=device)
+        elif repair_algo == "retain_unlearn":
+            self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
+            self.updater = RetainAwareUnlearningUpdater(optimizer=optimizer, batch_size=batch_size, device=device)
+        else:
+            self.updater = MILPPolicyUpdater()
 
         self.total_episodes = 0
         self.episodes_since_last_repair = 0
