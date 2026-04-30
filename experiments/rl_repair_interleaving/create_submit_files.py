@@ -7,16 +7,16 @@ BENCHMARKS_DIR = "/home/jain/jani_env/benchmarks_generator/benchmarks"
 ARTIFACTS_DIR  = "/home/jain/jani_env/artifacts/rl_repair_interleaving"
 EXP_DIR        = os.path.dirname(os.path.realpath(__file__))
 
-time_limit    = 60 * 60 * 6   # 6 hours
+time_limit    = 60 * 60 * 24   # 6 hours
 memory_limit  = "100G"
 
 output_dir      = EXP_DIR
 submit_filename = "rl_repair_interleaving_experiments.sub"
 
-RL_ALGORITHMS       = ["mask_ppo", "ppo_lag"]
+RL_ALGORITHMS       = ["mask_ppo", "ppo_lag", "safe_dqn"]
 MAX_STEPS_PER_TRACE = 1500
 TOTAL_TIMESTEPS     = 10_000_000
-NUM_EVAL_EPISODES   = 100
+NUM_EVAL_EPISODES   = 1000
 EVALUATION_FREQUENCY = 1000
 REPAIR_FREQUENCY     = 500
 NUM_REPAIR_EPISODES  = 50

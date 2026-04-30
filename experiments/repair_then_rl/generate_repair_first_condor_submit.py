@@ -15,14 +15,14 @@ import os
 import os.path
 from pathlib import Path
 
-GRB_LICENSE_FILE = Path(os.environ.get("GRB_LICENSE_FILE", "/home/neuronet_team119/gurobi.lic"))
+GRB_LICENSE_FILE = Path(os.environ.get("GRB_LICENSE_FILE", "/home/jain/gurobi.lic"))
 
-BENCHMARKS_DIR = "/home/neuronet_team119/jani_env/benchmarks_generator/benchmarks"
-ARTIFACTS_DIR  = "/home/neuronet_team119/jani_env/artifacts/repair_first_pipeline"
+BENCHMARKS_DIR = "/home/jain/jani_env/benchmarks_generator/benchmarks"
+ARTIFACTS_DIR  = "/home/jain/jani_env/artifacts/repair_first_pipeline"
 EXP_DIR        = os.path.dirname(os.path.realpath(__file__))
 
 time_limit    = 60 * 60 * 6   # 6 hours
-memory_limit  = "128G"
+memory_limit  = "100G"
 
 output_dir      = EXP_DIR
 submit_filename = "repair_first_experiments.sub"
@@ -30,8 +30,10 @@ submit_filename = "repair_first_experiments.sub"
 REPAIR_METHODS       = ["milp", "spec"]
 ALGOS                = ["mask_ppo", "safe_dqn", "ppo_lag"]
 MAX_ITERATIONS       = 1000
-REPAIR_START_STATES  = 1000       # repair on 1000 fixed start states
-RL_TIMESTEPS         = 500_000
+REPAIR_START_STATES  = 30000       # repair on 1000 fixed start states
+NUM_EVAL_EPISODES = 1000
+EVALUATION_FREQUENCY = 1000
+RL_TIMESTEPS         = 10_000_000
 
 
 def get_prefix_problem_combinations(base_dir=BENCHMARKS_DIR):
@@ -57,7 +59,7 @@ def build_job(category: str, instance: str, model_path: Path,
     start_states  = str(model_path.parent / "pa_model_random_starts_100000.jani")
 
     # Output directory — keeps results clearly separated
-    base_output = str(Path(ARTIFACTS_DIR) / category / instance / algo / repair_method)
+    base_output = str(Path(ARTIFACTS_DIR) / category / instance / "repair_then_rl" / algo / repair_method)
     repair_output = f"{base_output}/repair"
     rl_output     = f"{base_output}/rl"
 
@@ -85,8 +87,8 @@ def build_job(category: str, instance: str, model_path: Path,
         f"--total_timesteps {RL_TIMESTEPS} "
         f"--model_save_dir {rl_output}/models "
         f"--device cpu "
-        f"--use_oracle "
-        f"--disable_eval "
+        f"--n_eval_episodes {NUM_EVAL_EPISODES} "
+        f"--eval_freq {EVALUATION_FREQUENCY} "
         f"--disable_wandb "
         f"--seed 42 "
         f"--perf_file {rl_output}/perf.csv"
@@ -112,10 +114,11 @@ requirements = UidDomain == "cs.uni-saarland.de"
 request_GPUs = 0
 request_CPUs = 1
 request_memory = {memory_limit}
+periodic_remove = (time() - JobStartDate) > {time_limit} 
 
-output = test_logs/$(ClusterId).$(ProcId).out
-error = test_logs/$(ClusterId).$(ProcId).err
-log = test_logs/$(ClusterId).$(ProcId).log
+output = logs/$(ClusterId).$(ProcId).out
+error = logs/$(ClusterId).$(ProcId).err
+log = logs/$(ClusterId).$(ProcId).log
 max_idle = 100
 arguments = $(args)
 queue args from (
@@ -136,7 +139,7 @@ def main():
     logs_path.mkdir(exist_ok=True)
 
     # Ensure the shared log directory exists
-    Path("/home/neuronet_team119/jani_env/test_logs").mkdir(exist_ok=True)
+    Path("/home/jain/jani_env/logs").mkdir(exist_ok=True)
 
     exe_path = f"{EXP_DIR}/execute_repair_then_rl.sh"
 
@@ -148,6 +151,9 @@ def main():
             for repair_method in REPAIR_METHODS:
                 job = build_job(category, instance, model_path, algo, repair_method)
                 jobs.append(job)
+                
+            
+        
 
     submit_file_path = logs_path / submit_filename
     create_submit_file(jobs, submit_file_path, exe_path)
