@@ -80,10 +80,10 @@ def repair_metrics(policy: torch.nn.Module, dataset: Any, verbose = False):
         return fixed_count
 
 
-def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_states=False, goal_reward=1.0, failure_reward=-1.0) -> float:
+def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_states=False, goal_reward=1.0, failure_reward=-1.0, max_state_visits=3) -> float:
     rewards = []
     num_iter = n_eval_episodes
-    goal_count = avoid_count = 0
+    goal_count = avoid_count = cycle_count = 0
     
     # If enumerating all initial states for evaluation, set num_iter accordingly
     if enumate_all_init_states:
@@ -104,59 +104,66 @@ def compute_mean_reward(eval_env, model, n_eval_episodes=10, enumate_all_init_st
         done = False
         truncated = False
         
-        seen_obs = set()
+        seen_obs = {}  # state -> visit count
         episode_reward = 0.0
+        # break only when same state visited more than this many times (configurable via max_state_visits)
         
         while True:
-            if obs.tobytes() in seen_obs:
-                break # Avoid infinite loops in case of cycles
+            obs_key = obs.tobytes()
+            visit_count = seen_obs.get(obs_key, 0)
+            if visit_count >= max_state_visits:
+                cycle_count += 1
+                break # Genuine deterministic loop — policy cannot escape
             action_masks = get_action_masks(eval_env)
             action_masks = np.expand_dims(action_masks, axis=0)  # shape (1, n_actions)
             action, _ = model.predict(obs, action_masks=action_masks)
-            seen_obs.add(obs.tobytes())
-            obs, reward, done, truncated, _ = eval_env.step(action)
+            seen_obs[obs_key] = visit_count + 1
+            obs, reward, done, truncated, info = eval_env.step(action)
             episode_reward += reward
             
             if truncated:
                 break
             if done:
-                if reward == goal_reward:
+                if info.get("reached_goal", False):
                     goal_count += 1
-                elif reward == failure_reward:
+                elif info.get("reached_fail", False):
                     avoid_count += 1
                 break
         
         rewards.append(episode_reward)
     mean_reward = np.mean(rewards)
     # print("Evaluation statistics:", mean_reward, goal_count, avoid_count, num_iter)
-    return mean_reward, goal_count / num_iter, avoid_count / num_iter
+    return mean_reward, goal_count / num_iter, avoid_count / num_iter, cycle_count / num_iter
 
 import csv
 import time
 class SaveActorCallback(BaseCallback):
     """Callback for saving the model at regular intervals."""
-    def __init__(self, eval_env, n_eval_episodes : int, enumate_all_init_states: bool, save_freq: int, save_path: Path, log_path: Path, verbose=0, goal_reward = 1.0, failure_reward = -1.0):
+    def __init__(self, eval_env, n_eval_episodes : int, enumate_all_init_states: bool, save_freq: int, save_path: Path, log_path: Path, verbose=0, goal_reward = 1.0, failure_reward = -1.0, use_timestep_freq: bool = False, max_state_visits: int = 3):
         super().__init__(verbose)
-        self.save_freq = save_freq  # now means episodes, not steps
+        self.save_freq = save_freq
+        self.use_timestep_freq = use_timestep_freq  # if True, save_freq is in timesteps; if False, in episodes
         self.save_path = save_path
         self.save_path.mkdir(parents=True, exist_ok=True)
         self.start_time = None
         self.log_path = log_path
         self.episodes_since_last_save = 0
         self.total_episodes = 0
+        self.last_checkpoint_timestep = 0
         self.checkpoint_idx = 0
         self.eval_env = eval_env
         self.enumate_all_init_states = enumate_all_init_states
         self.n_eval_episodes = n_eval_episodes
         self.goal_reward = goal_reward
         self.failure_reward = failure_reward
+        self.max_state_visits = max_state_visits
 
     def _on_training_start(self) -> None:
         self.start_time = time.time()
         self.episodes_count = 0
         Path(self.log_path).parent.mkdir(parents=True, exist_ok=True)
         with open(self.log_path, "w", newline="") as f:
-            csv.writer(f).writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "Episodes"])
+            csv.writer(f).writerow(["Checkpoint", "Timestep", "Elapsed(s)", "MeanReward", "GoalFrac", "AvoidFrac", "CycleFrac", "Episodes"])
             
     def _on_step(self) -> bool:
         dones = self.locals.get("dones", [])
@@ -165,7 +172,12 @@ class SaveActorCallback(BaseCallback):
                 self.episodes_since_last_save += 1
                 self.total_episodes += 1
 
-        if self.episodes_since_last_save >= self.save_freq:
+        should_checkpoint = (
+            self.num_timesteps - self.last_checkpoint_timestep >= self.save_freq
+            if self.use_timestep_freq
+            else self.episodes_since_last_save >= self.save_freq
+        )
+        if should_checkpoint:
             policy = self.model.policy
             network_paras = {
                 'input_dim': self.training_env.observation_space.shape[0],
@@ -178,14 +190,14 @@ class SaveActorCallback(BaseCallback):
             )
 
             elapsed = time.time() - self.start_time
-            avg_reward, goal_frac, failure_frac = compute_mean_reward(self.eval_env, self.model, self.n_eval_episodes, self.enumate_all_init_states, self.goal_reward, self.failure_reward)
+            avg_reward, goal_frac, failure_frac, cycle_frac = compute_mean_reward(self.eval_env, self.model, self.n_eval_episodes, self.enumate_all_init_states, self.goal_reward, self.failure_reward, self.max_state_visits)
 
             with open(self.log_path, "a", newline="") as f:
                 writer = csv.writer(f)
                 writer.writerow([
                     self.checkpoint_idx, self.num_timesteps, round(elapsed, 2),
                     round(avg_reward, 4), round(goal_frac, 4), round(failure_frac, 4),
-                    self.episodes_since_last_save
+                    round(cycle_frac, 4), self.episodes_since_last_save
                 ])
                 f.flush()
 
@@ -193,11 +205,12 @@ class SaveActorCallback(BaseCallback):
                 print(
                     f"[SaveActorCallback] checkpoint={self.checkpoint_idx} | t={self.num_timesteps} | "
                     f"elapsed={elapsed:.1f}s | avg_reward={avg_reward:.4f} | "
-                    f"goal={goal_frac:.2%} | failure={failure_frac:.2%} | "
+                    f"goal={goal_frac:.2%} | failure={failure_frac:.2%} | cycle={cycle_frac:.2%} | "
                     f"episodes={self.episodes_since_last_save}"
                 )
 
             self.episodes_since_last_save = 0
+            self.last_checkpoint_timestep = self.num_timesteps
             self.checkpoint_idx += 1
 
         return True

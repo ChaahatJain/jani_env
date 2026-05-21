@@ -27,7 +27,9 @@ class JANIEnv(gym.Env):
                  use_strict_rules: bool = False, # Whether to use strict safety rules (i.e., consider actions's safety but not next state safety when determining unsafe actions)
                  unsafe_reward: float = -0.01,
                  disable_oracle_cache: bool = False,
-                 reduced_memory_mode: bool = False) -> None:
+                 reduced_memory_mode: bool = False,
+                 step_reward: float = 0.0,
+                 cycle_reward: float = 0.0) -> None:
         super().__init__()
         print(f"DEBUG: Initializing JANIEnv with model: {jani_model_path}, property: {jani_property_path}, start states: {start_states_path}, objective: {objective_path}, failure property: {failure_property_path}, seed: {seed}")
         self._engine = JANIEngine(jani_model_path, 
@@ -45,6 +47,9 @@ class JANIEnv(gym.Env):
         self._use_strict_rules: bool = use_strict_rules
         if self._use_strict_rules:
             assert self._use_oracle, "Strict rules require oracle to be enabled."
+        self._step_reward: float = step_reward
+        self._cycle_reward: float = cycle_reward
+        self._visited_states_in_episode: set = set()
         self._unsafe_reward: Optional[float] = None
         if self._use_oracle:
             self._unsafe_reward = unsafe_reward
@@ -80,6 +85,7 @@ class JANIEnv(gym.Env):
         # assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
         reset_info = {}
         self._prev_obs = state_vec
+        self._visited_states_in_episode = {tuple(state_vec)}
         return np.array(state_vec, dtype=np.float32), reset_info
 
     def step(self, action: int) -> tuple[np.ndarray, float, bool, bool, dict]:
@@ -117,6 +123,11 @@ class JANIEnv(gym.Env):
         else:
             reward = 0.0
             done = False
+        reward += self._step_reward
+        state_key = tuple(next_state_vec)
+        if state_key in self._visited_states_in_episode:
+            reward += self._cycle_reward
+        self._visited_states_in_episode.add(state_key)
         self._prev_obs = next_state_vec
         return np.array(next_state_vec, dtype=np.float32), reward, done, False, info
     

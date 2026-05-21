@@ -47,6 +47,8 @@ def _build_file_args(args) -> dict:
         "goal_reward":          args.goal_reward,
         "failure_reward":       args.failure_reward,
         "unsafe_reward":        args.unsafe_reward,
+        "step_reward":          args.step_reward,
+        "cycle_reward":         args.cycle_reward,
         "seed":                 args.seed,
         "use_oracle":           args.use_oracle,
         "max_steps":            args.max_steps,
@@ -110,6 +112,10 @@ def build_parser() -> argparse.ArgumentParser:
     env.add_argument("--goal_reward",            type=float, default=1.0)
     env.add_argument("--failure_reward",         type=float, default=-1.0)
     env.add_argument("--unsafe_reward",          type=float, default=-0.01)
+    env.add_argument("--step_reward",            type=float, default=0.0,
+                    help="Reward added on every step (use negative to penalise long episodes).")
+    env.add_argument("--cycle_reward",           type=float, default=0.0,
+                    help="Extra reward when the agent revisits a state in the same episode.")
     env.add_argument("--use_oracle",             action="store_true")
     env.add_argument("--disable_oracle_cache",   action="store_true")
     env.add_argument("--no_memory_reduced_mode", action="store_true")
@@ -177,6 +183,8 @@ def build_parser() -> argparse.ArgumentParser:
     ev.add_argument("--disable_eval",            action="store_true")
     ev.add_argument("--eval_freq",               type=int, default=2048)
     ev.add_argument("--n_eval_episodes",         type=int, default=50)
+    ev.add_argument("--max_state_visits",         type=int, default=3,
+                    help='Max visits to same state in eval before episode counted as cycle')
     ev.add_argument("--use_separate_eval_env",   action="store_true")
     ev.add_argument("--enumate_all_init_states", action="store_true")
     ev.add_argument("--eval_safety",             action="store_true")
@@ -201,6 +209,13 @@ def build_parser() -> argparse.ArgumentParser:
     repair.add_argument("--repair_episodes",   type=int, default=100)
     repair.add_argument("--repair_algo", type=str)
     repair.add_argument("--repair_log_file", type=str, default="./repair_log.csv")
+
+    # ── Unique-states logging (mask_ppo) ──────────────────────────────────────
+    us = parser.add_argument_group("Unique-states logging (mask_ppo)")
+    us.add_argument("--unique_states_log", type=str, default="",
+                    help="Path to CSV file for logging unique states count over training.")
+    us.add_argument("--unique_states_log_freq", type=int, default=10_000,
+                    help="Timestep frequency at which to log unique states count.")
     return parser
 
 

@@ -1,0 +1,31 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+executable = /home/atml_team041/condor_tutorial/jani_env/experiments/generate_benchmarks/execute_generate_one_way_line.sh
+getenv = HOME
++WantGPUHomeMounted = true
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 1
+request_memory = 16G
+periodic_remove = (time() - JobStartDate) > 21600
+
+output = logs/$(ClusterId).$(ProcId).out
+error = logs/$(ClusterId).$(ProcId).err
+log = logs/$(ClusterId).$(ProcId).log
+max_idle = 100
+arguments = $(locations) $(packages) $(icy) $(speed)
+queue locations,packages,icy,speed from (
+  10 15 2 3
+  10 17 2 3
+  10 20 3 3
+  20 30 4 5
+  25 40 5 5
+  25 50 7 8
+  30 60 12 9
+  35 70 15 10
+  40 80 25 12
+)

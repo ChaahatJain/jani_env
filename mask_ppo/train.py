@@ -1,4 +1,5 @@
 import argparse
+import csv
 import torch
 import numpy as np
 
@@ -6,6 +7,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Tuple
 from datetime import datetime
 
+from stable_baselines3.common.callbacks import BaseCallback
 from callbacks import SafetyEvalCallback, WandbCallback, SaveActorCallback, ModelRepairCallback
 from jani.env import JANIEnv
 from utils import create_env, create_safety_eval_file_args
@@ -34,6 +36,76 @@ try:
 except ImportError:
     WANDB_AVAILABLE = False
     print("Warning: Weights & Biases not available. Advanced logging will be disabled.")
+
+
+class UniqueStatesLogCallback(BaseCallback):
+    """Logs the number of unique states visited during training at a fixed frequency."""
+
+    def __init__(self, log_path: str, log_freq: int = 10_000, verbose: int = 0):
+        super().__init__(verbose)
+        self.log_path = log_path
+        self.log_freq = log_freq
+        self._unique_states: set = set()
+        self._last_log_step: int = 0
+
+    def _on_training_start(self) -> None:
+        Path(self.log_path).parent.mkdir(parents=True, exist_ok=True)
+        with open(self.log_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["timestep", "unique_states"])
+
+    def _on_step(self) -> bool:
+        # new_obs has shape (n_envs, obs_dim) for VecEnv or (obs_dim,) for single env
+        new_obs = self.locals.get("new_obs", self.locals.get("obs", None))
+        if new_obs is not None:
+            obs_array = np.array(new_obs)
+            if obs_array.ndim == 1:
+                self._unique_states.add(tuple(obs_array.tolist()))
+            else:
+                for obs in obs_array:
+                    self._unique_states.add(tuple(obs.tolist()))
+
+        if self.num_timesteps - self._last_log_step >= self.log_freq:
+            with open(self.log_path, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([self.num_timesteps, len(self._unique_states)])
+            self._last_log_step = self.num_timesteps
+        return True
+
+
+class UniqueStatesLogCallback(BaseCallback):
+    """Logs the number of unique states visited during training at a fixed frequency."""
+
+    def __init__(self, log_path: str, log_freq: int = 10_000, verbose: int = 0):
+        super().__init__(verbose)
+        self.log_path = log_path
+        self.log_freq = log_freq
+        self._unique_states: set = set()
+        self._last_log_step: int = 0
+
+    def _on_training_start(self) -> None:
+        Path(self.log_path).parent.mkdir(parents=True, exist_ok=True)
+        with open(self.log_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["timestep", "unique_states"])
+
+    def _on_step(self) -> bool:
+        # new_obs has shape (n_envs, obs_dim) for VecEnv or (obs_dim,) for single env
+        new_obs = self.locals.get("new_obs", self.locals.get("obs", None))
+        if new_obs is not None:
+            obs_array = np.array(new_obs)
+            if obs_array.ndim == 1:
+                self._unique_states.add(tuple(obs_array.tolist()))
+            else:
+                for obs in obs_array:
+                    self._unique_states.add(tuple(obs.tolist()))
+
+        if self.num_timesteps - self._last_log_step >= self.log_freq:
+            with open(self.log_path, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow([self.num_timesteps, len(self._unique_states)])
+            self._last_log_step = self.num_timesteps
+        return True
 
 
 def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str, Any]] = None):
@@ -149,6 +221,8 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
             verbose=args.verbose,
             goal_reward=args.goal_reward,
             failure_reward=args.failure_reward,
+            use_timestep_freq=True,
+            max_state_visits=args.max_state_visits,
         )
         if args.enable_repair:
             repair_callback = ModelRepairCallback(
@@ -174,6 +248,14 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
             log_dir=log_dir
         )
         callbacks.append(safety_eval_callback)
+
+    # Unique-states logging callback
+    if args.unique_states_log:
+        unique_states_callback = UniqueStatesLogCallback(
+            log_path=args.unique_states_log,
+            log_freq=args.unique_states_log_freq,
+        )
+        callbacks.append(unique_states_callback)
 
     # Start training
     print("Starting training with timesteps:", args.total_timesteps)
@@ -214,6 +296,8 @@ def main():
                         help="Path to the evaluation start states file.")
     parser.add_argument('--goal_reward', type=float, default=1.0, 
                         help="Reward for reaching the goal.")
+    parser.add_argument('--max_state_visits', type=int, default=3,
+                        help='Max times a state can be visited during eval before episode is counted as cycle')
     parser.add_argument('--failure_reward', type=float, default=-1.0, 
                         help="Reward for reaching failure state.")
     parser.add_argument('--unsafe_reward', type=float, default=-0.01, 
@@ -282,7 +366,12 @@ def main():
     parser.add_argument("--repair_episodes",   type=int, default=100)
     parser.add_argument("--repair_algo", type=str)
     parser.add_argument("--repair_log_file", type=str, default="repair_log.csv")
-    
+
+    # Unique-states logging
+    parser.add_argument("--unique_states_log", type=str, default="",
+                        help="Path to CSV file for logging unique states count over training.")
+    parser.add_argument("--unique_states_log_freq", type=int, default=10_000,
+                        help="Timestep frequency at which to log unique states count.")
 
     args = parser.parse_args()
 
