@@ -128,7 +128,7 @@ def train_model(args, file_args: Dict[str, str], hyperparams: Optional[Dict[str,
     # Default hyperparameters if not provided
     if hyperparams is None:
         hyperparams = {
-            'learning_rate': 3e-4,
+            'learning_rate': args.learning_rate,
             'n_steps': args.n_steps,
             'batch_size': 64,
             'n_epochs': 10,
@@ -318,6 +318,8 @@ def main():
                         help="Number of parallel environments.")
     parser.add_argument('--max_steps', type=int, default=1000, 
                         help="Max steps per episode.")
+    parser.add_argument('--learning_rate', type=float, default=3e-4,
+                        help="Learning rate for the optimizer.")
     parser.add_argument('--n_steps', type=int, default=256, 
                         help="Number of steps per update.")
     

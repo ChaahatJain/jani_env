@@ -1,6 +1,6 @@
 universe = docker
 docker_image = chaahatjain/jani_in_python:latest
-executable = /home/atml_team041/condor_tutorial/jani_env/experiments/generate_benchmarks/execute_generate_one_way_line.sh
+executable = /home/atml_team041/condor_tutorial/jani_env/experiments/generate_benchmarks/execute_generate_two_way_line.sh
 getenv = HOME
 +WantGPUHomeMounted = true
 should_transfer_files = YES
