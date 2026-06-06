@@ -29,7 +29,9 @@ class JANIEnv(gym.Env):
                  disable_oracle_cache: bool = False,
                  reduced_memory_mode: bool = False,
                  step_reward: float = 0.0,
-                 cycle_reward: float = 0.0) -> None:
+                 cycle_reward: float = 0.0,
+                 domain_policy = None,
+                 policy_match_reward: float = 0.0) -> None:
         super().__init__()
         print(f"DEBUG: Initializing JANIEnv with model: {jani_model_path}, property: {jani_property_path}, start states: {start_states_path}, objective: {objective_path}, failure property: {failure_property_path}, seed: {seed}")
         self._engine = JANIEngine(jani_model_path, 
@@ -49,6 +51,8 @@ class JANIEnv(gym.Env):
             assert self._use_oracle, "Strict rules require oracle to be enabled."
         self._step_reward: float = step_reward
         self._cycle_reward: float = cycle_reward
+        self._domain_policy = domain_policy
+        self._policy_match_reward: float = policy_match_reward
         self._visited_states_in_episode: set = set()
         self._unsafe_reward: Optional[float] = None
         if self._use_oracle:
@@ -128,6 +132,10 @@ class JANIEnv(gym.Env):
         if state_key in self._visited_states_in_episode:
             reward += self._cycle_reward
         self._visited_states_in_episode.add(state_key)
+        if self._domain_policy is not None and not done and self._policy_match_reward != 0.0:
+            expert_action = self._domain_policy(self._prev_obs)  # query on state BEFORE the step
+            if action == expert_action:
+                reward += self._policy_match_reward
         self._prev_obs = next_state_vec
         return np.array(next_state_vec, dtype=np.float32), reward, done, False, info
     

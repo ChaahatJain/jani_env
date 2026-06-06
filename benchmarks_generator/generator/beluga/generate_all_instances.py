@@ -75,6 +75,10 @@ def main():
     print(os.getcwd())
     if not check_script_exists("./instance_generator.py"):
         return 1
+    if not check_script_exists("./generate_networks.sh"):
+        return 1
+    if not check_script_exists("./generate_verification.sh"):
+        return 1
     
     all_instance_success = True
     generated_instances = []
@@ -102,6 +106,72 @@ def main():
         else:
             all_instance_success = False
             print(f"Failed to generate instance: Jigs={jigs}, Racks={racks}")
+    
+    # If any instance generation failed, ask whether to continue
+    if not all_instance_success:
+        print("Some instances failed to generate!")
+        response = input("Do you want to continue with network generation and verification? (y/N): ")
+        if response.lower() not in ['y', 'yes']:
+            print("Exiting...")
+            return 1
+    
+    # Run network generation script
+    print(f"\n{'#'*70}")
+    print("Starting network generation...")
+    print(f"{'#'*70}")
+    
+    network_success = run_command(
+        ["./generate_networks.sh", "swap_unsafe"],
+        "Network Interface generation"
+    )
+    
+    if not network_success:
+        print("⚠️  Network generation failed!")
+        response = input("Do you want to continue with verification? (y/N): ")
+        if response.lower() not in ['y', 'yes']:
+            print("Exiting...")
+            return 1
+    
+    # Print final summary
+    print(f"\n{'#'*70}")
+    print("FINAL SUMMARY")
+    print(f"{'#'*70}")
+    print(f"Instances to generate: {len(instances)}")
+    print(f"Instances successfully generated: {len(generated_instances)}")
+    print(f"Network generation: {'✓ SUCCESS' if network_success else 'FAILED'}")
+
+    learning_success = run_command(
+        ["./generate_learning.sh", "swap_unsafe"],
+        "Random state generation"
+    )
+    
+    if not learning_success:
+        print("⚠️  Random state generation failed!")
+        response = input("Do you want to continue with verification? (y/N): ")
+        if response.lower() not in ['y', 'yes']:
+            print("Exiting...")
+            return 1
+    
+    # Print final summary
+    print(f"\n{'#'*70}")
+    print("FINAL SUMMARY")
+    print(f"{'#'*70}")
+    print(f"Instances to generate: {len(instances)}")
+    print(f"Instances successfully generated: {len(generated_instances)}")
+    print(f"Network generation: {'✓ SUCCESS' if network_success else 'FAILED'}")
+    # print(f"Verification: {'✓ SUCCESS' if verification_success else 'FAILED'}")
+    
+    if generated_instances:
+        print("\n Generated instances:")
+        for instance in generated_instances:
+            print(f"  - {instance}")
+    
+    if all_instance_success and network_success:
+        print("\n All processes completed successfully!")
+        return 0
+    else:
+        print("\n⚠️  Some processes failed!")
+        return 1
 
 if __name__ == "__main__":
     exit(main())

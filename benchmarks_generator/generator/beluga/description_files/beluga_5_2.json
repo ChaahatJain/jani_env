@@ -10,12 +10,12 @@
   "load-aware": false,
   "production-lines": 2,
   "pl0": [
+    0,
     1,
-    4
+    2
   ],
   "pl1": [
-    0,
-    2,
-    3
+    3,
+    4
   ]
 }

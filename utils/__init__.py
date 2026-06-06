@@ -48,6 +48,8 @@ def create_env(file_args: dict, n_envs: int = 1, monitor: bool = False, time_lim
             reduced_memory_mode=file_args.get("reduced_memory_mode", False),
             step_reward=file_args.get("step_reward", 0.0),
             cycle_reward=file_args.get("cycle_reward", 0.0),
+            domain_policy=file_args.get("domain_policy", None),
+            policy_match_reward=file_args.get("policy_match_reward", 0.0),
         ) 
 
         if time_limited:

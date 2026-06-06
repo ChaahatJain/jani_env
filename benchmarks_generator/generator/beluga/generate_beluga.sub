@@ -1,0 +1,64 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+environment = "PYTHONPATH=/home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks_library:/home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/python_library"
+executable = /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/generator/beluga/generate_model.sh
+
+getenv = HOME
++WantGPUHomeMounted = true
+should_transfer_files = NO
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 1
+request_memory = 4G
+periodic_remove = (time() - JobStartDate) > 21600
+
+output = logs/beluga_generate_$(ClusterId).$(ProcId).out
+error  = logs/beluga_generate_$(ClusterId).$(ProcId).err
+log    = logs/beluga_generate_$(ClusterId).$(ProcId).log
+
+arguments = description_files/beluga_2_4.json 2
+queue
+
+arguments = description_files/beluga_3_2.json 2
+queue
+
+arguments = description_files/beluga_4_2.json 2
+queue
+
+arguments = description_files/beluga_4_3.json 2
+queue
+
+arguments = description_files/beluga_5_2.json 2
+queue
+
+arguments = description_files/beluga_5_3.json 2
+queue
+
+arguments = description_files/beluga_6_2.json 2
+queue
+
+arguments = description_files/beluga_6_3.json 2
+queue
+
+arguments = description_files/beluga_8_2.json 2
+queue
+
+arguments = description_files/beluga_8_3.json 2
+queue
+
+arguments = description_files/beluga_10_2.json 2
+queue
+
+arguments = description_files/beluga_10_4.json 2
+queue
+
+arguments = description_files/beluga_12_3.json 2
+queue
+
+arguments = description_files/beluga_12_5.json 2
+queue
+
+arguments = description_files/beluga_15_5.json 2
+queue

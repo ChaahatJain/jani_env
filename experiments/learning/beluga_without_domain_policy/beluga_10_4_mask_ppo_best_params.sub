@@ -1,0 +1,52 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+executable = /home/atml_team041/condor_tutorial/jani_env/experiments/learning/execute_learning.sh
+getenv = HOME
++WantGPUHomeMounted = true
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 4
+request_memory = 16G
+periodic_remove = (time() - JobStartDate) > 21600
+
+output = logs/$(ClusterId).$(ProcId)_seed$(SEED).out
+error = logs/$(ClusterId).$(ProcId)_seed$(SEED).err
+log = logs/$(ClusterId).$(ProcId)_seed$(SEED).log
+
+arguments = \
+  --algo mask_ppo \
+  --jani_model /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/beluga/models/swap_unsafe/beluga_10_4.jani \
+  --jani_property /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/beluga/models/swap_unsafe/beluga_10_4.jani \
+  --max_steps 2000 \
+  --total_timesteps 5000000 \
+  --n_steps 4096 \
+  --n_envs 4 \
+  --failure_reward -10.0 \
+  --step_reward -0.005 \
+  --cycle_reward -0.1 \
+  --use_oracle \
+  --unsafe_reward -0.5 \
+  --ent_coef 0.005 \
+  --learning_rate 1e-4 \
+  --n_eval_episodes 200 \
+  --max_state_visits 100 \
+  --eval_freq 50000 \
+  --save_all_checkpoints \
+  --model_save_dir /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/beluga_10_4/mask_ppo_best_params_seed$(SEED)/models \
+  --perf_file /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/beluga_10_4/mask_ppo_best_params_seed$(SEED)/perf.csv \
+  --log_dir /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/beluga_10_4/mask_ppo_best_params_seed$(SEED)/logs \
+  --unique_states_log /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/beluga_10_4/mask_ppo_best_params_seed$(SEED)/unique_states.csv \
+  --unique_states_log_freq 10000 \
+  --device cpu \
+  --seed $(SEED) \
+  --disable_wandb
+
+queue SEED from (
+0
+1
+2
+)

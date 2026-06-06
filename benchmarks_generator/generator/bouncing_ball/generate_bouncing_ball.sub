@@ -1,0 +1,21 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+environment = "PYTHONPATH=/home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks_library:/home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/python_library"
+executable = /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/generator/bouncing_ball/generate_model.sh
+
+getenv = HOME
++WantGPUHomeMounted = true
+should_transfer_files = NO
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 1
+request_memory = 4G
+periodic_remove = (time() - JobStartDate) > 21600
+
+output = logs/bouncing_ball_generate_$(ClusterId).$(ProcId).out
+error  = logs/bouncing_ball_generate_$(ClusterId).$(ProcId).err
+log    = logs/bouncing_ball_generate_$(ClusterId).$(ProcId).log
+
+queue

@@ -37,6 +37,32 @@ def _set_seeds(seed: int):
     torch.backends.cudnn.benchmark = False
 
 
+# Registry of available domain-specific expert policies.
+_DOMAIN_POLICY_REGISTRY: dict = {}
+
+
+def _load_domain_policy(name: str):
+    """Lazy-load a domain-specific policy callable by name."""
+    if not name:
+        return None
+    if name not in _DOMAIN_POLICY_REGISTRY:
+        if name == "transport":
+            from domain_specific.manual_policies.transport_policy import transport_policy
+            _DOMAIN_POLICY_REGISTRY["transport"] = transport_policy
+        elif name == "one_way_line":
+            from domain_specific.manual_policies.one_way_line_policy import one_way_line_policy
+            _DOMAIN_POLICY_REGISTRY["one_way_line"] = one_way_line_policy
+        elif name == "two_way_line":
+            from domain_specific.manual_policies.two_way_line_policy import two_way_line_policy
+            _DOMAIN_POLICY_REGISTRY["two_way_line"] = two_way_line_policy
+        elif name == "beluga":
+            from domain_specific.manual_policies.beluga_policy import beluga_policy
+            _DOMAIN_POLICY_REGISTRY["beluga"] = beluga_policy
+        else:
+            raise ValueError(f"Unknown domain policy: '{name}'")
+    return _DOMAIN_POLICY_REGISTRY[name]
+
+
 def _build_file_args(args) -> dict:
     return {
         "jani_model":           args.jani_model,
@@ -54,6 +80,8 @@ def _build_file_args(args) -> dict:
         "max_steps":            args.max_steps,
         "disable_oracle_cache": args.disable_oracle_cache,
         "reduced_memory_mode":  not args.no_memory_reduced_mode,
+        "domain_policy":        _load_domain_policy(args.domain_policy),
+        "policy_match_reward":  args.policy_match_reward,
     }
 
 
@@ -120,6 +148,11 @@ def build_parser() -> argparse.ArgumentParser:
     env.add_argument("--disable_oracle_cache",   action="store_true")
     env.add_argument("--no_memory_reduced_mode", action="store_true")
     env.add_argument("--max_steps",              type=int,   default=1000)
+    env.add_argument("--domain_policy",          type=str,   default="",
+                    choices=["", "transport", "one_way_line", "beluga"],
+                    help="Name of the domain-specific expert policy to use for reward shaping.")
+    env.add_argument("--policy_match_reward",    type=float, default=0.0,
+                    help="Bonus reward added when the agent's action matches the expert policy.")
 
     # ── Shared hyperparameters ───────────────────────────────────────────────
     hp = parser.add_argument_group("Hyperparameters (shared across all algorithms)")
