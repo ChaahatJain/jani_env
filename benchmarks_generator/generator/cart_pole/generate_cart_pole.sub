@@ -1,8 +1,8 @@
 universe = docker
 docker_image = chaahatjain/jani_in_python:latest
 environment = "PYTHONPATH=/home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks_library:/home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/python_library"
-executable = /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/generator/blocksworld/generate_model.sh
-arguments = "$(num_blocks) $(table_limit)"
+executable = /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/generator/cart_pole/generate_model.sh
+
 getenv = HOME
 +WantGPUHomeMounted = true
 should_transfer_files = NO
@@ -14,16 +14,8 @@ request_CPUs = 1
 request_memory = 4G
 periodic_remove = (time() - JobStartDate) > 21600
 
-output = logs/blocksworld_generate_$(ClusterId).$(ProcId).out
-error  = logs/blocksworld_generate_$(ClusterId).$(ProcId).err
-log    = logs/blocksworld_generate_$(ClusterId).$(ProcId).log
+output = logs/cart_pole_generate_$(ClusterId).$(ProcId).out
+error  = logs/cart_pole_generate_$(ClusterId).$(ProcId).err
+log    = logs/cart_pole_generate_$(ClusterId).$(ProcId).log
 
-queue num_blocks, table_limit from (
-15 10
-20 10
-20 15
-25 10
-25 15
-30 10
-30 15
-)
+queue

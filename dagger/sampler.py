@@ -11,7 +11,15 @@ class StandardTraceSampler(TraceSamplerInterface):
 
     This sampler only records what the oracle says at each step (if available).
     """
-    def sample_trace(self, env: Any, policy: PolicyInterface, init_state_idx: int = -1, max_steps: int = 1024, verbose = False) -> Dict[str, Any]:
+    def sample_trace(
+        self,
+        env: Any,
+        policy: PolicyInterface,
+        init_state_idx: int = -1,
+        max_steps: int = 1024,
+        max_state_visits: int = 3,
+        verbose = False,
+    ) -> Dict[str, Any]:
         t = time.perf_counter()
         # Initialize environment state
         if init_state_idx != -1:
@@ -28,7 +36,7 @@ class StandardTraceSampler(TraceSamplerInterface):
         actions = []
         action_masks = []
         rewards = []
-        visited = set()
+        visited = {}
 
         is_safe_trajectory = True
 
@@ -36,7 +44,8 @@ class StandardTraceSampler(TraceSamplerInterface):
             action_mask = env.action_mask()
             # Fetch action dynamically (supports NN, Shields, etc.)
             action = policy.get_action(obs, action_mask)
-            visited.add(obs.tobytes())  # Track visited states for early termination of cycles
+            obs_key = obs.tobytes()
+            visited[obs_key] = visited.get(obs_key, 0) + 1
             
             observations.append(obs)
             actions.append(action)
@@ -50,7 +59,8 @@ class StandardTraceSampler(TraceSamplerInterface):
             is_goal_trajectory = info.get("reached_goal", False)
 
             rewards.append(reward)
-            if next_obs.tobytes() in visited:
+            next_obs_key = next_obs.tobytes()
+            if visited.get(next_obs_key, 0) >= max_state_visits:
                 break  # Early termination if we revisit a state (cycle detected)
             obs = next_obs
             step_count += 1

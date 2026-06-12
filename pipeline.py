@@ -45,6 +45,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--failure_reward", type=float, default=-1.0)
     parser.add_argument("--unsafe_reward", type=float, default=-0.01)
     parser.add_argument("--max_steps", type=int, default=100)
+    parser.add_argument("--max_state_visits", type=int, default=3,
+                        help="Max times a state can be visited during eval before counting as a cycle.")
     parser.add_argument("--disable_oracle_cache", action="store_true")
     parser.add_argument("--reduced_memory_mode", action="store_true")
 
@@ -64,6 +66,8 @@ def parse_args() -> argparse.Namespace:
     # Repair settings
     parser.add_argument("--max_iterations", type=int, default=1000)
     parser.add_argument("--traces_per_iteration", type=int, default=100)
+    parser.add_argument("--n_eval_episodes", type=int, default=200,
+                        help="Number of random-start episodes for learning-style repair evaluation.")
     parser.add_argument("--updater_batch_size", type=int, default=256)
     parser.add_argument("--updater_steps", type=int, default=10)
     parser.add_argument("--learning_rate", type=float, default=1e-3)
@@ -77,6 +81,11 @@ def parse_args() -> argparse.Namespace:
         "--sample_from_init_pool",
         action="store_true",
         help="If set, sample traces from random initial-state indices when available.",
+    )
+    parser.add_argument(
+        "--eval_random_starts",
+        action="store_true",
+        help="Evaluate with env.reset() random starts, matching the learning perf.csv evaluator.",
     )
 
     # Output
@@ -180,29 +189,36 @@ def is_policy_safe(
 def evaluate_policy(
         env: JANIEnv, 
         policy: torch.nn.Module, 
-        init_state_indices: list[int], 
+        init_state_indices: list[int] | None = None,
         max_steps: int = 1100,
+        max_state_visits: int = 3,
+        n_eval_episodes: int = 200,
         deterministic: bool = True
     ) -> dict[str, Any]:
     assert deterministic, "We always look at deterministic policies when evaluating these metrics"
-    num_total_states = len(init_state_indices)
+    num_total_states = len(init_state_indices) if init_state_indices is not None else n_eval_episodes
     num_unsafe_runs = 0 # Runs where we reach an unsafe state: State where no safe policy exists.
     num_goal_reached = 0 # Runs where we reach a goal state
     num_failed_runs = 0 # Runs where we reach a fail state. This met
         
-    for idx in init_state_indices:
-        seen_obs = set() # cache for cycle detection
-        obs, _ = env.reset(options={"idx": idx})
+    for episode in range(num_total_states):
+        seen_obs = {} # cache for cycle detection
+        if init_state_indices is None:
+            obs, _ = env.reset()
+        else:
+            obs, _ = env.reset(options={"idx": init_state_indices[episode]})
         if not is_policy_safe(env, policy, obs, {}, deterministic):
             num_unsafe_runs += 1
         done = False
         step_count = 0
-        last_reward = None # Keep track of the last reward to determine if we reached the goal at the end of the episode
+        reached_goal = False
+        reached_fail = False
         while not done and step_count < max_steps:
             obs_key = obs.tobytes()
-            if obs_key in seen_obs:
+            visit_count = seen_obs.get(obs_key, 0)
+            if visit_count >= max_state_visits:
                 break # Early termination cycle
-            seen_obs.add(obs_key)
+            seen_obs[obs_key] = visit_count + 1
             obs_tensor = torch.tensor(obs, dtype=torch.float32).unsqueeze(0)  # Add batch dimension
             action_mask = env.unwrapped.action_mask().astype(int)
             action_mask_tensor = torch.tensor(action_mask, dtype=torch.bool).unsqueeze(0)  # Add batch dimension
@@ -214,13 +230,16 @@ def evaluate_policy(
                 else:
                     action = action_dist.sample().squeeze(0).item()  # Sample action and remove batch dimension            
             # Step the environment
-            obs, reward, done, _, _ = env.step(action)
+            obs, reward, done, _, info = env.step(action)
             step_count += 1
-            last_reward = reward
+            if info.get("reached_goal", False):
+                reached_goal = True
+            elif info.get("reached_fail", False):
+                reached_fail = True
 
-        if last_reward == 1.0: # We reached the goal
+        if reached_goal:
             num_goal_reached += 1
-        elif last_reward == -1.0: # We reached a failure state
+        elif reached_fail:
             num_failed_runs += 1
 
     frac_unsafe = num_unsafe_runs / num_total_states if num_total_states > 0 else 0.0
@@ -241,11 +260,11 @@ def load_policy_checkpoint(checkpoint_path: Path, device: torch.device) -> Polic
     output_dim = checkpoint["output_dim"]
     hidden_dims = checkpoint["hidden_dims"]
 
-    policy = Policy(input_dim, output_dim, hidden_dims)
     state_dict = checkpoint["state_dict"]
 
     if "mlp_extractor.policy_net.0.weight" in state_dict:
-        # MaskedPPO format
+        # MaskedPPO format — SB3 default activation is Tanh
+        activation_fn = torch.nn.Tanh
         mapped = {
             "model.0.weight": state_dict["mlp_extractor.policy_net.0.weight"],
             "model.0.bias": state_dict["mlp_extractor.policy_net.0.bias"],
@@ -254,9 +273,13 @@ def load_policy_checkpoint(checkpoint_path: Path, device: torch.device) -> Polic
             "model.4.weight": state_dict["action_net.weight"],
             "model.4.bias": state_dict["action_net.bias"],
         }
+        policy = Policy(input_dim, output_dim, hidden_dims, activation_fn=activation_fn)
         policy.load_state_dict(mapped, strict=True)
     else:
-        # Native DAgger format
+        # Native DAgger/repair format — read stored activation or default to ReLU
+        activation_name = checkpoint.get("activation_fn", "relu")
+        activation_fn = torch.nn.Tanh if activation_name == "tanh" else torch.nn.ReLU
+        policy = Policy(input_dim, output_dim, hidden_dims, activation_fn=activation_fn)
         policy.load_state_dict(state_dict, strict=True)
 
     return policy
@@ -271,11 +294,13 @@ def get_hidden_dims(policy: Policy) -> list[int]:
 
 def save_policy_checkpoint(policy: Policy, path: Path, input_dim: int, output_dim: int) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    activation_name = "tanh" if isinstance(policy.activation_fn, type) and issubclass(policy.activation_fn, torch.nn.Tanh) else "relu"
     torch.save(
         {
             "input_dim": input_dim,
             "output_dim": output_dim,
             "hidden_dims": get_hidden_dims(policy),
+            "activation_fn": activation_name,
             "state_dict": policy.state_dict(),
         },
         path,
@@ -408,8 +433,8 @@ def main() -> None:
         # --- Gurobi diagnostics ---
         print("=== Gurobi Diagnostics ===")
         print(f"GRB_LICENSE_FILE env var: {os.environ.get('GRB_LICENSE_FILE', 'NOT SET')}")
-        home_lic = Path("/home/jain/gurobi.lic")
-        assert(f"/home/jain/gurobi.lic exists: {home_lic.exists()}")
+        home_lic = Path("/home/atml_team041/condor_tutorial/gurobi.lic")
+        assert(f"/home/atml_team041/condor_tutorial/gurobi.lic: {home_lic.exists()}")
         print("==========================")
     
     np.random.seed(args.seed)
@@ -500,8 +525,18 @@ def main() -> None:
         #     repair_metrics(policy_model, all_faults)
         
         performance_evaluation_time = time.perf_counter()
-        train_pol_performance = evaluate_policy(env, policy_model, repair_indices)
-        eval_pol_performance = evaluate_policy(env, policy_model, eval_indices)
+        train_pol_performance = evaluate_policy(
+            env, policy_model, None if args.eval_random_starts else repair_indices,
+            max_steps=args.max_steps,
+            max_state_visits=args.max_state_visits,
+            n_eval_episodes=args.n_eval_episodes,
+        )
+        eval_pol_performance = evaluate_policy(
+            env, policy_model, None if args.eval_random_starts else eval_indices,
+            max_steps=args.max_steps,
+            max_state_visits=args.max_state_visits,
+            n_eval_episodes=args.n_eval_episodes,
+        )
         performance_evaluation_seconds = time.perf_counter() - performance_evaluation_time
         duplicates = 0
         for i in range(len(repair_indices)):
@@ -513,6 +548,7 @@ def main() -> None:
                 policy=policy,
                 init_state_idx=init_state_idx,
                 max_steps=args.max_steps,
+                max_state_visits=args.max_state_visits,
                 verbose = False
             )
             traces.append(trace) 

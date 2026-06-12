@@ -58,6 +58,21 @@ def _load_domain_policy(name: str):
         elif name == "beluga":
             from domain_specific.manual_policies.beluga_policy import beluga_policy
             _DOMAIN_POLICY_REGISTRY["beluga"] = beluga_policy
+        elif name == "bouncing_ball":
+            from domain_specific.manual_policies.bouncing_ball_policy import bouncing_ball_policy
+            _DOMAIN_POLICY_REGISTRY["bouncing_ball"] = bouncing_ball_policy
+        elif name == "inverted_pendulum":
+            from domain_specific.manual_policies.inverted_pendulum_policy import inverted_pendulum_policy
+            _DOMAIN_POLICY_REGISTRY["inverted_pendulum"] = inverted_pendulum_policy
+        elif name == "cartpole":
+            from domain_specific.manual_policies.cartpole_policy import cartpole_policy
+            _DOMAIN_POLICY_REGISTRY["cartpole"] = cartpole_policy
+        elif name == "follow_car":
+            from domain_specific.manual_policies.follow_car_policy import follow_car_policy
+            _DOMAIN_POLICY_REGISTRY["follow_car"] = follow_car_policy
+        elif name == "blocksworld":
+            from domain_specific.manual_policies.blocksworld_policy import blocksworld_policy
+            _DOMAIN_POLICY_REGISTRY["blocksworld"] = blocksworld_policy
         else:
             raise ValueError(f"Unknown domain policy: '{name}'")
     return _DOMAIN_POLICY_REGISTRY[name]
@@ -149,7 +164,7 @@ def build_parser() -> argparse.ArgumentParser:
     env.add_argument("--no_memory_reduced_mode", action="store_true")
     env.add_argument("--max_steps",              type=int,   default=1000)
     env.add_argument("--domain_policy",          type=str,   default="",
-                    choices=["", "transport", "one_way_line", "beluga"],
+                    choices=["", "transport", "one_way_line", "two_way_line", "beluga", "bouncing_ball", "inverted_pendulum", "cartpole", "follow_car", "blocksworld"],
                     help="Name of the domain-specific expert policy to use for reward shaping.")
     env.add_argument("--policy_match_reward",    type=float, default=0.0,
                     help="Bonus reward added when the agent's action matches the expert policy.")
@@ -296,3 +311,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -268,7 +268,7 @@ class ModelRepairCallback(BaseCallback):
         output_dim = self.model.action_space.n
         hidden_dims = sb3_policy.net_arch["pi"]
 
-        policy_model = Policy(input_dim, output_dim, hidden_dims)
+        policy_model = Policy(input_dim, output_dim, hidden_dims, activation_fn=torch.nn.Tanh)
         mapped = {
             "model.0.weight": state_dict["mlp_extractor.policy_net.0.weight"],
             "model.0.bias":   state_dict["mlp_extractor.policy_net.0.bias"],
