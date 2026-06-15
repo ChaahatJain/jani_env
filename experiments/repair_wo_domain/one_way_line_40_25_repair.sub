@@ -1,0 +1,43 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+
+executable = /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/execute_repair.sh
+
+getenv = HOME
++WantGPUHomeMounted = true
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 4
+request_memory = 16G
+
+periodic_remove = (time() - JobStartDate) > 21600
+
+output = logs/$(ClusterId).$(ProcId)_seed$(SEED).out
+error  = logs/$(ClusterId).$(ProcId)_seed$(SEED).err
+log    = logs/$(ClusterId).$(ProcId)_seed$(SEED).log
+
+arguments = \
+  --jani_model /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/one_way_line_det/one_way_line_40_25/model.jani \
+  --jani_property /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/one_way_line_det/one_way_line_40_25/model.jani \
+  --start_states /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/one_way_line_det/one_way_line_40_25/pa_model_random_starts_100000.jani \
+  --initial_policy /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/one_way_line_40_25/mask_ppo_best_params_seed$(SEED)/models/final_actor.pth \
+  --max_steps 2000 \
+  --max_state_visits 100 \
+   --eval_random_starts \
+  --n_eval_episodes 200 \
+  --traces_per_iteration 1000 \
+  --max_iterations 1000 \
+  --output_dir /home/atml_team041/condor_tutorial/jani_env/artifacts/repair/one_way_line_40_25/mask_ppo_best_params_seed$(SEED)/milp \
+  --device cpu \
+  --accumulate_faults \
+  --repair_method milp \
+  --seed $(SEED)
+
+queue SEED from (
+0
+)
