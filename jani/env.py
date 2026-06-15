@@ -11,6 +11,7 @@ binding_dir = current_dir / "engine" / "build"
 sys.path.append(str(binding_dir))
 
 from backend import JANIEngine, TarjanOracle
+from faulty_states import load_faulty_states
 
 
 class JANIEnv(gym.Env):
@@ -31,7 +32,9 @@ class JANIEnv(gym.Env):
                  step_reward: float = 0.0,
                  cycle_reward: float = 0.0,
                  domain_policy = None,
-                 policy_match_reward: float = 0.0) -> None:
+                 policy_match_reward: float = 0.0,
+                 faulty_states_path: str = "",
+                 faulty_state_reset_prob: float = 0.0) -> None:
         super().__init__()
         print(f"DEBUG: Initializing JANIEnv with model: {jani_model_path}, property: {jani_property_path}, start states: {start_states_path}, objective: {objective_path}, failure property: {failure_property_path}, seed: {seed}")
         self._engine = JANIEngine(jani_model_path, 
@@ -53,6 +56,16 @@ class JANIEnv(gym.Env):
         self._cycle_reward: float = cycle_reward
         self._domain_policy = domain_policy
         self._policy_match_reward: float = policy_match_reward
+        if not 0.0 <= faulty_state_reset_prob <= 1.0:
+            raise ValueError("faulty_state_reset_prob must be between 0 and 1")
+        self._faulty_state_reset_prob = faulty_state_reset_prob
+        self._faulty_states = None
+        if faulty_states_path:
+            if not hasattr(self._engine, "reset_from_state_vector"):
+                raise RuntimeError(
+                    "The JANI backend must be rebuilt to use faulty-state resets"
+                )
+            self._faulty_states = load_faulty_states(faulty_states_path)
         self._visited_states_in_episode: set = set()
         self._unsafe_reward: Optional[float] = None
         if self._use_oracle:
@@ -65,6 +78,18 @@ class JANIEnv(gym.Env):
         self.observation_space = gym.spaces.Box(low=np.array(lower_bounds), 
                                                 high=np.array(upper_bounds), 
                                                 dtype=np.float32)
+        if self._faulty_states is not None:
+            expected_dim = self.observation_space.shape[0]
+            if self._faulty_states.shape[1] != expected_dim:
+                raise ValueError(
+                    f"Faulty-state dimension mismatch: expected {expected_dim}, "
+                    f"got {self._faulty_states.shape[1]}"
+                )
+            for state in self._faulty_states:
+                if not self.observation_space.contains(state.astype(np.float32)):
+                    raise ValueError("Faulty-state pool contains a state outside the observation space")
+        if self._faulty_state_reset_prob > 0.0 and self._faulty_states is None:
+            raise ValueError("faulty_states_path is required when faulty_state_reset_prob is positive")
         # Initialize reset flag
         self._reseted = False
 
@@ -81,13 +106,39 @@ class JANIEnv(gym.Env):
 
     def reset(self, seed: Optional[int] = None, options: Optional[dict] = None) -> tuple[dict, dict]:
         super().reset(seed=seed)
-        if options is not None and "idx" in options:
+        options = options or {}
+        reset_info = {}
+        if "state" in options:
+            state_vec = self._engine.reset_from_state_vector(
+                np.asarray(options["state"], dtype=np.float64).tolist()
+            )
+            reset_info["reset_source"] = "provided_state"
+        elif "idx" in options:
             state_vec = self._engine.reset_with_index(options["idx"])
+            reset_info["reset_source"] = "initial_state_index"
         else:
-            state_vec = self._engine.reset()
+            use_faulty_state = options.get("use_faulty_state")
+            if use_faulty_state is None:
+                use_faulty_state = (
+                    self._faulty_states is not None
+                    and self.np_random.random() < self._faulty_state_reset_prob
+                )
+            if use_faulty_state:
+                if self._faulty_states is None:
+                    raise ValueError("Cannot reset from a faulty state without a loaded pool")
+                faulty_idx = int(self.np_random.integers(len(self._faulty_states)))
+                state_vec = self._engine.reset_from_state_vector(
+                    self._faulty_states[faulty_idx].tolist()
+                )
+                reset_info.update({
+                    "reset_source": "faulty_state",
+                    "faulty_state_index": faulty_idx,
+                })
+            else:
+                state_vec = self._engine.reset()
+                reset_info["reset_source"] = "initial_state"
         self._reseted = True
         # assert not self._engine.reach_goal_current(), "Initial state should not be a goal state."
-        reset_info = {}
         self._prev_obs = state_vec
         self._visited_states_in_episode = {tuple(state_vec)}
         return np.array(state_vec, dtype=np.float32), reset_info

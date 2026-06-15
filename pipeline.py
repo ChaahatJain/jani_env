@@ -22,6 +22,7 @@ from updater.spec_repair import SpecRepairPolicyUpdater
 from jani.env import JANIEnv
 from mask_ppo.train import train_model
 from torchrl.modules.distributions import MaskedCategorical
+from faulty_states import RecentFaultyStatePool, restart_states_from_trace, save_faulty_states
 
 # python pipeline.py --jani_model benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --jani_property benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/model.jani --initial_policy artifacts/pipeline/two_way_line_det/two_way_line_80_40/bootstrap/models/final_actor.pth --start_states benchmarks_generator/benchmarks/two_way_line_det/two_way_line_80_40/pa_model_random_starts_100000.jani --objective "" --failure_property "" --max_steps 100 --traces_per_iteration 100 --max_iterations 10 --output_dir artifacts/pipeline/two_way_line_det/two_way_line_80_40/ --device cpu --accumulate_faults --repair_method milp
 
@@ -75,6 +76,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--accumulate_faults", action="store_true")
     parser.add_argument("--fault_analysis_timeout", type=int, default=1800,
                         help="Timeout in seconds for fault analysis per iteration (default: 1800 = 30 min).")
+    parser.add_argument("--faulty_state_history", type=int, default=10,
+                        help="Number of states nearest each failure/cycle to save for RL restarts.")
+    parser.add_argument("--max_faulty_states", type=int, default=10_000,
+                        help="Maximum number of unique faulty restart states to retain.")
 
     # Sampling settings
     parser.add_argument(
@@ -426,8 +431,11 @@ def faults_to_tensordict(faults: list[dict[str, Any]], obs_dim: int, n_actions: 
 
     return positive_samples, negative_samples
 
+
 def main() -> None:
     args = parse_args()
+    if args.faulty_state_history <= 0:
+        raise ValueError("faulty_state_history must be positive")
     
     if args.repair_method == "milp":
         # --- Gurobi diagnostics ---
@@ -445,6 +453,7 @@ def main() -> None:
     output_dir = Path(args.output_dir)
     checkpoints_dir = output_dir / "repair_checkpoints" / f"{args.repair_method}"
     logs_dir = output_dir / "repair_logs"
+    faulty_states_path = output_dir / "faulty_states.json"
 
     # Train and load the policy (creates output_dir and its parents)
     policy_path = bootstrap_policy_if_needed(args, output_dir)
@@ -452,6 +461,8 @@ def main() -> None:
     # Create these after bootstrap so all parent directories exist
     checkpoints_dir.mkdir(parents=True, exist_ok=True)
     logs_dir.mkdir(parents=True, exist_ok=True)
+    if faulty_states_path.exists():
+        faulty_states_path.unlink()
     policy_model = load_policy_checkpoint(policy_path, device=device)
     policy_model.to(device)
     policy = NNPolicyWrapper(policy_model, device=device)
@@ -506,6 +517,8 @@ def main() -> None:
     all_faults = []
     total_steps = 0
     fault_cache = set()
+    faulty_state_pool = RecentFaultyStatePool(args.max_faulty_states)
+    faulty_trace_counts = {"failure": 0, "cycle": 0}
     fixed = True
     for iteration in range(1, args.max_iterations + 1):
         traces = []
@@ -554,6 +567,12 @@ def main() -> None:
             traces.append(trace) 
             sampling_seconds += time.perf_counter() - trace_start_time
             total_steps += len(trace["observations"])
+            termination_reason = trace.get("termination_reason")
+            if termination_reason in faulty_trace_counts:
+                faulty_trace_counts[termination_reason] += 1
+                faulty_state_pool.add(
+                    restart_states_from_trace(trace, args.faulty_state_history)
+                )
             
             if not trace["is_safe_trajectory"]: # We run fault analysis on the unsafe traces found here to get more informative fixes
                 if oracle_seconds >= args.fault_analysis_timeout:
@@ -570,9 +589,23 @@ def main() -> None:
                 fault_cache.update((tuple(f["observation"]), f["faulty_action"]) for f in new)
         num_new_faults = len(new_faults)
         num_faults = len(all_faults)
+        if len(faulty_state_pool) > 0:
+            save_faulty_states(
+                faulty_states_path,
+                faulty_state_pool.states(),
+                metadata={
+                    "state_dim": obs_dim,
+                    "num_states": len(faulty_state_pool),
+                    "faulty_state_history": args.faulty_state_history,
+                    "failure_traces": faulty_trace_counts["failure"],
+                    "cycle_traces": faulty_trace_counts["cycle"],
+                    "repair_iteration": iteration,
+                },
+            )
         print(
             f"Iteration {iteration}: traces={len(traces)}, steps={total_steps}, faults={num_faults} total {num_new_faults} new {duplicates} duplicates, "
-            f"sampling_seconds={sampling_seconds:.2f}, oracle_seconds={oracle_seconds:.2f}, evaluation_seconds={performance_evaluation_seconds:.2f}"
+            f"restart_states={len(faulty_state_pool)}, sampling_seconds={sampling_seconds:.2f}, "
+            f"oracle_seconds={oracle_seconds:.2f}, evaluation_seconds={performance_evaluation_seconds:.2f}"
         )
 
         metrics = {
@@ -582,6 +615,9 @@ def main() -> None:
             "num_faults": num_faults,
             "it_faults": num_new_faults,
             "duplicate_faults": duplicates,
+            "faulty_restart_states": len(faulty_state_pool),
+            "failure_traces": faulty_trace_counts["failure"],
+            "cycle_traces": faulty_trace_counts["cycle"],
             "sampling_seconds": sampling_seconds,
             "oracle_seconds": oracle_seconds,
             "evaluation_seconds": performance_evaluation_seconds,
@@ -637,6 +673,8 @@ def main() -> None:
     print(f"Converged: {converged}")
     print(f"Final policy: {final_path}")
     print(f"Iteration logs: {metrics_file}")
+    if len(faulty_state_pool) > 0:
+        print(f"Faulty-state restart pool: {faulty_states_path}")
 
 
 if __name__ == "__main__":

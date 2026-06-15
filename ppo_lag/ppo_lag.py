@@ -615,6 +615,8 @@ def run(args):
         "max_steps":            args.max_steps,
         "disable_oracle_cache": args.disable_oracle_cache,
         "reduced_memory_mode":  not args.no_memory_reduced_mode,
+        "faulty_states_path": args.faulty_states_path,
+        "faulty_state_reset_prob": args.faulty_state_reset_prob,
     }
 
     model_save_dir  = Path(args.model_save_dir)
@@ -725,6 +727,10 @@ def main():
     parser.add_argument("--use_oracle",             action="store_true")
     parser.add_argument("--disable_oracle_cache",   action="store_true")
     parser.add_argument("--no_memory_reduced_mode", action="store_true")
+    parser.add_argument("--faulty_states_path", type=str, default="",
+                        help="JSON state pool produced by repair for training resets.")
+    parser.add_argument("--faulty_state_reset_prob", type=float, default=0.0,
+                        help="Probability that a training episode starts from the faulty-state pool.")
     parser.add_argument("--max_steps",              type=int,   default=1000)
 
     # PPO

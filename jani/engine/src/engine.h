@@ -430,6 +430,15 @@ public:
         return current_state.toRealVector();
     }
 
+    std::vector<double> reset_from_state_vector(const std::vector<double>& state_vec) {
+        State restart_state = create_state_from_vector(state_vec);
+        if (!restart_state.validateState()) {
+            throw std::runtime_error("Restart state validation failed");
+        }
+        current_state = restart_state;
+        return current_state.toRealVector();
+    }
+
     std::vector<double> step(int action_id) {
         if (action_id < 0 || action_id >= actions.size()) {
             throw std::runtime_error("Invalid action id: " + std::to_string(action_id));

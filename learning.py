@@ -97,6 +97,8 @@ def _build_file_args(args) -> dict:
         "reduced_memory_mode":  not args.no_memory_reduced_mode,
         "domain_policy":        _load_domain_policy(args.domain_policy),
         "policy_match_reward":  args.policy_match_reward,
+        "faulty_states_path":   args.faulty_states_path,
+        "faulty_state_reset_prob": args.faulty_state_reset_prob,
     }
 
 
@@ -168,6 +170,10 @@ def build_parser() -> argparse.ArgumentParser:
                     help="Name of the domain-specific expert policy to use for reward shaping.")
     env.add_argument("--policy_match_reward",    type=float, default=0.0,
                     help="Bonus reward added when the agent's action matches the expert policy.")
+    env.add_argument("--faulty_states_path", type=str, default="",
+                    help="JSON state pool produced by repair for training resets.")
+    env.add_argument("--faulty_state_reset_prob", type=float, default=0.0,
+                    help="Probability that a training episode starts from the faulty-state pool.")
 
     # ── Shared hyperparameters ───────────────────────────────────────────────
     hp = parser.add_argument_group("Hyperparameters (shared across all algorithms)")

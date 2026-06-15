@@ -124,12 +124,39 @@ if [[ -z "$REPAIRED_POLICY" || ! -f "$REPAIRED_POLICY" ]]; then
     exit 1
 fi
 
+# Reuse states nearest failures/cycles as RL restart states. Explicit RL
+# arguments take precedence; otherwise train on a 50/50 mix of repaired-problem
+# states and the model's original initial-state distribution.
+FAULTY_STATES_FILE="${REPAIR_OUTPUT_DIR}/faulty_states.json"
+HAS_FAULTY_STATES_PATH=false
+HAS_FAULTY_RESET_PROB=false
+for arg in "${RL_ARGS[@]}"; do
+    if [[ "$arg" == "--faulty_states_path" ]]; then
+        HAS_FAULTY_STATES_PATH=true
+    elif [[ "$arg" == "--faulty_state_reset_prob" ]]; then
+        HAS_FAULTY_RESET_PROB=true
+    fi
+done
+
+if [[ "$HAS_FAULTY_STATES_PATH" == false && -f "$FAULTY_STATES_FILE" ]]; then
+    RL_ARGS+=("--faulty_states_path" "$FAULTY_STATES_FILE")
+    HAS_FAULTY_STATES_PATH=true
+fi
+if [[ "$HAS_FAULTY_STATES_PATH" == true && "$HAS_FAULTY_RESET_PROB" == false ]]; then
+    RL_ARGS+=("--faulty_state_reset_prob" "${FAULTY_STATE_RESET_PROB:-0.5}")
+fi
+
 echo ""
 echo "========================================="
 echo "  PHASE 2: RL training on repaired policy"
 echo "========================================="
 echo "RL algorithm:    $RL_ALGO"
 echo "Repaired policy: $REPAIRED_POLICY"
+if [[ "$HAS_FAULTY_STATES_PATH" == true ]]; then
+    echo "Faulty restarts: enabled"
+else
+    echo "Faulty restarts: disabled (no failed/cyclic states collected)"
+fi
 echo "RL args:         ${RL_ARGS[*]}"
 echo ""
 

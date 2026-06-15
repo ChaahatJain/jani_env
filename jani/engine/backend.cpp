@@ -48,6 +48,7 @@ NB_MODULE(backend, m) {
         .def("extract_condition_from_current_state_vector", &JANIEngine::extract_condition_from_current_state_vector)
         .def("reset", &JANIEngine::reset)
         .def("reset_with_index", &JANIEngine::reset_with_index)
+        .def("reset_from_state_vector", &JANIEngine::reset_from_state_vector)
         .def("step", &JANIEngine::step);
 
     nb::class_<TarjanOracle>(m, "TarjanOracle")

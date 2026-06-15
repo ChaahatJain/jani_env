@@ -39,6 +39,9 @@ class StandardTraceSampler(TraceSamplerInterface):
         visited = {}
 
         is_safe_trajectory = True
+        is_goal_trajectory = False
+        termination_reason = "max_steps"
+        final_observation = obs
 
         while not done and step_count < max_steps:
             action_mask = env.action_mask()
@@ -51,19 +54,28 @@ class StandardTraceSampler(TraceSamplerInterface):
             actions.append(action)
             action_masks.append(action_mask)
             next_obs, reward, done, _, info = env.step(action)
-            
+            step_count += 1
+            final_observation = next_obs
+
             # Track overall trajectory safety from environment info
             if info.get("reached_fail", False):
                 is_safe_trajectory = False
-                
+                termination_reason = "failure"
+
             is_goal_trajectory = info.get("reached_goal", False)
+            if is_goal_trajectory:
+                termination_reason = "goal"
 
             rewards.append(reward)
             next_obs_key = next_obs.tobytes()
-            if visited.get(next_obs_key, 0) >= max_state_visits:
+            if not done and visited.get(next_obs_key, 0) >= max_state_visits:
+                termination_reason = "cycle"
                 break  # Early termination if we revisit a state (cycle detected)
+            if done:
+                if termination_reason == "max_steps":
+                    termination_reason = "terminal"
+                break
             obs = next_obs
-            step_count += 1
         if verbose:
             print(observations)
             print(actions)
@@ -74,5 +86,7 @@ class StandardTraceSampler(TraceSamplerInterface):
             "rewards": rewards,
             "is_safe_trajectory": is_safe_trajectory,
             "final_reward": rewards[-1] if rewards else 0.0,
-            "is_goal_trajectory": is_goal_trajectory
+            "is_goal_trajectory": is_goal_trajectory,
+            "termination_reason": termination_reason,
+            "final_observation": final_observation,
         }

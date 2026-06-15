@@ -308,6 +308,10 @@ def main():
                         help="Disable caching in the oracle.")
     parser.add_argument('--no_memory_reduced_mode', action='store_true',
                         help="Disable memory reduced mode in the environment.")
+    parser.add_argument('--faulty_states_path', type=str, default="",
+                        help="JSON state pool produced by repair for training resets.")
+    parser.add_argument('--faulty_state_reset_prob', type=float, default=0.0,
+                        help="Probability that a training episode starts from the faulty-state pool.")
     
     # Training hyperparameters
     parser.add_argument('--seed', type=int, default=42, 
@@ -404,6 +408,8 @@ def main():
         'max_steps': args.max_steps,
         'disable_oracle_cache': args.disable_oracle_cache,
         'reduced_memory_mode': not args.no_memory_reduced_mode,
+        'faulty_states_path': args.faulty_states_path,
+        'faulty_state_reset_prob': args.faulty_state_reset_prob,
     }
     if args.use_separate_eval_env:
         assert args.eval_start_states != "", "Evaluation start states file must be provided when using separate eval env."

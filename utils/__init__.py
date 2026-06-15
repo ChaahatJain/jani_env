@@ -50,6 +50,8 @@ def create_env(file_args: dict, n_envs: int = 1, monitor: bool = False, time_lim
             cycle_reward=file_args.get("cycle_reward", 0.0),
             domain_policy=file_args.get("domain_policy", None),
             policy_match_reward=file_args.get("policy_match_reward", 0.0),
+            faulty_states_path=file_args.get("faulty_states_path", ""),
+            faulty_state_reset_prob=file_args.get("faulty_state_reset_prob", 0.0),
         ) 
 
         if time_limited:
@@ -80,6 +82,8 @@ def create_eval_file_args(file_args: Dict[str, Any], use_separate_eval_env: bool
         eval_file_args["start_states"] = eval_start_states # use different start states for evaluation
     eval_file_args["seed"] += 1000  # offset seed for evaluation
     eval_file_args["use_oracle"] = False  # disable oracle during evaluation
+    eval_file_args["faulty_states_path"] = ""
+    eval_file_args["faulty_state_reset_prob"] = 0.0
     return eval_file_args
 
 def create_safety_eval_file_args(file_args: Dict[str, Any], args: Dict[str, Any], use_oracle: bool = True) -> Dict[str, Any]:
@@ -92,6 +96,8 @@ def create_safety_eval_file_args(file_args: Dict[str, Any], args: Dict[str, Any]
     safety_eval_file_args["start_states"] = eval_start_states # use different start states for safety evaluation
     safety_eval_file_args["seed"] += 2000  # offset seed for safety evaluation
     safety_eval_file_args["use_oracle"] = use_oracle  # enable or disable oracle during safety evaluation
+    safety_eval_file_args["faulty_states_path"] = ""
+    safety_eval_file_args["faulty_state_reset_prob"] = 0.0
     return safety_eval_file_args
 
 def mask_fn(env) -> np.ndarray:

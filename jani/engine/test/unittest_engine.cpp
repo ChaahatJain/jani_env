@@ -344,6 +344,14 @@ TEST_F(EngineTest, StateFromVector) {
     EXPECT_FALSE(s == s_false) << "States with different variable values are considered equal.";
 }
 
+TEST_F(EngineTest, ResetFromStateVector) {
+    std::vector<double> vec = {-9.8067, 0.3, 25.0, 12.5, -4.0};
+    std::vector<double> restored = engine.reset_from_state_vector(vec);
+
+    EXPECT_EQ(restored, vec);
+    EXPECT_EQ(engine.get_current_state_vector(), vec);
+}
+
 TEST_F(EngineTest, StateHash) {
     State state_1;
     state_1.setVariable("x", std::make_unique<RealVariable>(0, "x", -9.7, 9.7, 6.356856));
