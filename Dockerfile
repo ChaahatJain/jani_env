@@ -16,7 +16,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libbz2-dev \
     libz-dev \
     libicu-dev \
-    libboost-all-dev
+    libboost-all-dev \
+    python3-tk \
+    tk \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV PATH="/usr/bin:${PATH}"
 
