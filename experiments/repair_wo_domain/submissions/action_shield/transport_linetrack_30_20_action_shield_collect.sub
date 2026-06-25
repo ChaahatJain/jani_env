@@ -1,0 +1,44 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+
+executable = /usr/bin/env
+transfer_executable = False
+
+getenv = HOME
++WantGPUHomeMounted = true
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+stream_output = True
+stream_error = True
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 1
+request_memory = 16G
+
+periodic_remove = (time() - JobStartDate) > 43200
+
+output = logs/$(ClusterId).$(ProcId)_shield_labels_shard$(Process).out
+error  = logs/$(ClusterId).$(ProcId)_shield_labels_shard$(Process).err
+log    = logs/$(ClusterId).$(ProcId)_shield_labels_shard$(Process).log
+
+arguments = bash \
+  /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/execute_fault_collection.sh collect \
+  --jani-model /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/transport_/linetrack_30_20/model.jani \
+  --jani-property /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/transport_/linetrack_30_20/model.jani \
+  --start-states /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/transport_/linetrack_30_20/pa_model_random_starts_100000.jani \
+  --policy /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/transport_linetrack_30_20/mask_ppo_best_params_seed0/models/actor_iter_65.pth \
+  --output-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield/transport_linetrack_30_20/mask_ppo_best_params_seed0/collection/shard_$(Process) \
+  --max-steps 2000 \
+  --max-state-visits 3 \
+  --num-shards 40 \
+  --shard-id $(Process) \
+  --action-scope all-applicable \
+  --save-action-labels \
+  --include-decoded-state \
+  --device cpu \
+  --seed 0
+
+queue 40

@@ -66,6 +66,14 @@ def parse_args() -> argparse.Namespace:
     collect.add_argument("--disable-oracle-cache", action="store_true")
     collect.add_argument("--reduced-memory-mode", action="store_true")
     collect.add_argument("--include-decoded-state", action="store_true")
+    collect.add_argument(
+        "--save-action-labels",
+        action="store_true",
+        help=(
+            "Save every unique oracle-labelled applicable (state, action) pair, "
+            "including non-faults, as one compressed NPZ file per action."
+        ),
+    )
     collect.add_argument("--progress-every", type=int, default=25)
 
     merge = subparsers.add_parser("merge", help="Merge completed shard datasets.")
@@ -220,6 +228,51 @@ def write_fault_dataset(output_dir: Path, faults: Iterable[dict[str, Any]]) -> i
     return len(ordered)
 
 
+def write_action_label_datasets(
+    output_dir: Path,
+    classifications: dict[tuple[tuple[float | int, ...], int], bool],
+    n_actions: int,
+    obs_dim: int,
+) -> dict[str, dict[str, int | str]]:
+    """Write all queried labels, not only faults, grouped by action."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    observations_by_action: list[list[tuple[float | int, ...]]] = [
+        [] for _ in range(n_actions)
+    ]
+    labels_by_action: list[list[bool]] = [[] for _ in range(n_actions)]
+    for (observation, action), is_fault in classifications.items():
+        observations_by_action[action].append(observation)
+        labels_by_action[action].append(bool(is_fault))
+
+    metadata: dict[str, dict[str, int | str]] = {}
+    for action in range(n_actions):
+        if observations_by_action[action]:
+            observations = np.asarray(observations_by_action[action], dtype=np.float32)
+            labels = np.asarray(labels_by_action[action], dtype=np.uint8)
+        else:
+            observations = np.empty((0, obs_dim), dtype=np.float32)
+            labels = np.empty((0,), dtype=np.uint8)
+
+        filename = f"labels_action_{action}.npz"
+        path = output_dir / filename
+        temporary = output_dir / f"{filename}.tmp.npz"
+        np.savez_compressed(
+            temporary,
+            observations=observations,
+            labels=labels,
+            action=np.asarray(action, dtype=np.int64),
+        )
+        temporary.replace(path)
+        positives = int(labels.sum())
+        metadata[str(action)] = {
+            "file": filename,
+            "examples": int(labels.size),
+            "faults": positives,
+            "non_faults": int(labels.size - positives),
+        }
+    return metadata
+
+
 def collect(args: argparse.Namespace) -> None:
     if args.num_shards <= 0:
         raise ValueError("num-shards must be positive")
@@ -227,6 +280,11 @@ def collect(args: argparse.Namespace) -> None:
         raise ValueError("shard-id must satisfy 0 <= shard-id < num-shards")
     if args.max_steps <= 0 or args.max_state_visits <= 0:
         raise ValueError("max-steps and max-state-visits must be positive")
+    if args.save_action_labels and args.action_scope != "all-applicable":
+        raise ValueError(
+            "--save-action-labels requires --action-scope all-applicable so every "
+            "classifier receives labels for all applicable actions."
+        )
 
     from jani.env import JANIEnv
 
@@ -262,6 +320,7 @@ def collect(args: argparse.Namespace) -> None:
         assigned_indices = assigned_indices[: args.start_index_limit]
 
     n_actions = int(env.action_space.n)
+    obs_dim = int(env.observation_space.shape[0])
     action_names = load_action_names(model_path, n_actions)
     faults: dict[tuple[tuple[float | int, ...], int], dict[str, Any]] = {}
     classifications: dict[tuple[tuple[float | int, ...], int], bool] = {}
@@ -362,6 +421,15 @@ def collect(args: argparse.Namespace) -> None:
             )
 
     unique_by_action = Counter(record["faulty_action"] for record in faults.values())
+    action_label_files = None
+    if args.save_action_labels:
+        action_label_files = write_action_label_datasets(
+            output_dir=output_dir,
+            classifications=classifications,
+            n_actions=n_actions,
+            obs_dim=obs_dim,
+        )
+
     summary = {
         "format_version": FORMAT_VERSION,
         "experiment": "fixed_policy_fault_collection",
@@ -405,6 +473,8 @@ def collect(args: argparse.Namespace) -> None:
         "fault_occurrences_by_action": {
             action_names[action]: action_fault_occurrences[action] for action in range(n_actions)
         },
+        "action_labels_saved": bool(args.save_action_labels),
+        "action_label_files": action_label_files,
     }
 
     write_fault_dataset(output_dir, faults.values())
@@ -425,12 +495,15 @@ def read_jsonl(path: Path) -> Iterable[dict[str, Any]]:
 def merge(args: argparse.Namespace) -> None:
     input_dir = Path(args.input_dir)
     output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
     summary_paths = sorted(input_dir.glob("shard_*/summary.json"))
     if not summary_paths:
         raise FileNotFoundError(f"No shard summaries found below {input_dir}")
 
     summaries = [json.loads(path.read_text(encoding="utf-8")) for path in summary_paths]
     shard_ids = {int(summary["shard_id"]) for summary in summaries}
+    if len(shard_ids) != len(summaries):
+        raise ValueError("Duplicate shard IDs found while merging fault collection")
     if args.expected_shards is not None:
         expected = set(range(args.expected_shards))
         missing = sorted(expected.difference(shard_ids))
@@ -439,7 +512,13 @@ def merge(args: argparse.Namespace) -> None:
     else:
         missing = []
 
-    compatibility_fields = ("policy_sha256", "jani_model", "start_states", "action_scope")
+    compatibility_fields = (
+        "policy_sha256",
+        "jani_model",
+        "start_states",
+        "action_scope",
+        "action_labels_saved",
+    )
     reference = summaries[0]
     for summary in summaries[1:]:
         for field in compatibility_fields:
@@ -510,7 +589,65 @@ def merge(args: argparse.Namespace) -> None:
             action_names[action]: occurrences_by_action[action]
             for action in range(len(action_names))
         },
+        "action_labels_saved": bool(reference.get("action_labels_saved", False)),
     }
+    if not missing and merged_summary["processed_start_states"] != int(
+        reference["start_state_pool_size"]
+    ):
+        raise ValueError(
+            "Complete fault collection did not cover every initial state: "
+            f"{merged_summary['processed_start_states']} processed versus "
+            f"{reference['start_state_pool_size']} expected"
+        )
+
+    if merged_summary["action_labels_saved"]:
+        label_shards = []
+        aggregate_counts = {
+            str(action): {"examples": 0, "faults": 0, "non_faults": 0}
+            for action in range(len(action_names))
+        }
+        for summary_path, summary in zip(summary_paths, summaries):
+            files = summary.get("action_label_files")
+            if not isinstance(files, dict):
+                raise ValueError(f"Missing action label metadata in {summary_path}")
+            shard_entry = {
+                "shard_id": int(summary["shard_id"]),
+                "directory": str(summary_path.parent.resolve()),
+                "actions": files,
+            }
+            label_shards.append(shard_entry)
+            for action in range(len(action_names)):
+                action_meta = files.get(str(action))
+                if not isinstance(action_meta, dict):
+                    raise ValueError(
+                        f"Missing action {action} label metadata in {summary_path}"
+                    )
+                label_path = summary_path.parent / str(action_meta["file"])
+                if not label_path.is_file():
+                    raise FileNotFoundError(f"Missing action label file: {label_path}")
+                for field in ("examples", "faults", "non_faults"):
+                    aggregate_counts[str(action)][field] += int(action_meta[field])
+
+        first_label_path = (
+            Path(label_shards[0]["directory"])
+            / label_shards[0]["actions"]["0"]["file"]
+        )
+        with np.load(first_label_path) as first_label_data:
+            observation_dim = int(first_label_data["observations"].shape[1])
+        label_manifest = {
+            "format_version": 1,
+            "observation_dim": observation_dim,
+            "action_names": action_names,
+            "coverage": reference["coverage"],
+            "policy_sha256": reference["policy_sha256"],
+            "shards": sorted(label_shards, key=lambda item: item["shard_id"]),
+            "aggregate_counts_before_cross_shard_deduplication": aggregate_counts,
+        }
+        write_json(output_dir / "action_labels_manifest.json", label_manifest)
+        merged_summary["action_labels_manifest"] = "action_labels_manifest.json"
+        merged_summary["action_label_counts_before_cross_shard_deduplication"] = (
+            aggregate_counts
+        )
 
     write_fault_dataset(output_dir, merged.values())
     write_json(output_dir / "summary.json", merged_summary)

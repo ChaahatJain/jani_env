@@ -1,0 +1,5 @@
+# Submit this DAG from experiments/repair_wo_domain. The merge starts only
+# after all 20 collection shards have completed successfully.
+JOB COLLECT submissions/fault_collection/transport_linetrack_20_10_collect_faults.sub
+JOB MERGE submissions/fault_collection/transport_linetrack_20_10_merge_faults.sub
+PARENT COLLECT CHILD MERGE

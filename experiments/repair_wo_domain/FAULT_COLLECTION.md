@@ -22,7 +22,7 @@ From `experiments/repair_wo_domain`, run:
 
 ```bash
 mkdir -p logs
-condor_submit_dag transport_linetrack_20_10_collect_faults.dag
+condor_submit_dag submissions/fault_collection/transport_linetrack_20_10_collect_faults.dag
 ```
 
 The workflow launches 20 disjoint shards of approximately 5,000 initial states and runs the
