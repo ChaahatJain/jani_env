@@ -1,0 +1,970 @@
+07/06/26 15:56:47 ******************************************************
+07/06/26 15:56:47 ** condor_scheduniv_exec.170170.0 (CONDOR_DAGMAN) STARTING UP
+07/06/26 15:56:47 ** /usr/bin/condor_dagman
+07/06/26 15:56:47 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/06/26 15:56:47 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/06/26 15:56:47 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/06/26 15:56:47 ** $CondorPlatform: X86_64-Debian_12 $
+07/06/26 15:56:47 ** PID = 4151731 RealUID = 1620002036
+07/06/26 15:56:47 ** Log last touched time unavailable (No such file or directory)
+07/06/26 15:56:47 ******************************************************
+07/06/26 15:56:47 Using config source: /etc/condor/condor_config
+07/06/26 15:56:47 Using local config sources: 
+07/06/26 15:56:47    /etc/condor/config.d/01-submit.conf
+07/06/26 15:56:47    /etc/condor/config.d/10-stash-plugin.conf
+07/06/26 15:56:47    /etc/condor/config.d/23-network.config
+07/06/26 15:56:47    /etc/condor/config.d/31-mail.conf
+07/06/26 15:56:47    /etc/condor/config.d/35-cc-sync.conf
+07/06/26 15:56:47    /etc/condor/config.d/41-periodic-remove.conf
+07/06/26 15:56:47    /etc/condor/config.d/49-common.conf
+07/06/26 15:56:47    /etc/condor/config.d/52-group-mapping.conf
+07/06/26 15:56:47    /etc/condor/config.d/54-container.conf
+07/06/26 15:56:47    /etc/condor/config.d/67-submit-transforms.conf
+07/06/26 15:56:47    /etc/condor/config.d/71-submit-requirements.conf
+07/06/26 15:56:47    /etc/condor/condor_config.local
+07/06/26 15:56:47 config Macros = 110, Sorted = 110, StringBytes = 6396, TablesBytes = 4088
+07/06/26 15:56:47 CLASSAD_CACHING is ENABLED
+07/06/26 15:56:47 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/06/26 15:56:47 Daemoncore: Listening at <0.0.0.0:5373> on TCP (ReliSock) and UDP (SafeSock).
+07/06/26 15:56:47 DaemonCore: command socket at <10.143.248.60:5373?addrs=10.143.248.60-5373&alias=conduit.hpc.uni-saarland.de>
+07/06/26 15:56:47 DaemonCore: private command socket at <10.143.248.60:5373?addrs=10.143.248.60-5373&alias=conduit.hpc.uni-saarland.de>
+07/06/26 15:56:47 DAGMAN_USE_STRICT setting: 1
+07/06/26 15:56:47 DAGMAN_VERBOSITY setting: 3
+07/06/26 15:56:47 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/06/26 15:56:47 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/06/26 15:56:47 DAGMAN_SUBMIT_DELAY setting: 0
+07/06/26 15:56:47 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/06/26 15:56:47 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/06/26 15:56:47 DAGMAN_USE_JOIN_NODES setting: True
+07/06/26 15:56:47 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/06/26 15:56:47 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/06/26 15:56:47 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/06/26 15:56:47 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/06/26 15:56:47 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/06/26 15:56:47 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/06/26 15:56:47 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/06/26 15:56:47 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/06/26 15:56:47 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/06/26 15:56:47 DAGMAN_RETRY_NODE_FIRST setting: False
+07/06/26 15:56:47 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/06/26 15:56:47 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/06/26 15:56:47 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/06/26 15:56:47 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/06/26 15:56:47 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/06/26 15:56:47 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/06/26 15:56:47 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/06/26 15:56:47 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/06/26 15:56:47 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/06/26 15:56:47 DAGMAN_ALWAYS_RUN_POST setting: False
+07/06/26 15:56:47 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/06/26 15:56:47 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/06/26 15:56:47 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/06/26 15:56:47 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/06/26 15:56:47 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/06/26 15:56:47 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/06/26 15:56:47 DAGMAN_INHERIT_ATTRS setting: 
+07/06/26 15:56:47 DAGMAN_ABORT_DUPLICATES setting: True
+07/06/26 15:56:47 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/06/26 15:56:47 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/06/26 15:56:47 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/06/26 15:56:47 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/06/26 15:56:47 DAGMAN_AUTO_RESCUE setting: True
+07/06/26 15:56:47 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/06/26 15:56:47 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/06/26 15:56:47 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/06/26 15:56:47 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/06/26 15:56:47 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/06/26 15:56:47 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/06/26 15:56:47 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/06/26 15:56:47 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/06/26 15:56:47 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/06/26 15:56:47 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/06/26 15:56:47 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/06/26 15:56:47 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/06/26 15:56:47 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/06/26 15:56:47 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/06/26 15:56:47 DAGMAN will adjust edges after parsing
+07/06/26 15:56:47 argv[0] == "condor_scheduniv_exec.170170.0"
+07/06/26 15:56:47 argv[1] == "-Lockfile"
+07/06/26 15:56:47 argv[2] == "transport_linetrack_40_25_action_shield.dag.lock"
+07/06/26 15:56:47 argv[3] == "-Dag"
+07/06/26 15:56:47 argv[4] == "transport_linetrack_40_25_action_shield.dag"
+07/06/26 15:56:47 argv[5] == "-CsdVersion"
+07/06/26 15:56:47 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/06/26 15:56:47 argv[7] == "-dagman"
+07/06/26 15:56:47 argv[8] == "/usr/bin/condor_dagman"
+07/06/26 15:56:47 argv[9] == "-AutoRescue"
+07/06/26 15:56:47 argv[10] == "1"
+07/06/26 15:56:47 argv[11] == "-DoRescueFrom"
+07/06/26 15:56:47 argv[12] == "0"
+07/06/26 15:56:47 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/06/26 15:56:47 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/06/26 15:56:47 Workflow batch-id: <170170.0>
+07/06/26 15:56:47 Workflow batch-name: <transport_linetrack_40_25_action_shield.dag+170170>
+07/06/26 15:56:47 Workflow accounting_group: <teaching>
+07/06/26 15:56:47 Workflow accounting_group_user: <atml_team041>
+07/06/26 15:56:47 Warning: failed to get attribute DAGNodeName
+07/06/26 15:56:47 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_40_25_action_shield.dag.nodes.log>
+07/06/26 15:56:47 DAG Lockfile will be written to transport_linetrack_40_25_action_shield.dag.lock
+07/06/26 15:56:47 DAG Input file is transport_linetrack_40_25_action_shield.dag
+07/06/26 15:56:47 Parsing 1 dagfiles
+07/06/26 15:56:47 Parsing transport_linetrack_40_25_action_shield.dag ...
+07/06/26 15:56:47 Adjusting edges
+07/06/26 15:56:47 Dag contains 5 total nodes
+07/06/26 15:56:47 Bootstrapping...
+07/06/26 15:56:47 Number of pre-completed nodes: 0
+07/06/26 15:56:47 MultiLogFiles: truncating log file /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_40_25_action_shield.dag.nodes.log
+07/06/26 15:56:47 DAG status: 0 (DAG_STATUS_OK)
+07/06/26 15:56:47 Of 5 nodes total:
+07/06/26 15:56:47  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 15:56:47   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 15:56:47     0       0        0       0       1          4        0        0
+07/06/26 15:56:47 0 job proc(s) currently held
+07/06/26 15:56:47 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 15:56:47 Registering condor_event_timer...
+07/06/26 15:56:48 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 15:56:48 Submitting node COLLECT from file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 15:56:48 ERROR: submit attempt failed, errno=2 No such file or directory
+07/06/26 15:56:48 could not open submit file : submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub - can't open file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub: No such file or directory
+07/06/26 15:56:48 Submit warning: Submit:0:the line 'accounting_group_user = atml_team041' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'accounting_group = teaching' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'keep_claim_idle = 20' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_id = 170170.0' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_name = transport_linetrack_40_25_action_shield.dag+170170' was unused by DAGMAN. Is it a typo?
+07/06/26 15:56:48 Job submit try 1/6 failed, will try again in >= 1 second.
+07/06/26 15:56:48 DAG status: 0 (DAG_STATUS_OK)
+07/06/26 15:56:48 Of 5 nodes total:
+07/06/26 15:56:48  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 15:56:48   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 15:56:48     0       0        0       0       1          4        0        0
+07/06/26 15:56:48 0 job proc(s) currently held
+07/06/26 15:56:48 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.004; SubmitCycleTimeMax=0.004; SubmitCycleTimeMin=0.004; SubmitCycleTimeStd=0.004; SubmitCycleTimeSum=0.004; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 15:56:53 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 15:56:53 Submitting node COLLECT from file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 15:56:53 ERROR: submit attempt failed, errno=2 No such file or directory
+07/06/26 15:56:53 could not open submit file : submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub - can't open file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub: No such file or directory
+07/06/26 15:56:53 Submit warning: Submit:0:the line 'accounting_group_user = atml_team041' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'accounting_group = teaching' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'keep_claim_idle = 20' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_id = 170170.0' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_name = transport_linetrack_40_25_action_shield.dag+170170' was unused by DAGMAN. Is it a typo?
+07/06/26 15:56:53 Job submit try 2/6 failed, will try again in >= 2 seconds.
+07/06/26 15:56:58 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 15:56:58 Submitting node COLLECT from file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 15:56:58 ERROR: submit attempt failed, errno=2 No such file or directory
+07/06/26 15:56:58 could not open submit file : submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub - can't open file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub: No such file or directory
+07/06/26 15:56:58 Submit warning: Submit:0:the line 'accounting_group_user = atml_team041' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'accounting_group = teaching' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'keep_claim_idle = 20' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_id = 170170.0' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_name = transport_linetrack_40_25_action_shield.dag+170170' was unused by DAGMAN. Is it a typo?
+07/06/26 15:56:58 Job submit try 3/6 failed, will try again in >= 4 seconds.
+07/06/26 15:57:03 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 15:57:03 Submitting node COLLECT from file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 15:57:03 ERROR: submit attempt failed, errno=2 No such file or directory
+07/06/26 15:57:03 could not open submit file : submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub - can't open file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub: No such file or directory
+07/06/26 15:57:03 Submit warning: Submit:0:the line 'accounting_group_user = atml_team041' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'accounting_group = teaching' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'keep_claim_idle = 20' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_id = 170170.0' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_name = transport_linetrack_40_25_action_shield.dag+170170' was unused by DAGMAN. Is it a typo?
+07/06/26 15:57:03 Job submit try 4/6 failed, will try again in >= 8 seconds.
+07/06/26 15:57:14 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 15:57:14 Submitting node COLLECT from file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 15:57:14 ERROR: submit attempt failed, errno=2 No such file or directory
+07/06/26 15:57:14 could not open submit file : submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub - can't open file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub: No such file or directory
+07/06/26 15:57:14 Submit warning: Submit:0:the line 'accounting_group_user = atml_team041' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'accounting_group = teaching' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'keep_claim_idle = 20' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_id = 170170.0' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_name = transport_linetrack_40_25_action_shield.dag+170170' was unused by DAGMAN. Is it a typo?
+07/06/26 15:57:14 Job submit try 5/6 failed, will try again in >= 16 seconds.
+07/06/26 15:57:31 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 15:57:31 Submitting node COLLECT from file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 15:57:31 ERROR: submit attempt failed, errno=2 No such file or directory
+07/06/26 15:57:31 could not open submit file : submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub - can't open file submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub: No such file or directory
+07/06/26 15:57:31 Submit warning: Submit:0:the line 'accounting_group_user = atml_team041' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'accounting_group = teaching' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'keep_claim_idle = 20' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_id = 170170.0' was unused by DAGMAN. Is it a typo?
+|Submit:0:the line 'batch_name = transport_linetrack_40_25_action_shield.dag+170170' was unused by DAGMAN. Is it a typo?
+07/06/26 15:57:31 Node submit failed after 6 tries.
+07/06/26 15:57:31 Shortcutting node COLLECT retries because of submit failure(s)
+07/06/26 15:57:31 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/06/26 15:57:31 Of 5 nodes total:
+07/06/26 15:57:31  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 15:57:31   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 15:57:31     0       0        0       0       0          0        1        4
+07/06/26 15:57:31 0 job proc(s) currently held
+07/06/26 15:57:31 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.379; EventCycleTimeMax=1.001; EventCycleTimeMin=0.003; EventCycleTimeStd=0.515; EventCycleTimeSum=3.035; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.005; SleepCycleTimeMin=5.003; SleepCycleTimeStd=0.001; SleepCycleTimeSum=40.033; SubmitCycleTimeAvg=0.337; SubmitCycleTimeMax=1.001; SubmitCycleTimeMin=0.003; SubmitCycleTimeStd=0.498; SubmitCycleTimeSum=3.029; EventCycleTimeCount=8.000; SleepCycleTimeCount=8.000; SubmitCycleTimeCount=9.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 15:57:31 ERROR: the following job(s) failed:
+07/06/26 15:57:31 ---------------------- Node ----------------------
+07/06/26 15:57:31       Node Name: COLLECT
+07/06/26 15:57:31            Noop: false
+07/06/26 15:57:31          NodeID: 0
+07/06/26 15:57:31     Node Status: STATUS_ERROR    
+07/06/26 15:57:31 Node return val: -1
+07/06/26 15:57:31           Error: Job submit failed
+07/06/26 15:57:31 Job Submit File: submissions/action_shield/transport_linetrack/transport_linetrack_40_25_action_shield_collect.sub
+07/06/26 15:57:31  HTCondor Job ID: [not yet submitted]
+07/06/26 15:57:31 PARENTS:  WAITING: 0 CHILDREN: MERGE_COLLECTION
+07/06/26 15:57:31 ---------------------------------------	<END>
+07/06/26 15:57:31 Aborting DAG...
+07/06/26 15:57:31 Writing Rescue DAG to transport_linetrack_40_25_action_shield.dag.rescue001...
+07/06/26 15:57:31 Removing submitted jobs...
+07/06/26 15:57:31 Removing any/all submitted HTCondor jobs...
+07/06/26 15:57:31 Running: /usr/bin/condor_rm -const DAGManJobId==170170 -reason DAG' 'Abort:' 'DAG' 'is' 'exiting' 'and' 'writing' 'rescue' 'file.
+07/06/26 15:57:31 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/06/26 15:57:31 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/06/26 15:57:31 Note: 0 total node deferrals because of node category throttles
+07/06/26 15:57:31 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/06/26 15:57:31 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/06/26 15:57:31 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/06/26 15:57:31 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/06/26 15:57:31 Of 5 nodes total:
+07/06/26 15:57:31  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 15:57:31   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 15:57:31     0       0        0       0       0          0        1        4
+07/06/26 15:57:31 0 job proc(s) currently held
+07/06/26 15:57:31 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.379; EventCycleTimeMax=1.001; EventCycleTimeMin=0.003; EventCycleTimeStd=0.515; EventCycleTimeSum=3.035; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.005; SleepCycleTimeMin=5.003; SleepCycleTimeStd=0.001; SleepCycleTimeSum=40.033; SubmitCycleTimeAvg=0.337; SubmitCycleTimeMax=1.001; SubmitCycleTimeMin=0.003; SubmitCycleTimeStd=0.498; SubmitCycleTimeSum=3.029; EventCycleTimeCount=8.000; SleepCycleTimeCount=8.000; SubmitCycleTimeCount=9.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 15:57:31 Wrote metrics file transport_linetrack_40_25_action_shield.dag.metrics.
+07/06/26 15:57:31 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.379; EventCycleTimeMax=1.001; EventCycleTimeMin=0.003; EventCycleTimeStd=0.515; EventCycleTimeSum=3.035; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.005; SleepCycleTimeMin=5.003; SleepCycleTimeStd=0.001; SleepCycleTimeSum=40.033; SubmitCycleTimeAvg=0.337; SubmitCycleTimeMax=1.001; SubmitCycleTimeMin=0.003; SubmitCycleTimeStd=0.498; SubmitCycleTimeSum=3.029; EventCycleTimeCount=8.000; SleepCycleTimeCount=8.000; SubmitCycleTimeCount=9.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 15:57:31 **** condor_scheduniv_exec.170170.0 (condor_DAGMAN) pid 4151731 EXITING WITH STATUS 1
+07/06/26 16:02:32 ******************************************************
+07/06/26 16:02:32 ** condor_scheduniv_exec.170179.0 (CONDOR_DAGMAN) STARTING UP
+07/06/26 16:02:32 ** /usr/bin/condor_dagman
+07/06/26 16:02:32 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/06/26 16:02:32 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/06/26 16:02:32 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/06/26 16:02:32 ** $CondorPlatform: X86_64-Debian_12 $
+07/06/26 16:02:32 ** PID = 4155133 RealUID = 1620002036
+07/06/26 16:02:32 ** Log last touched 7/6 15:57:31
+07/06/26 16:02:32 ******************************************************
+07/06/26 16:02:32 Using config source: /etc/condor/condor_config
+07/06/26 16:02:32 Using local config sources: 
+07/06/26 16:02:32    /etc/condor/config.d/01-submit.conf
+07/06/26 16:02:32    /etc/condor/config.d/10-stash-plugin.conf
+07/06/26 16:02:32    /etc/condor/config.d/23-network.config
+07/06/26 16:02:32    /etc/condor/config.d/31-mail.conf
+07/06/26 16:02:32    /etc/condor/config.d/35-cc-sync.conf
+07/06/26 16:02:32    /etc/condor/config.d/41-periodic-remove.conf
+07/06/26 16:02:32    /etc/condor/config.d/49-common.conf
+07/06/26 16:02:32    /etc/condor/config.d/52-group-mapping.conf
+07/06/26 16:02:32    /etc/condor/config.d/54-container.conf
+07/06/26 16:02:32    /etc/condor/config.d/67-submit-transforms.conf
+07/06/26 16:02:32    /etc/condor/config.d/71-submit-requirements.conf
+07/06/26 16:02:32    /etc/condor/condor_config.local
+07/06/26 16:02:32 config Macros = 110, Sorted = 110, StringBytes = 6396, TablesBytes = 4088
+07/06/26 16:02:32 CLASSAD_CACHING is ENABLED
+07/06/26 16:02:32 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/06/26 16:02:32 Daemoncore: Listening at <0.0.0.0:28049> on TCP (ReliSock) and UDP (SafeSock).
+07/06/26 16:02:32 DaemonCore: command socket at <10.143.248.60:28049?addrs=10.143.248.60-28049&alias=conduit.hpc.uni-saarland.de>
+07/06/26 16:02:32 DaemonCore: private command socket at <10.143.248.60:28049?addrs=10.143.248.60-28049&alias=conduit.hpc.uni-saarland.de>
+07/06/26 16:02:32 DAGMAN_USE_STRICT setting: 1
+07/06/26 16:02:32 DAGMAN_VERBOSITY setting: 3
+07/06/26 16:02:32 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/06/26 16:02:32 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/06/26 16:02:32 DAGMAN_SUBMIT_DELAY setting: 0
+07/06/26 16:02:32 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/06/26 16:02:32 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/06/26 16:02:32 DAGMAN_USE_JOIN_NODES setting: True
+07/06/26 16:02:32 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/06/26 16:02:32 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/06/26 16:02:32 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/06/26 16:02:32 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/06/26 16:02:32 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/06/26 16:02:32 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/06/26 16:02:32 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/06/26 16:02:32 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/06/26 16:02:32 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/06/26 16:02:32 DAGMAN_RETRY_NODE_FIRST setting: False
+07/06/26 16:02:32 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/06/26 16:02:32 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/06/26 16:02:32 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/06/26 16:02:32 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/06/26 16:02:32 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/06/26 16:02:32 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/06/26 16:02:32 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/06/26 16:02:32 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/06/26 16:02:32 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/06/26 16:02:32 DAGMAN_ALWAYS_RUN_POST setting: False
+07/06/26 16:02:32 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/06/26 16:02:32 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/06/26 16:02:32 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/06/26 16:02:32 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/06/26 16:02:32 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/06/26 16:02:32 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/06/26 16:02:32 DAGMAN_INHERIT_ATTRS setting: 
+07/06/26 16:02:32 DAGMAN_ABORT_DUPLICATES setting: True
+07/06/26 16:02:32 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/06/26 16:02:32 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/06/26 16:02:32 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/06/26 16:02:32 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/06/26 16:02:32 DAGMAN_AUTO_RESCUE setting: True
+07/06/26 16:02:32 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/06/26 16:02:32 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/06/26 16:02:32 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/06/26 16:02:32 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/06/26 16:02:32 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/06/26 16:02:32 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/06/26 16:02:32 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/06/26 16:02:32 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/06/26 16:02:32 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/06/26 16:02:32 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/06/26 16:02:32 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/06/26 16:02:32 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/06/26 16:02:32 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/06/26 16:02:32 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/06/26 16:02:32 DAGMAN will adjust edges after parsing
+07/06/26 16:02:32 argv[0] == "condor_scheduniv_exec.170179.0"
+07/06/26 16:02:32 argv[1] == "-Lockfile"
+07/06/26 16:02:32 argv[2] == "transport_linetrack_40_25_action_shield.dag.lock"
+07/06/26 16:02:32 argv[3] == "-Dag"
+07/06/26 16:02:32 argv[4] == "transport_linetrack_40_25_action_shield.dag"
+07/06/26 16:02:32 argv[5] == "-CsdVersion"
+07/06/26 16:02:32 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/06/26 16:02:32 argv[7] == "-dagman"
+07/06/26 16:02:32 argv[8] == "/usr/bin/condor_dagman"
+07/06/26 16:02:32 argv[9] == "-AutoRescue"
+07/06/26 16:02:32 argv[10] == "1"
+07/06/26 16:02:32 argv[11] == "-DoRescueFrom"
+07/06/26 16:02:32 argv[12] == "0"
+07/06/26 16:02:32 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/06/26 16:02:32 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/06/26 16:02:32 Workflow batch-id: <170179.0>
+07/06/26 16:02:32 Workflow batch-name: <transport_linetrack_40_25_action_shield.dag+170179>
+07/06/26 16:02:32 Workflow accounting_group: <teaching>
+07/06/26 16:02:32 Workflow accounting_group_user: <atml_team041>
+07/06/26 16:02:32 Warning: failed to get attribute DAGNodeName
+07/06/26 16:02:32 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_40_25_action_shield.dag.nodes.log>
+07/06/26 16:02:32 DAG Lockfile will be written to transport_linetrack_40_25_action_shield.dag.lock
+07/06/26 16:02:32 DAG Input file is transport_linetrack_40_25_action_shield.dag
+07/06/26 16:02:32 Parsing 1 dagfiles
+07/06/26 16:02:32 Parsing transport_linetrack_40_25_action_shield.dag ...
+07/06/26 16:02:32 Adjusting edges
+07/06/26 16:02:32 Found rescue DAG number 1; running transport_linetrack_40_25_action_shield.dag.rescue001 in combination with normal DAG file
+07/06/26 16:02:32 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+07/06/26 16:02:32 USING RESCUE DAG transport_linetrack_40_25_action_shield.dag.rescue001
+07/06/26 16:02:32 Dag contains 5 total nodes
+07/06/26 16:02:32 Bootstrapping...
+07/06/26 16:02:32 Number of pre-completed nodes: 0
+07/06/26 16:02:32 MultiLogFiles: truncating log file /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_40_25_action_shield.dag.nodes.log
+07/06/26 16:02:32 DAG status: 0 (DAG_STATUS_OK)
+07/06/26 16:02:32 Of 5 nodes total:
+07/06/26 16:02:32  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 16:02:32   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 16:02:32     0       0        0       0       1          4        0        0
+07/06/26 16:02:32 0 job proc(s) currently held
+07/06/26 16:02:32 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 16:02:32 Registering condor_event_timer...
+07/06/26 16:02:33 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 16:02:33 Submitting node COLLECT from file transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 16:02:33 	assigned HTCondor ID (170188.0.0)
+07/06/26 16:02:34 Just submitted 1 job this cycle...
+07/06/26 16:02:34 DAG status: 0 (DAG_STATUS_OK)
+07/06/26 16:02:34 Of 5 nodes total:
+07/06/26 16:02:34  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 16:02:34   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 16:02:34     0       0        1       0       0          4        0        0
+07/06/26 16:02:34 0 job proc(s) currently held
+07/06/26 16:02:34 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.590; SubmitCycleTimeMax=0.590; SubmitCycleTimeMin=0.590; SubmitCycleTimeStd=0.590; SubmitCycleTimeSum=0.590; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 16:02:39 Currently monitoring 1 HTCondor log file(s)
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.0.0) to (170188.0.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.0.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 1
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.0.0) to (170188.1.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.1.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 2
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.1.0) to (170188.10.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.10.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 3
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.10.0) to (170188.11.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.11.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 4
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.11.0) to (170188.12.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.12.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 5
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.12.0) to (170188.13.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.13.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 6
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.13.0) to (170188.14.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.14.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 7
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.14.0) to (170188.15.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.15.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 8
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.15.0) to (170188.16.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.16.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 9
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.16.0) to (170188.17.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.17.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 10
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.17.0) to (170188.18.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.18.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 11
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.18.0) to (170188.19.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.19.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 12
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.19.0) to (170188.2.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.2.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 13
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.2.0) to (170188.20.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.20.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 14
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.20.0) to (170188.21.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.21.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 15
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.21.0) to (170188.22.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.22.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 16
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.22.0) to (170188.23.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.23.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 17
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.23.0) to (170188.24.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.24.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 18
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.24.0) to (170188.25.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.25.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 19
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.25.0) to (170188.26.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.26.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 20
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.26.0) to (170188.27.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.27.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 21
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.27.0) to (170188.28.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.28.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 22
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.28.0) to (170188.29.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.29.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 23
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.29.0) to (170188.3.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.3.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 24
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.3.0) to (170188.30.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.30.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 25
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.30.0) to (170188.31.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.31.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 26
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.31.0) to (170188.32.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.32.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 27
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.32.0) to (170188.33.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.33.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 28
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.33.0) to (170188.34.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.34.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 29
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.34.0) to (170188.35.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.35.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 30
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.35.0) to (170188.36.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.36.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 31
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.36.0) to (170188.37.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.37.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 32
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.37.0) to (170188.38.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.38.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 33
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.38.0) to (170188.39.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.39.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 34
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.39.0) to (170188.4.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.4.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 35
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.4.0) to (170188.5.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.5.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 36
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.5.0) to (170188.6.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.6.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 37
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.6.0) to (170188.7.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.7.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 38
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.7.0) to (170188.8.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.8.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 39
+07/06/26 16:02:39 Reassigning the id of job COLLECT from (170188.8.0) to (170188.9.0)
+07/06/26 16:02:39 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170188.9.0) {07/06/26 16:02:33}
+07/06/26 16:02:39 Number of idle job procs: 40
+07/06/26 16:12:39 600 seconds since last log event
+07/06/26 16:12:39 Pending DAG nodes:
+07/06/26 16:12:39   Node COLLECT, HTCondor ID 170188, status STATUS_SUBMITTED
+07/06/26 16:17:35 Total jobs placed to AP: 40
+07/06/26 16:17:35      Idle     Held     Running     Successful     Failed
+07/06/26 16:17:35       ===      ===         ===            ===        ===
+07/06/26 16:17:35        40        0           0              0          0
+07/06/26 16:22:40 1201 seconds since last log event
+07/06/26 16:22:40 Pending DAG nodes:
+07/06/26 16:22:40   Node COLLECT, HTCondor ID 170188, status STATUS_SUBMITTED
+07/06/26 16:32:35 Total jobs placed to AP: 40
+07/06/26 16:32:35      Idle     Held     Running     Successful     Failed
+07/06/26 16:32:35       ===      ===         ===            ===        ===
+07/06/26 16:32:35        40        0           0              0          0
+07/06/26 16:32:40 1801 seconds since last log event
+07/06/26 16:32:40 Pending DAG nodes:
+07/06/26 16:32:40   Node COLLECT, HTCondor ID 170188, status STATUS_SUBMITTED
+07/06/26 16:42:41 2402 seconds since last log event
+07/06/26 16:42:41 Pending DAG nodes:
+07/06/26 16:42:41   Node COLLECT, HTCondor ID 170188, status STATUS_SUBMITTED
+07/06/26 16:47:36 Total jobs placed to AP: 40
+07/06/26 16:47:36      Idle     Held     Running     Successful     Failed
+07/06/26 16:47:36       ===      ===         ===            ===        ===
+07/06/26 16:47:36        40        0           0              0          0
+07/06/26 16:52:42 3003 seconds since last log event
+07/06/26 16:52:42 Pending DAG nodes:
+07/06/26 16:52:42   Node COLLECT, HTCondor ID 170188, status STATUS_SUBMITTED
+07/06/26 17:02:37 Total jobs placed to AP: 40
+07/06/26 17:02:37      Idle     Held     Running     Successful     Failed
+07/06/26 17:02:37       ===      ===         ===            ===        ===
+07/06/26 17:02:37        40        0           0              0          0
+07/06/26 17:02:42 3603 seconds since last log event
+07/06/26 17:02:42 Pending DAG nodes:
+07/06/26 17:02:42   Node COLLECT, HTCondor ID 170188, status STATUS_SUBMITTED
+07/06/26 17:08:12 Currently monitoring 1 HTCondor log file(s)
+07/06/26 17:08:12 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170188.0.0) {07/06/26 17:08:11}
+07/06/26 17:08:12 Number of idle job procs: 39
+07/06/26 17:09:33 Currently monitoring 1 HTCondor log file(s)
+07/06/26 17:09:33 Event: ULOG_JOB_TERMINATED for HTCondor Node COLLECT (170188.0.0) {07/06/26 17:09:28}
+07/06/26 17:09:33 Number of idle job procs: 39
+07/06/26 17:09:33 Node COLLECT job proc (170188.0.0) failed with status 1.
+07/06/26 17:09:33 Running: /usr/bin/condor_rm 170188 -const DAGManJobId==170179 -reason Node' 'Error:' 'DAG' 'node' 'COLLECT' '(170188.0.0)' 'reached' 'failure' 'tolerance' 'after' '1' 'failures.
+07/06/26 17:09:33 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170188.1.0) {07/06/26 17:09:29}
+07/06/26 17:09:33 Number of idle job procs: 38
+07/06/26 17:09:33 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.2.0) {07/06/26 17:09:33}
+07/06/26 17:09:33 Number of idle job procs: 37
+07/06/26 17:09:33 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.3.0) {07/06/26 17:09:33}
+07/06/26 17:09:33 Number of idle job procs: 36
+07/06/26 17:09:33 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.4.0) {07/06/26 17:09:33}
+07/06/26 17:09:33 Number of idle job procs: 35
+07/06/26 17:09:33 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.5.0) {07/06/26 17:09:33}
+07/06/26 17:09:33 Number of idle job procs: 34
+07/06/26 17:09:33 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.6.0) {07/06/26 17:09:33}
+07/06/26 17:09:33 Number of idle job procs: 33
+07/06/26 17:09:33 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.7.0) {07/06/26 17:09:33}
+07/06/26 17:09:33 Number of idle job procs: 32
+07/06/26 17:09:38 Currently monitoring 1 HTCondor log file(s)
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.8.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 31
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.9.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 30
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.10.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 29
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.11.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 28
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.12.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 27
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.13.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 26
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.14.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 25
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.15.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 24
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.16.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 23
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.17.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 22
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.18.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 21
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.19.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 20
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.20.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 19
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.21.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 18
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.22.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 17
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.23.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 16
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.24.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 15
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.25.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 14
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.26.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 13
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.27.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 12
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.28.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 11
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.29.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 10
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.30.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 9
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.31.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 8
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.32.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 7
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.33.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 6
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.34.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 5
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.35.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 4
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.36.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 3
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.37.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 2
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.38.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 1
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.39.0) {07/06/26 17:09:33}
+07/06/26 17:09:38 Number of idle job procs: 0
+07/06/26 17:09:38 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170188.1.0) {07/06/26 17:09:34}
+07/06/26 17:09:38 Number of idle job procs: 0
+07/06/26 17:09:38 Event: ULOG_JOB_ABORTED for HTCondor Node COLLECT (170188.1.0) {07/06/26 17:09:34}
+07/06/26 17:09:38 Number of idle job procs: 0
+07/06/26 17:09:38 Node COLLECT job(s) have exited the queue
+07/06/26 17:09:38 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/06/26 17:09:38 Of 5 nodes total:
+07/06/26 17:09:38  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 17:09:38   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 17:09:38     0       0        0       0       0          0        1        4
+07/06/26 17:09:38 0 job proc(s) currently held
+07/06/26 17:09:38 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.596; EventCycleTimeMin=0.000; EventCycleTimeStd=0.021; EventCycleTimeSum=0.925; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.056; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=4023.682; SubmitCycleTimeAvg=0.001; SubmitCycleTimeMax=0.590; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.021; SubmitCycleTimeSum=0.591; EventCycleTimeCount=804.000; SleepCycleTimeCount=804.000; SubmitCycleTimeCount=805.000; LogProcessCycleTimeAvg=0.048; LogProcessCycleTimeMax=0.082; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.034; LogProcessCycleTimeSum=0.190; LogProcessCycleTimeCount=4.000; ]
+07/06/26 17:09:38 ERROR: the following job(s) failed:
+07/06/26 17:09:38 ---------------------- Node ----------------------
+07/06/26 17:09:38       Node Name: COLLECT
+07/06/26 17:09:38            Noop: false
+07/06/26 17:09:38          NodeID: 0
+07/06/26 17:09:38     Node Status: STATUS_ERROR    
+07/06/26 17:09:38 Node return val: 1
+07/06/26 17:09:38           Error: Job proc (170188.0.0) failed with status 1
+07/06/26 17:09:38 Job Submit File: transport_linetrack_40_25_action_shield_collect.sub
+07/06/26 17:09:38  HTCondor Job ID: (170188.9.0)
+07/06/26 17:09:38 PARENTS:  WAITING: 0 CHILDREN: MERGE_COLLECTION
+07/06/26 17:09:38 ---------------------------------------	<END>
+07/06/26 17:09:38 Aborting DAG...
+07/06/26 17:09:38 Writing Rescue DAG to transport_linetrack_40_25_action_shield.dag.rescue002...
+07/06/26 17:09:38 Removing submitted jobs...
+07/06/26 17:09:38 Removing any/all submitted HTCondor jobs...
+07/06/26 17:09:38 Running: /usr/bin/condor_rm -const DAGManJobId==170179 -reason DAG' 'Abort:' 'DAG' 'is' 'exiting' 'and' 'writing' 'rescue' 'file.
+07/06/26 17:09:38 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/06/26 17:09:38 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/06/26 17:09:38 Note: 0 total node deferrals because of node category throttles
+07/06/26 17:09:38 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/06/26 17:09:38 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/06/26 17:09:38 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/06/26 17:09:38 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/06/26 17:09:38 Of 5 nodes total:
+07/06/26 17:09:38  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 17:09:38   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 17:09:38     0       0        0       0       0          0        1        4
+07/06/26 17:09:38 0 job proc(s) currently held
+07/06/26 17:09:38 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.596; EventCycleTimeMin=0.000; EventCycleTimeStd=0.021; EventCycleTimeSum=0.925; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.056; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=4023.682; SubmitCycleTimeAvg=0.001; SubmitCycleTimeMax=0.590; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.021; SubmitCycleTimeSum=0.591; EventCycleTimeCount=804.000; SleepCycleTimeCount=804.000; SubmitCycleTimeCount=805.000; LogProcessCycleTimeAvg=0.048; LogProcessCycleTimeMax=0.082; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.034; LogProcessCycleTimeSum=0.190; LogProcessCycleTimeCount=4.000; ]
+07/06/26 17:09:38 Wrote metrics file transport_linetrack_40_25_action_shield.dag.metrics.
+07/06/26 17:09:38 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.596; EventCycleTimeMin=0.000; EventCycleTimeStd=0.021; EventCycleTimeSum=0.925; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.056; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=4023.682; SubmitCycleTimeAvg=0.001; SubmitCycleTimeMax=0.590; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.021; SubmitCycleTimeSum=0.591; EventCycleTimeCount=804.000; SleepCycleTimeCount=804.000; SubmitCycleTimeCount=805.000; LogProcessCycleTimeAvg=0.048; LogProcessCycleTimeMax=0.082; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.034; LogProcessCycleTimeSum=0.190; LogProcessCycleTimeCount=4.000; ]
+07/06/26 17:09:38 **** condor_scheduniv_exec.170179.0 (condor_DAGMAN) pid 4155133 EXITING WITH STATUS 1
+07/06/26 18:12:25 ******************************************************
+07/06/26 18:12:25 ** condor_scheduniv_exec.170244.0 (CONDOR_DAGMAN) STARTING UP
+07/06/26 18:12:25 ** /usr/bin/condor_dagman
+07/06/26 18:12:25 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/06/26 18:12:25 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/06/26 18:12:25 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/06/26 18:12:25 ** $CondorPlatform: X86_64-Debian_12 $
+07/06/26 18:12:25 ** PID = 35767 RealUID = 1620002036
+07/06/26 18:12:25 ** Log last touched 7/6 17:09:38
+07/06/26 18:12:25 ******************************************************
+07/06/26 18:12:25 Using config source: /etc/condor/condor_config
+07/06/26 18:12:25 Using local config sources: 
+07/06/26 18:12:25    /etc/condor/config.d/01-submit.conf
+07/06/26 18:12:25    /etc/condor/config.d/10-stash-plugin.conf
+07/06/26 18:12:25    /etc/condor/config.d/23-network.config
+07/06/26 18:12:25    /etc/condor/config.d/31-mail.conf
+07/06/26 18:12:25    /etc/condor/config.d/35-cc-sync.conf
+07/06/26 18:12:25    /etc/condor/config.d/41-periodic-remove.conf
+07/06/26 18:12:25    /etc/condor/config.d/49-common.conf
+07/06/26 18:12:25    /etc/condor/config.d/52-group-mapping.conf
+07/06/26 18:12:25    /etc/condor/config.d/54-container.conf
+07/06/26 18:12:25    /etc/condor/config.d/67-submit-transforms.conf
+07/06/26 18:12:25    /etc/condor/config.d/71-submit-requirements.conf
+07/06/26 18:12:25    /etc/condor/condor_config.local
+07/06/26 18:12:25 config Macros = 110, Sorted = 110, StringBytes = 6392, TablesBytes = 4088
+07/06/26 18:12:25 CLASSAD_CACHING is ENABLED
+07/06/26 18:12:25 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/06/26 18:12:25 Daemoncore: Listening at <0.0.0.0:5007> on TCP (ReliSock) and UDP (SafeSock).
+07/06/26 18:12:25 DaemonCore: command socket at <10.143.248.60:5007?addrs=10.143.248.60-5007&alias=conduit.hpc.uni-saarland.de>
+07/06/26 18:12:25 DaemonCore: private command socket at <10.143.248.60:5007?addrs=10.143.248.60-5007&alias=conduit.hpc.uni-saarland.de>
+07/06/26 18:12:25 DAGMAN_USE_STRICT setting: 1
+07/06/26 18:12:25 DAGMAN_VERBOSITY setting: 3
+07/06/26 18:12:25 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/06/26 18:12:25 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/06/26 18:12:25 DAGMAN_SUBMIT_DELAY setting: 0
+07/06/26 18:12:25 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/06/26 18:12:25 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/06/26 18:12:25 DAGMAN_USE_JOIN_NODES setting: True
+07/06/26 18:12:25 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/06/26 18:12:25 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/06/26 18:12:25 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/06/26 18:12:25 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/06/26 18:12:25 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/06/26 18:12:25 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/06/26 18:12:25 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/06/26 18:12:25 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/06/26 18:12:25 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/06/26 18:12:25 DAGMAN_RETRY_NODE_FIRST setting: False
+07/06/26 18:12:25 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/06/26 18:12:25 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/06/26 18:12:25 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/06/26 18:12:25 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/06/26 18:12:25 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/06/26 18:12:25 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/06/26 18:12:25 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/06/26 18:12:25 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/06/26 18:12:25 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/06/26 18:12:25 DAGMAN_ALWAYS_RUN_POST setting: False
+07/06/26 18:12:25 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/06/26 18:12:25 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/06/26 18:12:25 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/06/26 18:12:25 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/06/26 18:12:25 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/06/26 18:12:25 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/06/26 18:12:25 DAGMAN_INHERIT_ATTRS setting: 
+07/06/26 18:12:25 DAGMAN_ABORT_DUPLICATES setting: True
+07/06/26 18:12:25 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/06/26 18:12:25 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/06/26 18:12:25 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/06/26 18:12:25 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/06/26 18:12:25 DAGMAN_AUTO_RESCUE setting: True
+07/06/26 18:12:25 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/06/26 18:12:25 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/06/26 18:12:25 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/06/26 18:12:25 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/06/26 18:12:25 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/06/26 18:12:25 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/06/26 18:12:25 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/06/26 18:12:25 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/06/26 18:12:25 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/06/26 18:12:25 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/06/26 18:12:25 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/06/26 18:12:25 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/06/26 18:12:25 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/06/26 18:12:25 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/06/26 18:12:25 DAGMAN will adjust edges after parsing
+07/06/26 18:12:25 argv[0] == "condor_scheduniv_exec.170244.0"
+07/06/26 18:12:25 argv[1] == "-Lockfile"
+07/06/26 18:12:25 argv[2] == "transport_linetrack_40_25_action_shield.dag.lock"
+07/06/26 18:12:25 argv[3] == "-Dag"
+07/06/26 18:12:25 argv[4] == "transport_linetrack_40_25_action_shield.dag"
+07/06/26 18:12:25 argv[5] == "-CsdVersion"
+07/06/26 18:12:25 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/06/26 18:12:25 argv[7] == "-dagman"
+07/06/26 18:12:25 argv[8] == "/usr/bin/condor_dagman"
+07/06/26 18:12:25 argv[9] == "-AutoRescue"
+07/06/26 18:12:25 argv[10] == "1"
+07/06/26 18:12:25 argv[11] == "-DoRescueFrom"
+07/06/26 18:12:25 argv[12] == "0"
+07/06/26 18:12:25 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/06/26 18:12:25 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/06/26 18:12:25 Workflow batch-id: <170244.0>
+07/06/26 18:12:25 Workflow batch-name: <transport_linetrack_40_25_action_shield.dag+170244>
+07/06/26 18:12:25 Workflow accounting_group: <teaching>
+07/06/26 18:12:25 Workflow accounting_group_user: <atml_team041>
+07/06/26 18:12:25 Warning: failed to get attribute DAGNodeName
+07/06/26 18:12:25 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_40_25_action_shield.dag.nodes.log>
+07/06/26 18:12:25 DAG Lockfile will be written to transport_linetrack_40_25_action_shield.dag.lock
+07/06/26 18:12:25 DAG Input file is transport_linetrack_40_25_action_shield.dag
+07/06/26 18:12:25 Parsing 1 dagfiles
+07/06/26 18:12:25 Parsing transport_linetrack_40_25_action_shield.dag ...
+07/06/26 18:12:25 Adjusting edges
+07/06/26 18:12:25 Found rescue DAG number 2; running transport_linetrack_40_25_action_shield.dag.rescue002 in combination with normal DAG file
+07/06/26 18:12:25 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+07/06/26 18:12:25 USING RESCUE DAG transport_linetrack_40_25_action_shield.dag.rescue002
+07/06/26 18:12:25 Dag contains 5 total nodes
+07/06/26 18:12:25 Bootstrapping...
+07/06/26 18:12:25 Number of pre-completed nodes: 0
+07/06/26 18:12:25 MultiLogFiles: truncating log file /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_40_25_action_shield.dag.nodes.log
+07/06/26 18:12:25 DAG status: 0 (DAG_STATUS_OK)
+07/06/26 18:12:25 Of 5 nodes total:
+07/06/26 18:12:25  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 18:12:25   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 18:12:25     0       0        0       0       1          4        0        0
+07/06/26 18:12:25 0 job proc(s) currently held
+07/06/26 18:12:25 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 18:12:25 Registering condor_event_timer...
+07/06/26 18:12:26 Submitting HTCondor Node COLLECT job(s)...
+07/06/26 18:12:26 Submitting node COLLECT from file transport_linetrack_40_25_action_shield_collect.sub using direct job submission
+07/06/26 18:12:27 	assigned HTCondor ID (170249.0.0)
+07/06/26 18:12:27 Just submitted 1 job this cycle...
+07/06/26 18:12:27 DAG status: 0 (DAG_STATUS_OK)
+07/06/26 18:12:27 Of 5 nodes total:
+07/06/26 18:12:27  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/06/26 18:12:27   ===     ===      ===     ===     ===        ===      ===      ===
+07/06/26 18:12:27     0       0        1       0       0          4        0        0
+07/06/26 18:12:27 0 job proc(s) currently held
+07/06/26 18:12:27 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.138; SubmitCycleTimeMax=0.138; SubmitCycleTimeMin=0.138; SubmitCycleTimeStd=0.138; SubmitCycleTimeSum=0.138; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/06/26 18:12:32 Currently monitoring 1 HTCondor log file(s)
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.0.0) to (170249.0.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.0.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 1
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.0.0) to (170249.1.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.1.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 2
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.1.0) to (170249.10.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.10.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 3
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.10.0) to (170249.11.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.11.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 4
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.11.0) to (170249.12.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.12.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 5
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.12.0) to (170249.13.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.13.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 6
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.13.0) to (170249.14.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.14.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 7
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.14.0) to (170249.15.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.15.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 8
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.15.0) to (170249.16.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.16.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 9
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.16.0) to (170249.17.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.17.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 10
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.17.0) to (170249.18.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.18.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 11
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.18.0) to (170249.19.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.19.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 12
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.19.0) to (170249.2.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.2.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 13
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.2.0) to (170249.20.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.20.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 14
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.20.0) to (170249.21.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.21.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 15
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.21.0) to (170249.22.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.22.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 16
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.22.0) to (170249.23.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.23.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 17
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.23.0) to (170249.24.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.24.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 18
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.24.0) to (170249.25.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.25.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 19
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.25.0) to (170249.26.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.26.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 20
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.26.0) to (170249.27.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.27.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 21
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.27.0) to (170249.28.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.28.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 22
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.28.0) to (170249.29.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.29.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 23
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.29.0) to (170249.3.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.3.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 24
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.3.0) to (170249.30.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.30.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 25
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.30.0) to (170249.31.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.31.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 26
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.31.0) to (170249.32.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.32.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 27
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.32.0) to (170249.33.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.33.0) {07/06/26 18:12:26}
+07/06/26 18:12:32 Number of idle job procs: 28
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.33.0) to (170249.34.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.34.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 29
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.34.0) to (170249.35.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.35.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 30
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.35.0) to (170249.36.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.36.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 31
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.36.0) to (170249.37.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.37.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 32
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.37.0) to (170249.38.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.38.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 33
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.38.0) to (170249.39.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.39.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 34
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.39.0) to (170249.4.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.4.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 35
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.4.0) to (170249.5.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.5.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 36
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.5.0) to (170249.6.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.6.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 37
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.6.0) to (170249.7.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.7.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 38
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.7.0) to (170249.8.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.8.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 39
+07/06/26 18:12:32 Reassigning the id of job COLLECT from (170249.8.0) to (170249.9.0)
+07/06/26 18:12:32 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170249.9.0) {07/06/26 18:12:27}
+07/06/26 18:12:32 Number of idle job procs: 40
+07/06/26 18:12:52 Currently monitoring 1 HTCondor log file(s)
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.21.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 39
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.10.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 38
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.12.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 37
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.22.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 36
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.11.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 35
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.0.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 34
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.1.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 33
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.13.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 32
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.4.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 31
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.2.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 30
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.3.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 29
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.8.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 28
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.9.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 27
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.18.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 26
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.20.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 25
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.19.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 24
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.5.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 23
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.6.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 22
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.14.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 21
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.17.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 20
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.7.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 19
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.15.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 18
+07/06/26 18:12:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170249.16.0) {07/06/26 18:12:47}
+07/06/26 18:12:52 Number of idle job procs: 17
+07/06/26 18:22:52 600 seconds since last log event
+07/06/26 18:22:52 Pending DAG nodes:
+07/06/26 18:22:52   Node COLLECT, HTCondor ID 170249, status STATUS_SUBMITTED
+07/06/26 18:27:27 Total jobs placed to AP: 40
+07/06/26 18:27:27      Idle     Held     Running     Successful     Failed
+07/06/26 18:27:27       ===      ===         ===            ===        ===
+07/06/26 18:27:27        17        0          23              0          0

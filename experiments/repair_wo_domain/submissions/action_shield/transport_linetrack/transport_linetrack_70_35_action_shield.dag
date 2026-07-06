@@ -1,0 +1,12 @@
+# Shared-backbone multitask action-shield experiment (one output head per action).
+# Submit from experiments/repair_wo_domain/submissions/action_shield/transport_linetrack
+JOB COLLECT transport_linetrack_70_35_action_shield_collect.sub
+JOB MERGE_COLLECTION transport_linetrack_70_35_action_shield_merge_collection.sub
+JOB TRAIN transport_linetrack_70_35_action_shield_train.sub
+JOB EVALUATE transport_linetrack_70_35_action_shield_evaluate.sub
+JOB MERGE_EVALUATION transport_linetrack_70_35_action_shield_merge_evaluation.sub
+
+PARENT COLLECT CHILD MERGE_COLLECTION
+PARENT MERGE_COLLECTION CHILD TRAIN
+PARENT TRAIN CHILD EVALUATE
+PARENT EVALUATE CHILD MERGE_EVALUATION

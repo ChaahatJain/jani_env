@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Train one binary fault classifier for each action."""
+"""Train a shared fault-classification backbone with one head per action."""
 
 from __future__ import annotations
 
@@ -23,19 +23,22 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 from torch import nn
-from torch.utils.data import DataLoader, TensorDataset
+from torch.utils.data import DataLoader, TensorDataset, WeightedRandomSampler
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from experiments.repair_wo_domain.action_fault_shield import ActionFaultClassifier
+from experiments.repair_wo_domain.action_fault_shield import (
+    MultiTaskActionFaultClassifier,
+    summarize_per_action_evaluation,
+)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Train one state-to-fault classifier for every action."
+        description="Train a multitask state encoder with one fault head per action."
     )
     parser.add_argument("--collection-dir", required=True)
     parser.add_argument("--output-dir", required=True)
@@ -231,7 +234,8 @@ def select_threshold(
 
 
 def predict_probabilities(
-    model: ActionFaultClassifier,
+    model: MultiTaskActionFaultClassifier,
+    action: int,
     features: np.ndarray,
     mean: np.ndarray,
     scale: np.ndarray,
@@ -244,52 +248,120 @@ def predict_probabilities(
         for start in range(0, len(features), batch_size):
             batch = (features[start : start + batch_size] - mean) / scale
             tensor = torch.as_tensor(batch, dtype=torch.float32, device=device)
-            output.append(torch.sigmoid(model(tensor)).cpu().numpy())
+            output.append(torch.sigmoid(model(tensor)[:, action]).cpu().numpy())
     return np.concatenate(output) if output else np.empty((0,), dtype=np.float32)
 
 
-def train_neural_classifier(
-    action: int,
-    action_name: str,
-    features: np.ndarray,
-    labels: np.ndarray,
+def train_multitask_classifier(
+    datasets: list[dict[str, Any]],
+    n_actions: int,
+    input_dim: int,
     args: argparse.Namespace,
     device: torch.device,
-) -> tuple[dict[str, Any], dict[str, Any]]:
-    train_x, val_x, test_x, train_y, val_y, test_y = split_dataset(
-        features,
-        labels,
-        validation_fraction=args.validation_fraction,
-        test_fraction=args.test_fraction,
-        seed=args.seed + action * 101,
-    )
-    mean = train_x.mean(axis=0, dtype=np.float64).astype(np.float32)
-    scale = train_x.std(axis=0, dtype=np.float64).astype(np.float32)
+) -> tuple[dict[str, Any], dict[int, dict[str, Any]], dict[str, Any]]:
+    """Jointly optimize all non-constant action tasks through one backbone."""
+    active = [dataset for dataset in datasets if dataset["kind"] == "neural"]
+    if not active:
+        all_features = np.concatenate([dataset["features"] for dataset in datasets])
+        if len(all_features):
+            mean = all_features.mean(axis=0, dtype=np.float64).astype(np.float32)
+            scale = all_features.std(axis=0, dtype=np.float64).astype(np.float32)
+        else:
+            mean = np.zeros(input_dim, dtype=np.float32)
+            scale = np.ones(input_dim, dtype=np.float32)
+        scale[scale < 1e-6] = 1.0
+        model = MultiTaskActionFaultClassifier(
+            input_dim=input_dim,
+            hidden_dims=args.hidden_dims,
+            dropout=args.dropout,
+            n_actions=n_actions,
+        )
+        with torch.no_grad():
+            for parameter in model.parameters():
+                parameter.zero_()
+        return (
+            {
+                "format_version": 2,
+                "kind": "shared_multitask",
+                "input_dim": int(input_dim),
+                "hidden_dims": [int(value) for value in args.hidden_dims],
+                "dropout": float(args.dropout),
+                "n_actions": int(n_actions),
+                "model_state_dict": model.state_dict(),
+                "normalization_mean": mean,
+                "normalization_scale": scale,
+            },
+            {},
+            {
+                "best_epoch": 0,
+                "best_validation_macro_average_precision": None,
+                "history": [],
+                "reason": "No action had observed faults; all heads are constant.",
+            },
+        )
+
+    for dataset in active:
+        action = int(dataset["action"])
+        dataset["split"] = split_dataset(
+            dataset["features"],
+            dataset["labels"],
+            validation_fraction=args.validation_fraction,
+            test_fraction=args.test_fraction,
+            seed=args.seed + action * 101,
+        )
+
+    all_train_x = np.concatenate([dataset["split"][0] for dataset in active])
+    mean = all_train_x.mean(axis=0, dtype=np.float64).astype(np.float32)
+    scale = all_train_x.std(axis=0, dtype=np.float64).astype(np.float32)
     scale[scale < 1e-6] = 1.0
 
-    normalized_train = (train_x - mean) / scale
+    normalized_train = np.concatenate(
+        [(dataset["split"][0] - mean) / scale for dataset in active]
+    )
+    train_actions = np.concatenate(
+        [
+            np.full(len(dataset["split"][3]), dataset["action"], dtype=np.int64)
+            for dataset in active
+        ]
+    )
+    train_labels = np.concatenate([dataset["split"][3] for dataset in active])
     dataset = TensorDataset(
         torch.as_tensor(normalized_train, dtype=torch.float32),
-        torch.as_tensor(train_y, dtype=torch.float32),
+        torch.as_tensor(train_actions, dtype=torch.int64),
+        torch.as_tensor(train_labels, dtype=torch.float32),
     )
-    generator = torch.Generator().manual_seed(args.seed + action)
+    generator = torch.Generator().manual_seed(args.seed)
+    action_counts = np.bincount(train_actions, minlength=n_actions)
+    sample_weights = np.asarray(
+        [1.0 / action_counts[action] for action in train_actions], dtype=np.float64
+    )
+    sampler = WeightedRandomSampler(
+        torch.as_tensor(sample_weights, dtype=torch.double),
+        num_samples=len(sample_weights),
+        replacement=True,
+        generator=generator,
+    )
     loader = DataLoader(
         dataset,
         batch_size=args.batch_size,
-        shuffle=True,
-        generator=generator,
+        sampler=sampler,
         num_workers=0,
     )
 
-    model = ActionFaultClassifier(
-        input_dim=features.shape[1],
+    model = MultiTaskActionFaultClassifier(
+        input_dim=input_dim,
         hidden_dims=args.hidden_dims,
         dropout=args.dropout,
+        n_actions=n_actions,
     ).to(device)
-    positive_weight = float((train_y == 0).sum() / max(1, (train_y == 1).sum()))
-    criterion = nn.BCEWithLogitsLoss(
-        pos_weight=torch.tensor(positive_weight, dtype=torch.float32, device=device)
-    )
+    positive_weights = torch.ones(n_actions, dtype=torch.float32, device=device)
+    for item in active:
+        action = int(item["action"])
+        train_y = item["split"][3]
+        positive_weights[action] = float(
+            (train_y == 0).sum() / max(1, (train_y == 1).sum())
+        )
+    criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay
     )
@@ -298,32 +370,45 @@ def train_neural_classifier(
     best_state: dict[str, torch.Tensor] | None = None
     best_epoch = 0
     epochs_without_improvement = 0
-    history: list[dict[str, float | int]] = []
+    history: list[dict[str, Any]] = []
 
     for epoch in range(1, args.epochs + 1):
         model.train()
         total_loss = 0.0
         total_examples = 0
-        for batch_x, batch_y in loader:
+        for batch_x, batch_actions, batch_y in loader:
             batch_x = batch_x.to(device)
+            batch_actions = batch_actions.to(device)
             batch_y = batch_y.to(device)
             optimizer.zero_grad(set_to_none=True)
-            logits = model(batch_x)
-            loss = criterion(logits, batch_y)
+            logits = model(batch_x).gather(1, batch_actions.unsqueeze(1)).squeeze(1)
+            losses = criterion(logits, batch_y)
+            losses = losses * torch.where(
+                batch_y > 0.5, positive_weights[batch_actions], 1.0
+            )
+            loss = losses.mean()
             loss.backward()
             optimizer.step()
             total_loss += float(loss.item()) * len(batch_x)
             total_examples += len(batch_x)
 
-        val_probabilities = predict_probabilities(
-            model, val_x, mean, scale, device, args.batch_size
-        )
-        val_ap = float(average_precision_score(val_y, val_probabilities))
+        per_action_ap: dict[str, float] = {}
+        for item in active:
+            action = int(item["action"])
+            val_x, val_y = item["split"][1], item["split"][4]
+            val_probabilities = predict_probabilities(
+                model, action, val_x, mean, scale, device, args.batch_size
+            )
+            per_action_ap[str(action)] = float(
+                average_precision_score(val_y, val_probabilities)
+            )
+        val_ap = float(np.mean(list(per_action_ap.values())))
         history.append(
             {
                 "epoch": epoch,
                 "train_loss": total_loss / max(1, total_examples),
-                "validation_average_precision": val_ap,
+                "validation_macro_average_precision": val_ap,
+                "validation_average_precision_by_action": per_action_ap,
             }
         )
         if val_ap > best_average_precision + 1e-8:
@@ -337,55 +422,58 @@ def train_neural_classifier(
             break
 
     if best_state is None:
-        raise RuntimeError(f"Training produced no checkpoint for action {action}")
+        raise RuntimeError("Multitask training produced no checkpoint")
     model.load_state_dict(best_state)
-    val_probabilities = predict_probabilities(
-        model, val_x, mean, scale, device, args.batch_size
-    )
-    threshold, validation_metrics = select_threshold(
-        val_y, val_probabilities, args.target_validation_recall
-    )
-    test_probabilities = predict_probabilities(
-        model, test_x, mean, scale, device, args.batch_size
-    )
-    test_metrics = classification_metrics(test_y, test_probabilities, threshold)
+
+    results: dict[int, dict[str, Any]] = {}
+    for item in active:
+        action = int(item["action"])
+        train_x, val_x, test_x, train_y, val_y, test_y = item["split"]
+        val_probabilities = predict_probabilities(
+            model, action, val_x, mean, scale, device, args.batch_size
+        )
+        threshold, validation_metrics = select_threshold(
+            val_y, val_probabilities, args.target_validation_recall
+        )
+        test_probabilities = predict_probabilities(
+            model, action, test_x, mean, scale, device, args.batch_size
+        )
+        results[action] = {
+            "threshold": threshold,
+            "split_counts": {
+                "train": int(len(train_y)),
+                "validation": int(len(val_y)),
+                "test": int(len(test_y)),
+                "train_faults": int(train_y.sum()),
+                "validation_faults": int(val_y.sum()),
+                "test_faults": int(test_y.sum()),
+            },
+            "positive_weight": float(positive_weights[action].item()),
+            "validation_metrics": validation_metrics,
+            "test_metrics": classification_metrics(
+                test_y, test_probabilities, threshold
+            ),
+        }
 
     checkpoint = {
-        "format_version": 1,
-        "kind": "neural",
-        "action": action,
-        "action_name": action_name,
-        "input_dim": int(features.shape[1]),
+        "format_version": 2,
+        "kind": "shared_multitask",
+        "input_dim": int(input_dim),
         "hidden_dims": [int(value) for value in args.hidden_dims],
         "dropout": float(args.dropout),
+        "n_actions": int(n_actions),
         "model_state_dict": {
             key: value.detach().cpu() for key, value in model.state_dict().items()
         },
         "normalization_mean": mean,
         "normalization_scale": scale,
-        "threshold": float(threshold),
     }
-    report = {
-        "kind": "neural",
-        "action": action,
-        "action_name": action_name,
-        "split_counts": {
-            "train": int(len(train_y)),
-            "validation": int(len(val_y)),
-            "test": int(len(test_y)),
-            "train_faults": int(train_y.sum()),
-            "validation_faults": int(val_y.sum()),
-            "test_faults": int(test_y.sum()),
-        },
-        "positive_weight": positive_weight,
+    training_summary = {
         "best_epoch": best_epoch,
-        "best_validation_average_precision": best_average_precision,
-        "target_validation_recall": float(args.target_validation_recall),
-        "validation_metrics": validation_metrics,
-        "test_metrics": test_metrics,
+        "best_validation_macro_average_precision": best_average_precision,
         "history": history,
     }
-    return checkpoint, report
+    return checkpoint, results, training_summary
 
 
 def main() -> None:
@@ -409,9 +497,8 @@ def main() -> None:
         (collection_dir / "action_labels_manifest.json").read_text(encoding="utf-8")
     )
 
-    classifiers: list[dict[str, Any]] = []
-    reports: list[dict[str, Any]] = []
     action_names = [str(value) for value in manifest["action_names"]]
+    datasets: list[dict[str, Any]] = []
     for action, action_name in enumerate(action_names):
         print(f"Loading labels for action {action}: {action_name}", flush=True)
         features, labels, dataset_counts = load_action_dataset(
@@ -426,74 +513,115 @@ def main() -> None:
             f"  unique faults={positives}, sampled unique non-faults={negatives}",
             flush=True,
         )
-        if positives == 0:
-            checkpoint = {
-                "format_version": 1,
-                "kind": "constant",
+        if 0 < positives < args.minimum_positive_examples:
+            raise RuntimeError(
+                f"Action {action} ({action_name}) has only {positives} unique "
+                f"faults; at least {args.minimum_positive_examples} are required."
+            )
+        if positives > 0 and negatives == 0:
+            raise RuntimeError(
+                f"Action {action} ({action_name}) has no non-fault examples."
+            )
+        datasets.append(
+            {
                 "action": action,
                 "action_name": action_name,
+                "kind": "neural" if positives else "constant",
+                "features": features,
+                "labels": labels,
+                "dataset_counts": dataset_counts,
+            }
+        )
+
+    checkpoint, neural_results, training_summary = train_multitask_classifier(
+        datasets=datasets,
+        n_actions=len(action_names),
+        input_dim=int(manifest["observation_dim"]),
+        args=args,
+        device=device,
+    )
+    checkpoint_name = "multitask_model.pth"
+    temporary = output_dir / f"{checkpoint_name}.tmp"
+    torch.save(checkpoint, temporary)
+    temporary.replace(output_dir / checkpoint_name)
+
+    classifiers: list[dict[str, Any]] = []
+    reports: list[dict[str, Any]] = []
+    for dataset in datasets:
+        action = int(dataset["action"])
+        if dataset["kind"] == "constant":
+            reason = "No oracle-labelled faults were observed for this action."
+            classifier = {
+                "action": action,
+                "action_name": dataset["action_name"],
+                "kind": "constant",
                 "constant_probability": 0.0,
                 "threshold": 0.5,
-                "reason": "No oracle-labelled faults were observed for this action.",
             }
             report = {
                 "kind": "constant",
                 "action": action,
-                "action_name": action_name,
-                "reason": checkpoint["reason"],
+                "action_name": dataset["action_name"],
+                "reason": reason,
             }
         else:
-            if positives < args.minimum_positive_examples:
-                raise RuntimeError(
-                    f"Action {action} ({action_name}) has only {positives} unique "
-                    f"faults; at least {args.minimum_positive_examples} are required."
-                )
-            if negatives == 0:
-                raise RuntimeError(
-                    f"Action {action} ({action_name}) has no non-fault examples."
-                )
-            checkpoint, report = train_neural_classifier(
-                action,
-                action_name,
-                features,
-                labels,
-                args,
-                device,
-            )
-
-        report["dataset_counts"] = dataset_counts
-        checkpoint_name = f"action_{action}.pth"
-        temporary = output_dir / f"{checkpoint_name}.tmp"
-        torch.save(checkpoint, temporary)
-        temporary.replace(output_dir / checkpoint_name)
-        write_json(output_dir / f"action_{action}_metrics.json", report)
-        classifiers.append(
-            {
+            result = neural_results[action]
+            classifier = {
                 "action": action,
-                "action_name": action_name,
-                "kind": checkpoint["kind"],
-                "checkpoint": checkpoint_name,
-                "threshold": float(checkpoint["threshold"]),
+                "action_name": dataset["action_name"],
+                "kind": "neural",
+                "threshold": float(result["threshold"]),
             }
-        )
+            report = {
+                "kind": "neural",
+                "action": action,
+                "action_name": dataset["action_name"],
+                "split_counts": result["split_counts"],
+                "positive_weight": result["positive_weight"],
+                "target_validation_recall": float(args.target_validation_recall),
+                "validation_metrics": result["validation_metrics"],
+                "test_metrics": result["test_metrics"],
+                "shared_training": {
+                    "best_epoch": training_summary["best_epoch"],
+                    "best_validation_macro_average_precision": training_summary[
+                        "best_validation_macro_average_precision"
+                    ],
+                },
+            }
+        report["dataset_counts"] = dataset["dataset_counts"]
+        write_json(output_dir / f"action_{action}_metrics.json", report)
+        classifiers.append(classifier)
         reports.append(report)
 
+    write_json(output_dir / "multitask_training_metrics.json", training_summary)
+
     output_manifest = {
-        "format_version": 1,
+        "format_version": 2,
+        "model_type": "shared_multitask",
+        "checkpoint": checkpoint_name,
         "classifier_definition": (
-            "For each action, return True when the state is predicted to be a "
-            "fault for that action."
+            "A shared state encoder feeds one binary fault-prediction output head "
+            "per action."
         ),
         "training_collection": str(collection_dir.resolve()),
         "source_policy_sha256": manifest["policy_sha256"],
         "observation_dim": int(manifest["observation_dim"]),
         "action_names": action_names,
         "classifiers": classifiers,
+        "per_action_evaluation_definition": (
+            "A held-out oracle-labelled fault is fixed when its action head predicts "
+            "fault, so the shield would block that action."
+        ),
+        "per_action_evaluation": summarize_per_action_evaluation(reports),
         "training_arguments": vars(args),
         "reports": reports,
     }
     write_json(output_dir / "manifest.json", output_manifest)
-    print(f"Saved {len(classifiers)} action classifiers to {output_dir.resolve()}", flush=True)
+    print(
+        f"Saved one shared model with {len(classifiers)} action heads to "
+        f"{output_dir.resolve()}",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":

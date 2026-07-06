@@ -10,6 +10,8 @@ import torch
 from experiments.repair_wo_domain.action_fault_shield import (
     ActionFaultClassifier,
     ActionFaultShield,
+    MultiTaskActionFaultClassifier,
+    summarize_per_action_evaluation,
 )
 from experiments.repair_wo_domain.collect_policy_faults import (
     merge as merge_fault_collection,
@@ -203,6 +205,92 @@ def test_shield_combines_applicability_and_classifier_predictions(tmp_path):
     assert shielded.tolist() == [False, True]
 
 
+def test_multitask_shield_uses_shared_backbone_and_separate_heads(tmp_path):
+    model = MultiTaskActionFaultClassifier(
+        input_dim=2, hidden_dims=[2], dropout=0.0, n_actions=2
+    )
+    with torch.no_grad():
+        model.backbone[0].weight.copy_(torch.eye(2))
+        model.backbone[0].bias.zero_()
+        model.heads[0].weight.copy_(torch.tensor([[1.0, 0.0]]))
+        model.heads[0].bias.zero_()
+        model.heads[1].weight.copy_(torch.tensor([[-1.0, 0.0]]))
+        model.heads[1].bias.zero_()
+    torch.save(
+        {
+            "input_dim": 2,
+            "hidden_dims": [2],
+            "dropout": 0.0,
+            "n_actions": 2,
+            "model_state_dict": model.state_dict(),
+            "normalization_mean": np.zeros(2, dtype=np.float32),
+            "normalization_scale": np.ones(2, dtype=np.float32),
+        },
+        tmp_path / "multitask_model.pth",
+    )
+    (tmp_path / "manifest.json").write_text(
+        json.dumps(
+            {
+                "model_type": "shared_multitask",
+                "checkpoint": "multitask_model.pth",
+                "classifiers": [
+                    {
+                        "action": 0,
+                        "action_name": "right",
+                        "kind": "neural",
+                        "threshold": 0.5,
+                    },
+                    {
+                        "action": 1,
+                        "action_name": "left",
+                        "kind": "neural",
+                        "threshold": 0.5,
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    shield = ActionFaultShield.load(tmp_path)
+    probabilities = shield.fault_probabilities(np.asarray([2.0, 0.0]))
+
+    assert shield.shared_model is not None
+    assert probabilities[0] > 0.5
+    assert probabilities[1] < 0.5
+
+
+def test_per_action_evaluation_reports_faults_fixed_and_missed():
+    result = summarize_per_action_evaluation(
+        [
+            {
+                "action": 0,
+                "action_name": "move",
+                "kind": "neural",
+                "dataset_counts": {"unique_faults": 100},
+                "test_metrics": {
+                    "faults": 20,
+                    "precision": 0.9,
+                    "confusion_matrix": [[75, 5], [2, 18]],
+                },
+            },
+            {
+                "action": 1,
+                "action_name": "wait",
+                "kind": "constant",
+                "dataset_counts": {"unique_faults": 0},
+            },
+        ]
+    )
+
+    assert result[0]["collected_unique_faults"] == 100
+    assert result[0]["held_out_faults_fixed"] == 18
+    assert result[0]["held_out_faults_missed"] == 2
+    assert result[0]["held_out_fix_rate_percent"] == 90.0
+    assert result[0]["held_out_safe_actions_wrongly_blocked"] == 5
+    assert result[1]["held_out_fix_rate_percent"] is None
+
+
 def test_training_script_writes_loadable_per_action_models(tmp_path):
     collection = tmp_path / "collection"
     shard = collection / "shard_0"
@@ -299,7 +387,14 @@ def test_training_script_writes_loadable_per_action_models(tmp_path):
     )
 
     shield = ActionFaultShield.load(output)
+    output_manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
+    assert output_manifest["model_type"] == "shared_multitask"
+    assert (output / "multitask_model.pth").is_file()
+    assert len(output_manifest["per_action_evaluation"]) == 2
+    assert output_manifest["per_action_evaluation"][0]["collected_unique_faults"] == 20
+    assert output_manifest["per_action_evaluation"][1]["collected_unique_faults"] == 0
     assert len(shield.classifiers) == 2
+    assert shield.shared_model is not None
     assert shield.classifiers[0].kind == "neural"
     assert shield.classifiers[1].kind == "constant"
 

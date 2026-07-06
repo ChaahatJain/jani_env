@@ -1,11 +1,12 @@
-# Per-action classifier shield for `transport/linetrack_20_10`
+# Shared-backbone action classifier shield
 
 This workflow implements the requested experiment:
 
 1. Run the fixed seed-0 policy from all 100,000 supplied initial states.
 2. At every policy-visited state, query the oracle for every applicable action.
 3. Retain both fault and non-fault labels, grouped by action.
-4. Train one state-only binary classifier per action.
+4. Train one multitask model: a shared state encoder with a separate binary
+   output head per action.
 5. During evaluation, use:
 
    ```text
@@ -32,14 +33,14 @@ The DAG runs these stages in order:
 ```text
 40 collection shards
   -> merge collection
-  -> train per-action classifiers
+  -> train shared-backbone multitask classifier
   -> 40 evaluation shards
   -> merge evaluation
 ```
 
 The collection uses `--action-scope all-applicable`; using the older
 policy-action-only dataset would not provide valid training data for all four
-classifiers.
+action heads.
 
 ## Outputs
 
@@ -60,7 +61,8 @@ artifacts/action_shield/transport_linetrack_20_10/
         action_labels_manifest.json
         summary.json
     classifiers/
-      action_0.pth
+      multitask_model.pth
+      multitask_training_metrics.json
       action_0_metrics.json
       ...
       manifest.json
@@ -74,7 +76,9 @@ artifacts/action_shield/transport_linetrack_20_10/
 
 The main result is `evaluation/merged/summary.json`.
 
-For actions with observed faults, the threshold is selected on validation data
+The training sampler balances the action tasks so an action with many more
+collected states does not dominate the shared representation. For actions with
+observed faults, the threshold is selected on validation data
 to reach at least 99% validation recall while maximizing precision. Test
 precision, recall, false-negative rate, false-positive rate, and confusion
 matrix are saved per action.

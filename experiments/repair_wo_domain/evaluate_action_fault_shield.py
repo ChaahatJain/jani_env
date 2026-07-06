@@ -20,7 +20,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from experiments.repair_wo_domain.action_fault_shield import ActionFaultShield
+from experiments.repair_wo_domain.action_fault_shield import (
+    ActionFaultShield,
+    summarize_per_action_evaluation,
+)
 from experiments.repair_wo_domain.collect_policy_faults import load_policy_checkpoint
 
 
@@ -215,6 +218,11 @@ def evaluate(args: argparse.Namespace) -> None:
     classifier_manifest = json.loads(
         (classifiers_dir / "manifest.json").read_text(encoding="utf-8")
     )
+    per_action_evaluation = classifier_manifest.get("per_action_evaluation")
+    if per_action_evaluation is None:
+        per_action_evaluation = summarize_per_action_evaluation(
+            classifier_manifest.get("reports", [])
+        )
     if classifier_manifest.get("source_policy_sha256") != policy_digest:
         raise ValueError(
             "The classifier shield was not trained from the policy being evaluated"
@@ -334,6 +342,12 @@ def evaluate(args: argparse.Namespace) -> None:
         "classifiers_dir": str(classifiers_dir.resolve()),
         "classifiers_manifest_sha256": sha256_file(classifiers_dir / "manifest.json"),
         "classifier_metadata": shield.metadata(),
+        "per_action_evaluation_definition": (
+            "A held-out oracle-labelled fault is fixed when its action head predicts "
+            "fault, so the shield would block that action. Runtime block counts are "
+            "predictions and are not additional oracle-verified fixes."
+        ),
+        "per_action_evaluation": per_action_evaluation,
         "seed": args.seed,
         "max_steps": args.max_steps,
         "max_state_visits": args.max_state_visits,
@@ -460,6 +474,23 @@ def merge(args: argparse.Namespace) -> None:
     states_with_any_block = sum(
         int(summary["states_with_any_classifier_block"]) for summary in summaries
     )
+    per_action_evaluation = reference.get("per_action_evaluation")
+    if per_action_evaluation is None:
+        manifest_path = Path(reference["classifiers_dir"]) / "manifest.json"
+        per_action_evaluation = (
+            summarize_per_action_evaluation(
+                json.loads(manifest_path.read_text(encoding="utf-8")).get(
+                    "reports", []
+                )
+            )
+            if manifest_path.is_file()
+            else []
+        )
+    per_action_evaluation = [dict(item) for item in per_action_evaluation]
+    for item in per_action_evaluation:
+        item["runtime_block_occurrences"] = int(
+            blocked_action_occurrences[item["action_name"]]
+        )
     merged_summary = {
         "format_version": 1,
         "experiment": "per_action_classifier_shield_evaluation_merged",
@@ -471,6 +502,12 @@ def merge(args: argparse.Namespace) -> None:
         "classifiers_dir": reference["classifiers_dir"],
         "classifiers_manifest_sha256": reference["classifiers_manifest_sha256"],
         "classifier_metadata": reference["classifier_metadata"],
+        "per_action_evaluation_definition": (
+            "A held-out oracle-labelled fault is fixed when its action head predicts "
+            "fault, so the shield would block that action. Runtime block counts are "
+            "predictions and are not additional oracle-verified fixes."
+        ),
+        "per_action_evaluation": per_action_evaluation,
         "expected_shards": args.expected_shards,
         "completed_shards": len(shard_ids),
         "missing_shards": missing,

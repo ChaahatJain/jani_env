@@ -1,4 +1,4 @@
-# Complete per-action classifier shield experiment.
+# Shared-backbone multitask action-shield experiment (one output head per action).
 # Submit from experiments/repair_wo_domain after creating the logs directory.
 JOB COLLECT submissions/action_shield/transport_linetrack_30_20_action_shield_collect.sub
 JOB MERGE_COLLECTION submissions/action_shield/transport_linetrack_30_20_action_shield_merge_collection.sub
