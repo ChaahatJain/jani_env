@@ -1,0 +1,31 @@
+universe = docker
+docker_image = chaahatjain/jani_in_python:latest
+
+executable = /usr/bin/env
+transfer_executable = False
+
+getenv = HOME
++WantGPUHomeMounted = true
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+stream_output = True
+stream_error = True
+
+requirements = UidDomain == "cs.uni-saarland.de"
+
+request_GPUs = 0
+request_CPUs = 1
+request_memory = 8G
+
+output = logs/$(ClusterId).$(ProcId)_shield_merge_collection.out
+error  = logs/$(ClusterId).$(ProcId)_shield_merge_collection.err
+log    = logs/$(ClusterId).$(ProcId)_shield_merge_collection.log
+
+arguments = bash \
+  /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/execute_fault_collection.sh merge \
+  --input-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield/one_way_line_det_one_way_line_30_20/mask_ppo_best_params_seed0/collection \
+  --output-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield/one_way_line_det_one_way_line_30_20/mask_ppo_best_params_seed0/collection/merged \
+  --expected-shards 40
+
+queue 1

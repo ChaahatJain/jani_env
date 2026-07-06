@@ -1,0 +1,12 @@
+# Complete per-action classifier shield experiment.
+# Submit from experiments/repair_wo_domain/submissions/action_shield/one_way_line_det
+JOB COLLECT one_way_line_det_one_way_line_30_20_action_shield_collect.sub
+JOB MERGE_COLLECTION one_way_line_det_one_way_line_30_20_action_shield_merge_collection.sub
+JOB TRAIN one_way_line_det_one_way_line_30_20_action_shield_train.sub
+JOB EVALUATE one_way_line_det_one_way_line_30_20_action_shield_evaluate.sub
+JOB MERGE_EVALUATION one_way_line_det_one_way_line_30_20_action_shield_merge_evaluation.sub
+
+PARENT COLLECT CHILD MERGE_COLLECTION
+PARENT MERGE_COLLECTION CHILD TRAIN
+PARENT TRAIN CHILD EVALUATE
+PARENT EVALUATE CHILD MERGE_EVALUATION
