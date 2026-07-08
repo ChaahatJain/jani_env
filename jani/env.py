@@ -45,6 +45,11 @@ class JANIEnv(gym.Env):
                                   seed)
         self._goal_reward: float = goal_reward
         self._failure_reward: float = failure_reward
+        # Blocksworld has a deliberately simpler safety definition: every
+        # non-failure state is safe.  Avoid running the graph-search oracle for
+        # this domain; a fault is therefore exactly an action with a failure
+        # successor.
+        self._blocksworld_fast_safety = "blocksworld" in str(jani_model_path).lower()
         self._oracle: Optional[TarjanOracle] = None
         self._use_oracle: bool = use_oracle
         print(f"DEBUG: Setting up oracle with disable_cache={disable_oracle_cache}, reduced_memory_mode={reduced_memory_mode}")
@@ -224,13 +229,46 @@ class JANIEnv(gym.Env):
         successor_obs = self._engine.get_all_successor_states_as_vectors(obs.tolist(), action)
         return [np.array(succ_obs, dtype=np.float32) for succ_obs in successor_obs]
 
+    def uses_blocksworld_safety_shortcut(self) -> bool:
+        """Whether failure-only Blocksworld safety semantics are active."""
+        return self._blocksworld_fast_safety
+
+    def _blocksworld_state_action_is_fault(self, obs: np.ndarray, action: int) -> bool:
+        """Return whether ``action`` crosses from a non-failure state to failure."""
+        if self.obs_reach_failure(obs):
+            return False
+        return any(
+            self.obs_reach_failure(successor)
+            for successor in self.get_successor_obs(obs, action)
+        )
+
     def is_current_state_action_safe(self, action: int) -> bool:
+        if self._blocksworld_fast_safety:
+            obs = np.asarray(self._engine.get_current_state_vector(), dtype=np.float32)
+            return (
+                not self.obs_reach_failure(obs)
+                and not self._blocksworld_state_action_is_fault(obs, action)
+            )
         if self._oracle is None:
             raise RuntimeError("Oracle is not enabled in this environment.")
         is_safe = self._oracle.is_engine_state_action_safe(action)
         return is_safe
     
     def current_state_safety_with_action(self, action: int) -> tuple[bool, int]:
+        if self._blocksworld_fast_safety:
+            obs = np.asarray(self._engine.get_current_state_vector(), dtype=np.float32)
+            if self.obs_reach_failure(obs):
+                return False, -1
+            if not self._blocksworld_state_action_is_fault(obs, action):
+                return True, action
+
+            # The state itself remains safe by definition.  Return another
+            # immediately safe applicable action when one exists.
+            for candidate in np.flatnonzero(self.action_mask()):
+                candidate = int(candidate)
+                if not self._blocksworld_state_action_is_fault(obs, candidate):
+                    return True, candidate
+            return True, -1
         if self._oracle is None:
             raise RuntimeError("Oracle is not enabled in this environment.")
         safety_result = self._oracle.engine_state_safety_with_action(action)
@@ -241,6 +279,9 @@ class JANIEnv(gym.Env):
         Check if a (state, action) pair is a fault (leads to unsafe successor).
         Returns True if the action from this state leads to an unsafe state.
         """
+        if self._blocksworld_fast_safety:
+            obs = np.asarray(obs, dtype=np.float32)
+            return self._blocksworld_state_action_is_fault(obs, action)
         if self._oracle is None:
             raise RuntimeError("Oracle is not enabled in this environment.")
         # Convert observation to list for the oracle call

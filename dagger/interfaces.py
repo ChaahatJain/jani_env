@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List
-from jani.env import JANIEnv
+from typing import TYPE_CHECKING, Any, Dict, List
+
+if TYPE_CHECKING:
+    from jani.env import JANIEnv
+
 class PolicyInterface(ABC):
     @abstractmethod
     def get_action(self, state: Any, action_mask: Any = None) -> Any:
@@ -24,8 +27,10 @@ class OracleInterface(ABC):
 
         Returns:
             Tuple of (is_fault: bool, corrected_action: int or -1)
-            - is_fault: True if the action is a fault (unsafe)
-            - corrected_action: The safe action to take instead (-1 if no correction available)
+            - is_fault: True if the oracle classifies this (state, action)
+              pair as a fault.
+            - corrected_action: Optional replacement action (-1 if no
+              correction is available or requested).
         """
         pass
 
@@ -37,10 +42,10 @@ class TraceSamplerInterface(ABC):
 
 class FaultCollectorInterface(ABC):
     @abstractmethod
-    def collect_faults(self, trace: Dict[str, Any], env: JANIEnv) -> List[Dict[str, Any]]:
+    def collect_faults(self, trace: Dict[str, Any], env: "JANIEnv") -> List[Dict[str, Any]]:
         """
         Iterates through a trace and runs the oracle on each (state, action) pair.
-        Returns a list of faults (unsafe states and their corrected actions).
+        Returns a list of oracle-labelled faulty (state, action) pairs.
         """
         pass
 

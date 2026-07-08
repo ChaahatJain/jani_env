@@ -54,6 +54,7 @@ def summarize_per_action_evaluation(
                 "held_out_faults_fixed": fixed,
                 "held_out_faults_missed": missed,
                 "held_out_fix_rate_percent": fix_rate_percent,
+                "held_out_non_faults_wrongly_blocked": false_blocks,
                 "held_out_safe_actions_wrongly_blocked": false_blocks,
                 "held_out_precision_percent": precision_percent,
             }
@@ -136,7 +137,7 @@ class LoadedActionClassifier:
 
 
 class ActionFaultShield:
-    """Combines environment applicability with per-action fault predictions."""
+    """Blocks applicable actions predicted bad by oracle-fault classifiers."""
 
     def __init__(
         self,

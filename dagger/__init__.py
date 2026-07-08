@@ -7,7 +7,6 @@ from .interfaces import (
 )
 from .sampler import StandardTraceSampler
 from .fault_collector import OracleFaultCollector
-from .policy_wrapper import NNPolicyWrapper
 
 __all__ = [
     "PolicyInterface",
@@ -19,3 +18,11 @@ __all__ = [
     "OracleFaultCollector",
     "NNPolicyWrapper",
 ]
+
+
+def __getattr__(name):
+    if name == "NNPolicyWrapper":
+        from .policy_wrapper import NNPolicyWrapper
+
+        return NNPolicyWrapper
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

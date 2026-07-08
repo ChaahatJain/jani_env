@@ -57,6 +57,10 @@ class MockOracle:
         self.unsafe_at_step = unsafe_at_step  # Make certain steps unsafe
         self.call_count = 0
         self.corrected_action = 0
+
+    def is_state_action_fault(self, obs, action):
+        self.call_count += 1
+        return self.unsafe_at_step is not None and action == self.unsafe_at_step
     
     def evaluate_and_correct(self, obs, action, mask):
         self.query_count += 1
@@ -185,7 +189,7 @@ class TestFaultCollectorInterface:
             assert isinstance(fault, dict)
             assert "observation" in fault
             assert "action_mask" in fault
-            assert "action" in fault  # Corrected action
+            assert "action" in fault  # Optional correction, -1 when not used
             assert "faulty_action" in fault
     
     def test_fault_collector_identifies_faults(self):

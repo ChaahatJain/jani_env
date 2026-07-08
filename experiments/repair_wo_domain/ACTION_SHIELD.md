@@ -4,13 +4,15 @@ This workflow implements the requested experiment:
 
 1. Run the fixed seed-0 policy from all 100,000 supplied initial states.
 2. At every policy-visited state, query the oracle for every applicable action.
-3. Retain both fault and non-fault labels, grouped by action.
+3. Retain both fault and non-fault labels, grouped by action. Label `1`
+   means the oracle classifies the `(state, action)` pair as a fault/bad.
 4. Train one multitask model: a shared state encoder with a separate binary
    output head per action.
 5. During evaluation, use:
 
    ```text
-   shielded_mask = applicability_mask AND NOT predicted_fault_mask
+   bad_mask = predicted_oracle_fault_mask
+   shielded_mask = applicability_mask AND NOT bad_mask
    ```
 
 6. Report `%Goal`, `%Avoid`, `%Cycle`, action-block counts, and states where the

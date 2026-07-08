@@ -600,8 +600,8 @@ def main() -> None:
         "model_type": "shared_multitask",
         "checkpoint": checkpoint_name,
         "classifier_definition": (
-            "A shared state encoder feeds one binary fault-prediction output head "
-            "per action."
+            "A shared state encoder feeds one binary output head per action. "
+            "The positive class is oracle-fault/bad for that (state, action) pair."
         ),
         "training_collection": str(collection_dir.resolve()),
         "source_policy_sha256": manifest["policy_sha256"],
@@ -610,7 +610,8 @@ def main() -> None:
         "classifiers": classifiers,
         "per_action_evaluation_definition": (
             "A held-out oracle-labelled fault is fixed when its action head predicts "
-            "fault, so the shield would block that action."
+            "fault/bad, so the shield would block that action. Held-out non-fault "
+            "actions predicted as fault are false blocks."
         ),
         "per_action_evaluation": summarize_per_action_evaluation(reports),
         "training_arguments": vars(args),

@@ -239,11 +239,13 @@ for i, t in enumerate(traces):
             is_safe = t['oracle_is_state_safe'][step]
             safe_act = t['oracle_safe_action'][step]
             taken_act = t['actions'][step]
-            is_fault = is_safe and safe_act != -1 and safe_act != taken_act
-            print(f"[DEBUG]     Step {step}: is_safe={is_safe}, safe_action={safe_act}, taken={taken_act}, is_fault={is_fault}")
+            print(
+                f"[DEBUG]     Step {step}: is_safe={is_safe}, "
+                f"oracle_example_safe_action={safe_act}, taken={taken_act}"
+            )
 
     try:
-        f = collector.collect_faults(t)  # No oracle needed - uses recorded data
+        f = collector.collect_faults(t, env)
         all_faults.extend(f)
         print(f"  trace {i+1}: {len(f)} faults found")
     except Exception as e:
@@ -252,7 +254,7 @@ for i, t in enumerate(traces):
         traceback.print_exc()
 
 print("\ntotal faults:", len(all_faults))
-print("(faults detected using oracle data recorded during sampling)")
+print("(faults detected as oracle-labelled bad (state, action) pairs)")
 
 if all_faults:
     f = all_faults[0]

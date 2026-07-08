@@ -1,26 +1,24 @@
-from typing import Any, Dict, List
-from .interfaces import FaultCollectorInterface, OracleInterface
-import numpy as np
-from jani.env import JANIEnv
+from typing import TYPE_CHECKING, Any, Dict, List
+from .interfaces import FaultCollectorInterface
+
+if TYPE_CHECKING:
+    from jani.env import JANIEnv
 
 class OracleFaultCollector(FaultCollectorInterface):
     """
     Given an unsafe trace identify the faults on the trace.
 
-    The fault determination LOGIC is here:
-    - A fault occurs when the oracle indicated the state was safe (had a safe policy)
-    - But the policy took a different action leading to a state which does not have a safe policy
-
-    The raw oracle data (is_state_safe, safe_action) was recorded during sampling.
-    This collector only applies the fault determination logic.
+    A fault is a (state, action) pair whose source state is safe and whose
+    action transitions to the unsafe region according to the oracle. It is not
+    merely any action that differs from one safe action returned by the oracle.
     """
-    def collect_faults(self, trace: Dict[str, Any], env: JANIEnv) -> List[Dict[str, Any]]:
+    def collect_faults(self, trace: Dict[str, Any], env: "JANIEnv") -> List[Dict[str, Any]]:
         """
-        Collect faults from a trace using recorded oracle data.
+        Collect faults from a trace using oracle state-action fault labels.
 
         Args:
-            trace: Must contain 'oracle_is_state_safe' and 'oracle_safe_action' lists
-            oracle: Not used - oracle was already queried during sampling
+            trace: A rollout containing observations, actions, and action masks.
+            env: Environment exposing is_state_action_fault.
 
         Returns:
             List of fault dictionaries
@@ -30,13 +28,33 @@ class OracleFaultCollector(FaultCollectorInterface):
         actions = trace["actions"]
         action_masks = trace["action_masks"]
 
+        base_env = getattr(env, "unwrapped", env)
+        uses_blocksworld_shortcut = getattr(
+            base_env, "uses_blocksworld_safety_shortcut", lambda: False
+        )()
+        if uses_blocksworld_shortcut:
+            # In Blocksworld every non-failure state is safe, so an unsafe
+            # sampled path has exactly one fault: its transition into failure.
+            # The sampler records the pre-transition state/action at the final
+            # index, which lets us avoid all oracle queries.
+            if trace.get("is_safe_trajectory", True) or not actions:
+                return []
+            step = len(actions) - 1
+            return [{
+                "step": step,
+                "observation": observations[step],
+                "action_mask": action_masks[step],
+                "faulty_action": actions[step],
+                "action": -1,
+            }]
+
         for step in range(len(observations) - 1, -1, -1): # Traverse policy paths backwards.
             obs = observations[step]
             action = actions[step]
             mask = action_masks[step]
 
             if hasattr(env, 'is_state_action_fault'):
-                is_fault = env.is_state_action_fault(obs, action) # Fault if state is safe but we're not taking the safe action 
+                is_fault = env.is_state_action_fault(obs, action)
             else:
                 assert False, "Wrong environment initialization. The environment does not have any method of identifiyng faults."
             
@@ -46,7 +64,7 @@ class OracleFaultCollector(FaultCollectorInterface):
                     "observation": obs,
                     "action_mask": mask,
                     "faulty_action": action,  # The action that was taken
-                    "action" : -1, # No safe action at the moment. TODO: @Songtuan, anyway to change this?
+                    "action" : -1,
                 })
                 break; # Break after finding the first fault in a trace
 

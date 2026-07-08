@@ -287,6 +287,7 @@ def test_per_action_evaluation_reports_faults_fixed_and_missed():
     assert result[0]["held_out_faults_fixed"] == 18
     assert result[0]["held_out_faults_missed"] == 2
     assert result[0]["held_out_fix_rate_percent"] == 90.0
+    assert result[0]["held_out_non_faults_wrongly_blocked"] == 5
     assert result[0]["held_out_safe_actions_wrongly_blocked"] == 5
     assert result[1]["held_out_fix_rate_percent"] is None
 

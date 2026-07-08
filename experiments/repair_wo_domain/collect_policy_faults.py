@@ -434,7 +434,10 @@ def collect(args: argparse.Namespace) -> None:
         "format_version": FORMAT_VERSION,
         "experiment": "fixed_policy_fault_collection",
         "fault_definition": (
-            "The source state is oracle-safe and at least one successor under the action is unsafe."
+            "A fault is a (state, action) pair whose source state is in the "
+            "safe region and whose action can transition to the unsafe region. "
+            "Non-fault actions are not faults just because they differ from one "
+            "safe action returned by the oracle."
         ),
         "action_scope": args.action_scope,
         "coverage": (
@@ -474,6 +477,12 @@ def collect(args: argparse.Namespace) -> None:
             action_names[action]: action_fault_occurrences[action] for action in range(n_actions)
         },
         "action_labels_saved": bool(args.save_action_labels),
+        "action_label_semantics": (
+            "For saved per-action labels, label 1 means oracle-fault/bad and "
+            "label 0 means oracle-non-fault/not bad."
+        )
+        if args.save_action_labels
+        else None,
         "action_label_files": action_label_files,
     }
 
@@ -590,6 +599,7 @@ def merge(args: argparse.Namespace) -> None:
             for action in range(len(action_names))
         },
         "action_labels_saved": bool(reference.get("action_labels_saved", False)),
+        "action_label_semantics": reference.get("action_label_semantics"),
     }
     if not missing and merged_summary["processed_start_states"] != int(
         reference["start_state_pool_size"]

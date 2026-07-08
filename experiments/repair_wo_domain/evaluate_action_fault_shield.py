@@ -332,8 +332,9 @@ def evaluate(args: argparse.Namespace) -> None:
         "format_version": 1,
         "experiment": "per_action_classifier_shield_evaluation",
         "shield_rule": (
-            "applicable AND NOT classifier_fault; terminate as all_blocked when "
-            "the resulting mask is empty"
+            "A (state, action) pair is bad when its action head predicts "
+            "oracle-fault. The allowed mask is applicable AND NOT predicted_fault; "
+            "terminate as all_blocked when the resulting mask is empty."
         ),
         "jani_model": str(Path(args.jani_model).resolve()),
         "start_states": str(Path(args.start_states).resolve()),
@@ -344,8 +345,8 @@ def evaluate(args: argparse.Namespace) -> None:
         "classifier_metadata": shield.metadata(),
         "per_action_evaluation_definition": (
             "A held-out oracle-labelled fault is fixed when its action head predicts "
-            "fault, so the shield would block that action. Runtime block counts are "
-            "predictions and are not additional oracle-verified fixes."
+            "fault/bad, so the shield would block that action. Runtime block counts "
+            "are predictions and are not additional oracle-verified fixes."
         ),
         "per_action_evaluation": per_action_evaluation,
         "seed": args.seed,
@@ -504,8 +505,8 @@ def merge(args: argparse.Namespace) -> None:
         "classifier_metadata": reference["classifier_metadata"],
         "per_action_evaluation_definition": (
             "A held-out oracle-labelled fault is fixed when its action head predicts "
-            "fault, so the shield would block that action. Runtime block counts are "
-            "predictions and are not additional oracle-verified fixes."
+            "fault/bad, so the shield would block that action. Runtime block counts "
+            "are predictions and are not additional oracle-verified fixes."
         ),
         "per_action_evaluation": per_action_evaluation,
         "expected_shards": args.expected_shards,
