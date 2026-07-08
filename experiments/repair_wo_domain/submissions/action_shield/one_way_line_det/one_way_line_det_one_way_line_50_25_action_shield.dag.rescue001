@@ -1,0 +1,10 @@
+# Rescue DAG file, created after running
+#   the one_way_line_det_one_way_line_50_25_action_shield.dag DAG file
+# Created 7/7/2026 18:13:02 UTC
+# Rescue DAG version: 2.0.1 (partial)
+#
+# Total number of Nodes: 5
+# Nodes premarked DONE: 0
+# Nodes that failed: 1
+#   COLLECT,<ENDLIST>
+

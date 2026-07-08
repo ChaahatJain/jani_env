@@ -1,4 +1,4 @@
-# Complete per-action classifier shield experiment.
+# Shared-backbone multitask action-shield experiment (one output head per action).
 # Submit from experiments/repair_wo_domain/submissions/action_shield/one_way_line_det
 JOB COLLECT one_way_line_det_one_way_line_80_40_action_shield_collect.sub
 JOB MERGE_COLLECTION one_way_line_det_one_way_line_80_40_action_shield_merge_collection.sub

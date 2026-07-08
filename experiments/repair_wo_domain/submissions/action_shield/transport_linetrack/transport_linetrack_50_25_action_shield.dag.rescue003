@@ -1,0 +1,13 @@
+# Rescue DAG file, created after running
+#   the transport_linetrack_50_25_action_shield.dag DAG file
+# Created 7/7/2026 21:19:51 UTC
+# Rescue DAG version: 2.0.1 (partial)
+#
+# Total number of Nodes: 5
+# Nodes premarked DONE: 3
+# Nodes that failed: 0
+#   <ENDLIST>
+
+DONE COLLECT
+DONE MERGE_COLLECTION
+DONE TRAIN

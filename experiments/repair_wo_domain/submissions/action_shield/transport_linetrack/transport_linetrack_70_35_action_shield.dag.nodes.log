@@ -1,120 +1,31 @@
-000 (170252.000.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
+000 (170528.000.000) 2026-07-07 23:42:04 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: TRAIN
 ...
-000 (170252.001.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
+001 (170528.000.000) 2026-07-08 00:25:56 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching6@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a452c067 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3665767"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_a452c067 = [ Id = "GPU-a452c067"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a452c067-0d65-e291-c4ee-82d9aa851f4c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:86:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-000 (170252.010.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.011.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.012.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.013.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.014.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.015.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.016.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.017.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.018.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.019.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.002.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.020.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.021.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.022.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.023.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.024.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.025.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.026.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.027.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.028.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.029.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.003.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.030.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.031.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.032.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.033.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.034.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.035.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.036.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.037.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.038.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.039.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.004.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.005.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.006.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.007.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.008.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
-...
-000 (170252.009.000) 2026-07-06 18:12:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_1657671_015c>
-    DAG Node: COLLECT
+005 (170528.000.000) 2026-07-08 00:26:01 Job terminated.
+	(1) Normal termination (return value 1)
+		Usr 0 00:00:04, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:04, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.02        4         7 
+	   Disk (KB)            :    22          50 433398746 
+	   GPUs                 :                 0         1 "GPU-a452c067"
+	   Memory (MB)          :   305       16384     96737 
+	   TimeExecute (s)      :     5                       
+	   TimeSlotBusy (s)     :     6                       
 ...

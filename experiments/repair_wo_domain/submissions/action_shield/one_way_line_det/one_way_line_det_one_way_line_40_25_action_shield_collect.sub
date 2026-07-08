@@ -18,7 +18,7 @@ request_GPUs = 0
 request_CPUs = 1
 request_memory = 16G
 
-periodic_remove = (time() - JobStartDate) > 43200
+periodic_remove = (time() - JobStartDate) > 86400
 
 output = logs/$(ClusterId).$(ProcId)_shield_labels_shard$(Process).out
 error  = logs/$(ClusterId).$(ProcId)_shield_labels_shard$(Process).err
@@ -30,7 +30,7 @@ arguments = bash \
   --jani-property /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/one_way_line_det/one_way_line_40_25/model.jani \
   --start-states /home/atml_team041/condor_tutorial/jani_env/benchmarks_generator/benchmarks/one_way_line_det/one_way_line_40_25/pa_model_random_starts_100000.jani \
   --policy /home/atml_team041/condor_tutorial/jani_env/artifacts/learning/one_way_line_40_25/mask_ppo_best_params_seed0/models/actor_iter_72.pth \
-  --output-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield/one_way_line_det_one_way_line_40_25/mask_ppo_best_params_seed0/collection/shard_$(Process) \
+  --output-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield_multitask/one_way_line_det_one_way_line_40_25/mask_ppo_best_params_seed0/collection/shard_$(Process) \
   --max-steps 2000 \
   --max-state-visits 3 \
   --num-shards 40 \

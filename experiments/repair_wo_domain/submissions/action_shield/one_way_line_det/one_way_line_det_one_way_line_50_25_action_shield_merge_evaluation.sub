@@ -24,8 +24,8 @@ log    = logs/$(ClusterId).$(ProcId)_shield_merge_evaluation.log
 
 arguments = bash \
   /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/execute_action_shield.sh merge-evaluation \
-  --input-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield/one_way_line_det_one_way_line_50_25/mask_ppo_best_params_seed0/evaluation \
-  --output-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield/one_way_line_det_one_way_line_50_25/mask_ppo_best_params_seed0/evaluation/merged \
+  --input-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield_multitask/one_way_line_det_one_way_line_50_25/mask_ppo_best_params_seed0/evaluation \
+  --output-dir /home/atml_team041/condor_tutorial/jani_env/artifacts/action_shield_multitask/one_way_line_det_one_way_line_50_25/mask_ppo_best_params_seed0/evaluation/merged \
   --expected-shards 40
 
 queue 1

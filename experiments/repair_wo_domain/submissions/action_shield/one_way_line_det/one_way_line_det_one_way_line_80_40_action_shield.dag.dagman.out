@@ -254,3 +254,2257 @@
 07/06/26 18:25:21 Reassigning the id of job COLLECT from (170273.8.0) to (170273.9.0)
 07/06/26 18:25:21 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.9.0) {07/06/26 18:25:16}
 07/06/26 18:25:21 Number of idle job procs: 40
+07/06/26 18:35:21 600 seconds since last log event
+07/06/26 18:35:21 Pending DAG nodes:
+07/06/26 18:35:21   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 18:40:17 Total jobs placed to AP: 40
+07/06/26 18:40:17      Idle     Held     Running     Successful     Failed
+07/06/26 18:40:17       ===      ===         ===            ===        ===
+07/06/26 18:40:17        40        0           0              0          0
+07/06/26 18:45:22 1201 seconds since last log event
+07/06/26 18:45:22 Pending DAG nodes:
+07/06/26 18:45:22   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 18:55:17 Total jobs placed to AP: 40
+07/06/26 18:55:17      Idle     Held     Running     Successful     Failed
+07/06/26 18:55:17       ===      ===         ===            ===        ===
+07/06/26 18:55:17        40        0           0              0          0
+07/06/26 18:55:22 1801 seconds since last log event
+07/06/26 18:55:22 Pending DAG nodes:
+07/06/26 18:55:22   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 19:05:23 2402 seconds since last log event
+07/06/26 19:05:23 Pending DAG nodes:
+07/06/26 19:05:23   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 19:10:18 Total jobs placed to AP: 40
+07/06/26 19:10:18      Idle     Held     Running     Successful     Failed
+07/06/26 19:10:18       ===      ===         ===            ===        ===
+07/06/26 19:10:18        40        0           0              0          0
+07/06/26 19:15:23 3002 seconds since last log event
+07/06/26 19:15:23 Pending DAG nodes:
+07/06/26 19:15:23   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 19:25:19 Total jobs placed to AP: 40
+07/06/26 19:25:19      Idle     Held     Running     Successful     Failed
+07/06/26 19:25:19       ===      ===         ===            ===        ===
+07/06/26 19:25:19        40        0           0              0          0
+07/06/26 19:25:24 3603 seconds since last log event
+07/06/26 19:25:24 Pending DAG nodes:
+07/06/26 19:25:24   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 19:35:24 4203 seconds since last log event
+07/06/26 19:35:24 Pending DAG nodes:
+07/06/26 19:35:24   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 19:40:20 Total jobs placed to AP: 40
+07/06/26 19:40:20      Idle     Held     Running     Successful     Failed
+07/06/26 19:40:20       ===      ===         ===            ===        ===
+07/06/26 19:40:20        40        0           0              0          0
+07/06/26 19:45:25 4804 seconds since last log event
+07/06/26 19:45:25 Pending DAG nodes:
+07/06/26 19:45:25   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 19:55:20 Total jobs placed to AP: 40
+07/06/26 19:55:20      Idle     Held     Running     Successful     Failed
+07/06/26 19:55:20       ===      ===         ===            ===        ===
+07/06/26 19:55:20        40        0           0              0          0
+07/06/26 19:55:25 5404 seconds since last log event
+07/06/26 19:55:25 Pending DAG nodes:
+07/06/26 19:55:25   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 20:05:26 6005 seconds since last log event
+07/06/26 20:05:26 Pending DAG nodes:
+07/06/26 20:05:26   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 20:10:21 Total jobs placed to AP: 40
+07/06/26 20:10:21      Idle     Held     Running     Successful     Failed
+07/06/26 20:10:21       ===      ===         ===            ===        ===
+07/06/26 20:10:21        40        0           0              0          0
+07/06/26 20:15:27 6606 seconds since last log event
+07/06/26 20:15:27 Pending DAG nodes:
+07/06/26 20:15:27   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 20:25:22 Total jobs placed to AP: 40
+07/06/26 20:25:22      Idle     Held     Running     Successful     Failed
+07/06/26 20:25:22       ===      ===         ===            ===        ===
+07/06/26 20:25:22        40        0           0              0          0
+07/06/26 20:25:27 7206 seconds since last log event
+07/06/26 20:25:27 Pending DAG nodes:
+07/06/26 20:25:27   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 20:35:28 7807 seconds since last log event
+07/06/26 20:35:28 Pending DAG nodes:
+07/06/26 20:35:28   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 20:40:23 Total jobs placed to AP: 40
+07/06/26 20:40:23      Idle     Held     Running     Successful     Failed
+07/06/26 20:40:23       ===      ===         ===            ===        ===
+07/06/26 20:40:23        40        0           0              0          0
+07/06/26 20:45:28 8407 seconds since last log event
+07/06/26 20:45:28 Pending DAG nodes:
+07/06/26 20:45:28   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 20:55:24 Total jobs placed to AP: 40
+07/06/26 20:55:24      Idle     Held     Running     Successful     Failed
+07/06/26 20:55:24       ===      ===         ===            ===        ===
+07/06/26 20:55:24        40        0           0              0          0
+07/06/26 20:55:29 9008 seconds since last log event
+07/06/26 20:55:29 Pending DAG nodes:
+07/06/26 20:55:29   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 21:05:29 9608 seconds since last log event
+07/06/26 21:05:29 Pending DAG nodes:
+07/06/26 21:05:29   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 21:10:25 Total jobs placed to AP: 40
+07/06/26 21:10:25      Idle     Held     Running     Successful     Failed
+07/06/26 21:10:25       ===      ===         ===            ===        ===
+07/06/26 21:10:25        40        0           0              0          0
+07/06/26 21:15:30 10209 seconds since last log event
+07/06/26 21:15:30 Pending DAG nodes:
+07/06/26 21:15:30   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 21:25:25 Total jobs placed to AP: 40
+07/06/26 21:25:25      Idle     Held     Running     Successful     Failed
+07/06/26 21:25:25       ===      ===         ===            ===        ===
+07/06/26 21:25:25        40        0           0              0          0
+07/06/26 21:25:30 10809 seconds since last log event
+07/06/26 21:25:30 Pending DAG nodes:
+07/06/26 21:25:30   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 21:35:31 11410 seconds since last log event
+07/06/26 21:35:31 Pending DAG nodes:
+07/06/26 21:35:31   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 21:40:26 Total jobs placed to AP: 40
+07/06/26 21:40:26      Idle     Held     Running     Successful     Failed
+07/06/26 21:40:26       ===      ===         ===            ===        ===
+07/06/26 21:40:26        40        0           0              0          0
+07/06/26 21:45:31 12010 seconds since last log event
+07/06/26 21:45:31 Pending DAG nodes:
+07/06/26 21:45:31   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 21:55:27 Total jobs placed to AP: 40
+07/06/26 21:55:27      Idle     Held     Running     Successful     Failed
+07/06/26 21:55:27       ===      ===         ===            ===        ===
+07/06/26 21:55:27        40        0           0              0          0
+07/06/26 21:55:32 12611 seconds since last log event
+07/06/26 21:55:32 Pending DAG nodes:
+07/06/26 21:55:32   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:05:32 13211 seconds since last log event
+07/06/26 22:05:32 Pending DAG nodes:
+07/06/26 22:05:32   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:10:28 Total jobs placed to AP: 40
+07/06/26 22:10:28      Idle     Held     Running     Successful     Failed
+07/06/26 22:10:28       ===      ===         ===            ===        ===
+07/06/26 22:10:28        40        0           0              0          0
+07/06/26 22:15:33 13812 seconds since last log event
+07/06/26 22:15:33 Pending DAG nodes:
+07/06/26 22:15:33   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:25:28 Total jobs placed to AP: 40
+07/06/26 22:25:28      Idle     Held     Running     Successful     Failed
+07/06/26 22:25:28       ===      ===         ===            ===        ===
+07/06/26 22:25:28        40        0           0              0          0
+07/06/26 22:25:33 14412 seconds since last log event
+07/06/26 22:25:33 Pending DAG nodes:
+07/06/26 22:25:33   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:35:35 15014 seconds since last log event
+07/06/26 22:35:41 Pending DAG nodes:
+07/06/26 22:35:41   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:40:32 Total jobs placed to AP: 40
+07/06/26 22:40:39      Idle     Held     Running     Successful     Failed
+07/06/26 22:40:39       ===      ===         ===            ===        ===
+07/06/26 22:40:39        40        0           0              0          0
+07/06/26 22:45:35 15614 seconds since last log event
+07/06/26 22:45:35 Pending DAG nodes:
+07/06/26 22:45:35   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:55:35 16214 seconds since last log event
+07/06/26 22:55:35 Pending DAG nodes:
+07/06/26 22:55:35   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 22:55:40 Total jobs placed to AP: 40
+07/06/26 22:55:40      Idle     Held     Running     Successful     Failed
+07/06/26 22:55:40       ===      ===         ===            ===        ===
+07/06/26 22:55:40        40        0           0              0          0
+07/06/26 23:05:36 16815 seconds since last log event
+07/06/26 23:05:36 Pending DAG nodes:
+07/06/26 23:05:36   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 23:10:41 Total jobs placed to AP: 40
+07/06/26 23:10:41      Idle     Held     Running     Successful     Failed
+07/06/26 23:10:41       ===      ===         ===            ===        ===
+07/06/26 23:10:41        40        0           0              0          0
+07/06/26 23:15:36 17415 seconds since last log event
+07/06/26 23:15:36 Pending DAG nodes:
+07/06/26 23:15:36   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 23:25:37 18016 seconds since last log event
+07/06/26 23:25:37 Pending DAG nodes:
+07/06/26 23:25:37   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 23:25:42 Total jobs placed to AP: 40
+07/06/26 23:25:42      Idle     Held     Running     Successful     Failed
+07/06/26 23:25:42       ===      ===         ===            ===        ===
+07/06/26 23:25:42        40        0           0              0          0
+07/06/26 23:35:37 18616 seconds since last log event
+07/06/26 23:35:37 Pending DAG nodes:
+07/06/26 23:35:37   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 23:40:43 Total jobs placed to AP: 40
+07/06/26 23:40:43      Idle     Held     Running     Successful     Failed
+07/06/26 23:40:43       ===      ===         ===            ===        ===
+07/06/26 23:40:43        40        0           0              0          0
+07/06/26 23:45:38 19217 seconds since last log event
+07/06/26 23:45:38 Pending DAG nodes:
+07/06/26 23:45:38   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 23:55:38 19817 seconds since last log event
+07/06/26 23:55:38 Pending DAG nodes:
+07/06/26 23:55:38   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/06/26 23:55:43 Total jobs placed to AP: 40
+07/06/26 23:55:43      Idle     Held     Running     Successful     Failed
+07/06/26 23:55:43       ===      ===         ===            ===        ===
+07/06/26 23:55:43        40        0           0              0          0
+07/07/26 00:05:39 20418 seconds since last log event
+07/07/26 00:05:39 Pending DAG nodes:
+07/07/26 00:05:39   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 00:10:44 Total jobs placed to AP: 40
+07/07/26 00:10:44      Idle     Held     Running     Successful     Failed
+07/07/26 00:10:44       ===      ===         ===            ===        ===
+07/07/26 00:10:44        40        0           0              0          0
+07/07/26 00:15:39 21018 seconds since last log event
+07/07/26 00:15:39 Pending DAG nodes:
+07/07/26 00:15:39   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 00:25:40 21619 seconds since last log event
+07/07/26 00:25:40 Pending DAG nodes:
+07/07/26 00:25:40   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 00:25:45 Total jobs placed to AP: 40
+07/07/26 00:25:45      Idle     Held     Running     Successful     Failed
+07/07/26 00:25:45       ===      ===         ===            ===        ===
+07/07/26 00:25:45        40        0           0              0          0
+07/07/26 00:35:40 22219 seconds since last log event
+07/07/26 00:35:40 Pending DAG nodes:
+07/07/26 00:35:40   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 00:40:46 Total jobs placed to AP: 40
+07/07/26 00:40:46      Idle     Held     Running     Successful     Failed
+07/07/26 00:40:46       ===      ===         ===            ===        ===
+07/07/26 00:40:46        40        0           0              0          0
+07/07/26 00:45:41 22820 seconds since last log event
+07/07/26 00:45:41 Pending DAG nodes:
+07/07/26 00:45:41   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 00:55:41 23420 seconds since last log event
+07/07/26 00:55:41 Pending DAG nodes:
+07/07/26 00:55:41   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 00:55:46 Total jobs placed to AP: 40
+07/07/26 00:55:46      Idle     Held     Running     Successful     Failed
+07/07/26 00:55:46       ===      ===         ===            ===        ===
+07/07/26 00:55:46        40        0           0              0          0
+07/07/26 01:05:42 24021 seconds since last log event
+07/07/26 01:05:42 Pending DAG nodes:
+07/07/26 01:05:42   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 01:10:47 Total jobs placed to AP: 40
+07/07/26 01:10:47      Idle     Held     Running     Successful     Failed
+07/07/26 01:10:47       ===      ===         ===            ===        ===
+07/07/26 01:10:47        40        0           0              0          0
+07/07/26 01:15:42 24621 seconds since last log event
+07/07/26 01:15:42 Pending DAG nodes:
+07/07/26 01:15:42   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 01:25:43 25222 seconds since last log event
+07/07/26 01:25:43 Pending DAG nodes:
+07/07/26 01:25:43   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 01:25:48 Total jobs placed to AP: 40
+07/07/26 01:25:48      Idle     Held     Running     Successful     Failed
+07/07/26 01:25:48       ===      ===         ===            ===        ===
+07/07/26 01:25:48        40        0           0              0          0
+07/07/26 01:35:43 25822 seconds since last log event
+07/07/26 01:35:43 Pending DAG nodes:
+07/07/26 01:35:43   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 01:40:49 Total jobs placed to AP: 40
+07/07/26 01:40:49      Idle     Held     Running     Successful     Failed
+07/07/26 01:40:49       ===      ===         ===            ===        ===
+07/07/26 01:40:49        40        0           0              0          0
+07/07/26 01:45:44 26423 seconds since last log event
+07/07/26 01:45:44 Pending DAG nodes:
+07/07/26 01:45:44   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 01:55:45 27024 seconds since last log event
+07/07/26 01:55:45 Pending DAG nodes:
+07/07/26 01:55:45   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 01:55:50 Total jobs placed to AP: 40
+07/07/26 01:55:50      Idle     Held     Running     Successful     Failed
+07/07/26 01:55:50       ===      ===         ===            ===        ===
+07/07/26 01:55:50        40        0           0              0          0
+07/07/26 02:05:45 27624 seconds since last log event
+07/07/26 02:05:45 Pending DAG nodes:
+07/07/26 02:05:45   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 02:10:50 Total jobs placed to AP: 40
+07/07/26 02:10:50      Idle     Held     Running     Successful     Failed
+07/07/26 02:10:50       ===      ===         ===            ===        ===
+07/07/26 02:10:50        40        0           0              0          0
+07/07/26 02:15:45 28224 seconds since last log event
+07/07/26 02:15:45 Pending DAG nodes:
+07/07/26 02:15:45   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 02:25:45 28824 seconds since last log event
+07/07/26 02:25:45 Pending DAG nodes:
+07/07/26 02:25:45   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 02:25:45 Querying local schedd for associated jobs in queue
+07/07/26 02:25:45 All pending job states validated
+07/07/26 02:25:50 Total jobs placed to AP: 40
+07/07/26 02:25:50      Idle     Held     Running     Successful     Failed
+07/07/26 02:25:50       ===      ===         ===            ===        ===
+07/07/26 02:25:50        40        0           0              0          0
+07/07/26 02:35:46 29425 seconds since last log event
+07/07/26 02:35:46 Pending DAG nodes:
+07/07/26 02:35:46   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 02:40:51 Total jobs placed to AP: 40
+07/07/26 02:40:51      Idle     Held     Running     Successful     Failed
+07/07/26 02:40:51       ===      ===         ===            ===        ===
+07/07/26 02:40:51        40        0           0              0          0
+07/07/26 02:45:46 30025 seconds since last log event
+07/07/26 02:45:46 Pending DAG nodes:
+07/07/26 02:45:46   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 02:55:47 30626 seconds since last log event
+07/07/26 02:55:47 Pending DAG nodes:
+07/07/26 02:55:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 02:55:52 Total jobs placed to AP: 40
+07/07/26 02:55:52      Idle     Held     Running     Successful     Failed
+07/07/26 02:55:52       ===      ===         ===            ===        ===
+07/07/26 02:55:52        40        0           0              0          0
+07/07/26 03:05:47 31226 seconds since last log event
+07/07/26 03:05:47 Pending DAG nodes:
+07/07/26 03:05:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 03:10:52 Total jobs placed to AP: 40
+07/07/26 03:10:52      Idle     Held     Running     Successful     Failed
+07/07/26 03:10:52       ===      ===         ===            ===        ===
+07/07/26 03:10:52        40        0           0              0          0
+07/07/26 03:15:47 31826 seconds since last log event
+07/07/26 03:15:47 Pending DAG nodes:
+07/07/26 03:15:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 03:25:47 32426 seconds since last log event
+07/07/26 03:25:47 Pending DAG nodes:
+07/07/26 03:25:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 03:25:52 Total jobs placed to AP: 40
+07/07/26 03:25:52      Idle     Held     Running     Successful     Failed
+07/07/26 03:25:52       ===      ===         ===            ===        ===
+07/07/26 03:25:52        40        0           0              0          0
+07/07/26 03:35:47 33026 seconds since last log event
+07/07/26 03:35:47 Pending DAG nodes:
+07/07/26 03:35:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 03:40:52 Total jobs placed to AP: 40
+07/07/26 03:40:52      Idle     Held     Running     Successful     Failed
+07/07/26 03:40:52       ===      ===         ===            ===        ===
+07/07/26 03:40:52        40        0           0              0          0
+07/07/26 03:45:47 33626 seconds since last log event
+07/07/26 03:45:47 Pending DAG nodes:
+07/07/26 03:45:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 03:55:48 34227 seconds since last log event
+07/07/26 03:55:48 Pending DAG nodes:
+07/07/26 03:55:48   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 03:55:53 Total jobs placed to AP: 40
+07/07/26 03:55:53      Idle     Held     Running     Successful     Failed
+07/07/26 03:55:53       ===      ===         ===            ===        ===
+07/07/26 03:55:53        40        0           0              0          0
+07/07/26 04:05:49 34828 seconds since last log event
+07/07/26 04:05:49 Pending DAG nodes:
+07/07/26 04:05:49   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 04:10:54 Total jobs placed to AP: 40
+07/07/26 04:10:54      Idle     Held     Running     Successful     Failed
+07/07/26 04:10:54       ===      ===         ===            ===        ===
+07/07/26 04:10:54        40        0           0              0          0
+07/07/26 04:15:49 35428 seconds since last log event
+07/07/26 04:15:49 Pending DAG nodes:
+07/07/26 04:15:49   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 04:25:50 36029 seconds since last log event
+07/07/26 04:25:50 Pending DAG nodes:
+07/07/26 04:25:50   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 04:25:55 Total jobs placed to AP: 40
+07/07/26 04:25:55      Idle     Held     Running     Successful     Failed
+07/07/26 04:25:55       ===      ===         ===            ===        ===
+07/07/26 04:25:55        40        0           0              0          0
+07/07/26 04:35:50 36629 seconds since last log event
+07/07/26 04:35:50 Pending DAG nodes:
+07/07/26 04:35:50   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 04:40:56 Total jobs placed to AP: 40
+07/07/26 04:40:56      Idle     Held     Running     Successful     Failed
+07/07/26 04:40:56       ===      ===         ===            ===        ===
+07/07/26 04:40:56        40        0           0              0          0
+07/07/26 04:45:51 37230 seconds since last log event
+07/07/26 04:45:51 Pending DAG nodes:
+07/07/26 04:45:51   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 04:55:51 37830 seconds since last log event
+07/07/26 04:55:51 Pending DAG nodes:
+07/07/26 04:55:51   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 04:55:56 Total jobs placed to AP: 40
+07/07/26 04:55:56      Idle     Held     Running     Successful     Failed
+07/07/26 04:55:56       ===      ===         ===            ===        ===
+07/07/26 04:55:56        40        0           0              0          0
+07/07/26 05:05:52 38431 seconds since last log event
+07/07/26 05:05:52 Pending DAG nodes:
+07/07/26 05:05:52   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 05:10:57 Total jobs placed to AP: 40
+07/07/26 05:10:57      Idle     Held     Running     Successful     Failed
+07/07/26 05:10:57       ===      ===         ===            ===        ===
+07/07/26 05:10:57        40        0           0              0          0
+07/07/26 05:15:52 39031 seconds since last log event
+07/07/26 05:15:52 Pending DAG nodes:
+07/07/26 05:15:52   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 05:25:52 39631 seconds since last log event
+07/07/26 05:25:52 Pending DAG nodes:
+07/07/26 05:25:52   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 05:25:57 Total jobs placed to AP: 40
+07/07/26 05:25:57      Idle     Held     Running     Successful     Failed
+07/07/26 05:25:57       ===      ===         ===            ===        ===
+07/07/26 05:25:57        40        0           0              0          0
+07/07/26 05:35:53 40232 seconds since last log event
+07/07/26 05:35:53 Pending DAG nodes:
+07/07/26 05:35:53   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 05:40:58 Total jobs placed to AP: 40
+07/07/26 05:40:58      Idle     Held     Running     Successful     Failed
+07/07/26 05:40:58       ===      ===         ===            ===        ===
+07/07/26 05:40:58        40        0           0              0          0
+07/07/26 05:45:53 40832 seconds since last log event
+07/07/26 05:45:53 Pending DAG nodes:
+07/07/26 05:45:53   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 05:55:54 41433 seconds since last log event
+07/07/26 05:55:54 Pending DAG nodes:
+07/07/26 05:55:54   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 05:55:59 Total jobs placed to AP: 40
+07/07/26 05:55:59      Idle     Held     Running     Successful     Failed
+07/07/26 05:55:59       ===      ===         ===            ===        ===
+07/07/26 05:55:59        40        0           0              0          0
+07/07/26 06:05:54 42033 seconds since last log event
+07/07/26 06:05:54 Pending DAG nodes:
+07/07/26 06:05:54   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 06:11:00 Total jobs placed to AP: 40
+07/07/26 06:11:00      Idle     Held     Running     Successful     Failed
+07/07/26 06:11:00       ===      ===         ===            ===        ===
+07/07/26 06:11:00        40        0           0              0          0
+07/07/26 06:15:55 42634 seconds since last log event
+07/07/26 06:15:55 Pending DAG nodes:
+07/07/26 06:15:55   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 06:25:55 43234 seconds since last log event
+07/07/26 06:25:55 Pending DAG nodes:
+07/07/26 06:25:55   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 06:26:00 Total jobs placed to AP: 40
+07/07/26 06:26:00      Idle     Held     Running     Successful     Failed
+07/07/26 06:26:00       ===      ===         ===            ===        ===
+07/07/26 06:26:00        40        0           0              0          0
+07/07/26 06:35:59 43838 seconds since last log event
+07/07/26 06:35:59 Pending DAG nodes:
+07/07/26 06:35:59   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 06:41:01 Total jobs placed to AP: 40
+07/07/26 06:41:02      Idle     Held     Running     Successful     Failed
+07/07/26 06:41:02       ===      ===         ===            ===        ===
+07/07/26 06:41:02        40        0           0              0          0
+07/07/26 06:46:00 44439 seconds since last log event
+07/07/26 06:46:00 Pending DAG nodes:
+07/07/26 06:46:00   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 06:56:01 45040 seconds since last log event
+07/07/26 06:56:01 Pending DAG nodes:
+07/07/26 06:56:01   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 06:56:06 Total jobs placed to AP: 40
+07/07/26 06:56:06      Idle     Held     Running     Successful     Failed
+07/07/26 06:56:06       ===      ===         ===            ===        ===
+07/07/26 06:56:06        40        0           0              0          0
+07/07/26 07:06:01 45640 seconds since last log event
+07/07/26 07:06:01 Pending DAG nodes:
+07/07/26 07:06:01   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 07:11:07 Total jobs placed to AP: 40
+07/07/26 07:11:07      Idle     Held     Running     Successful     Failed
+07/07/26 07:11:07       ===      ===         ===            ===        ===
+07/07/26 07:11:07        40        0           0              0          0
+07/07/26 07:16:02 46241 seconds since last log event
+07/07/26 07:16:02 Pending DAG nodes:
+07/07/26 07:16:02   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 07:26:02 46841 seconds since last log event
+07/07/26 07:26:02 Pending DAG nodes:
+07/07/26 07:26:02   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 07:26:07 Total jobs placed to AP: 40
+07/07/26 07:26:07      Idle     Held     Running     Successful     Failed
+07/07/26 07:26:07       ===      ===         ===            ===        ===
+07/07/26 07:26:07        40        0           0              0          0
+07/07/26 07:36:03 47442 seconds since last log event
+07/07/26 07:36:03 Pending DAG nodes:
+07/07/26 07:36:03   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 07:41:08 Total jobs placed to AP: 40
+07/07/26 07:41:08      Idle     Held     Running     Successful     Failed
+07/07/26 07:41:08       ===      ===         ===            ===        ===
+07/07/26 07:41:08        40        0           0              0          0
+07/07/26 07:46:03 48042 seconds since last log event
+07/07/26 07:46:03 Pending DAG nodes:
+07/07/26 07:46:03   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 07:56:04 48643 seconds since last log event
+07/07/26 07:56:04 Pending DAG nodes:
+07/07/26 07:56:04   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 07:56:09 Total jobs placed to AP: 40
+07/07/26 07:56:09      Idle     Held     Running     Successful     Failed
+07/07/26 07:56:09       ===      ===         ===            ===        ===
+07/07/26 07:56:09        40        0           0              0          0
+07/07/26 08:06:05 49244 seconds since last log event
+07/07/26 08:06:05 Pending DAG nodes:
+07/07/26 08:06:05   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 08:11:10 Total jobs placed to AP: 40
+07/07/26 08:11:10      Idle     Held     Running     Successful     Failed
+07/07/26 08:11:10       ===      ===         ===            ===        ===
+07/07/26 08:11:10        40        0           0              0          0
+07/07/26 08:16:05 49844 seconds since last log event
+07/07/26 08:16:05 Pending DAG nodes:
+07/07/26 08:16:05   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 08:26:05 50444 seconds since last log event
+07/07/26 08:26:05 Pending DAG nodes:
+07/07/26 08:26:05   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 08:26:10 Total jobs placed to AP: 40
+07/07/26 08:26:10      Idle     Held     Running     Successful     Failed
+07/07/26 08:26:10       ===      ===         ===            ===        ===
+07/07/26 08:26:10        40        0           0              0          0
+07/07/26 08:36:05 51044 seconds since last log event
+07/07/26 08:36:05 Pending DAG nodes:
+07/07/26 08:36:05   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 08:41:10 Total jobs placed to AP: 40
+07/07/26 08:41:10      Idle     Held     Running     Successful     Failed
+07/07/26 08:41:10       ===      ===         ===            ===        ===
+07/07/26 08:41:10        40        0           0              0          0
+07/07/26 08:46:06 51645 seconds since last log event
+07/07/26 08:46:06 Pending DAG nodes:
+07/07/26 08:46:06   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 08:56:06 52245 seconds since last log event
+07/07/26 08:56:06 Pending DAG nodes:
+07/07/26 08:56:06   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 08:56:11 Total jobs placed to AP: 40
+07/07/26 08:56:11      Idle     Held     Running     Successful     Failed
+07/07/26 08:56:11       ===      ===         ===            ===        ===
+07/07/26 08:56:11        40        0           0              0          0
+07/07/26 09:06:07 52846 seconds since last log event
+07/07/26 09:06:07 Pending DAG nodes:
+07/07/26 09:06:07   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 09:11:12 Total jobs placed to AP: 40
+07/07/26 09:11:12      Idle     Held     Running     Successful     Failed
+07/07/26 09:11:12       ===      ===         ===            ===        ===
+07/07/26 09:11:12        40        0           0              0          0
+07/07/26 09:16:07 53446 seconds since last log event
+07/07/26 09:16:07 Pending DAG nodes:
+07/07/26 09:16:07   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 09:26:08 54047 seconds since last log event
+07/07/26 09:26:08 Pending DAG nodes:
+07/07/26 09:26:08   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 09:26:13 Total jobs placed to AP: 40
+07/07/26 09:26:13      Idle     Held     Running     Successful     Failed
+07/07/26 09:26:13       ===      ===         ===            ===        ===
+07/07/26 09:26:13        40        0           0              0          0
+07/07/26 09:36:08 54647 seconds since last log event
+07/07/26 09:36:08 Pending DAG nodes:
+07/07/26 09:36:08   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 09:41:14 Total jobs placed to AP: 40
+07/07/26 09:41:14      Idle     Held     Running     Successful     Failed
+07/07/26 09:41:14       ===      ===         ===            ===        ===
+07/07/26 09:41:14        40        0           0              0          0
+07/07/26 09:46:09 55248 seconds since last log event
+07/07/26 09:46:09 Pending DAG nodes:
+07/07/26 09:46:09   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 09:56:09 55848 seconds since last log event
+07/07/26 09:56:09 Pending DAG nodes:
+07/07/26 09:56:09   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 09:56:14 Total jobs placed to AP: 40
+07/07/26 09:56:14      Idle     Held     Running     Successful     Failed
+07/07/26 09:56:14       ===      ===         ===            ===        ===
+07/07/26 09:56:14        40        0           0              0          0
+07/07/26 10:06:10 56449 seconds since last log event
+07/07/26 10:06:10 Pending DAG nodes:
+07/07/26 10:06:10   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 10:11:15 Total jobs placed to AP: 40
+07/07/26 10:11:15      Idle     Held     Running     Successful     Failed
+07/07/26 10:11:15       ===      ===         ===            ===        ===
+07/07/26 10:11:15        40        0           0              0          0
+07/07/26 10:16:11 57050 seconds since last log event
+07/07/26 10:16:11 Pending DAG nodes:
+07/07/26 10:16:11   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 10:26:11 57650 seconds since last log event
+07/07/26 10:26:11 Pending DAG nodes:
+07/07/26 10:26:11   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 10:26:16 Total jobs placed to AP: 40
+07/07/26 10:26:16      Idle     Held     Running     Successful     Failed
+07/07/26 10:26:16       ===      ===         ===            ===        ===
+07/07/26 10:26:16        40        0           0              0          0
+07/07/26 10:36:12 58251 seconds since last log event
+07/07/26 10:36:12 Pending DAG nodes:
+07/07/26 10:36:12   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 10:41:17 Total jobs placed to AP: 40
+07/07/26 10:41:17      Idle     Held     Running     Successful     Failed
+07/07/26 10:41:17       ===      ===         ===            ===        ===
+07/07/26 10:41:17        40        0           0              0          0
+07/07/26 10:46:12 58851 seconds since last log event
+07/07/26 10:46:12 Pending DAG nodes:
+07/07/26 10:46:12   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 10:56:13 59452 seconds since last log event
+07/07/26 10:56:13 Pending DAG nodes:
+07/07/26 10:56:13   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 10:56:18 Total jobs placed to AP: 40
+07/07/26 10:56:18      Idle     Held     Running     Successful     Failed
+07/07/26 10:56:18       ===      ===         ===            ===        ===
+07/07/26 10:56:18        40        0           0              0          0
+07/07/26 11:06:13 60052 seconds since last log event
+07/07/26 11:06:13 Pending DAG nodes:
+07/07/26 11:06:13   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 11:11:19 Total jobs placed to AP: 40
+07/07/26 11:11:19      Idle     Held     Running     Successful     Failed
+07/07/26 11:11:19       ===      ===         ===            ===        ===
+07/07/26 11:11:19        40        0           0              0          0
+07/07/26 11:16:14 60653 seconds since last log event
+07/07/26 11:16:14 Pending DAG nodes:
+07/07/26 11:16:14   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 11:26:14 61253 seconds since last log event
+07/07/26 11:26:14 Pending DAG nodes:
+07/07/26 11:26:14   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 11:26:19 Total jobs placed to AP: 40
+07/07/26 11:26:19      Idle     Held     Running     Successful     Failed
+07/07/26 11:26:19       ===      ===         ===            ===        ===
+07/07/26 11:26:19        40        0           0              0          0
+07/07/26 11:36:15 61854 seconds since last log event
+07/07/26 11:36:15 Pending DAG nodes:
+07/07/26 11:36:15   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 11:41:20 Total jobs placed to AP: 40
+07/07/26 11:41:20      Idle     Held     Running     Successful     Failed
+07/07/26 11:41:20       ===      ===         ===            ===        ===
+07/07/26 11:41:20        40        0           0              0          0
+07/07/26 11:46:16 62455 seconds since last log event
+07/07/26 11:46:16 Pending DAG nodes:
+07/07/26 11:46:16   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 11:56:16 63055 seconds since last log event
+07/07/26 11:56:16 Pending DAG nodes:
+07/07/26 11:56:16   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 11:56:21 Total jobs placed to AP: 40
+07/07/26 11:56:21      Idle     Held     Running     Successful     Failed
+07/07/26 11:56:21       ===      ===         ===            ===        ===
+07/07/26 11:56:21        40        0           0              0          0
+07/07/26 12:06:17 63656 seconds since last log event
+07/07/26 12:06:17 Pending DAG nodes:
+07/07/26 12:06:17   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 12:11:22 Total jobs placed to AP: 40
+07/07/26 12:11:22      Idle     Held     Running     Successful     Failed
+07/07/26 12:11:22       ===      ===         ===            ===        ===
+07/07/26 12:11:22        40        0           0              0          0
+07/07/26 12:16:17 64256 seconds since last log event
+07/07/26 12:16:17 Pending DAG nodes:
+07/07/26 12:16:17   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 12:26:18 64857 seconds since last log event
+07/07/26 12:26:18 Pending DAG nodes:
+07/07/26 12:26:18   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 12:26:23 Total jobs placed to AP: 40
+07/07/26 12:26:23      Idle     Held     Running     Successful     Failed
+07/07/26 12:26:23       ===      ===         ===            ===        ===
+07/07/26 12:26:23        40        0           0              0          0
+07/07/26 12:36:18 65457 seconds since last log event
+07/07/26 12:36:18 Pending DAG nodes:
+07/07/26 12:36:18   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 12:41:23 Total jobs placed to AP: 40
+07/07/26 12:41:23      Idle     Held     Running     Successful     Failed
+07/07/26 12:41:23       ===      ===         ===            ===        ===
+07/07/26 12:41:23        40        0           0              0          0
+07/07/26 12:46:19 66058 seconds since last log event
+07/07/26 12:46:19 Pending DAG nodes:
+07/07/26 12:46:19   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 12:56:19 66658 seconds since last log event
+07/07/26 12:56:19 Pending DAG nodes:
+07/07/26 12:56:19   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 12:56:24 Total jobs placed to AP: 40
+07/07/26 12:56:24      Idle     Held     Running     Successful     Failed
+07/07/26 12:56:24       ===      ===         ===            ===        ===
+07/07/26 12:56:24        40        0           0              0          0
+07/07/26 13:06:20 67259 seconds since last log event
+07/07/26 13:06:20 Pending DAG nodes:
+07/07/26 13:06:20   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 13:11:25 Total jobs placed to AP: 40
+07/07/26 13:11:25      Idle     Held     Running     Successful     Failed
+07/07/26 13:11:25       ===      ===         ===            ===        ===
+07/07/26 13:11:25        40        0           0              0          0
+07/07/26 13:16:20 67859 seconds since last log event
+07/07/26 13:16:20 Pending DAG nodes:
+07/07/26 13:16:20   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 13:26:21 68460 seconds since last log event
+07/07/26 13:26:21 Pending DAG nodes:
+07/07/26 13:26:21   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 13:26:26 Total jobs placed to AP: 40
+07/07/26 13:26:26      Idle     Held     Running     Successful     Failed
+07/07/26 13:26:26       ===      ===         ===            ===        ===
+07/07/26 13:26:26        40        0           0              0          0
+07/07/26 13:36:22 69061 seconds since last log event
+07/07/26 13:36:22 Pending DAG nodes:
+07/07/26 13:36:22   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 13:41:27 Total jobs placed to AP: 40
+07/07/26 13:41:27      Idle     Held     Running     Successful     Failed
+07/07/26 13:41:27       ===      ===         ===            ===        ===
+07/07/26 13:41:27        40        0           0              0          0
+07/07/26 13:46:22 69661 seconds since last log event
+07/07/26 13:46:22 Pending DAG nodes:
+07/07/26 13:46:22   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 13:56:23 70262 seconds since last log event
+07/07/26 13:56:23 Pending DAG nodes:
+07/07/26 13:56:23   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 13:56:28 Total jobs placed to AP: 40
+07/07/26 13:56:28      Idle     Held     Running     Successful     Failed
+07/07/26 13:56:28       ===      ===         ===            ===        ===
+07/07/26 13:56:28        40        0           0              0          0
+07/07/26 14:06:23 70862 seconds since last log event
+07/07/26 14:06:23 Pending DAG nodes:
+07/07/26 14:06:23   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 14:11:28 Total jobs placed to AP: 40
+07/07/26 14:11:28      Idle     Held     Running     Successful     Failed
+07/07/26 14:11:28       ===      ===         ===            ===        ===
+07/07/26 14:11:28        40        0           0              0          0
+07/07/26 14:16:24 71463 seconds since last log event
+07/07/26 14:16:24 Pending DAG nodes:
+07/07/26 14:16:24   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 14:26:24 72063 seconds since last log event
+07/07/26 14:26:24 Pending DAG nodes:
+07/07/26 14:26:24   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 14:26:29 Total jobs placed to AP: 40
+07/07/26 14:26:29      Idle     Held     Running     Successful     Failed
+07/07/26 14:26:29       ===      ===         ===            ===        ===
+07/07/26 14:26:29        40        0           0              0          0
+07/07/26 14:36:25 72664 seconds since last log event
+07/07/26 14:36:25 Pending DAG nodes:
+07/07/26 14:36:25   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 14:41:30 Total jobs placed to AP: 40
+07/07/26 14:41:30      Idle     Held     Running     Successful     Failed
+07/07/26 14:41:30       ===      ===         ===            ===        ===
+07/07/26 14:41:30        40        0           0              0          0
+07/07/26 14:46:25 73264 seconds since last log event
+07/07/26 14:46:25 Pending DAG nodes:
+07/07/26 14:46:25   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 14:56:25 73864 seconds since last log event
+07/07/26 14:56:25 Pending DAG nodes:
+07/07/26 14:56:25   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 14:56:30 Total jobs placed to AP: 40
+07/07/26 14:56:30      Idle     Held     Running     Successful     Failed
+07/07/26 14:56:30       ===      ===         ===            ===        ===
+07/07/26 14:56:30        40        0           0              0          0
+07/07/26 15:06:25 74464 seconds since last log event
+07/07/26 15:06:25 Pending DAG nodes:
+07/07/26 15:06:25   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 15:11:31 Total jobs placed to AP: 40
+07/07/26 15:11:31      Idle     Held     Running     Successful     Failed
+07/07/26 15:11:31       ===      ===         ===            ===        ===
+07/07/26 15:11:31        40        0           0              0          0
+07/07/26 15:16:26 75065 seconds since last log event
+07/07/26 15:16:26 Pending DAG nodes:
+07/07/26 15:16:26   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 15:26:26 75665 seconds since last log event
+07/07/26 15:26:26 Pending DAG nodes:
+07/07/26 15:26:26   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 15:26:31 Total jobs placed to AP: 40
+07/07/26 15:26:31      Idle     Held     Running     Successful     Failed
+07/07/26 15:26:31       ===      ===         ===            ===        ===
+07/07/26 15:26:31        40        0           0              0          0
+07/07/26 15:36:27 76266 seconds since last log event
+07/07/26 15:36:27 Pending DAG nodes:
+07/07/26 15:36:27   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 15:36:47 Currently monitoring 1 HTCondor log file(s)
+07/07/26 15:36:47 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.0.0) {07/07/26 15:36:46}
+07/07/26 15:36:47 Number of idle job procs: 39
+07/07/26 15:37:07 Currently monitoring 1 HTCondor log file(s)
+07/07/26 15:37:07 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.1.0) {07/07/26 15:37:06}
+07/07/26 15:37:07 Number of idle job procs: 38
+07/07/26 15:41:17 Currently monitoring 1 HTCondor log file(s)
+07/07/26 15:41:17 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.2.0) {07/07/26 15:41:13}
+07/07/26 15:41:17 Number of idle job procs: 37
+07/07/26 15:41:32 Total jobs placed to AP: 40
+07/07/26 15:41:32      Idle     Held     Running     Successful     Failed
+07/07/26 15:41:32       ===      ===         ===            ===        ===
+07/07/26 15:41:32        37        0           3              0          0
+07/07/26 15:42:57 Currently monitoring 1 HTCondor log file(s)
+07/07/26 15:42:57 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.3.0) {07/07/26 15:42:54}
+07/07/26 15:42:57 Number of idle job procs: 36
+07/07/26 15:52:58 601 seconds since last log event
+07/07/26 15:52:58 Pending DAG nodes:
+07/07/26 15:52:58   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 15:54:28 Currently monitoring 1 HTCondor log file(s)
+07/07/26 15:54:28 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.6.0) {07/07/26 15:54:27}
+07/07/26 15:54:28 Number of idle job procs: 35
+07/07/26 15:54:28 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.5.0) {07/07/26 15:54:27}
+07/07/26 15:54:28 Number of idle job procs: 34
+07/07/26 15:54:28 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.4.0) {07/07/26 15:54:27}
+07/07/26 15:54:28 Number of idle job procs: 33
+07/07/26 15:56:33 Total jobs placed to AP: 40
+07/07/26 15:56:33      Idle     Held     Running     Successful     Failed
+07/07/26 15:56:33       ===      ===         ===            ===        ===
+07/07/26 15:56:33        33        0           7              0          0
+07/07/26 16:00:18 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:00:18 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.10.0) {07/07/26 16:00:15}
+07/07/26 16:00:18 Number of idle job procs: 32
+07/07/26 16:01:08 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:01:08 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.7.0) {07/07/26 16:01:06}
+07/07/26 16:01:08 Number of idle job procs: 31
+07/07/26 16:03:58 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:03:58 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.8.0) {07/07/26 16:03:54}
+07/07/26 16:03:58 Number of idle job procs: 30
+07/07/26 16:07:04 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:07:04 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.9.0) {07/07/26 16:07:01}
+07/07/26 16:07:04 Number of idle job procs: 29
+07/07/26 16:10:49 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:10:49 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.11.0) {07/07/26 16:10:49}
+07/07/26 16:10:49 Number of idle job procs: 28
+07/07/26 16:11:34 Total jobs placed to AP: 40
+07/07/26 16:11:34      Idle     Held     Running     Successful     Failed
+07/07/26 16:11:34       ===      ===         ===            ===        ===
+07/07/26 16:11:34        28        0          12              0          0
+07/07/26 16:11:54 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:11:54 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.12.0) {07/07/26 16:11:49}
+07/07/26 16:11:54 Number of idle job procs: 27
+07/07/26 16:11:54 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.13.0) {07/07/26 16:11:49}
+07/07/26 16:11:54 Number of idle job procs: 26
+07/07/26 16:11:54 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.14.0) {07/07/26 16:11:49}
+07/07/26 16:11:54 Number of idle job procs: 25
+07/07/26 16:19:29 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:19:29 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.16.0) {07/07/26 16:19:26}
+07/07/26 16:19:29 Number of idle job procs: 24
+07/07/26 16:25:35 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:25:35 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.17.0) {07/07/26 16:25:33}
+07/07/26 16:25:35 Number of idle job procs: 23
+07/07/26 16:25:35 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.15.0) {07/07/26 16:25:33}
+07/07/26 16:25:35 Number of idle job procs: 22
+07/07/26 16:26:35 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:26:35 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.18.0) {07/07/26 16:26:32}
+07/07/26 16:26:35 Number of idle job procs: 21
+07/07/26 16:26:35 Total jobs placed to AP: 40
+07/07/26 16:26:35      Idle     Held     Running     Successful     Failed
+07/07/26 16:26:35       ===      ===         ===            ===        ===
+07/07/26 16:26:35        21        0          19              0          0
+07/07/26 16:30:35 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:30:35 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.19.0) {07/07/26 16:30:31}
+07/07/26 16:30:35 Number of idle job procs: 20
+07/07/26 16:35:50 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:35:50 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.20.0) {07/07/26 16:35:49}
+07/07/26 16:35:50 Number of idle job procs: 19
+07/07/26 16:40:05 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:40:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.21.0) {07/07/26 16:40:05}
+07/07/26 16:40:05 Number of idle job procs: 18
+07/07/26 16:40:50 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:40:50 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.22.0) {07/07/26 16:40:48}
+07/07/26 16:40:50 Number of idle job procs: 17
+07/07/26 16:41:35 Total jobs placed to AP: 40
+07/07/26 16:41:35      Idle     Held     Running     Successful     Failed
+07/07/26 16:41:35       ===      ===         ===            ===        ===
+07/07/26 16:41:35        17        0          23              0          0
+07/07/26 16:43:36 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:43:36 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.23.0) {07/07/26 16:43:31}
+07/07/26 16:43:36 Number of idle job procs: 16
+07/07/26 16:45:31 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:45:31 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.24.0) {07/07/26 16:45:30}
+07/07/26 16:45:31 Number of idle job procs: 15
+07/07/26 16:52:16 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:52:16 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.1.0) {07/07/26 16:52:11}
+07/07/26 16:52:16 Number of idle job procs: 16
+07/07/26 16:52:16 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.1.0) {07/07/26 16:52:11}
+07/07/26 16:52:16   Hold reason: Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+07/07/26 16:52:16 Number of idle job procs: 16
+07/07/26 16:52:16 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 16:52:16 Of 5 nodes total:
+07/07/26 16:52:16  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 16:52:16   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 16:52:16     0       0        1       0       0          4        0        0
+07/07/26 16:52:16 1 job proc(s) currently held
+07/07/26 16:52:16 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.457; EventCycleTimeSum=167.704; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.252; SleepCycleTimeSum=80653.313; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.807; EventCycleTimeCount=16097.000; SleepCycleTimeCount=16097.000; SubmitCycleTimeCount=16098.000; LogProcessCycleTimeAvg=0.006; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.016; LogProcessCycleTimeSum=0.139; LogProcessCycleTimeCount=22.000; ]
+07/07/26 16:56:36 Total jobs placed to AP: 40
+07/07/26 16:56:36      Idle     Held     Running     Successful     Failed
+07/07/26 16:56:36       ===      ===         ===            ===        ===
+07/07/26 16:56:36        15        1          24              0          0
+07/07/26 16:58:06 Currently monitoring 1 HTCondor log file(s)
+07/07/26 16:58:06 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.0.0) {07/07/26 16:58:03}
+07/07/26 16:58:06 Number of idle job procs: 17
+07/07/26 16:58:06 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.0.0) {07/07/26 16:58:03}
+07/07/26 16:58:06   Hold reason: Error from teaching2@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+07/07/26 16:58:06 Number of idle job procs: 17
+07/07/26 16:58:06 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 16:58:06 Of 5 nodes total:
+07/07/26 16:58:06  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 16:58:06   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 16:58:06     0       0        1       0       0          4        0        0
+07/07/26 16:58:06 2 job proc(s) currently held
+07/07/26 16:58:06 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.456; EventCycleTimeSum=167.739; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.251; SleepCycleTimeSum=81003.602; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.807; EventCycleTimeCount=16167.000; SleepCycleTimeCount=16167.000; SubmitCycleTimeCount=16168.000; LogProcessCycleTimeAvg=0.006; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.016; LogProcessCycleTimeSum=0.142; LogProcessCycleTimeCount=23.000; ]
+07/07/26 17:04:57 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:04:57 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.25.0) {07/07/26 17:04:56}
+07/07/26 17:04:57 Number of idle job procs: 16
+07/07/26 17:05:52 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:05:52 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.26.0) {07/07/26 17:05:49}
+07/07/26 17:05:52 Number of idle job procs: 15
+07/07/26 17:09:32 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:09:32 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.27.0) {07/07/26 17:09:31}
+07/07/26 17:09:32 Number of idle job procs: 14
+07/07/26 17:09:42 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:09:42 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.5.0) {07/07/26 17:09:40}
+07/07/26 17:09:42 Number of idle job procs: 15
+07/07/26 17:09:42 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.5.0) {07/07/26 17:09:40}
+07/07/26 17:09:42   Hold reason: Error from teaching1@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:09:42 Number of idle job procs: 15
+07/07/26 17:09:42 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:09:42 Of 5 nodes total:
+07/07/26 17:09:42  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:09:42   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:09:42     0       0        1       0       0          4        0        0
+07/07/26 17:09:42 3 job proc(s) currently held
+07/07/26 17:09:42 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.454; EventCycleTimeSum=167.784; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.250; SleepCycleTimeSum=81699.189; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.807; EventCycleTimeCount=16306.000; SleepCycleTimeCount=16306.000; SubmitCycleTimeCount=16307.000; LogProcessCycleTimeAvg=0.006; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.015; LogProcessCycleTimeSum=0.152; LogProcessCycleTimeCount=27.000; ]
+07/07/26 17:11:37 Total jobs placed to AP: 40
+07/07/26 17:11:37      Idle     Held     Running     Successful     Failed
+07/07/26 17:11:37       ===      ===         ===            ===        ===
+07/07/26 17:11:37        12        3          25              0          0
+07/07/26 17:13:32 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:13:32 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.6.0) {07/07/26 17:13:27}
+07/07/26 17:13:32 Number of idle job procs: 16
+07/07/26 17:13:32 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.6.0) {07/07/26 17:13:28}
+07/07/26 17:13:32   Hold reason: Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:13:32 Number of idle job procs: 16
+07/07/26 17:13:32 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:13:32 Of 5 nodes total:
+07/07/26 17:13:32  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:13:32   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:13:32     0       0        1       0       0          4        0        0
+07/07/26 17:13:32 4 job proc(s) currently held
+07/07/26 17:13:32 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.453; EventCycleTimeSum=167.806; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.250; SleepCycleTimeSum=81929.379; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16352.000; SleepCycleTimeCount=16352.000; SubmitCycleTimeCount=16353.000; LogProcessCycleTimeAvg=0.006; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.015; LogProcessCycleTimeSum=0.156; LogProcessCycleTimeCount=28.000; ]
+07/07/26 17:17:22 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:17:22 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.28.0) {07/07/26 17:17:22}
+07/07/26 17:17:22 Number of idle job procs: 15
+07/07/26 17:17:37 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:17:37 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.8.0) {07/07/26 17:17:36}
+07/07/26 17:17:37 Number of idle job procs: 16
+07/07/26 17:17:37 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.8.0) {07/07/26 17:17:36}
+07/07/26 17:17:37   Hold reason: Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:17:37 Number of idle job procs: 16
+07/07/26 17:17:37 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:17:37 Of 5 nodes total:
+07/07/26 17:17:37  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:17:37   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:17:37     0       0        1       0       0          4        0        0
+07/07/26 17:17:37 5 job proc(s) currently held
+07/07/26 17:17:37 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.453; EventCycleTimeSum=167.834; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.249; SleepCycleTimeSum=82174.615; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16401.000; SleepCycleTimeCount=16401.000; SubmitCycleTimeCount=16402.000; LogProcessCycleTimeAvg=0.006; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.014; LogProcessCycleTimeSum=0.170; LogProcessCycleTimeCount=30.000; ]
+07/07/26 17:21:23 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:21:23 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.29.0) {07/07/26 17:21:21}
+07/07/26 17:21:23 Number of idle job procs: 15
+07/07/26 17:25:48 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:25:48 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.30.0) {07/07/26 17:25:45}
+07/07/26 17:25:48 Number of idle job procs: 14
+07/07/26 17:26:38 Total jobs placed to AP: 40
+07/07/26 17:26:38      Idle     Held     Running     Successful     Failed
+07/07/26 17:26:38       ===      ===         ===            ===        ===
+07/07/26 17:26:38         9        5          26              0          0
+07/07/26 17:29:08 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:29:08 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.31.0) {07/07/26 17:29:05}
+07/07/26 17:29:08 Number of idle job procs: 13
+07/07/26 17:30:18 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:30:18 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.16.0) {07/07/26 17:30:14}
+07/07/26 17:30:18 Number of idle job procs: 14
+07/07/26 17:30:18 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.16.0) {07/07/26 17:30:15}
+07/07/26 17:30:18   Hold reason: Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:30:18 Number of idle job procs: 14
+07/07/26 17:30:18 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:30:18 Of 5 nodes total:
+07/07/26 17:30:18  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:30:18   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:30:18     0       0        1       0       0          4        0        0
+07/07/26 17:30:18 6 job proc(s) currently held
+07/07/26 17:30:18 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.451; EventCycleTimeSum=167.887; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.248; SleepCycleTimeSum=82935.206; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16553.000; SleepCycleTimeCount=16553.000; SubmitCycleTimeCount=16554.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.013; LogProcessCycleTimeSum=0.182; LogProcessCycleTimeCount=34.000; ]
+07/07/26 17:32:28 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:32:28 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.3.0) {07/07/26 17:32:27}
+07/07/26 17:32:28 Number of idle job procs: 15
+07/07/26 17:32:28 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.3.0) {07/07/26 17:32:27}
+07/07/26 17:32:28   Hold reason: Error from teaching6@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:32:28 Number of idle job procs: 15
+07/07/26 17:32:28 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:32:28 Of 5 nodes total:
+07/07/26 17:32:28  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:32:28   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:32:28     0       0        1       0       0          4        0        0
+07/07/26 17:32:28 7 job proc(s) currently held
+07/07/26 17:32:28 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.450; EventCycleTimeSum=167.903; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.248; SleepCycleTimeSum=83065.308; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16579.000; SleepCycleTimeCount=16579.000; SubmitCycleTimeCount=16580.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.013; LogProcessCycleTimeSum=0.186; LogProcessCycleTimeCount=35.000; ]
+07/07/26 17:34:58 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:34:58 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.19.0) {07/07/26 17:34:58}
+07/07/26 17:34:58 Number of idle job procs: 16
+07/07/26 17:34:58 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.19.0) {07/07/26 17:34:58}
+07/07/26 17:34:58   Hold reason: Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:34:58 Number of idle job procs: 16
+07/07/26 17:34:58 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:34:58 Of 5 nodes total:
+07/07/26 17:34:58  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:34:58   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:34:58     0       0        1       0       0          4        0        0
+07/07/26 17:34:58 8 job proc(s) currently held
+07/07/26 17:34:58 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.450; EventCycleTimeSum=167.916; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.248; SleepCycleTimeSum=83215.441; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16609.000; SleepCycleTimeCount=16609.000; SubmitCycleTimeCount=16610.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.013; LogProcessCycleTimeSum=0.190; LogProcessCycleTimeCount=36.000; ]
+07/07/26 17:35:58 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:35:58 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.2.0) {07/07/26 17:35:54}
+07/07/26 17:35:58 Number of idle job procs: 17
+07/07/26 17:35:58 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.2.0) {07/07/26 17:35:54}
+07/07/26 17:35:58   Hold reason: Error from teaching2@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:35:58 Number of idle job procs: 17
+07/07/26 17:35:58 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:35:58 Of 5 nodes total:
+07/07/26 17:35:58  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:35:58   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:35:58     0       0        1       0       0          4        0        0
+07/07/26 17:35:58 9 job proc(s) currently held
+07/07/26 17:35:58 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.450; EventCycleTimeSum=167.925; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.248; SleepCycleTimeSum=83275.484; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16621.000; SleepCycleTimeCount=16621.000; SubmitCycleTimeCount=16622.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.013; LogProcessCycleTimeSum=0.194; LogProcessCycleTimeCount=37.000; ]
+07/07/26 17:36:13 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:36:13 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.18.0) {07/07/26 17:36:12}
+07/07/26 17:36:13 Number of idle job procs: 18
+07/07/26 17:36:13 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.18.0) {07/07/26 17:36:12}
+07/07/26 17:36:13   Hold reason: Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:36:13 Number of idle job procs: 18
+07/07/26 17:36:13 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:36:13 Of 5 nodes total:
+07/07/26 17:36:13  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:36:13   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:36:13     0       0        1       0       0          4        0        0
+07/07/26 17:36:13 10 job proc(s) currently held
+07/07/26 17:36:13 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.450; EventCycleTimeSum=167.932; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.248; SleepCycleTimeSum=83290.493; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16624.000; SleepCycleTimeCount=16624.000; SubmitCycleTimeCount=16625.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.012; LogProcessCycleTimeSum=0.197; LogProcessCycleTimeCount=38.000; ]
+07/07/26 17:37:04 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:37:04 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.32.0) {07/07/26 17:37:00}
+07/07/26 17:37:04 Number of idle job procs: 17
+07/07/26 17:41:39 Total jobs placed to AP: 40
+07/07/26 17:41:39      Idle     Held     Running     Successful     Failed
+07/07/26 17:41:39       ===      ===         ===            ===        ===
+07/07/26 17:41:39         7       10          23              0          0
+07/07/26 17:42:59 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:42:59 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.4.0) {07/07/26 17:42:55}
+07/07/26 17:42:59 Number of idle job procs: 18
+07/07/26 17:42:59 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.4.0) {07/07/26 17:42:55}
+07/07/26 17:42:59   Hold reason: Error from teaching8@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:42:59 Number of idle job procs: 18
+07/07/26 17:42:59 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:42:59 Of 5 nodes total:
+07/07/26 17:42:59  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:42:59   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:42:59     0       0        1       0       0          4        0        0
+07/07/26 17:42:59 11 job proc(s) currently held
+07/07/26 17:42:59 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.449; EventCycleTimeSum=167.966; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.247; SleepCycleTimeSum=83695.875; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16705.000; SleepCycleTimeCount=16705.000; SubmitCycleTimeCount=16706.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.012; LogProcessCycleTimeSum=0.202; LogProcessCycleTimeCount=40.000; ]
+07/07/26 17:43:44 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:43:44 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.34.0) {07/07/26 17:43:39}
+07/07/26 17:43:44 Number of idle job procs: 17
+07/07/26 17:43:44 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.33.0) {07/07/26 17:43:40}
+07/07/26 17:43:44 Number of idle job procs: 16
+07/07/26 17:44:49 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:44:49 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.17.0) {07/07/26 17:44:45}
+07/07/26 17:44:49 Number of idle job procs: 17
+07/07/26 17:44:49 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.17.0) {07/07/26 17:44:45}
+07/07/26 17:44:49   Hold reason: Error from teaching2@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:44:49 Number of idle job procs: 17
+07/07/26 17:44:49 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:44:49 Of 5 nodes total:
+07/07/26 17:44:49  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:44:49   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:44:49     0       0        1       0       0          4        0        0
+07/07/26 17:44:49 12 job proc(s) currently held
+07/07/26 17:44:49 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.448; EventCycleTimeSum=167.979; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.247; SleepCycleTimeSum=83805.990; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16727.000; SleepCycleTimeCount=16727.000; SubmitCycleTimeCount=16728.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.012; LogProcessCycleTimeSum=0.209; LogProcessCycleTimeCount=42.000; ]
+07/07/26 17:47:34 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:47:34 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.36.0) {07/07/26 17:47:33}
+07/07/26 17:47:34 Number of idle job procs: 16
+07/07/26 17:47:34 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.35.0) {07/07/26 17:47:33}
+07/07/26 17:47:34 Number of idle job procs: 15
+07/07/26 17:49:54 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:49:54 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.7.0) {07/07/26 17:49:50}
+07/07/26 17:49:54 Number of idle job procs: 16
+07/07/26 17:49:54 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.7.0) {07/07/26 17:49:50}
+07/07/26 17:49:54   Hold reason: Error from teaching5@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:49:54 Number of idle job procs: 16
+07/07/26 17:49:54 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:49:54 Of 5 nodes total:
+07/07/26 17:49:54  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:49:54   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:49:54     0       0        1       0       0          4        0        0
+07/07/26 17:49:54 13 job proc(s) currently held
+07/07/26 17:49:54 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.447; EventCycleTimeSum=168.002; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.246; SleepCycleTimeSum=84111.243; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16788.000; SleepCycleTimeCount=16788.000; SubmitCycleTimeCount=16789.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.012; LogProcessCycleTimeSum=0.217; LogProcessCycleTimeCount=44.000; ]
+07/07/26 17:50:34 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:50:34 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.37.0) {07/07/26 17:50:32}
+07/07/26 17:50:34 Number of idle job procs: 15
+07/07/26 17:54:09 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:54:09 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.13.0) {07/07/26 17:54:07}
+07/07/26 17:54:09 Number of idle job procs: 16
+07/07/26 17:54:09 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.13.0) {07/07/26 17:54:07}
+07/07/26 17:54:09   Hold reason: Error from teaching7@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:54:09 Number of idle job procs: 16
+07/07/26 17:54:09 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.12.0) {07/07/26 17:54:08}
+07/07/26 17:54:09 Number of idle job procs: 17
+07/07/26 17:54:09 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.12.0) {07/07/26 17:54:08}
+07/07/26 17:54:09   Hold reason: Error from teaching3@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:54:09 Number of idle job procs: 17
+07/07/26 17:54:09 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.9.0) {07/07/26 17:54:09}
+07/07/26 17:54:09 Number of idle job procs: 18
+07/07/26 17:54:09 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.9.0) {07/07/26 17:54:09}
+07/07/26 17:54:10   Hold reason: Error from teaching5@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:54:10 Number of idle job procs: 18
+07/07/26 17:54:10 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:54:10 Of 5 nodes total:
+07/07/26 17:54:10  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:54:10   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:54:10     0       0        1       0       0          4        0        0
+07/07/26 17:54:10 16 job proc(s) currently held
+07/07/26 17:54:10 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.447; EventCycleTimeSum=168.030; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.246; SleepCycleTimeSum=84366.459; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16839.000; SleepCycleTimeCount=16839.000; SubmitCycleTimeCount=16840.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.011; LogProcessCycleTimeSum=0.229; LogProcessCycleTimeCount=46.000; ]
+07/07/26 17:56:05 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:56:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.10.0) {07/07/26 17:56:00}
+07/07/26 17:56:05 Number of idle job procs: 19
+07/07/26 17:56:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.10.0) {07/07/26 17:56:00}
+07/07/26 17:56:05   Hold reason: Error from teaching7@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:56:05 Number of idle job procs: 19
+07/07/26 17:56:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.11.0) {07/07/26 17:56:01}
+07/07/26 17:56:05 Number of idle job procs: 20
+07/07/26 17:56:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.11.0) {07/07/26 17:56:01}
+07/07/26 17:56:05   Hold reason: Error from teaching4@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:56:05 Number of idle job procs: 20
+07/07/26 17:56:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.14.0) {07/07/26 17:56:03}
+07/07/26 17:56:05 Number of idle job procs: 21
+07/07/26 17:56:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.14.0) {07/07/26 17:56:03}
+07/07/26 17:56:05   Hold reason: Error from teaching6@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 17:56:05 Number of idle job procs: 21
+07/07/26 17:56:05 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:56:05 Of 5 nodes total:
+07/07/26 17:56:05  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:56:05   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:56:05     0       0        1       0       0          4        0        0
+07/07/26 17:56:05 19 job proc(s) currently held
+07/07/26 17:56:05 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.447; EventCycleTimeSum=168.046; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.246; SleepCycleTimeSum=84481.551; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16862.000; SleepCycleTimeCount=16862.000; SubmitCycleTimeCount=16863.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.011; LogProcessCycleTimeSum=0.238; LogProcessCycleTimeCount=47.000; ]
+07/07/26 17:56:10 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:56:10 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.21.0) {07/07/26 17:56:06}
+07/07/26 17:56:10 Number of idle job procs: 22
+07/07/26 17:56:10 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.21.0) {07/07/26 17:56:06}
+07/07/26 17:56:10   Hold reason: Error from teaching2@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:56:10 Number of idle job procs: 22
+07/07/26 17:56:10 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:56:10 Of 5 nodes total:
+07/07/26 17:56:10  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:56:10   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:56:10     0       0        1       0       0          4        0        0
+07/07/26 17:56:10 20 job proc(s) currently held
+07/07/26 17:56:10 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.447; EventCycleTimeSum=168.059; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.246; SleepCycleTimeSum=84486.554; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16863.000; SleepCycleTimeCount=16863.000; SubmitCycleTimeCount=16864.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.011; LogProcessCycleTimeSum=0.243; LogProcessCycleTimeCount=48.000; ]
+07/07/26 17:56:40 Total jobs placed to AP: 40
+07/07/26 17:56:40      Idle     Held     Running     Successful     Failed
+07/07/26 17:56:40       ===      ===         ===            ===        ===
+07/07/26 17:56:40         2       20          18              0          0
+07/07/26 17:58:15 Currently monitoring 1 HTCondor log file(s)
+07/07/26 17:58:15 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.20.0) {07/07/26 17:58:12}
+07/07/26 17:58:15 Number of idle job procs: 23
+07/07/26 17:58:15 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.20.0) {07/07/26 17:58:12}
+07/07/26 17:58:15   Hold reason: Error from teaching8@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 17:58:15 Number of idle job procs: 23
+07/07/26 17:58:15 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 17:58:15 Of 5 nodes total:
+07/07/26 17:58:15  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 17:58:15   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 17:58:15     0       0        1       0       0          4        0        0
+07/07/26 17:58:15 21 job proc(s) currently held
+07/07/26 17:58:15 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.010; EventCycleTimeMax=38.045; EventCycleTimeMin=0.000; EventCycleTimeStd=0.446; EventCycleTimeSum=168.081; SleepCycleTimeAvg=5.010; SleepCycleTimeMax=19.618; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.246; SleepCycleTimeSum=84611.664; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.799; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.006; SubmitCycleTimeSum=0.808; EventCycleTimeCount=16888.000; SleepCycleTimeCount=16888.000; SubmitCycleTimeCount=16889.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.080; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.011; LogProcessCycleTimeSum=0.247; LogProcessCycleTimeCount=49.000; ]
+07/07/26 18:01:02 ******************************************************
+07/07/26 18:01:02 ** condor_scheduniv_exec.170264.0 (CONDOR_DAGMAN) STARTING UP
+07/07/26 18:01:02 ** /usr/bin/condor_dagman
+07/07/26 18:01:02 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/07/26 18:01:02 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/07/26 18:01:02 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/07/26 18:01:02 ** $CondorPlatform: X86_64-Debian_12 $
+07/07/26 18:01:02 ** PID = 589480 RealUID = 1620002036
+07/07/26 18:01:02 ** Log last touched 7/7 17:59:25
+07/07/26 18:01:02 ******************************************************
+07/07/26 18:01:02 Using config source: /etc/condor/condor_config
+07/07/26 18:01:02 Using local config sources: 
+07/07/26 18:01:02    /etc/condor/config.d/01-submit.conf
+07/07/26 18:01:02    /etc/condor/config.d/10-stash-plugin.conf
+07/07/26 18:01:02    /etc/condor/config.d/23-network.config
+07/07/26 18:01:02    /etc/condor/config.d/31-mail.conf
+07/07/26 18:01:02    /etc/condor/config.d/35-cc-sync.conf
+07/07/26 18:01:02    /etc/condor/config.d/41-periodic-remove.conf
+07/07/26 18:01:02    /etc/condor/config.d/49-common.conf
+07/07/26 18:01:02    /etc/condor/config.d/52-group-mapping.conf
+07/07/26 18:01:02    /etc/condor/config.d/54-container.conf
+07/07/26 18:01:02    /etc/condor/config.d/67-submit-transforms.conf
+07/07/26 18:01:02    /etc/condor/config.d/71-submit-requirements.conf
+07/07/26 18:01:02    /etc/condor/condor_config.local
+07/07/26 18:01:02 config Macros = 110, Sorted = 110, StringBytes = 6396, TablesBytes = 4088
+07/07/26 18:01:02 CLASSAD_CACHING is ENABLED
+07/07/26 18:01:02 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/07/26 18:01:02 Daemoncore: Listening at <0.0.0.0:14337> on TCP (ReliSock) and UDP (SafeSock).
+07/07/26 18:01:02 DaemonCore: command socket at <10.143.248.60:14337?addrs=10.143.248.60-14337&alias=conduit.hpc.uni-saarland.de>
+07/07/26 18:01:02 DaemonCore: private command socket at <10.143.248.60:14337?addrs=10.143.248.60-14337&alias=conduit.hpc.uni-saarland.de>
+07/07/26 18:01:02 DAGMAN_USE_STRICT setting: 1
+07/07/26 18:01:02 DAGMAN_VERBOSITY setting: 3
+07/07/26 18:01:02 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/07/26 18:01:02 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/07/26 18:01:02 DAGMAN_SUBMIT_DELAY setting: 0
+07/07/26 18:01:02 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/07/26 18:01:02 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/07/26 18:01:02 DAGMAN_USE_JOIN_NODES setting: True
+07/07/26 18:01:02 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/07/26 18:01:02 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/07/26 18:01:02 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/07/26 18:01:02 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/07/26 18:01:02 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/07/26 18:01:02 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/07/26 18:01:02 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/07/26 18:01:02 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/07/26 18:01:02 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/07/26 18:01:02 DAGMAN_RETRY_NODE_FIRST setting: False
+07/07/26 18:01:02 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/07/26 18:01:02 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/07/26 18:01:02 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/07/26 18:01:02 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/07/26 18:01:02 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/07/26 18:01:02 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/07/26 18:01:02 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/07/26 18:01:02 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/07/26 18:01:02 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/07/26 18:01:02 DAGMAN_ALWAYS_RUN_POST setting: False
+07/07/26 18:01:02 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/07/26 18:01:02 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/07/26 18:01:02 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/07/26 18:01:02 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/07/26 18:01:02 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/07/26 18:01:02 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/07/26 18:01:02 DAGMAN_INHERIT_ATTRS setting: 
+07/07/26 18:01:02 DAGMAN_ABORT_DUPLICATES setting: True
+07/07/26 18:01:02 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/07/26 18:01:02 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/07/26 18:01:02 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/07/26 18:01:02 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/07/26 18:01:02 DAGMAN_AUTO_RESCUE setting: True
+07/07/26 18:01:02 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/07/26 18:01:02 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/07/26 18:01:02 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/07/26 18:01:02 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/07/26 18:01:02 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/07/26 18:01:02 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/07/26 18:01:02 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/07/26 18:01:02 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/07/26 18:01:02 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/07/26 18:01:02 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/07/26 18:01:02 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/07/26 18:01:02 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/07/26 18:01:02 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/07/26 18:01:02 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/07/26 18:01:02 DAGMAN will adjust edges after parsing
+07/07/26 18:01:02 argv[0] == "condor_scheduniv_exec.170264.0"
+07/07/26 18:01:02 argv[1] == "-Lockfile"
+07/07/26 18:01:02 argv[2] == "one_way_line_det_one_way_line_80_40_action_shield.dag.lock"
+07/07/26 18:01:02 argv[3] == "-Dag"
+07/07/26 18:01:02 argv[4] == "one_way_line_det_one_way_line_80_40_action_shield.dag"
+07/07/26 18:01:02 argv[5] == "-CsdVersion"
+07/07/26 18:01:02 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/07/26 18:01:02 argv[7] == "-dagman"
+07/07/26 18:01:02 argv[8] == "/usr/bin/condor_dagman"
+07/07/26 18:01:02 argv[9] == "-AutoRescue"
+07/07/26 18:01:02 argv[10] == "1"
+07/07/26 18:01:02 argv[11] == "-DoRescueFrom"
+07/07/26 18:01:02 argv[12] == "0"
+07/07/26 18:01:02 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/07/26 18:01:02 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/07/26 18:01:05 Workflow batch-id: <170264.0>
+07/07/26 18:01:05 Workflow batch-name: <one_way_line_det_one_way_line_80_40_action_shield.dag+170264>
+07/07/26 18:01:05 Workflow accounting_group: <teaching>
+07/07/26 18:01:05 Workflow accounting_group_user: <atml_team041>
+07/07/26 18:01:05 Warning: failed to get attribute DAGNodeName
+07/07/26 18:01:05 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/one_way_line_det/./one_way_line_det_one_way_line_80_40_action_shield.dag.nodes.log>
+07/07/26 18:01:05 DAG Lockfile will be written to one_way_line_det_one_way_line_80_40_action_shield.dag.lock
+07/07/26 18:01:05 DAG Input file is one_way_line_det_one_way_line_80_40_action_shield.dag
+07/07/26 18:01:05 Parsing 1 dagfiles
+07/07/26 18:01:05 Parsing one_way_line_det_one_way_line_80_40_action_shield.dag ...
+07/07/26 18:01:05 Adjusting edges
+07/07/26 18:01:05 Dag contains 5 total nodes
+07/07/26 18:01:05 Lock file one_way_line_det_one_way_line_80_40_action_shield.dag.lock detected,
+07/07/26 18:01:05 Duplicate DAGMan PID 42718 is no longer alive; this DAGMan should continue.
+07/07/26 18:01:05 Bootstrapping...
+07/07/26 18:01:05 Number of pre-completed nodes: 0
+07/07/26 18:01:05 Running in RECOVERY mode... >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+07/07/26 18:01:05 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.0.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 1
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.0.0) to (170273.1.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.1.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 2
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.1.0) to (170273.10.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.10.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 3
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.10.0) to (170273.11.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.11.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 4
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.11.0) to (170273.12.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.12.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 5
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.12.0) to (170273.13.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.13.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 6
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.13.0) to (170273.14.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.14.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 7
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.14.0) to (170273.15.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.15.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 8
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.15.0) to (170273.16.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.16.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 9
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.16.0) to (170273.17.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.17.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 10
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.17.0) to (170273.18.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.18.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 11
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.18.0) to (170273.19.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.19.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 12
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.19.0) to (170273.2.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.2.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 13
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.2.0) to (170273.20.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.20.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 14
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.20.0) to (170273.21.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.21.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.21.0) to (170273.22.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.22.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.22.0) to (170273.23.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.23.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.23.0) to (170273.24.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.24.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.24.0) to (170273.25.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.25.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 19
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.25.0) to (170273.26.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.26.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 20
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.26.0) to (170273.27.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.27.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 21
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.27.0) to (170273.28.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.28.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 22
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.28.0) to (170273.29.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.29.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 23
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.29.0) to (170273.3.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.3.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 24
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.3.0) to (170273.30.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.30.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 25
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.30.0) to (170273.31.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.31.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 26
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.31.0) to (170273.32.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.32.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 27
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.32.0) to (170273.33.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.33.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 28
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.33.0) to (170273.34.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.34.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 29
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.34.0) to (170273.35.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.35.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 30
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.35.0) to (170273.36.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.36.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 31
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.36.0) to (170273.37.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.37.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 32
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.37.0) to (170273.38.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.38.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 33
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.38.0) to (170273.39.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.39.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 34
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.39.0) to (170273.4.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.4.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 35
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.4.0) to (170273.5.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.5.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 36
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.5.0) to (170273.6.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.6.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 37
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.6.0) to (170273.7.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.7.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 38
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.7.0) to (170273.8.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.8.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 39
+07/07/26 18:01:05 Reassigning the id of job COLLECT from (170273.8.0) to (170273.9.0)
+07/07/26 18:01:05 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170273.9.0) {07/06/26 18:25:16} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 40
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.0.0) {07/07/26 15:36:46} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 39
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.1.0) {07/07/26 15:37:06} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 38
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.2.0) {07/07/26 15:41:13} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 37
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.3.0) {07/07/26 15:42:54} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 36
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.6.0) {07/07/26 15:54:27} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 35
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.5.0) {07/07/26 15:54:27} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 34
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.4.0) {07/07/26 15:54:27} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 33
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.10.0) {07/07/26 16:00:15} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 32
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.7.0) {07/07/26 16:01:06} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 31
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.8.0) {07/07/26 16:03:54} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 30
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.9.0) {07/07/26 16:07:01} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 29
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.11.0) {07/07/26 16:10:49} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 28
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.12.0) {07/07/26 16:11:49} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 27
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.13.0) {07/07/26 16:11:49} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 26
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.14.0) {07/07/26 16:11:49} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 25
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.16.0) {07/07/26 16:19:26} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 24
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.17.0) {07/07/26 16:25:33} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 23
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.15.0) {07/07/26 16:25:33} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 22
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.18.0) {07/07/26 16:26:32} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 21
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.19.0) {07/07/26 16:30:31} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 20
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.20.0) {07/07/26 16:35:49} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 19
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.21.0) {07/07/26 16:40:05} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.22.0) {07/07/26 16:40:48} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.23.0) {07/07/26 16:43:31} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.24.0) {07/07/26 16:45:30} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.1.0) {07/07/26 16:52:11} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.1.0) {07/07/26 16:52:11} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.0.0) {07/07/26 16:58:03} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.0.0) {07/07/26 16:58:03} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching2@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.25.0) {07/07/26 17:04:56} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.26.0) {07/07/26 17:05:49} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.27.0) {07/07/26 17:09:31} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 14
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.5.0) {07/07/26 17:09:40} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.5.0) {07/07/26 17:09:40} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching1@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.6.0) {07/07/26 17:13:27} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.6.0) {07/07/26 17:13:28} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.28.0) {07/07/26 17:17:22} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.8.0) {07/07/26 17:17:36} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.8.0) {07/07/26 17:17:36} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.29.0) {07/07/26 17:21:21} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.30.0) {07/07/26 17:25:45} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 14
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.31.0) {07/07/26 17:29:05} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 13
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.16.0) {07/07/26 17:30:14} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 14
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.16.0) {07/07/26 17:30:15} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 14
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.3.0) {07/07/26 17:32:27} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.3.0) {07/07/26 17:32:27} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching6@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.19.0) {07/07/26 17:34:58} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.19.0) {07/07/26 17:34:58} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.2.0) {07/07/26 17:35:54} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.2.0) {07/07/26 17:35:54} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching2@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.18.0) {07/07/26 17:36:12} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.18.0) {07/07/26 17:36:12} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.32.0) {07/07/26 17:37:00} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.4.0) {07/07/26 17:42:55} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.4.0) {07/07/26 17:42:55} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching8@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.34.0) {07/07/26 17:43:39} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.33.0) {07/07/26 17:43:40} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.17.0) {07/07/26 17:44:45} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.17.0) {07/07/26 17:44:45} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching2@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.36.0) {07/07/26 17:47:33} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.35.0) {07/07/26 17:47:33} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.7.0) {07/07/26 17:49:50} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.7.0) {07/07/26 17:49:50} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching5@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.37.0) {07/07/26 17:50:32} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 15
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.13.0) {07/07/26 17:54:07} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.13.0) {07/07/26 17:54:07} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching7@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 16
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.12.0) {07/07/26 17:54:08} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.12.0) {07/07/26 17:54:08} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching3@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 17
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.9.0) {07/07/26 17:54:09} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.9.0) {07/07/26 17:54:09} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching5@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 18
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.10.0) {07/07/26 17:56:00} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 19
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.10.0) {07/07/26 17:56:00} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching7@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 19
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.11.0) {07/07/26 17:56:01} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 20
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.11.0) {07/07/26 17:56:01} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching4@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 20
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.14.0) {07/07/26 17:56:03} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 21
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.14.0) {07/07/26 17:56:03} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching6@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:01:05 Number of idle job procs: 21
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.21.0) {07/07/26 17:56:06} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 22
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.21.0) {07/07/26 17:56:06} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching2@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 22
+07/07/26 18:01:05 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.20.0) {07/07/26 17:58:12} [recovery mode]
+07/07/26 18:01:05 Number of idle job procs: 23
+07/07/26 18:01:05 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.20.0) {07/07/26 17:58:12} [recovery mode]
+07/07/26 18:01:05   Hold reason: Error from teaching8@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:01:05 Number of idle job procs: 23
+07/07/26 18:01:05     ------------------------------
+07/07/26 18:01:05        HTCondor Recovery Complete
+07/07/26 18:01:05     ------------------------------
+07/07/26 18:01:05 ...done with RECOVERY mode <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+07/07/26 18:01:05 1 nodes claim to have jobs submitted to queue. Verifying...
+07/07/26 18:01:05 Querying local schedd for associated jobs in queue
+07/07/26 18:01:05 All pending job states validated
+07/07/26 18:01:05 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:01:05 Of 5 nodes total:
+07/07/26 18:01:05  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:01:06   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:01:06     0       0        1       0       0          4        0        0
+07/07/26 18:01:06 21 job proc(s) currently held
+07/07/26 18:01:06 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/07/26 18:01:06 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:01:06 Of 5 nodes total:
+07/07/26 18:01:06  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:01:06   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:01:06     0       0        1       0       0          4        0        0
+07/07/26 18:01:06 21 job proc(s) currently held
+07/07/26 18:01:06 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/07/26 18:01:06 Registering condor_event_timer...
+07/07/26 18:01:07 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:01:07 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:01:07 Of 5 nodes total:
+07/07/26 18:01:07  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:01:07   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:01:07     0       0        1       0       0          4        0        0
+07/07/26 18:01:07 21 job proc(s) currently held
+07/07/26 18:01:07 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeAvg=0.001; LogProcessCycleTimeMax=0.001; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.001; LogProcessCycleTimeCount=1.000; ]
+07/07/26 18:01:42 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:01:42 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.38.0) {07/07/26 18:01:39}
+07/07/26 18:01:42 Number of idle job procs: 22
+07/07/26 18:02:42 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:02:42 Event: ULOG_EXECUTE for HTCondor Node COLLECT (170273.39.0) {07/07/26 18:02:39}
+07/07/26 18:02:42 Number of idle job procs: 21
+07/07/26 18:05:17 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:05:17 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.23.0) {07/07/26 18:05:17}
+07/07/26 18:05:17 Number of idle job procs: 22
+07/07/26 18:05:17 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.23.0) {07/07/26 18:05:17}
+07/07/26 18:05:17   Hold reason: Error from teaching7@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:05:17 Number of idle job procs: 22
+07/07/26 18:05:17 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:05:17 Of 5 nodes total:
+07/07/26 18:05:17  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:05:17   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:05:17     0       0        1       0       0          4        0        0
+07/07/26 18:05:17 22 job proc(s) currently held
+07/07/26 18:05:17 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.006; EventCycleTimeMin=0.000; EventCycleTimeStd=0.001; EventCycleTimeSum=0.025; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.016; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.004; SleepCycleTimeSum=250.258; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=50.000; SleepCycleTimeCount=50.000; SubmitCycleTimeCount=51.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.010; LogProcessCycleTimeCount=4.000; ]
+07/07/26 18:15:17 600 seconds since last log event
+07/07/26 18:15:17 Pending DAG nodes:
+07/07/26 18:15:17   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 18:16:07 Total jobs placed to AP: 40
+07/07/26 18:16:07      Idle     Held     Running     Successful     Failed
+07/07/26 18:16:07       ===      ===         ===            ===        ===
+07/07/26 18:16:07         0       22          18              0          0
+07/07/26 18:20:53 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:20:53 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.15.0) {07/07/26 18:20:51}
+07/07/26 18:20:53 Number of idle job procs: 23
+07/07/26 18:20:53 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.15.0) {07/07/26 18:20:51}
+07/07/26 18:20:53   Hold reason: Error from teaching8@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 18:20:53 Number of idle job procs: 23
+07/07/26 18:20:53 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:20:53 Of 5 nodes total:
+07/07/26 18:20:53  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:20:53   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:20:53     0       0        1       0       0          4        0        0
+07/07/26 18:20:53 23 job proc(s) currently held
+07/07/26 18:20:53 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.021; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.104; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=1186.136; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=237.000; SleepCycleTimeCount=237.000; SubmitCycleTimeCount=238.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.015; LogProcessCycleTimeCount=5.000; ]
+07/07/26 18:23:08 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:23:08 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.25.0) {07/07/26 18:23:07}
+07/07/26 18:23:08 Number of idle job procs: 24
+07/07/26 18:23:08 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.25.0) {07/07/26 18:23:07}
+07/07/26 18:23:08   Hold reason: Error from teaching4@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:23:08 Number of idle job procs: 24
+07/07/26 18:23:08 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:23:08 Of 5 nodes total:
+07/07/26 18:23:08  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:23:08   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:23:08     0       0        1       0       0          4        0        0
+07/07/26 18:23:08 24 job proc(s) currently held
+07/07/26 18:23:08 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.021; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.126; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=1321.246; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=264.000; SleepCycleTimeCount=264.000; SubmitCycleTimeCount=265.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.018; LogProcessCycleTimeCount=6.000; ]
+07/07/26 18:25:13 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:25:13 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.26.0) {07/07/26 18:25:10}
+07/07/26 18:25:13 Number of idle job procs: 25
+07/07/26 18:25:13 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.26.0) {07/07/26 18:25:10}
+07/07/26 18:25:13   Hold reason: Error from teaching6@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:25:13 Number of idle job procs: 25
+07/07/26 18:25:13 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:25:13 Of 5 nodes total:
+07/07/26 18:25:13  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:25:13   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:25:13     0       0        1       0       0          4        0        0
+07/07/26 18:25:13 25 job proc(s) currently held
+07/07/26 18:25:13 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.021; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.134; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=1446.350; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=289.000; SleepCycleTimeCount=289.000; SubmitCycleTimeCount=290.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.022; LogProcessCycleTimeCount=7.000; ]
+07/07/26 18:29:08 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:29:08 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.27.0) {07/07/26 18:29:05}
+07/07/26 18:29:08 Number of idle job procs: 26
+07/07/26 18:29:08 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.27.0) {07/07/26 18:29:05}
+07/07/26 18:29:08   Hold reason: Error from teaching2@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+07/07/26 18:29:08 Number of idle job procs: 26
+07/07/26 18:29:08 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:29:08 Of 5 nodes total:
+07/07/26 18:29:08  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:29:08   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:29:08     0       0        1       0       0          4        0        0
+07/07/26 18:29:08 26 job proc(s) currently held
+07/07/26 18:29:08 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.003; EventCycleTimeSum=0.179; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=1681.583; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=336.000; SleepCycleTimeCount=336.000; SubmitCycleTimeCount=337.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.006; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.028; LogProcessCycleTimeCount=8.000; ]
+07/07/26 18:31:08 Total jobs placed to AP: 40
+07/07/26 18:31:08      Idle     Held     Running     Successful     Failed
+07/07/26 18:31:08       ===      ===         ===            ===        ===
+07/07/26 18:31:08         0       26          14              0          0
+07/07/26 18:34:39 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:34:39 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.30.0) {07/07/26 18:34:35}
+07/07/26 18:34:39 Number of idle job procs: 27
+07/07/26 18:34:39 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.30.0) {07/07/26 18:34:35}
+07/07/26 18:34:39   Hold reason: Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:34:39 Number of idle job procs: 27
+07/07/26 18:34:39 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:34:39 Of 5 nodes total:
+07/07/26 18:34:39  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:34:39   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:34:39     0       0        1       0       0          4        0        0
+07/07/26 18:34:39 27 job proc(s) currently held
+07/07/26 18:34:39 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.199; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=2011.883; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=402.000; SleepCycleTimeCount=402.000; SubmitCycleTimeCount=403.000; LogProcessCycleTimeAvg=0.004; LogProcessCycleTimeMax=0.006; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.033; LogProcessCycleTimeCount=9.000; ]
+07/07/26 18:34:49 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:34:49 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.31.0) {07/07/26 18:34:46}
+07/07/26 18:34:49 Number of idle job procs: 28
+07/07/26 18:34:49 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.31.0) {07/07/26 18:34:46}
+07/07/26 18:34:49   Hold reason: Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:34:49 Number of idle job procs: 28
+07/07/26 18:34:49 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.29.0) {07/07/26 18:34:46}
+07/07/26 18:34:49 Number of idle job procs: 29
+07/07/26 18:34:49 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.29.0) {07/07/26 18:34:46}
+07/07/26 18:34:49   Hold reason: Error from teaching1@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:34:49 Number of idle job procs: 29
+07/07/26 18:34:49 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:34:49 Of 5 nodes total:
+07/07/26 18:34:49  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:34:49   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:34:49     0       0        1       0       0          4        0        0
+07/07/26 18:34:49 29 job proc(s) currently held
+07/07/26 18:34:49 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.209; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=2021.891; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=404.000; SleepCycleTimeCount=404.000; SubmitCycleTimeCount=405.000; LogProcessCycleTimeAvg=0.004; LogProcessCycleTimeMax=0.007; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.040; LogProcessCycleTimeCount=10.000; ]
+07/07/26 18:36:19 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:36:19 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.28.0) {07/07/26 18:36:18}
+07/07/26 18:36:19 Number of idle job procs: 30
+07/07/26 18:36:19 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.28.0) {07/07/26 18:36:18}
+07/07/26 18:36:19   Hold reason: Error from teaching5@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:36:19 Number of idle job procs: 30
+07/07/26 18:36:19 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:36:19 Of 5 nodes total:
+07/07/26 18:36:19  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:36:19   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:36:19     0       0        1       0       0          4        0        0
+07/07/26 18:36:19 30 job proc(s) currently held
+07/07/26 18:36:19 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.229; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.024; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=2111.963; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=422.000; SleepCycleTimeCount=422.000; SubmitCycleTimeCount=423.000; LogProcessCycleTimeAvg=0.004; LogProcessCycleTimeMax=0.007; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.044; LogProcessCycleTimeCount=11.000; ]
+07/07/26 18:46:09 Total jobs placed to AP: 40
+07/07/26 18:46:09      Idle     Held     Running     Successful     Failed
+07/07/26 18:46:09       ===      ===         ===            ===        ===
+07/07/26 18:46:09         0       30          10              0          0
+07/07/26 18:46:19 600 seconds since last log event
+07/07/26 18:46:19 Pending DAG nodes:
+07/07/26 18:46:19   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 18:56:00 Currently monitoring 1 HTCondor log file(s)
+07/07/26 18:56:00 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.34.0) {07/07/26 18:55:55}
+07/07/26 18:56:00 Number of idle job procs: 31
+07/07/26 18:56:00 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.34.0) {07/07/26 18:55:55}
+07/07/26 18:56:00   Hold reason: Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 18:56:00 Number of idle job procs: 31
+07/07/26 18:56:00 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 18:56:00 Of 5 nodes total:
+07/07/26 18:56:00  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 18:56:00   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 18:56:00     0       0        1       0       0          4        0        0
+07/07/26 18:56:00 31 job proc(s) currently held
+07/07/26 18:56:00 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.314; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.025; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=3293.014; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=658.000; SleepCycleTimeCount=658.000; SubmitCycleTimeCount=659.000; LogProcessCycleTimeAvg=0.004; LogProcessCycleTimeMax=0.007; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.049; LogProcessCycleTimeCount=12.000; ]
+07/07/26 19:01:10 Total jobs placed to AP: 40
+07/07/26 19:01:10      Idle     Held     Running     Successful     Failed
+07/07/26 19:01:10       ===      ===         ===            ===        ===
+07/07/26 19:01:10         0       31           9              0          0
+07/07/26 19:02:40 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:02:40 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.37.0) {07/07/26 19:02:38}
+07/07/26 19:02:40 Number of idle job procs: 32
+07/07/26 19:02:40 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.37.0) {07/07/26 19:02:38}
+07/07/26 19:02:40   Hold reason: Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 19:02:40 Number of idle job procs: 32
+07/07/26 19:02:40 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:02:40 Of 5 nodes total:
+07/07/26 19:02:40  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:02:40   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:02:40     0       0        1       0       0          4        0        0
+07/07/26 19:02:40 32 job proc(s) currently held
+07/07/26 19:02:40 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.362; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.025; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.002; SleepCycleTimeSum=3693.361; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=738.000; SleepCycleTimeCount=738.000; SubmitCycleTimeCount=739.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.059; LogProcessCycleTimeCount=13.000; ]
+07/07/26 19:07:16 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:07:16 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.36.0) {07/07/26 19:07:14}
+07/07/26 19:07:16 Number of idle job procs: 33
+07/07/26 19:07:16 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.36.0) {07/07/26 19:07:14}
+07/07/26 19:07:16   Hold reason: Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+07/07/26 19:07:16 Number of idle job procs: 33
+07/07/26 19:07:16 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:07:16 Of 5 nodes total:
+07/07/26 19:07:16  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:07:16   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:07:16     0       0        1       0       0          4        0        0
+07/07/26 19:07:16 33 job proc(s) currently held
+07/07/26 19:07:16 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.003; EventCycleTimeSum=0.403; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.026; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=3968.649; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=793.000; SleepCycleTimeCount=793.000; SubmitCycleTimeCount=794.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.064; LogProcessCycleTimeCount=14.000; ]
+07/07/26 19:16:11 Total jobs placed to AP: 40
+07/07/26 19:16:11      Idle     Held     Running     Successful     Failed
+07/07/26 19:16:11       ===      ===         ===            ===        ===
+07/07/26 19:16:11         0       33           7              0          0
+07/07/26 19:17:16 600 seconds since last log event
+07/07/26 19:17:16 Pending DAG nodes:
+07/07/26 19:17:16   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 19:20:11 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:20:11 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.38.0) {07/07/26 19:20:10}
+07/07/26 19:20:11 Number of idle job procs: 34
+07/07/26 19:20:11 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.38.0) {07/07/26 19:20:10}
+07/07/26 19:20:11   Hold reason: Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+07/07/26 19:20:11 Number of idle job procs: 34
+07/07/26 19:20:11 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:20:11 Of 5 nodes total:
+07/07/26 19:20:11  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:20:11   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:20:11     0       0        1       0       0          4        0        0
+07/07/26 19:20:11 34 job proc(s) currently held
+07/07/26 19:20:11 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.036; EventCycleTimeMin=0.000; EventCycleTimeStd=0.002; EventCycleTimeSum=0.443; SleepCycleTimeAvg=5.005; SleepCycleTimeMax=5.026; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.002; SleepCycleTimeSum=4744.277; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=948.000; SleepCycleTimeCount=948.000; SubmitCycleTimeCount=949.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.070; LogProcessCycleTimeCount=15.000; ]
+07/07/26 19:29:02 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:29:02 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.35.0) {07/07/26 19:28:58}
+07/07/26 19:29:02 Number of idle job procs: 35
+07/07/26 19:29:02 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.35.0) {07/07/26 19:28:58}
+07/07/26 19:29:02   Hold reason: Error from teaching2@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 19:29:02 Number of idle job procs: 35
+07/07/26 19:29:02 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:29:02 Of 5 nodes total:
+07/07/26 19:29:02  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:29:02   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:29:02     0       0        1       0       0          4        0        0
+07/07/26 19:29:02 35 job proc(s) currently held
+07/07/26 19:29:02 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.051; EventCycleTimeMin=0.000; EventCycleTimeStd=0.003; EventCycleTimeSum=0.565; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.026; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.002; SleepCycleTimeSum=5274.703; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.001; EventCycleTimeCount=1054.000; SleepCycleTimeCount=1054.000; SubmitCycleTimeCount=1055.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.074; LogProcessCycleTimeCount=16.000; ]
+07/07/26 19:29:32 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:29:32 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.32.0) {07/07/26 19:29:31}
+07/07/26 19:29:32 Number of idle job procs: 36
+07/07/26 19:29:32 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.32.0) {07/07/26 19:29:31}
+07/07/26 19:29:32   Hold reason: Error from teaching1@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 19:29:32 Number of idle job procs: 36
+07/07/26 19:29:32 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:29:32 Of 5 nodes total:
+07/07/26 19:29:32  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:29:32   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:29:32     0       0        1       0       0          4        0        0
+07/07/26 19:29:32 36 job proc(s) currently held
+07/07/26 19:29:32 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.051; EventCycleTimeMin=0.000; EventCycleTimeStd=0.003; EventCycleTimeSum=0.572; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.026; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.002; SleepCycleTimeSum=5304.728; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.001; EventCycleTimeCount=1060.000; SleepCycleTimeCount=1060.000; SubmitCycleTimeCount=1061.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.077; LogProcessCycleTimeCount=17.000; ]
+07/07/26 19:31:12 Total jobs placed to AP: 40
+07/07/26 19:31:12      Idle     Held     Running     Successful     Failed
+07/07/26 19:31:12       ===      ===         ===            ===        ===
+07/07/26 19:31:12         0       36           4              0          0
+07/07/26 19:31:52 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:31:52 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.33.0) {07/07/26 19:31:47}
+07/07/26 19:31:52 Number of idle job procs: 37
+07/07/26 19:31:52 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.33.0) {07/07/26 19:31:47}
+07/07/26 19:31:52   Hold reason: Error from teaching6@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 19:31:52 Number of idle job procs: 37
+07/07/26 19:31:52 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:31:52 Of 5 nodes total:
+07/07/26 19:31:52  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:31:52   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:31:52     0       0        1       0       0          4        0        0
+07/07/26 19:31:52 37 job proc(s) currently held
+07/07/26 19:31:52 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.001; EventCycleTimeMax=0.051; EventCycleTimeMin=0.000; EventCycleTimeStd=0.003; EventCycleTimeSum=0.594; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.043; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=5444.886; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.001; EventCycleTimeCount=1088.000; SleepCycleTimeCount=1088.000; SubmitCycleTimeCount=1089.000; LogProcessCycleTimeAvg=0.004; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.081; LogProcessCycleTimeCount=18.000; ]
+07/07/26 19:41:53 601 seconds since last log event
+07/07/26 19:41:53 Pending DAG nodes:
+07/07/26 19:41:53   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 19:46:13 Total jobs placed to AP: 40
+07/07/26 19:46:13      Idle     Held     Running     Successful     Failed
+07/07/26 19:46:13       ===      ===         ===            ===        ===
+07/07/26 19:46:13         0       37           3              0          0
+07/07/26 19:47:43 Currently monitoring 1 HTCondor log file(s)
+07/07/26 19:47:43 Event: ULOG_JOB_EVICTED for HTCondor Node COLLECT (170273.39.0) {07/07/26 19:47:41}
+07/07/26 19:47:43 Number of idle job procs: 38
+07/07/26 19:47:43 Event: ULOG_JOB_HELD for HTCondor Node COLLECT (170273.39.0) {07/07/26 19:47:41}
+07/07/26 19:47:43   Hold reason: Error from teaching5@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+07/07/26 19:47:43 Number of idle job procs: 38
+07/07/26 19:47:43 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 19:47:43 Of 5 nodes total:
+07/07/26 19:47:43  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 19:47:43   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 19:47:43     0       0        1       0       0          4        0        0
+07/07/26 19:47:43 38 job proc(s) currently held
+07/07/26 19:47:43 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.000; EventCycleTimeMax=0.051; EventCycleTimeMin=0.000; EventCycleTimeStd=0.003; EventCycleTimeSum=0.635; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.043; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.003; SleepCycleTimeSum=6395.707; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.001; EventCycleTimeCount=1278.000; SleepCycleTimeCount=1278.000; SubmitCycleTimeCount=1279.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.087; LogProcessCycleTimeCount=19.000; ]
+07/07/26 19:57:43 600 seconds since last log event
+07/07/26 19:57:43 Pending DAG nodes:
+07/07/26 19:57:43   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 20:01:14 Total jobs placed to AP: 40
+07/07/26 20:01:14      Idle     Held     Running     Successful     Failed
+07/07/26 20:01:14       ===      ===         ===            ===        ===
+07/07/26 20:01:14         0       38           2              0          0
+07/07/26 20:07:44 1201 seconds since last log event
+07/07/26 20:07:44 Pending DAG nodes:
+07/07/26 20:07:44   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 20:16:14 Total jobs placed to AP: 40
+07/07/26 20:16:14      Idle     Held     Running     Successful     Failed
+07/07/26 20:16:14       ===      ===         ===            ===        ===
+07/07/26 20:16:14         0       38           2              0          0
+07/07/26 20:17:45 1802 seconds since last log event
+07/07/26 20:17:45 Pending DAG nodes:
+07/07/26 20:17:45   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 20:27:45 2402 seconds since last log event
+07/07/26 20:27:45 Pending DAG nodes:
+07/07/26 20:27:45   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 20:31:15 Total jobs placed to AP: 40
+07/07/26 20:31:15      Idle     Held     Running     Successful     Failed
+07/07/26 20:31:15       ===      ===         ===            ===        ===
+07/07/26 20:31:15         0       38           2              0          0
+07/07/26 20:37:46 3003 seconds since last log event
+07/07/26 20:37:46 Pending DAG nodes:
+07/07/26 20:37:46   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 20:46:16 Total jobs placed to AP: 40
+07/07/26 20:46:16      Idle     Held     Running     Successful     Failed
+07/07/26 20:46:16       ===      ===         ===            ===        ===
+07/07/26 20:46:16         0       38           2              0          0
+07/07/26 20:47:46 3603 seconds since last log event
+07/07/26 20:47:46 Pending DAG nodes:
+07/07/26 20:47:46   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 20:57:47 4204 seconds since last log event
+07/07/26 20:57:47 Pending DAG nodes:
+07/07/26 20:57:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 21:01:17 Total jobs placed to AP: 40
+07/07/26 21:01:17      Idle     Held     Running     Successful     Failed
+07/07/26 21:01:17       ===      ===         ===            ===        ===
+07/07/26 21:01:17         0       38           2              0          0
+07/07/26 21:07:47 4804 seconds since last log event
+07/07/26 21:07:47 Pending DAG nodes:
+07/07/26 21:07:47   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 21:16:18 Total jobs placed to AP: 40
+07/07/26 21:16:18      Idle     Held     Running     Successful     Failed
+07/07/26 21:16:18       ===      ===         ===            ===        ===
+07/07/26 21:16:18         0       38           2              0          0
+07/07/26 21:17:48 5405 seconds since last log event
+07/07/26 21:17:48 Pending DAG nodes:
+07/07/26 21:17:48   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 21:27:48 6005 seconds since last log event
+07/07/26 21:27:48 Pending DAG nodes:
+07/07/26 21:27:48   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 21:31:19 Total jobs placed to AP: 40
+07/07/26 21:31:19      Idle     Held     Running     Successful     Failed
+07/07/26 21:31:19       ===      ===         ===            ===        ===
+07/07/26 21:31:19         0       38           2              0          0
+07/07/26 21:37:49 6606 seconds since last log event
+07/07/26 21:37:49 Pending DAG nodes:
+07/07/26 21:37:49   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 21:46:19 Total jobs placed to AP: 40
+07/07/26 21:46:19      Idle     Held     Running     Successful     Failed
+07/07/26 21:46:19       ===      ===         ===            ===        ===
+07/07/26 21:46:19         0       38           2              0          0
+07/07/26 21:47:49 7206 seconds since last log event
+07/07/26 21:47:49 Pending DAG nodes:
+07/07/26 21:47:49   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 21:57:50 7807 seconds since last log event
+07/07/26 21:57:50 Pending DAG nodes:
+07/07/26 21:57:50   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 22:01:20 Total jobs placed to AP: 40
+07/07/26 22:01:20      Idle     Held     Running     Successful     Failed
+07/07/26 22:01:20       ===      ===         ===            ===        ===
+07/07/26 22:01:20         0       38           2              0          0
+07/07/26 22:07:51 8408 seconds since last log event
+07/07/26 22:07:51 Pending DAG nodes:
+07/07/26 22:07:51   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 22:16:21 Total jobs placed to AP: 40
+07/07/26 22:16:21      Idle     Held     Running     Successful     Failed
+07/07/26 22:16:21       ===      ===         ===            ===        ===
+07/07/26 22:16:21         0       38           2              0          0
+07/07/26 22:17:51 9008 seconds since last log event
+07/07/26 22:17:51 Pending DAG nodes:
+07/07/26 22:17:51   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 22:27:52 9609 seconds since last log event
+07/07/26 22:27:52 Pending DAG nodes:
+07/07/26 22:27:52   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 22:31:30 Total jobs placed to AP: 40
+07/07/26 22:31:30      Idle     Held     Running     Successful     Failed
+07/07/26 22:31:30       ===      ===         ===            ===        ===
+07/07/26 22:31:30         0       38           2              0          0
+07/07/26 22:37:57 10214 seconds since last log event
+07/07/26 22:38:08 Pending DAG nodes:
+07/07/26 22:38:08   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 22:46:31 Total jobs placed to AP: 40
+07/07/26 22:46:31      Idle     Held     Running     Successful     Failed
+07/07/26 22:46:31       ===      ===         ===            ===        ===
+07/07/26 22:46:31         0       38           2              0          0
+07/07/26 22:47:57 10814 seconds since last log event
+07/07/26 22:47:57 Pending DAG nodes:
+07/07/26 22:47:57   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 22:57:57 11414 seconds since last log event
+07/07/26 22:57:57 Pending DAG nodes:
+07/07/26 22:57:57   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 23:01:32 Total jobs placed to AP: 40
+07/07/26 23:01:32      Idle     Held     Running     Successful     Failed
+07/07/26 23:01:32       ===      ===         ===            ===        ===
+07/07/26 23:01:32         0       38           2              0          0
+07/07/26 23:07:57 12014 seconds since last log event
+07/07/26 23:07:57 Pending DAG nodes:
+07/07/26 23:07:57   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 23:16:32 Total jobs placed to AP: 40
+07/07/26 23:16:32      Idle     Held     Running     Successful     Failed
+07/07/26 23:16:32       ===      ===         ===            ===        ===
+07/07/26 23:16:32         0       38           2              0          0
+07/07/26 23:17:57 12614 seconds since last log event
+07/07/26 23:17:57 Pending DAG nodes:
+07/07/26 23:17:57   Node COLLECT, HTCondor ID 170273, status STATUS_SUBMITTED
+07/07/26 23:19:37 Received SIGUSR1
+07/07/26 23:19:37 Aborting DAG...
+07/07/26 23:19:37 Writing Rescue DAG to one_way_line_det_one_way_line_80_40_action_shield.dag.rescue001...
+07/07/26 23:19:37 Removing submitted jobs...
+07/07/26 23:19:37 Removing any/all submitted HTCondor jobs...
+07/07/26 23:19:37 Running: /usr/bin/condor_rm -const DAGManJobId==170264 -reason DAG' 'Removed:' 'User' 'removed' 'scheduler' 'job' 'from' 'queue.
+07/07/26 23:19:37 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/07/26 23:19:37 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/07/26 23:19:37 Note: 0 total node deferrals because of node category throttles
+07/07/26 23:19:37 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/07/26 23:19:37 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/07/26 23:19:37 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/07/26 23:19:37 DAG status: 4 (DAG_STATUS_RM)
+07/07/26 23:19:37 Of 5 nodes total:
+07/07/26 23:19:37  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 23:19:37   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 23:19:37     0       0        1       0       0          4        0        0
+07/07/26 23:19:37 38 job proc(s) currently held
+07/07/26 23:19:37 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.048; EventCycleTimeMax=30.115; EventCycleTimeMin=0.000; EventCycleTimeStd=0.866; EventCycleTimeSum=179.158; SleepCycleTimeAvg=5.032; SleepCycleTimeMax=38.403; SleepCycleTimeMin=4.004; SleepCycleTimeStd=0.762; SleepCycleTimeSum=18926.478; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.002; EventCycleTimeCount=3762.000; SleepCycleTimeCount=3761.000; SubmitCycleTimeCount=3762.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.087; LogProcessCycleTimeCount=19.000; ]
+07/07/26 23:19:37 Wrote metrics file one_way_line_det_one_way_line_80_40_action_shield.dag.metrics.
+07/07/26 23:19:37 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.048; EventCycleTimeMax=30.115; EventCycleTimeMin=0.000; EventCycleTimeStd=0.866; EventCycleTimeSum=179.158; SleepCycleTimeAvg=5.032; SleepCycleTimeMax=38.403; SleepCycleTimeMin=4.004; SleepCycleTimeStd=0.762; SleepCycleTimeSum=18926.478; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.000; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.002; EventCycleTimeCount=3762.000; SleepCycleTimeCount=3761.000; SubmitCycleTimeCount=3762.000; LogProcessCycleTimeAvg=0.005; LogProcessCycleTimeMax=0.010; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.002; LogProcessCycleTimeSum=0.087; LogProcessCycleTimeCount=19.000; ]
+07/07/26 23:19:37 **** condor_scheduniv_exec.170264.0 (condor_DAGMAN) pid 589480 EXITING WITH STATUS 2
+07/07/26 23:21:30 ******************************************************
+07/07/26 23:21:30 ** condor_scheduniv_exec.170506.0 (CONDOR_DAGMAN) STARTING UP
+07/07/26 23:21:30 ** /usr/bin/condor_dagman
+07/07/26 23:21:30 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/07/26 23:21:30 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/07/26 23:21:30 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/07/26 23:21:30 ** $CondorPlatform: X86_64-Debian_12 $
+07/07/26 23:21:30 ** PID = 707695 RealUID = 1620002036
+07/07/26 23:21:30 ** Log last touched 7/7 23:19:37
+07/07/26 23:21:30 ******************************************************
+07/07/26 23:21:30 Using config source: /etc/condor/condor_config
+07/07/26 23:21:30 Using local config sources: 
+07/07/26 23:21:30    /etc/condor/config.d/01-submit.conf
+07/07/26 23:21:30    /etc/condor/config.d/10-stash-plugin.conf
+07/07/26 23:21:30    /etc/condor/config.d/23-network.config
+07/07/26 23:21:30    /etc/condor/config.d/31-mail.conf
+07/07/26 23:21:30    /etc/condor/config.d/35-cc-sync.conf
+07/07/26 23:21:30    /etc/condor/config.d/41-periodic-remove.conf
+07/07/26 23:21:30    /etc/condor/config.d/49-common.conf
+07/07/26 23:21:30    /etc/condor/config.d/52-group-mapping.conf
+07/07/26 23:21:30    /etc/condor/config.d/54-container.conf
+07/07/26 23:21:30    /etc/condor/config.d/67-submit-transforms.conf
+07/07/26 23:21:30    /etc/condor/config.d/71-submit-requirements.conf
+07/07/26 23:21:30    /etc/condor/condor_config.local
+07/07/26 23:21:30 config Macros = 110, Sorted = 110, StringBytes = 6396, TablesBytes = 4088
+07/07/26 23:21:30 CLASSAD_CACHING is ENABLED
+07/07/26 23:21:30 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/07/26 23:21:30 Daemoncore: Listening at <0.0.0.0:4233> on TCP (ReliSock) and UDP (SafeSock).
+07/07/26 23:21:30 DaemonCore: command socket at <10.143.248.60:4233?addrs=10.143.248.60-4233&alias=conduit.hpc.uni-saarland.de>
+07/07/26 23:21:30 DaemonCore: private command socket at <10.143.248.60:4233?addrs=10.143.248.60-4233&alias=conduit.hpc.uni-saarland.de>
+07/07/26 23:21:30 DAGMAN_USE_STRICT setting: 1
+07/07/26 23:21:30 DAGMAN_VERBOSITY setting: 3
+07/07/26 23:21:30 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/07/26 23:21:30 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/07/26 23:21:30 DAGMAN_SUBMIT_DELAY setting: 0
+07/07/26 23:21:30 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/07/26 23:21:30 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/07/26 23:21:30 DAGMAN_USE_JOIN_NODES setting: True
+07/07/26 23:21:30 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/07/26 23:21:30 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/07/26 23:21:30 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/07/26 23:21:30 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/07/26 23:21:30 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/07/26 23:21:30 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/07/26 23:21:30 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/07/26 23:21:30 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/07/26 23:21:30 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/07/26 23:21:30 DAGMAN_RETRY_NODE_FIRST setting: False
+07/07/26 23:21:30 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/07/26 23:21:30 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/07/26 23:21:30 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/07/26 23:21:30 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/07/26 23:21:30 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/07/26 23:21:30 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/07/26 23:21:30 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/07/26 23:21:30 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/07/26 23:21:30 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/07/26 23:21:30 DAGMAN_ALWAYS_RUN_POST setting: False
+07/07/26 23:21:30 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/07/26 23:21:30 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/07/26 23:21:30 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/07/26 23:21:30 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/07/26 23:21:30 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/07/26 23:21:30 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/07/26 23:21:30 DAGMAN_INHERIT_ATTRS setting: 
+07/07/26 23:21:30 DAGMAN_ABORT_DUPLICATES setting: True
+07/07/26 23:21:30 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/07/26 23:21:30 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/07/26 23:21:30 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/07/26 23:21:30 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/07/26 23:21:30 DAGMAN_AUTO_RESCUE setting: True
+07/07/26 23:21:30 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/07/26 23:21:30 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/07/26 23:21:30 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/07/26 23:21:30 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/07/26 23:21:30 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/07/26 23:21:30 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/07/26 23:21:30 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/07/26 23:21:30 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/07/26 23:21:30 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/07/26 23:21:30 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/07/26 23:21:30 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/07/26 23:21:30 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/07/26 23:21:30 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/07/26 23:21:30 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/07/26 23:21:30 DAGMAN will adjust edges after parsing
+07/07/26 23:21:30 argv[0] == "condor_scheduniv_exec.170506.0"
+07/07/26 23:21:30 argv[1] == "-Lockfile"
+07/07/26 23:21:30 argv[2] == "one_way_line_det_one_way_line_80_40_action_shield.dag.lock"
+07/07/26 23:21:30 argv[3] == "-Dag"
+07/07/26 23:21:30 argv[4] == "one_way_line_det_one_way_line_80_40_action_shield.dag"
+07/07/26 23:21:30 argv[5] == "-CsdVersion"
+07/07/26 23:21:30 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/07/26 23:21:30 argv[7] == "-dagman"
+07/07/26 23:21:30 argv[8] == "/usr/bin/condor_dagman"
+07/07/26 23:21:30 argv[9] == "-AutoRescue"
+07/07/26 23:21:30 argv[10] == "1"
+07/07/26 23:21:30 argv[11] == "-DoRescueFrom"
+07/07/26 23:21:30 argv[12] == "0"
+07/07/26 23:21:30 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/07/26 23:21:30 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/07/26 23:21:30 Workflow batch-id: <170506.0>
+07/07/26 23:21:30 Workflow batch-name: <one_way_line_det_one_way_line_80_40_action_shield.dag+170506>
+07/07/26 23:21:30 Workflow accounting_group: <teaching>
+07/07/26 23:21:30 Workflow accounting_group_user: <atml_team041>
+07/07/26 23:21:30 Warning: failed to get attribute DAGNodeName
+07/07/26 23:21:30 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/one_way_line_det/./one_way_line_det_one_way_line_80_40_action_shield.dag.nodes.log>
+07/07/26 23:21:30 DAG Lockfile will be written to one_way_line_det_one_way_line_80_40_action_shield.dag.lock
+07/07/26 23:21:30 DAG Input file is one_way_line_det_one_way_line_80_40_action_shield.dag
+07/07/26 23:21:30 Parsing 1 dagfiles
+07/07/26 23:21:30 Parsing one_way_line_det_one_way_line_80_40_action_shield.dag ...
+07/07/26 23:21:30 Adjusting edges
+07/07/26 23:21:30 Found rescue DAG number 1; running one_way_line_det_one_way_line_80_40_action_shield.dag.rescue001 in combination with normal DAG file
+07/07/26 23:21:30 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+07/07/26 23:21:30 USING RESCUE DAG one_way_line_det_one_way_line_80_40_action_shield.dag.rescue001
+07/07/26 23:21:30 Dag contains 5 total nodes
+07/07/26 23:21:30 Bootstrapping...
+07/07/26 23:21:30 Number of pre-completed nodes: 0
+07/07/26 23:21:30 MultiLogFiles: truncating log file /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/one_way_line_det/./one_way_line_det_one_way_line_80_40_action_shield.dag.nodes.log
+07/07/26 23:21:30 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 23:21:30 Of 5 nodes total:
+07/07/26 23:21:30  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 23:21:30   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 23:21:30     0       0        0       0       1          4        0        0
+07/07/26 23:21:30 0 job proc(s) currently held
+07/07/26 23:21:30 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/07/26 23:21:30 Registering condor_event_timer...
+07/07/26 23:21:31 Submitting HTCondor Node COLLECT job(s)...
+07/07/26 23:21:31 Submitting node COLLECT from file one_way_line_det_one_way_line_80_40_action_shield_collect.sub using direct job submission
+07/07/26 23:21:32 	assigned HTCondor ID (170512.0.0)
+07/07/26 23:21:32 Just submitted 1 job this cycle...
+07/07/26 23:21:32 DAG status: 0 (DAG_STATUS_OK)
+07/07/26 23:21:32 Of 5 nodes total:
+07/07/26 23:21:32  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 23:21:32   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 23:21:32     0       0        1       0       0          4        0        0
+07/07/26 23:21:32 0 job proc(s) currently held
+07/07/26 23:21:32 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.391; SubmitCycleTimeMax=0.391; SubmitCycleTimeMin=0.391; SubmitCycleTimeStd=0.391; SubmitCycleTimeSum=0.391; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/07/26 23:21:37 Currently monitoring 1 HTCondor log file(s)
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.0.0) to (170512.0.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.0.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 1
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.0.0) to (170512.1.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.1.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 2
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.1.0) to (170512.10.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.10.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 3
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.10.0) to (170512.11.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.11.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 4
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.11.0) to (170512.12.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.12.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 5
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.12.0) to (170512.13.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.13.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 6
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.13.0) to (170512.14.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.14.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 7
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.14.0) to (170512.15.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.15.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 8
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.15.0) to (170512.16.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.16.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 9
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.16.0) to (170512.17.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.17.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 10
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.17.0) to (170512.18.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.18.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 11
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.18.0) to (170512.19.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.19.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 12
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.19.0) to (170512.2.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.2.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 13
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.2.0) to (170512.20.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.20.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 14
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.20.0) to (170512.21.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.21.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 15
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.21.0) to (170512.22.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.22.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 16
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.22.0) to (170512.23.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.23.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 17
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.23.0) to (170512.24.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.24.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 18
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.24.0) to (170512.25.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.25.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 19
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.25.0) to (170512.26.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.26.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 20
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.26.0) to (170512.27.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.27.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 21
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.27.0) to (170512.28.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.28.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 22
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.28.0) to (170512.29.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.29.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 23
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.29.0) to (170512.3.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.3.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 24
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.3.0) to (170512.30.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.30.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 25
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.30.0) to (170512.31.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.31.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 26
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.31.0) to (170512.32.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.32.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 27
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.32.0) to (170512.33.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.33.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 28
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.33.0) to (170512.34.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.34.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 29
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.34.0) to (170512.35.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.35.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 30
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.35.0) to (170512.36.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.36.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 31
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.36.0) to (170512.37.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.37.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 32
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.37.0) to (170512.38.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.38.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 33
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.38.0) to (170512.39.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.39.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 34
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.39.0) to (170512.4.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.4.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 35
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.4.0) to (170512.5.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.5.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 36
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.5.0) to (170512.6.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.6.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 37
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.6.0) to (170512.7.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.7.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 38
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.7.0) to (170512.8.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.8.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 39
+07/07/26 23:21:37 Reassigning the id of job COLLECT from (170512.8.0) to (170512.9.0)
+07/07/26 23:21:37 Event: ULOG_SUBMIT for HTCondor Node COLLECT (170512.9.0) {07/07/26 23:21:32}
+07/07/26 23:21:37 Number of idle job procs: 40
+07/07/26 23:30:07 Currently monitoring 1 HTCondor log file(s)
+07/07/26 23:30:07 ERROR: node for condor ID 170273.24.0 not found! (might be because of node retries)
+07/07/26 23:30:07 Event: ULOG_JOB_EVICTED for unknown Node (170273.24.0) {07/07/26 23:30:07}: ignoring...
+07/07/26 23:30:07 ERROR: node for condor ID 170273.24.0 not found! (might be because of node retries)
+07/07/26 23:30:07 Event: ULOG_JOB_ABORTED for unknown Node (170273.24.0) {07/07/26 23:30:07}: ignoring...
+07/07/26 23:30:07 ERROR: node for condor ID 170273.22.0 not found! (might be because of node retries)
+07/07/26 23:30:07 Event: ULOG_JOB_EVICTED for unknown Node (170273.22.0) {07/07/26 23:30:07}: ignoring...
+07/07/26 23:30:07 ERROR: node for condor ID 170273.22.0 not found! (might be because of node retries)
+07/07/26 23:30:07 Event: ULOG_JOB_ABORTED for unknown Node (170273.22.0) {07/07/26 23:30:07}: ignoring...
+07/07/26 23:30:12 Currently monitoring 1 HTCondor log file(s)
+07/07/26 23:36:33 Total jobs placed to AP: 40
+07/07/26 23:36:33      Idle     Held     Running     Successful     Failed
+07/07/26 23:36:33       ===      ===         ===            ===        ===
+07/07/26 23:36:33        40        0           0              0          0
+07/07/26 23:37:12 Received SIGUSR1
+07/07/26 23:37:12 Aborting DAG...
+07/07/26 23:37:12 Writing Rescue DAG to one_way_line_det_one_way_line_80_40_action_shield.dag.rescue002...
+07/07/26 23:37:12 Removing submitted jobs...
+07/07/26 23:37:12 Removing any/all submitted HTCondor jobs...
+07/07/26 23:37:12 Running: /usr/bin/condor_rm -const DAGManJobId==170506 -reason DAG' 'Removed:' 'User' 'removed' 'scheduler' 'job' 'from' 'queue.
+07/07/26 23:37:12 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/07/26 23:37:12 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/07/26 23:37:12 Note: 0 total node deferrals because of node category throttles
+07/07/26 23:37:12 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/07/26 23:37:12 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/07/26 23:37:12 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/07/26 23:37:12 DAG status: 4 (DAG_STATUS_RM)
+07/07/26 23:37:12 Of 5 nodes total:
+07/07/26 23:37:12  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/07/26 23:37:12   ===     ===      ===     ===     ===        ===      ===      ===
+07/07/26 23:37:12     0       0        1       0       0          4        0        0
+07/07/26 23:37:12 0 job proc(s) currently held
+07/07/26 23:37:12 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.003; EventCycleTimeMax=0.395; EventCycleTimeMin=0.000; EventCycleTimeStd=0.029; EventCycleTimeSum=0.504; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.006; SleepCycleTimeMin=5.001; SleepCycleTimeStd=0.001; SleepCycleTimeSum=935.726; SubmitCycleTimeAvg=0.002; SubmitCycleTimeMax=0.391; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.029; SubmitCycleTimeSum=0.391; EventCycleTimeCount=188.000; SleepCycleTimeCount=187.000; SubmitCycleTimeCount=188.000; LogProcessCycleTimeAvg=0.023; LogProcessCycleTimeMax=0.063; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.035; LogProcessCycleTimeSum=0.069; LogProcessCycleTimeCount=3.000; ]
+07/07/26 23:37:12 Wrote metrics file one_way_line_det_one_way_line_80_40_action_shield.dag.metrics.
+07/07/26 23:37:12 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.003; EventCycleTimeMax=0.395; EventCycleTimeMin=0.000; EventCycleTimeStd=0.029; EventCycleTimeSum=0.504; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.006; SleepCycleTimeMin=5.001; SleepCycleTimeStd=0.001; SleepCycleTimeSum=935.726; SubmitCycleTimeAvg=0.002; SubmitCycleTimeMax=0.391; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.029; SubmitCycleTimeSum=0.391; EventCycleTimeCount=188.000; SleepCycleTimeCount=187.000; SubmitCycleTimeCount=188.000; LogProcessCycleTimeAvg=0.023; LogProcessCycleTimeMax=0.063; LogProcessCycleTimeMin=0.001; LogProcessCycleTimeStd=0.035; LogProcessCycleTimeSum=0.069; LogProcessCycleTimeCount=3.000; ]
+07/07/26 23:37:12 **** condor_scheduniv_exec.170506.0 (condor_DAGMAN) pid 707695 EXITING WITH STATUS 2
