@@ -1,240 +1,1280 @@
-000 (170510.000.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.000.000) 2026-07-09 01:24:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.001.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.001.000) 2026-07-09 01:24:33 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.010.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.010.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.011.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.011.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.012.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.012.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.013.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.013.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.014.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.014.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.015.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.015.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.016.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.016.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.017.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.017.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.018.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.018.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.019.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.019.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.002.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.002.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.020.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.020.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.021.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.021.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.022.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.022.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.023.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.023.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.024.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.024.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.025.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.025.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.026.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.026.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.027.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.027.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.028.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.028.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.029.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.029.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.003.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.003.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.030.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.030.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.031.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.031.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.032.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.032.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.033.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.033.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.034.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.034.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.035.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.035.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.036.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.036.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.037.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.037.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.038.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.038.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.039.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.039.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.004.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.004.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.005.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.005.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.006.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.006.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.007.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.007.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.008.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.008.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-000 (170510.009.000) 2026-07-07 23:21:32 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (170832.009.000) 2026-07-09 01:24:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: COLLECT
 ...
-009 (170510.000.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.007.000) 2026-07-09 01:24:46 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching4@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_35441559 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_2676163"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_35441559 = [ Id = "GPU-35441559"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "35441559-b7c3-51c1-2be7-338f211b7bc4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
 ...
-009 (170510.001.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.006.000) 2026-07-09 01:24:46 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching1@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_5d3dd972 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_2676162"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_5d3dd972 = [ Id = "GPU-5d3dd972"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "5d3dd972-423b-8021-c817-8b2b0bb88fa4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:06:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
 ...
-009 (170510.002.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.001.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching4@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_46fa3b12 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_489152"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_46fa3b12 = [ Id = "GPU-46fa3b12"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "46fa3b12-09fe-b483-a6f1-32cc9bbd5b3e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.003.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.004.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching7@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_bea0e2a7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_489156"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_bea0e2a7 = [ Id = "GPU-bea0e2a7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "bea0e2a7-8a41-8bdb-f375-e5f3bb0d1627"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:89:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.004.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.005.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching8@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_63102222 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_489157"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_63102222 = [ Id = "GPU-63102222"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "63102222-d5b5-f850-32a9-dcfc4cefd76c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.005.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.008.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching1@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_cca7fafe }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281116"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_cca7fafe = [ Id = "GPU-cca7fafe"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "cca7fafe-45ba-2993-f24a-b5737b8e5036"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.006.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.000.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching2@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_87019d2b }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_489153"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_87019d2b = [ Id = "GPU-87019d2b"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "87019d2b-cc45-061f-7c06-2347fb3d78cd"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.007.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.009.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching2@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_f968d76a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281117"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_f968d76a = [ Id = "GPU-f968d76a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "f968d76a-7475-2218-7b77-16ed4b0507fe"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.008.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.003.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching6@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a452c067 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_489154"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_a452c067 = [ Id = "GPU-a452c067"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a452c067-0d65-e291-c4ee-82d9aa851f4c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:86:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.009.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.011.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching4@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_850254af }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281120"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_850254af = [ Id = "GPU-850254af"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "850254af-1026-fc6b-f162-c969e74a2330"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.010.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.002.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching5@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d4afbcd7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_489155"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_d4afbcd7 = [ Id = "GPU-d4afbcd7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d4afbcd7-c415-a8f0-e34d-1d8ca1f2a4d9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.011.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.013.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching6@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_10bc3255 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281124"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_10bc3255 = [ Id = "GPU-10bc3255"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "10bc3255-a0a4-9e06-ef44-bfb832980123"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.012.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.012.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching5@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d3c46ffb }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281123"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_d3c46ffb = [ Id = "GPU-d3c46ffb"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d3c46ffb-e7f2-fd6f-1367-9ccdfb75fe4e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.013.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.010.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching3@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9df586a5 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281118"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_9df586a5 = [ Id = "GPU-9df586a5"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "9df586a5-ff27-7b9f-82c3-b8456d545fcb"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.014.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.015.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching8@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_e99c9ae4 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281129"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_e99c9ae4 = [ Id = "GPU-e99c9ae4"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "e99c9ae4-037f-4b9a-fb15-12150b483e3a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:91:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.015.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.014.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching7@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_06756434 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_281126"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_06756434 = [ Id = "GPU-06756434"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "06756434-59b8-f642-d934-ebe2921897c9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.016.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.017.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching2@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_937c3d9c }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284356"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_937c3d9c = [ Id = "GPU-937c3d9c"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "937c3d9c-b96e-480c-046d-949051a53328"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.017.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.022.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching7@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_7e6bcf8a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284365"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_7e6bcf8a = [ Id = "GPU-7e6bcf8a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "7e6bcf8a-69a2-d933-ee90-f0020a4c0f6e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.018.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.019.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching4@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_4353d652 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284375"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_4353d652 = [ Id = "GPU-4353d652"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "4353d652-9c96-94b0-5f93-893a1173f6ef"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.019.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.018.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching3@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_de2e358d }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284368"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_de2e358d = [ Id = "GPU-de2e358d"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "de2e358d-f46a-756a-ff50-391fce2c356a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.020.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.020.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching5@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a9035eaf }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284376"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_a9035eaf = [ Id = "GPU-a9035eaf"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a9035eaf-a662-65d1-d015-e49579605030"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.021.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.021.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching6@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_036117e2 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284358"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_036117e2 = [ Id = "GPU-036117e2"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "036117e2-f186-404f-cc36-c5575617ea99"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.022.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.016.000) 2026-07-09 01:24:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching1@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_694f8794 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3284357"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_694f8794 = [ Id = "GPU-694f8794"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "694f8794-1ee1-3d82-45b3-b8d876b063c6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
 ...
-009 (170510.023.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.023.000) 2026-07-09 01:25:26 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching3@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c19d320e }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_51969"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_c19d320e = [ Id = "GPU-c19d320e"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c19d320e-3dfb-1412-ae3a-7196f33f7758"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.024.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+001 (170832.024.000) 2026-07-09 01:36:56 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching5@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_8b66a2d0 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_63324"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_8b66a2d0 = [ Id = "GPU-8b66a2d0"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "8b66a2d0-7b07-fd5d-7aa6-f00f0e1b3eba"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-009 (170510.025.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.009.000) 2026-07-09 02:22:28 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:52:30, Sys 0 00:02:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching2@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-f968d76a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 62250       16384     64480 
+	   TimeSlotBusy (s)     :  3443                       
 ...
-009 (170510.026.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.009.000) 2026-07-09 02:22:28 Job was held.
+	Error from teaching2@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.027.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.011.000) 2026-07-09 02:22:59 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:52:27, Sys 0 00:02:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching4@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-850254af"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 61647       16384     64480 
+	   TimeSlotBusy (s)     :  3474                       
 ...
-009 (170510.028.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.011.000) 2026-07-09 02:22:59 Job was held.
+	Error from teaching4@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.029.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.016.000) 2026-07-09 02:23:14 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:52:31, Sys 0 00:02:40  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-694f8794"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63742       16384     64480 
+	   TimeSlotBusy (s)     :  3489                       
 ...
-009 (170510.030.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.016.000) 2026-07-09 02:23:14 Job was held.
+	Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.031.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.013.000) 2026-07-09 02:31:40 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:33, Sys 0 00:03:13  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching6@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-10bc3255"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63175       16384     64480 
+	   TimeSlotBusy (s)     :  3994                       
 ...
-009 (170510.032.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.013.000) 2026-07-09 02:31:40 Job was held.
+	Error from teaching6@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.033.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.012.000) 2026-07-09 02:32:18 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:08, Sys 0 00:03:18  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-d3c46ffb"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 62554       16384     64480 
+	   TimeSlotBusy (s)     :  4033                       
 ...
-009 (170510.034.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.012.000) 2026-07-09 02:32:18 Job was held.
+	Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.035.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.019.000) 2026-07-09 02:32:18 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:10, Sys 0 00:03:18  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching4@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-4353d652"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 62493       16384     64480 
+	   TimeSlotBusy (s)     :  4033                       
 ...
-009 (170510.036.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.019.000) 2026-07-09 02:32:18 Job was held.
+	Error from teaching4@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.037.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.015.000) 2026-07-09 02:32:46 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:24, Sys 0 00:03:19  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching8@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-e99c9ae4"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63090       16384     64480 
+	   TimeSlotBusy (s)     :  4061                       
 ...
-009 (170510.038.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+012 (170832.015.000) 2026-07-09 02:32:46 Job was held.
+	Error from teaching8@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
 ...
-009 (170510.039.000) 2026-07-07 23:37:12 Job was aborted.
-	removed because <OtherJobRemoveRequirements = DAGManJobId =?= 170504> fired when job (170504.0) was removed
+004 (170832.021.000) 2026-07-09 02:33:10 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:19, Sys 0 00:03:20  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-036117e2"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 62048       16384     64480 
+	   TimeSlotBusy (s)     :  4085                       
+...
+012 (170832.021.000) 2026-07-09 02:33:10 Job was held.
+	Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.010.000) 2026-07-09 02:34:17 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:19, Sys 0 00:03:10  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-9df586a5"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 61683       16384     64480 
+	   TimeSlotBusy (s)     :  4152                       
+...
+012 (170832.010.000) 2026-07-09 02:34:17 Job was held.
+	Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.022.000) 2026-07-09 02:35:08 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:59:24, Sys 0 00:03:18  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-7e6bcf8a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 60119       16384     64480 
+	   TimeSlotBusy (s)     :  4202                       
+...
+012 (170832.022.000) 2026-07-09 02:35:08 Job was held.
+	Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.017.000) 2026-07-09 02:35:08 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:59:23, Sys 0 00:03:16  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching2@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-937c3d9c"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 61257       16384     64480 
+	   TimeSlotBusy (s)     :  4203                       
+...
+012 (170832.017.000) 2026-07-09 02:35:08 Job was held.
+	Error from teaching2@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+001 (170832.026.000) 2026-07-09 02:35:08 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching1@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_694f8794 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3333634"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_694f8794 = [ Id = "GPU-694f8794"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "694f8794-1ee1-3d82-45b3-b8d876b063c6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.025.000) 2026-07-09 02:35:08 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching4@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_850254af }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_333396"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_850254af = [ Id = "GPU-850254af"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "850254af-1026-fc6b-f162-c969e74a2330"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.027.000) 2026-07-09 02:36:27 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching2@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_f968d76a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_336590"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_f968d76a = [ Id = "GPU-f968d76a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "f968d76a-7475-2218-7b77-16ed4b0507fe"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+004 (170832.018.000) 2026-07-09 02:37:53 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:02:58, Sys 0 00:03:45  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching3@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-de2e358d"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63785       16384     64480 
+	   TimeSlotBusy (s)     :  4368                       
+...
+012 (170832.018.000) 2026-07-09 02:37:53 Job was held.
+	Error from teaching3@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.014.000) 2026-07-09 02:38:11 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:04:01, Sys 0 00:03:52  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching7@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-06756434"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64279       16384     64480 
+	   TimeSlotBusy (s)     :  4386                       
+...
+012 (170832.014.000) 2026-07-09 02:38:11 Job was held.
+	Error from teaching7@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.006.000) 2026-07-09 02:39:17 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:06:09, Sys 0 00:03:52  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    24          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-5d3dd972"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 73488       16384     73692 
+	   TimeSlotBusy (s)     :  4452                       
+...
+012 (170832.006.000) 2026-07-09 02:39:18 Job was held.
+	Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+	Code 34 Subcode 102
+...
+004 (170832.020.000) 2026-07-09 02:42:58 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:06:07, Sys 0 00:04:35  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching5@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-a9035eaf"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63981       16384     64480 
+	   TimeSlotBusy (s)     :  4673                       
+...
+012 (170832.020.000) 2026-07-09 02:42:58 Job was held.
+	Error from teaching5@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+001 (170832.030.000) 2026-07-09 02:43:27 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching4@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_4353d652 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3339462"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_4353d652 = [ Id = "GPU-4353d652"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "4353d652-9c96-94b0-5f93-893a1173f6ef"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.028.000) 2026-07-09 02:43:27 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching5@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d3c46ffb }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_341630"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_d3c46ffb = [ Id = "GPU-d3c46ffb"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d3c46ffb-e7f2-fd6f-1367-9ccdfb75fe4e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.029.000) 2026-07-09 02:43:27 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching6@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_10bc3255 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_341631"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_10bc3255 = [ Id = "GPU-10bc3255"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "10bc3255-a0a4-9e06-ef44-bfb832980123"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.031.000) 2026-07-09 02:43:48 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching8@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_e99c9ae4 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_342412"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_e99c9ae4 = [ Id = "GPU-e99c9ae4"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "e99c9ae4-037f-4b9a-fb15-12150b483e3a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:91:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.032.000) 2026-07-09 02:44:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching6@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_036117e2 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3340537"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_036117e2 = [ Id = "GPU-036117e2"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "036117e2-f186-404f-cc36-c5575617ea99"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+004 (170832.007.000) 2026-07-09 02:45:32 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:10:43, Sys 0 00:04:57  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching4@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-35441559"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 73473       16384     73692 
+	   TimeSlotBusy (s)     :  4827                       
+...
+012 (170832.007.000) 2026-07-09 02:45:32 Job was held.
+	Error from teaching4@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+	Code 34 Subcode 102
+...
+001 (170832.034.000) 2026-07-09 02:45:47 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching3@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9df586a5 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_344102"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_9df586a5 = [ Id = "GPU-9df586a5"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "9df586a5-ff27-7b9f-82c3-b8456d545fcb"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.033.000) 2026-07-09 02:46:48 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching2@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_937c3d9c }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3342190"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_937c3d9c = [ Id = "GPU-937c3d9c"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "937c3d9c-b96e-480c-046d-949051a53328"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.035.000) 2026-07-09 02:46:48 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching7@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_7e6bcf8a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3342191"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_7e6bcf8a = [ Id = "GPU-7e6bcf8a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "7e6bcf8a-69a2-d933-ee90-f0020a4c0f6e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+004 (170832.008.000) 2026-07-09 02:48:47 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:05:25, Sys 0 00:05:08  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching1@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-cca7fafe"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    63698    16384     64480 
+	   TimeSlotBusy (s)     :     5021                    
+...
+012 (170832.008.000) 2026-07-09 02:48:47 Job was held.
+	Error from teaching1@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+001 (170832.036.000) 2026-07-09 02:48:47 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching3@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_de2e358d }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3344217"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_de2e358d = [ Id = "GPU-de2e358d"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "de2e358d-f46a-756a-ff50-391fce2c356a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.037.000) 2026-07-09 02:49:48 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching7@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_06756434 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_347301"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_06756434 = [ Id = "GPU-06756434"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "06756434-59b8-f642-d934-ebe2921897c9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (170832.038.000) 2026-07-09 02:50:48 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching1@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_5d3dd972 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_2728191"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_5d3dd972 = [ Id = "GPU-5d3dd972"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "5d3dd972-423b-8021-c817-8b2b0bb88fa4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:06:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+001 (170832.039.000) 2026-07-09 02:54:08 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching5@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a9035eaf }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3348438"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_a9035eaf = [ Id = "GPU-a9035eaf"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a9035eaf-a662-65d1-d015-e49579605030"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+004 (170832.003.000) 2026-07-09 03:14:48 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:37:41, Sys 0 00:07:35  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching6@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-a452c067"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 94114       16384     96737 
+	   TimeSlotBusy (s)     :  6583                       
+...
+012 (170832.003.000) 2026-07-09 03:14:48 Job was held.
+	Error from teaching6@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.005.000) 2026-07-09 03:14:49 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:38:03, Sys 0 00:07:13  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching8@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-63102222"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 94203       16384     96737 
+	   TimeSlotBusy (s)     :  6583                       
+...
+012 (170832.005.000) 2026-07-09 03:14:49 Job was held.
+	Error from teaching8@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.004.000) 2026-07-09 03:15:10 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:37:59, Sys 0 00:07:17  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching7@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-bea0e2a7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 94170       16384     96737 
+	   TimeSlotBusy (s)     :  6605                       
+...
+012 (170832.004.000) 2026-07-09 03:15:10 Job was held.
+	Error from teaching7@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.002.000) 2026-07-09 03:15:11 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:38:14, Sys 0 00:06:56  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching5@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-d4afbcd7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 96544       16384     96737 
+	   TimeSlotBusy (s)     :  6606                       
+...
+012 (170832.002.000) 2026-07-09 03:15:11 Job was held.
+	Error from teaching5@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.000.000) 2026-07-09 03:15:12 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:38:10, Sys 0 00:07:06  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching2@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-87019d2b"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 94105       16384     96737 
+	   TimeSlotBusy (s)     :  6607                       
+...
+012 (170832.000.000) 2026-07-09 03:15:12 Job was held.
+	Error from teaching2@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.023.000) 2026-07-09 03:15:46 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:38:10, Sys 0 00:06:42  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching3@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-c19d320e"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 96471       16384     96737 
+	   TimeSlotBusy (s)     :  6601                       
+...
+012 (170832.023.000) 2026-07-09 03:15:46 Job was held.
+	Error from teaching3@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.001.000) 2026-07-09 03:24:14 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:45:29, Sys 0 00:08:57  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching4@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-46fa3b12"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 96543       16384     96737 
+	   TimeSlotBusy (s)     :  7149                       
+...
+012 (170832.001.000) 2026-07-09 03:24:14 Job was held.
+	Error from teaching4@tenos.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.024.000) 2026-07-09 03:27:00 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:38:10, Sys 0 00:06:45  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching5@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-8b66a2d0"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 96544       16384     96737 
+	   TimeSlotBusy (s)     :  6585                       
+...
+012 (170832.024.000) 2026-07-09 03:27:00 Job was held.
+	Error from teaching5@thera.hpc.uni-saarland.de: Docker job has gone over memory limit of 96737 Mb
+	Code 34 Subcode 102
+...
+004 (170832.034.000) 2026-07-09 03:42:51 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:52:24, Sys 0 00:02:45  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-9df586a5"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63413       16384     64480 
+	   TimeSlotBusy (s)     :  3405                       
+...
+012 (170832.034.000) 2026-07-09 03:42:51 Job was held.
+	Error from teaching3@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.025.000) 2026-07-09 03:45:03 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:01:24, Sys 0 00:03:36  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching4@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-850254af"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64186       16384     64480 
+	   TimeSlotBusy (s)     :  4177                       
+...
+012 (170832.025.000) 2026-07-09 03:45:04 Job was held.
+	Error from teaching4@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.036.000) 2026-07-09 03:45:39 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:52:26, Sys 0 00:02:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching3@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-de2e358d"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63083       16384     64480 
+	   TimeSlotBusy (s)     :  3393                       
+...
+012 (170832.036.000) 2026-07-09 03:45:39 Job was held.
+	Error from teaching3@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.030.000) 2026-07-09 03:46:26 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:57:14, Sys 0 00:02:56  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching4@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-4353d652"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 62072       16384     64480 
+	   TimeSlotBusy (s)     :  3760                       
+...
+012 (170832.030.000) 2026-07-09 03:46:26 Job was held.
+	Error from teaching4@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.027.000) 2026-07-09 03:47:25 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:04:17, Sys 0 00:03:55  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching2@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-f968d76a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64349       16384     64480 
+	   TimeSlotBusy (s)     :  4239                       
+...
+012 (170832.027.000) 2026-07-09 03:47:25 Job was held.
+	Error from teaching2@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.032.000) 2026-07-09 03:48:42 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:57:12, Sys 0 00:02:56  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-036117e2"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 61715       16384     64480 
+	   TimeSlotBusy (s)     :  3816                       
+...
+012 (170832.032.000) 2026-07-09 03:48:42 Job was held.
+	Error from teaching6@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.033.000) 2026-07-09 03:49:52 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:57:12, Sys 0 00:03:01  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching2@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-937c3d9c"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 61841       16384     64480 
+	   TimeSlotBusy (s)     :  3766                       
+...
+012 (170832.033.000) 2026-07-09 03:49:52 Job was held.
+	Error from teaching2@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.026.000) 2026-07-09 03:49:57 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:03:23, Sys 0 00:03:56  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-694f8794"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64291       16384     64480 
+	   TimeSlotBusy (s)     :  4471                       
+...
+012 (170832.026.000) 2026-07-09 03:49:57 Job was held.
+	Error from teaching1@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.028.000) 2026-07-09 03:51:50 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:01:16, Sys 0 00:03:27  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-d3c46ffb"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 63038       16384     64480 
+	   TimeSlotBusy (s)     :  4084                       
+...
+012 (170832.028.000) 2026-07-09 03:51:50 Job was held.
+	Error from teaching5@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.031.000) 2026-07-09 03:51:51 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:01:30, Sys 0 00:03:27  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching8@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-e99c9ae4"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64333       16384     64480 
+	   TimeSlotBusy (s)     :  4064                       
+...
+012 (170832.031.000) 2026-07-09 03:51:51 Job was held.
+	Error from teaching8@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.035.000) 2026-07-09 03:56:00 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:01:14, Sys 0 00:03:24  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-7e6bcf8a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64330       16384     64480 
+	   TimeSlotBusy (s)     :  4134                       
+...
+012 (170832.035.000) 2026-07-09 03:56:00 Job was held.
+	Error from teaching7@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.037.000) 2026-07-09 03:57:00 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:00:40, Sys 0 00:03:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching7@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-06756434"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64058       16384     64480 
+	   TimeSlotBusy (s)     :  4014                       
+...
+012 (170832.037.000) 2026-07-09 03:57:00 Job was held.
+	Error from teaching7@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.029.000) 2026-07-09 04:00:28 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:06:15, Sys 0 00:04:36  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching6@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-10bc3255"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64298       16384     64480 
+	   TimeSlotBusy (s)     :  4602                       
+...
+012 (170832.029.000) 2026-07-09 04:00:28 Job was held.
+	Error from teaching6@lofn.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.039.000) 2026-07-09 04:03:06 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 00:58:37, Sys 0 00:03:54  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching5@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-a9035eaf"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 64348       16384     64480 
+	   TimeSlotBusy (s)     :  4119                       
+...
+012 (170832.039.000) 2026-07-09 04:03:06 Job was held.
+	Error from teaching5@idun.hpc.uni-saarland.de: Docker job has gone over memory limit of 64480 Mb
+	Code 34 Subcode 102
+...
+004 (170832.038.000) 2026-07-09 04:08:13 Job was evicted. Code 34 Subcode 102
+	(0) CPU times
+		Usr 0 01:07:31, Sys 0 00:04:36  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	Reason: Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-5d3dd972"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 73545       16384     73692 
+	   TimeSlotBusy (s)     :  4627                       
+...
+012 (170832.038.000) 2026-07-09 04:08:13 Job was held.
+	Error from teaching1@uller.hpc.uni-saarland.de: Docker job has gone over memory limit of 73692 Mb
+	Code 34 Subcode 102
 ...

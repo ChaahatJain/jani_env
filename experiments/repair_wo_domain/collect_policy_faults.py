@@ -209,6 +209,7 @@ def write_fault_dataset(output_dir: Path, faults: Iterable[dict[str, Any]]) -> i
         "faulty_action",
         "action_name",
         "occurrences",
+        "policy_selected_occurrences",
         "first_start_state_index",
         "first_step",
         "observation",
@@ -376,6 +377,8 @@ def collect(args: argparse.Namespace) -> None:
                 action_fault_occurrences[action] += 1
                 if key in faults:
                     faults[key]["occurrences"] += 1
+                    if action == policy_action:
+                        faults[key]["policy_selected_occurrences"] += 1
                     continue
 
                 record: dict[str, Any] = {
@@ -385,6 +388,7 @@ def collect(args: argparse.Namespace) -> None:
                     "action_name": action_names[action],
                     "action_mask": mask_values,
                     "occurrences": 1,
+                    "policy_selected_occurrences": int(action == policy_action),
                     "first_start_state_index": int(start_index),
                     "first_step": int(step),
                 }
@@ -421,6 +425,16 @@ def collect(args: argparse.Namespace) -> None:
             )
 
     unique_by_action = Counter(record["faulty_action"] for record in faults.values())
+    policy_unique_by_action = Counter(
+        record["faulty_action"]
+        for record in faults.values()
+        if int(record.get("policy_selected_occurrences", 0)) > 0
+    )
+    policy_occurrences_by_action = Counter()
+    for record in faults.values():
+        policy_occurrences_by_action[record["faulty_action"]] += int(
+            record.get("policy_selected_occurrences", 0)
+        )
     action_label_files = None
     if args.save_action_labels:
         action_label_files = write_action_label_datasets(
@@ -472,6 +486,16 @@ def collect(args: argparse.Namespace) -> None:
         "action_names": action_names,
         "unique_faults_by_action": {
             action_names[action]: unique_by_action[action] for action in range(n_actions)
+        },
+        "policy_selected_unique_faults": sum(policy_unique_by_action.values()),
+        "policy_selected_unique_faults_by_action": {
+            action_names[action]: policy_unique_by_action[action]
+            for action in range(n_actions)
+        },
+        "policy_selected_fault_occurrences": sum(policy_occurrences_by_action.values()),
+        "policy_selected_fault_occurrences_by_action": {
+            action_names[action]: policy_occurrences_by_action[action]
+            for action in range(n_actions)
         },
         "fault_occurrences_by_action": {
             action_names[action]: action_fault_occurrences[action] for action in range(n_actions)
@@ -539,9 +563,13 @@ def merge(args: argparse.Namespace) -> None:
         for record in read_jsonl(summary_path.parent / "faults.jsonl"):
             key = fault_key(record["observation"], record["faulty_action"])
             if key not in merged:
+                record.setdefault("policy_selected_occurrences", 0)
                 merged[key] = record
                 continue
             merged[key]["occurrences"] += int(record["occurrences"])
+            merged[key]["policy_selected_occurrences"] = int(
+                merged[key].get("policy_selected_occurrences", 0)
+            ) + int(record.get("policy_selected_occurrences", 0))
             old_first = (
                 int(merged[key]["first_start_state_index"]),
                 int(merged[key]["first_step"]),
@@ -549,14 +577,29 @@ def merge(args: argparse.Namespace) -> None:
             new_first = (int(record["first_start_state_index"]), int(record["first_step"]))
             if new_first < old_first:
                 occurrences = merged[key]["occurrences"]
+                policy_selected_occurrences = merged[key][
+                    "policy_selected_occurrences"
+                ]
                 merged[key] = record
                 merged[key]["occurrences"] = occurrences
+                merged[key]["policy_selected_occurrences"] = (
+                    policy_selected_occurrences
+                )
 
     action_names = reference["action_names"]
     unique_by_action = Counter(record["faulty_action"] for record in merged.values())
     occurrences_by_action: Counter[int] = Counter()
+    policy_unique_by_action = Counter(
+        record["faulty_action"]
+        for record in merged.values()
+        if int(record.get("policy_selected_occurrences", 0)) > 0
+    )
+    policy_occurrences_by_action: Counter[int] = Counter()
     for record in merged.values():
         occurrences_by_action[record["faulty_action"]] += int(record["occurrences"])
+        policy_occurrences_by_action[record["faulty_action"]] += int(
+            record.get("policy_selected_occurrences", 0)
+        )
 
     terminations: Counter[str] = Counter()
     for summary in summaries:
@@ -593,6 +636,16 @@ def merge(args: argparse.Namespace) -> None:
         "action_names": action_names,
         "unique_faults_by_action": {
             action_names[action]: unique_by_action[action] for action in range(len(action_names))
+        },
+        "policy_selected_unique_faults": sum(policy_unique_by_action.values()),
+        "policy_selected_unique_faults_by_action": {
+            action_names[action]: policy_unique_by_action[action]
+            for action in range(len(action_names))
+        },
+        "policy_selected_fault_occurrences": sum(policy_occurrences_by_action.values()),
+        "policy_selected_fault_occurrences_by_action": {
+            action_names[action]: policy_occurrences_by_action[action]
+            for action in range(len(action_names))
         },
         "fault_occurrences_by_action": {
             action_names[action]: occurrences_by_action[action]
@@ -652,6 +705,10 @@ def merge(args: argparse.Namespace) -> None:
             "policy_sha256": reference["policy_sha256"],
             "shards": sorted(label_shards, key=lambda item: item["shard_id"]),
             "aggregate_counts_before_cross_shard_deduplication": aggregate_counts,
+            "policy_selected_unique_faults_by_action": {
+                str(action): policy_unique_by_action[action]
+                for action in range(len(action_names))
+            },
         }
         write_json(output_dir / "action_labels_manifest.json", label_manifest)
         merged_summary["action_labels_manifest"] = "action_labels_manifest.json"

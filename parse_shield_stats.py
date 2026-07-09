@@ -6,8 +6,8 @@ Usage:
 
 Outputs two tables:
   1. Baseline vs Shielded comparison (goal / failure / cycle rates) per job.
-  2. Per-action classifier stats (unique faults, test faults, fixed, missed,
-     fix rate, precision, wrongly blocked) per job.
+  2. Per-action classifier stats (all-applicable unsafe pairs, policy-selected
+     faults, test faults, fixed, missed, fix rate, precision, wrongly blocked).
 """
 
 import argparse
@@ -121,6 +121,8 @@ def table_baseline_vs_shielded(jobs):
         return f"{v:.2f}%"
 
     def intfmt(v):
+        if v is None:
+            return "N/A"
         return f"{v:,}" if isinstance(v, int) else str(v)
 
     fmt = [
@@ -146,7 +148,8 @@ def table_per_action(jobs):
     headers = [
         "Job", "Action",
         "Kind",
-        "Unique Faults",
+        "All Unsafe Pairs",
+        "Policy Faults",
         "Test Faults",
         "Fixed",
         "Missed",
@@ -167,6 +170,7 @@ def table_per_action(jobs):
                 ae.get("action_name", f"action_{ae.get('action')}"),
                 ae.get("classifier_kind", "?"),
                 ae.get("collected_unique_faults", 0),
+                ae.get("policy_selected_unique_faults"),
                 ae.get("held_out_test_faults", 0),
                 ae.get("held_out_faults_fixed", 0),
                 ae.get("held_out_faults_missed", 0),
@@ -180,6 +184,8 @@ def table_per_action(jobs):
         return f"{v:.2f}%" if v is not None else "N/A"
 
     def intfmt(v):
+        if v is None:
+            return "N/A"
         return f"{v:,}" if isinstance(v, int) else str(v)
 
     fmt = [
@@ -187,6 +193,7 @@ def table_per_action(jobs):
         str,      # action name
         str,      # kind
         intfmt,   # unique faults
+        intfmt,   # policy-selected unique faults
         intfmt,   # test faults
         intfmt,   # fixed
         intfmt,   # missed

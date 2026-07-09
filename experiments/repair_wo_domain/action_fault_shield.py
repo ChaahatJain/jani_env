@@ -50,6 +50,9 @@ def summarize_per_action_evaluation(
                 "collected_unique_faults": int(
                     dataset_counts.get("unique_faults", 0)
                 ),
+                "policy_selected_unique_faults": int(
+                    dataset_counts.get("policy_selected_unique_faults", 0)
+                ),
                 "held_out_test_faults": test_faults,
                 "held_out_faults_fixed": fixed,
                 "held_out_faults_missed": missed,

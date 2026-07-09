@@ -267,7 +267,10 @@ def test_per_action_evaluation_reports_faults_fixed_and_missed():
                 "action": 0,
                 "action_name": "move",
                 "kind": "neural",
-                "dataset_counts": {"unique_faults": 100},
+                "dataset_counts": {
+                    "unique_faults": 100,
+                    "policy_selected_unique_faults": 7,
+                },
                 "test_metrics": {
                     "faults": 20,
                     "precision": 0.9,
@@ -284,12 +287,14 @@ def test_per_action_evaluation_reports_faults_fixed_and_missed():
     )
 
     assert result[0]["collected_unique_faults"] == 100
+    assert result[0]["policy_selected_unique_faults"] == 7
     assert result[0]["held_out_faults_fixed"] == 18
     assert result[0]["held_out_faults_missed"] == 2
     assert result[0]["held_out_fix_rate_percent"] == 90.0
     assert result[0]["held_out_non_faults_wrongly_blocked"] == 5
     assert result[0]["held_out_safe_actions_wrongly_blocked"] == 5
     assert result[1]["held_out_fix_rate_percent"] is None
+    assert result[1]["policy_selected_unique_faults"] == 0
 
 
 def test_training_script_writes_loadable_per_action_models(tmp_path):

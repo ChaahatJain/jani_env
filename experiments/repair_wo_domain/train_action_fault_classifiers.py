@@ -163,6 +163,11 @@ def load_action_dataset(
     )
     return features, labels, {
         "unique_faults": int(len(positives)),
+        "policy_selected_unique_faults": int(
+            manifest.get("policy_selected_unique_faults_by_action", {}).get(
+                str(action), 0
+            )
+        ),
         "sampled_unique_non_faults": int(len(negatives)),
         "raw_non_fault_examples_before_cross_shard_deduplication": int(
             total_raw_negatives
