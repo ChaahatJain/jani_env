@@ -16,6 +16,6 @@ My.IsDaemonCore = True
 # is killed (e.g., during a reboot).
 on_exit_remove = (ExitSignal =?= 11 || (ExitCode =!= UNDEFINED && ExitCode >=0 && ExitCode <= 2))
 copy_to_spool = False
-arguments = "-f -l . -Lockfile transport_linetrack_40_25_action_shield.dag.lock -Dag transport_linetrack_40_25_action_shield.dag -CsdVersion $CondorVersion:' '24.12.19' '2026-04-15' 'BuildID:' '896241' 'PackageID:' '24.12.19-1+deb12' 'GitSHA:' 'c68f3e0e' '$ -dagman /usr/bin/condor_dagman -AutoRescue 1 -DoRescueFrom 0"
+arguments = "-f -l . -Lockfile transport_linetrack_40_25_action_shield.dag.lock -Dag transport_linetrack_40_25_action_shield.dag -CsdVersion $CondorVersion:' '24.12.19' '2026-04-15' 'BuildID:' '896241' 'PackageID:' '24.12.19-1+deb12' 'GitSHA:' 'c68f3e0e' '$ -dagman /usr/bin/condor_dagman -AutoRescue 1 -DoRescueFrom 0 -force"
 environment = "_CONDOR_DAGMAN_LOG=transport_linetrack_40_25_action_shield.dag.dagman.out _CONDOR_MAX_DAGMAN_LOG=0 _CONDOR_SCHEDD_ADDRESS_FILE=/var/lib/condor/spool/.schedd_address _CONDOR_SCHEDD_DAEMON_AD_FILE=/var/lib/condor/spool/.schedd_classad"
 queue

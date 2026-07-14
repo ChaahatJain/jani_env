@@ -157,6 +157,9 @@ def table_per_action(jobs):
         "Precision%",
         "Wrongly Blocked",
         "Runtime Blocks",
+        "Policy Fixed",
+        "Policy Missed",
+        "Safe Policy Blocked",
     ]
 
     rows = []
@@ -178,6 +181,9 @@ def table_per_action(jobs):
                 precision,
                 ae.get("held_out_safe_actions_wrongly_blocked", 0),
                 ae.get("runtime_block_occurrences", 0),
+                ae.get("runtime_policy_faults_blocked"),
+                ae.get("runtime_policy_faults_missed"),
+                ae.get("runtime_safe_policy_actions_blocked"),
             ])
 
     def pct_or_na(v):
@@ -201,6 +207,9 @@ def table_per_action(jobs):
         pct_or_na, # precision
         intfmt,   # wrongly blocked
         intfmt,   # runtime blocks
+        intfmt,   # runtime policy faults blocked
+        intfmt,   # runtime policy faults missed
+        intfmt,   # runtime safe policy actions blocked
     ]
     print_table(headers, rows, fmt)
 
@@ -217,6 +226,8 @@ def table_shield_effectiveness(jobs):
         "B: Fail%", "S: Fail%", "Fail Reduction%",
         "B: Goal%", "S: Goal%", "Goal Improvement%",
         "States w/ Block%",
+        "Policy Fixed",
+        "Policy Missed",
         "All-Blocked Episodes",
     ]
 
@@ -233,6 +244,8 @@ def table_shield_effectiveness(jobs):
         goal_imp = s_goal - b_goal   # positive = good
 
         block_pct      = s.get("states_with_any_classifier_block_percent", 0.0)
+        policy_fixed   = s.get("policy_fault_blocked_steps")
+        policy_missed  = s.get("policy_fault_missed_steps")
         all_blocked_ep = sm.get("all_blocked_episode_percent", 0.0)
 
         rows.append([
@@ -240,17 +253,25 @@ def table_shield_effectiveness(jobs):
             b_fail, s_fail, fail_red,
             b_goal, s_goal, goal_imp,
             block_pct,
+            policy_fixed,
+            policy_missed,
             all_blocked_ep,
         ])
 
     def pct(v): return f"{v:.2f}%"
     def pct_delta(v): return f"{v:+.2f}%"
+    def intfmt(v):
+        if v is None:
+            return "N/A"
+        return f"{v:,}" if isinstance(v, int) else str(v)
 
     fmt = [
         str,
         pct, pct, pct_delta,
         pct, pct, pct_delta,
         pct,
+        intfmt,
+        intfmt,
         pct,
     ]
     print_table(headers, rows, fmt)

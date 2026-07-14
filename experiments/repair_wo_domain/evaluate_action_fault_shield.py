@@ -154,6 +154,12 @@ def shielded_rollout(
         "decision_states": 0,
         "states_with_any_classifier_block": 0,
         "blocked_action_occurrences": [0] * n_actions,
+        "policy_fault_blocked_occurrences": [0] * n_actions,
+        "policy_fault_missed_occurrences": [0] * n_actions,
+        "safe_policy_action_blocked_occurrences": [0] * n_actions,
+        "policy_fault_blocked_steps": 0,
+        "policy_fault_missed_steps": 0,
+        "safe_policy_action_blocked_steps": 0,
         "all_blocked_observation": None,
     }
 
@@ -167,11 +173,25 @@ def shielded_rollout(
             return "dead_end", step, stats
 
         stats["decision_states"] += 1
+        raw_policy_action = select_action(policy, observation, applicable, device)
         shielded_mask, blocked, _ = shield.masks(observation, applicable)
         if blocked.any():
             stats["states_with_any_classifier_block"] += 1
             for action in np.flatnonzero(blocked):
                 stats["blocked_action_occurrences"][int(action)] += 1
+        raw_policy_action_is_fault = bool(
+            env.is_state_action_fault(observation, raw_policy_action)
+        )
+        raw_policy_action_is_blocked = bool(blocked[raw_policy_action])
+        if raw_policy_action_is_fault and raw_policy_action_is_blocked:
+            stats["policy_fault_blocked_steps"] += 1
+            stats["policy_fault_blocked_occurrences"][raw_policy_action] += 1
+        elif raw_policy_action_is_fault:
+            stats["policy_fault_missed_steps"] += 1
+            stats["policy_fault_missed_occurrences"][raw_policy_action] += 1
+        elif raw_policy_action_is_blocked:
+            stats["safe_policy_action_blocked_steps"] += 1
+            stats["safe_policy_action_blocked_occurrences"][raw_policy_action] += 1
         if not shielded_mask.any():
             if not applicable.any():
                 raise AssertionError(
@@ -248,8 +268,14 @@ def evaluate(args: argparse.Namespace) -> None:
     baseline_terminations: Counter[str] = Counter()
     shielded_terminations: Counter[str] = Counter()
     blocked_action_occurrences = [0] * int(shielded_env.action_space.n)
+    policy_fault_blocked_occurrences = [0] * int(shielded_env.action_space.n)
+    policy_fault_missed_occurrences = [0] * int(shielded_env.action_space.n)
+    safe_policy_action_blocked_occurrences = [0] * int(shielded_env.action_space.n)
     decision_states = 0
     states_with_any_classifier_block = 0
+    policy_fault_blocked_steps = 0
+    policy_fault_missed_steps = 0
+    safe_policy_action_blocked_steps = 0
     all_blocked_observations: list[np.ndarray] = []
 
     with episodes_tmp.open("w", encoding="utf-8", newline="") as handle:
@@ -263,6 +289,9 @@ def evaluate(args: argparse.Namespace) -> None:
                 "shielded_steps",
                 "shielded_decision_states",
                 "states_with_any_classifier_block",
+                "policy_fault_blocked_steps",
+                "policy_fault_missed_steps",
+                "safe_policy_action_blocked_steps",
                 "all_actions_blocked",
             ],
         )
@@ -282,6 +311,19 @@ def evaluate(args: argparse.Namespace) -> None:
             )
             for action, count in enumerate(stats["blocked_action_occurrences"]):
                 blocked_action_occurrences[action] += int(count)
+            for action, count in enumerate(stats["policy_fault_blocked_occurrences"]):
+                policy_fault_blocked_occurrences[action] += int(count)
+            for action, count in enumerate(stats["policy_fault_missed_occurrences"]):
+                policy_fault_missed_occurrences[action] += int(count)
+            for action, count in enumerate(
+                stats["safe_policy_action_blocked_occurrences"]
+            ):
+                safe_policy_action_blocked_occurrences[action] += int(count)
+            policy_fault_blocked_steps += int(stats["policy_fault_blocked_steps"])
+            policy_fault_missed_steps += int(stats["policy_fault_missed_steps"])
+            safe_policy_action_blocked_steps += int(
+                stats["safe_policy_action_blocked_steps"]
+            )
             if stats["all_blocked_observation"] is not None:
                 all_blocked_observations.append(stats["all_blocked_observation"])
 
@@ -295,6 +337,11 @@ def evaluate(args: argparse.Namespace) -> None:
                     "shielded_decision_states": stats["decision_states"],
                     "states_with_any_classifier_block": stats[
                         "states_with_any_classifier_block"
+                    ],
+                    "policy_fault_blocked_steps": stats["policy_fault_blocked_steps"],
+                    "policy_fault_missed_steps": stats["policy_fault_missed_steps"],
+                    "safe_policy_action_blocked_steps": stats[
+                        "safe_policy_action_blocked_steps"
                     ],
                     "all_actions_blocked": int(
                         stats["all_blocked_observation"] is not None
@@ -328,6 +375,26 @@ def evaluate(args: argparse.Namespace) -> None:
         raise AssertionError("Baseline termination counts do not match episode count")
     if sum(shielded_terminations.values()) != episodes:
         raise AssertionError("Shielded termination counts do not match episode count")
+    per_action_evaluation = [dict(item) for item in per_action_evaluation]
+    for item in per_action_evaluation:
+        action_name = item["action_name"]
+        action_index = next(
+            index
+            for index, classifier in enumerate(shield.classifiers)
+            if classifier.action_name == action_name
+        )
+        item["runtime_block_occurrences"] = int(
+            blocked_action_occurrences[action_index]
+        )
+        item["runtime_policy_faults_blocked"] = int(
+            policy_fault_blocked_occurrences[action_index]
+        )
+        item["runtime_policy_faults_missed"] = int(
+            policy_fault_missed_occurrences[action_index]
+        )
+        item["runtime_safe_policy_actions_blocked"] = int(
+            safe_policy_action_blocked_occurrences[action_index]
+        )
     summary = {
         "format_version": 1,
         "experiment": "per_action_classifier_shield_evaluation",
@@ -346,7 +413,9 @@ def evaluate(args: argparse.Namespace) -> None:
         "per_action_evaluation_definition": (
             "A held-out oracle-labelled fault is fixed when its action head predicts "
             "fault/bad, so the shield would block that action. Runtime block counts "
-            "are predictions and are not additional oracle-verified fixes."
+            "are predictions and are not additional oracle-verified fixes. Policy "
+            "fault blocked counts are runtime cases where the unshielded policy's "
+            "own selected action was oracle-faulty and the shield blocked it."
         ),
         "per_action_evaluation": per_action_evaluation,
         "seed": args.seed,
@@ -367,12 +436,27 @@ def evaluate(args: argparse.Namespace) -> None:
             if decision_states
             else 0.0
         ),
+        "policy_fault_blocked_steps": policy_fault_blocked_steps,
+        "policy_fault_missed_steps": policy_fault_missed_steps,
+        "safe_policy_action_blocked_steps": safe_policy_action_blocked_steps,
         "all_actions_blocked_state_occurrences": int(
             shielded_terminations["all_blocked"]
         ),
         "blocked_action_occurrences": {
             shield.classifiers[action].action_name: count
             for action, count in enumerate(blocked_action_occurrences)
+        },
+        "policy_fault_blocked_occurrences": {
+            shield.classifiers[action].action_name: count
+            for action, count in enumerate(policy_fault_blocked_occurrences)
+        },
+        "policy_fault_missed_occurrences": {
+            shield.classifiers[action].action_name: count
+            for action, count in enumerate(policy_fault_missed_occurrences)
+        },
+        "safe_policy_action_blocked_occurrences": {
+            shield.classifiers[action].action_name: count
+            for action, count in enumerate(safe_policy_action_blocked_occurrences)
         },
     }
     write_json(output_dir / "summary.json", summary)
@@ -418,12 +502,24 @@ def merge(args: argparse.Namespace) -> None:
     baseline_terminations: Counter[str] = Counter()
     shielded_terminations: Counter[str] = Counter()
     blocked_action_occurrences: Counter[str] = Counter()
+    policy_fault_blocked_occurrences: Counter[str] = Counter()
+    policy_fault_missed_occurrences: Counter[str] = Counter()
+    safe_policy_action_blocked_occurrences: Counter[str] = Counter()
     all_blocked_chunks: list[np.ndarray] = []
     episodes_rows: list[dict[str, str]] = []
     for summary_path, summary in zip(summary_paths, summaries):
         baseline_terminations.update(summary["baseline_terminations"])
         shielded_terminations.update(summary["shielded_terminations"])
         blocked_action_occurrences.update(summary["blocked_action_occurrences"])
+        policy_fault_blocked_occurrences.update(
+            summary.get("policy_fault_blocked_occurrences", {})
+        )
+        policy_fault_missed_occurrences.update(
+            summary.get("policy_fault_missed_occurrences", {})
+        )
+        safe_policy_action_blocked_occurrences.update(
+            summary.get("safe_policy_action_blocked_occurrences", {})
+        )
         with np.load(summary_path.parent / "all_blocked_states.npz") as data:
             all_blocked_chunks.append(
                 np.asarray(data["observations"], dtype=np.float32)
@@ -492,6 +588,24 @@ def merge(args: argparse.Namespace) -> None:
         item["runtime_block_occurrences"] = int(
             blocked_action_occurrences[item["action_name"]]
         )
+        item["runtime_policy_faults_blocked"] = int(
+            policy_fault_blocked_occurrences[item["action_name"]]
+        )
+        item["runtime_policy_faults_missed"] = int(
+            policy_fault_missed_occurrences[item["action_name"]]
+        )
+        item["runtime_safe_policy_actions_blocked"] = int(
+            safe_policy_action_blocked_occurrences[item["action_name"]]
+        )
+    policy_fault_blocked_steps = sum(
+        int(summary.get("policy_fault_blocked_steps", 0)) for summary in summaries
+    )
+    policy_fault_missed_steps = sum(
+        int(summary.get("policy_fault_missed_steps", 0)) for summary in summaries
+    )
+    safe_policy_action_blocked_steps = sum(
+        int(summary.get("safe_policy_action_blocked_steps", 0)) for summary in summaries
+    )
     merged_summary = {
         "format_version": 1,
         "experiment": "per_action_classifier_shield_evaluation_merged",
@@ -506,7 +620,9 @@ def merge(args: argparse.Namespace) -> None:
         "per_action_evaluation_definition": (
             "A held-out oracle-labelled fault is fixed when its action head predicts "
             "fault/bad, so the shield would block that action. Runtime block counts "
-            "are predictions and are not additional oracle-verified fixes."
+            "are predictions and are not additional oracle-verified fixes. Policy "
+            "fault blocked counts are runtime cases where the unshielded policy's "
+            "own selected action was oracle-faulty and the shield blocked it."
         ),
         "per_action_evaluation": per_action_evaluation,
         "expected_shards": args.expected_shards,
@@ -523,11 +639,23 @@ def merge(args: argparse.Namespace) -> None:
         "states_with_any_classifier_block_percent": (
             100.0 * states_with_any_block / decision_states if decision_states else 0.0
         ),
+        "policy_fault_blocked_steps": policy_fault_blocked_steps,
+        "policy_fault_missed_steps": policy_fault_missed_steps,
+        "safe_policy_action_blocked_steps": safe_policy_action_blocked_steps,
         "all_actions_blocked_state_occurrences": int(
             shielded_terminations["all_blocked"]
         ),
         "unique_all_actions_blocked_states": int(len(unique_all_blocked)),
         "blocked_action_occurrences": dict(sorted(blocked_action_occurrences.items())),
+        "policy_fault_blocked_occurrences": dict(
+            sorted(policy_fault_blocked_occurrences.items())
+        ),
+        "policy_fault_missed_occurrences": dict(
+            sorted(policy_fault_missed_occurrences.items())
+        ),
+        "safe_policy_action_blocked_occurrences": dict(
+            sorted(safe_policy_action_blocked_occurrences.items())
+        ),
     }
     write_json(output_dir / "summary.json", merged_summary)
     print(

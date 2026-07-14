@@ -33,3 +33,13 @@
 ...
 001 (170831.000.000) 2026-07-09 01:24:32 Job executing on host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
 ...
+004 (170831.000.000) 2026-07-09 12:55:30 Job was evicted.
+	(0) CPU times
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+...
+009 (170831.000.000) 2026-07-09 12:55:30 Job was aborted.
+	via condor_rm (by user atml_team041)
+...

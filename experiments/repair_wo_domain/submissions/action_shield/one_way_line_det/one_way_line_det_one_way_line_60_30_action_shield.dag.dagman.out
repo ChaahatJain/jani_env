@@ -3873,3 +3873,65 @@
 07/09/26 11:48:44 27627 seconds since last log event
 07/09/26 11:48:44 Pending DAG nodes:
 07/09/26 11:48:44   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 11:55:04 Total jobs placed to AP: 40
+07/09/26 11:55:04      Idle     Held     Running     Successful     Failed
+07/09/26 11:55:04       ===      ===         ===            ===        ===
+07/09/26 11:55:04         0       40           0              0          0
+07/09/26 11:58:44 28227 seconds since last log event
+07/09/26 11:58:44 Pending DAG nodes:
+07/09/26 11:58:44   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 12:08:45 28828 seconds since last log event
+07/09/26 12:08:45 Pending DAG nodes:
+07/09/26 12:08:45   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 12:08:45 Querying local schedd for associated jobs in queue
+07/09/26 12:08:45 All pending job states validated
+07/09/26 12:10:05 Total jobs placed to AP: 40
+07/09/26 12:10:05      Idle     Held     Running     Successful     Failed
+07/09/26 12:10:05       ===      ===         ===            ===        ===
+07/09/26 12:10:05         0       40           0              0          0
+07/09/26 12:18:45 29428 seconds since last log event
+07/09/26 12:18:46 Pending DAG nodes:
+07/09/26 12:18:46   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 12:25:06 Total jobs placed to AP: 40
+07/09/26 12:25:06      Idle     Held     Running     Successful     Failed
+07/09/26 12:25:06       ===      ===         ===            ===        ===
+07/09/26 12:25:06         0       40           0              0          0
+07/09/26 12:28:46 30029 seconds since last log event
+07/09/26 12:28:46 Pending DAG nodes:
+07/09/26 12:28:46   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 12:38:47 30630 seconds since last log event
+07/09/26 12:38:47 Pending DAG nodes:
+07/09/26 12:38:47   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 12:40:07 Total jobs placed to AP: 40
+07/09/26 12:40:07      Idle     Held     Running     Successful     Failed
+07/09/26 12:40:07       ===      ===         ===            ===        ===
+07/09/26 12:40:07         0       40           0              0          0
+07/09/26 12:48:47 31230 seconds since last log event
+07/09/26 12:48:47 Pending DAG nodes:
+07/09/26 12:48:47   Node COLLECT, HTCondor ID 170832, status STATUS_SUBMITTED
+07/09/26 12:55:07 Total jobs placed to AP: 40
+07/09/26 12:55:07      Idle     Held     Running     Successful     Failed
+07/09/26 12:55:07       ===      ===         ===            ===        ===
+07/09/26 12:55:07         0       40           0              0          0
+07/09/26 12:55:30 Received SIGUSR1
+07/09/26 12:55:30 Aborting DAG...
+07/09/26 12:55:30 Writing Rescue DAG to one_way_line_det_one_way_line_60_30_action_shield.dag.rescue003...
+07/09/26 12:55:30 Removing submitted jobs...
+07/09/26 12:55:30 Removing any/all submitted HTCondor jobs...
+07/09/26 12:55:30 Running: /usr/bin/condor_rm -const DAGManJobId==170831 -reason DAG' 'Removed:' 'User' 'removed' 'scheduler' 'job' 'from' 'queue.
+07/09/26 12:55:30 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/09/26 12:55:30 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/09/26 12:55:30 Note: 0 total node deferrals because of node category throttles
+07/09/26 12:55:30 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/09/26 12:55:30 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/09/26 12:55:30 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/09/26 12:55:30 DAG status: 4 (DAG_STATUS_RM)
+07/09/26 12:55:30 Of 5 nodes total:
+07/09/26 12:55:30  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 12:55:30   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 12:55:30     0       0        1       0       0          4        0        0
+07/09/26 12:55:30 40 job proc(s) currently held
+07/09/26 12:55:30 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.023; EventCycleTimeMax=48.938; EventCycleTimeMin=0.000; EventCycleTimeStd=0.790; EventCycleTimeSum=186.475; SleepCycleTimeAvg=5.012; SleepCycleTimeMax=27.430; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.327; SleepCycleTimeSum=41267.609; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.423; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.005; SubmitCycleTimeSum=0.430; EventCycleTimeCount=8235.000; SleepCycleTimeCount=8234.000; SubmitCycleTimeCount=8235.000; LogProcessCycleTimeAvg=0.007; LogProcessCycleTimeMax=0.085; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.013; LogProcessCycleTimeSum=0.359; LogProcessCycleTimeCount=48.000; ]
+07/09/26 12:55:30 Wrote metrics file one_way_line_det_one_way_line_60_30_action_shield.dag.metrics.
+07/09/26 12:55:30 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.023; EventCycleTimeMax=48.938; EventCycleTimeMin=0.000; EventCycleTimeStd=0.790; EventCycleTimeSum=186.475; SleepCycleTimeAvg=5.012; SleepCycleTimeMax=27.430; SleepCycleTimeMin=4.003; SleepCycleTimeStd=0.327; SleepCycleTimeSum=41267.609; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.423; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.005; SubmitCycleTimeSum=0.430; EventCycleTimeCount=8235.000; SleepCycleTimeCount=8234.000; SubmitCycleTimeCount=8235.000; LogProcessCycleTimeAvg=0.007; LogProcessCycleTimeMax=0.085; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.013; LogProcessCycleTimeSum=0.359; LogProcessCycleTimeCount=48.000; ]
+07/09/26 12:55:30 **** condor_scheduniv_exec.170831.0 (condor_DAGMAN) pid 1405016 EXITING WITH STATUS 2

@@ -1,134 +1,134 @@
-000 (170837.000.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.000.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.001.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.001.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.010.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.010.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.011.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.011.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.012.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.012.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.013.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.013.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.014.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.014.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.015.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.015.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.016.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.016.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.017.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.017.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.018.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.018.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.019.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.019.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.002.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.002.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.020.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.020.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.021.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.021.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.022.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.022.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.023.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.023.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.024.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.024.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.025.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.025.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.026.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.026.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.027.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.027.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.028.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.028.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.029.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.029.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.003.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.003.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.030.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.030.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.031.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.031.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.032.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.032.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.033.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.033.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.034.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.034.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.035.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.035.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.036.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.036.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.037.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.037.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.038.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.038.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.039.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.039.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.004.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.004.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.005.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.005.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.006.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.006.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.007.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.007.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.008.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.008.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-000 (170837.009.000) 2026-07-09 01:26:21 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+000 (171040.009.000) 2026-07-09 21:56:34 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
     DAG Node: EVALUATE
 ...
-001 (170837.000.000) 2026-07-09 02:57:12 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
-	SlotName: teaching4@uller.hpc.uni-saarland.de
-	AvailableGPUs = { GPUs_GPU_35441559 }
-	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_2733263"
-	Cpus = 10
-	Disk = 455061702
+001 (171040.000.000) 2026-07-09 21:56:35 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching5@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_8b66a2d0 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1287504"
+	Cpus = 7
+	Disk = 414954411
 	GPUs = 1
-	GPUs_GPU_35441559 = [ Id = "GPU-35441559"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "35441559-b7c3-51c1-2be7-338f211b7bc4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
-	Memory = 73692
+	GPUs_GPU_8b66a2d0 = [ Id = "GPU-8b66a2d0"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "8b66a2d0-7b07-fd5d-7aa6-f00f0e1b3eba"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
 ...
-005 (170837.000.000) 2026-07-09 02:57:16 Job terminated.
+005 (171040.000.000) 2026-07-09 21:56:39 Job terminated.
 	(1) Normal termination (return value 1)
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
@@ -139,128 +139,128 @@
 	0  -  Total Bytes Sent By Job
 	0  -  Total Bytes Received By Job
 	Partitionable Resources :    Usage  Request Allocated Assigned
-	   Cpus                 :        0        1        10 
-	   Disk (KB)            :       23       50 455061702 
-	   GPUs                 :        0        0         1 "GPU-35441559"
-	   Memory (MB)          :              8192     73692 
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 414954411 
+	   GPUs                 :        0        0         1 "GPU-8b66a2d0"
+	   Memory (MB)          :              8192     96737 
 	   TimeExecute (s)      :        4                    
 	   TimeSlotBusy (s)     :        5                    
 ...
-009 (170837.002.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.025.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.003.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.026.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.004.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.027.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.005.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.028.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.006.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.029.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.007.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.030.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.008.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.031.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.009.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.032.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.010.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.033.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.011.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.034.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.012.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.035.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.013.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.036.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.014.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.037.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.015.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.038.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.016.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.039.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.017.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.002.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.018.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.003.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.019.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.004.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.020.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.005.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.021.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.006.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.022.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.007.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.023.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.008.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.024.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.009.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.025.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.010.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.026.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.011.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.027.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.012.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.028.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.013.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.029.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.014.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.030.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.015.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.031.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.016.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.032.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.017.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.033.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.018.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.034.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.019.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.035.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.020.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.036.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.021.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.037.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.022.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.038.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.023.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-009 (170837.039.000) 2026-07-09 02:57:16 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.024.000) 2026-07-09 21:56:39 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...
-004 (170837.001.000) 2026-07-09 02:57:17 Job was evicted. Code 1009 Subcode 0
+004 (171040.001.000) 2026-07-09 21:56:40 Job was evicted. Code 1009 Subcode 0
 	(0) CPU times
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
@@ -268,11 +268,11 @@
 	0  -  Run Bytes Received By Job
 	Reason: Claim deactivated
 	Partitionable Resources :    Usage  Request Allocated Assigned
-	   Cpus                 :                 1        10 
-	   Disk (KB)            :       15       50 455061702 
-	   GPUs                 :                 0         1 "GPU-35441559"
-	   Memory (MB)          :              8192     73692 
+	   Cpus                 :                 1         7 
+	   Disk (KB)            :       15       50 414954411 
+	   GPUs                 :                 0         1 "GPU-8b66a2d0"
+	   Memory (MB)          :              8192     96737 
 ...
-009 (170837.001.000) 2026-07-09 02:57:17 Job was aborted.
-	Node Error: DAG node EVALUATE (170837.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
+009 (171040.001.000) 2026-07-09 21:56:40 Job was aborted.
+	Node Error: DAG node EVALUATE (171040.0.0) reached failure tolerance after 1 failures. (by user atml_team041)
 ...

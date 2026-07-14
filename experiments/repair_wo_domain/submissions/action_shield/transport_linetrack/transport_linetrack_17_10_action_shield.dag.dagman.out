@@ -2000,3 +2000,502 @@
 07/08/26 20:38:44 Wrote metrics file transport_linetrack_17_10_action_shield.dag.metrics.
 07/08/26 20:38:44 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.002; EventCycleTimeMax=0.016; EventCycleTimeMin=0.000; EventCycleTimeStd=0.005; EventCycleTimeSum=0.027; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.006; SleepCycleTimeMin=5.003; SleepCycleTimeStd=0.001; SleepCycleTimeSum=65.052; SubmitCycleTimeAvg=0.001; SubmitCycleTimeMax=0.011; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.003; SubmitCycleTimeSum=0.011; EventCycleTimeCount=13.000; SleepCycleTimeCount=13.000; SubmitCycleTimeCount=14.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.003; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.000; LogProcessCycleTimeSum=0.008; LogProcessCycleTimeCount=3.000; ]
 07/08/26 20:38:44 **** condor_scheduniv_exec.170746.0 (condor_DAGMAN) pid 1230073 EXITING WITH STATUS 1
+07/09/26 21:56:05 ******************************************************
+07/09/26 21:56:05 ** condor_scheduniv_exec.171035.0 (CONDOR_DAGMAN) STARTING UP
+07/09/26 21:56:05 ** /usr/bin/condor_dagman
+07/09/26 21:56:05 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/09/26 21:56:05 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/09/26 21:56:05 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/09/26 21:56:05 ** $CondorPlatform: X86_64-Debian_12 $
+07/09/26 21:56:05 ** PID = 1907335 RealUID = 1620002036
+07/09/26 21:56:05 ** Log last touched 7/8 20:38:44
+07/09/26 21:56:05 ******************************************************
+07/09/26 21:56:05 Using config source: /etc/condor/condor_config
+07/09/26 21:56:05 Using local config sources: 
+07/09/26 21:56:05    /etc/condor/config.d/01-submit.conf
+07/09/26 21:56:05    /etc/condor/config.d/10-stash-plugin.conf
+07/09/26 21:56:05    /etc/condor/config.d/23-network.config
+07/09/26 21:56:05    /etc/condor/config.d/31-mail.conf
+07/09/26 21:56:05    /etc/condor/config.d/35-cc-sync.conf
+07/09/26 21:56:05    /etc/condor/config.d/41-periodic-remove.conf
+07/09/26 21:56:05    /etc/condor/config.d/49-common.conf
+07/09/26 21:56:05    /etc/condor/config.d/52-group-mapping.conf
+07/09/26 21:56:05    /etc/condor/config.d/54-container.conf
+07/09/26 21:56:05    /etc/condor/config.d/67-submit-transforms.conf
+07/09/26 21:56:05    /etc/condor/config.d/71-submit-requirements.conf
+07/09/26 21:56:05    /etc/condor/condor_config.local
+07/09/26 21:56:05 config Macros = 110, Sorted = 110, StringBytes = 6391, TablesBytes = 4088
+07/09/26 21:56:05 CLASSAD_CACHING is ENABLED
+07/09/26 21:56:05 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/09/26 21:56:05 Daemoncore: Listening at <0.0.0.0:26229> on TCP (ReliSock) and UDP (SafeSock).
+07/09/26 21:56:05 DaemonCore: command socket at <10.143.248.60:26229?addrs=10.143.248.60-26229&alias=conduit.hpc.uni-saarland.de>
+07/09/26 21:56:05 DaemonCore: private command socket at <10.143.248.60:26229?addrs=10.143.248.60-26229&alias=conduit.hpc.uni-saarland.de>
+07/09/26 21:56:05 DAGMAN_USE_STRICT setting: 1
+07/09/26 21:56:05 DAGMAN_VERBOSITY setting: 3
+07/09/26 21:56:05 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/09/26 21:56:05 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/09/26 21:56:05 DAGMAN_SUBMIT_DELAY setting: 0
+07/09/26 21:56:05 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/09/26 21:56:05 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/09/26 21:56:05 DAGMAN_USE_JOIN_NODES setting: True
+07/09/26 21:56:05 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/09/26 21:56:05 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/09/26 21:56:05 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/09/26 21:56:05 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/09/26 21:56:05 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/09/26 21:56:05 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/09/26 21:56:05 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/09/26 21:56:05 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/09/26 21:56:05 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/09/26 21:56:05 DAGMAN_RETRY_NODE_FIRST setting: False
+07/09/26 21:56:05 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/09/26 21:56:05 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/09/26 21:56:05 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/09/26 21:56:05 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/09/26 21:56:05 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/09/26 21:56:05 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/09/26 21:56:05 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/09/26 21:56:05 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/09/26 21:56:05 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/09/26 21:56:05 DAGMAN_ALWAYS_RUN_POST setting: False
+07/09/26 21:56:05 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/09/26 21:56:05 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/09/26 21:56:05 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/09/26 21:56:05 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/09/26 21:56:05 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/09/26 21:56:05 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/09/26 21:56:05 DAGMAN_INHERIT_ATTRS setting: 
+07/09/26 21:56:05 DAGMAN_ABORT_DUPLICATES setting: True
+07/09/26 21:56:05 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/09/26 21:56:05 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/09/26 21:56:05 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/09/26 21:56:05 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/09/26 21:56:05 DAGMAN_AUTO_RESCUE setting: True
+07/09/26 21:56:05 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/09/26 21:56:05 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/09/26 21:56:05 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/09/26 21:56:05 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/09/26 21:56:05 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/09/26 21:56:05 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/09/26 21:56:05 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/09/26 21:56:05 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/09/26 21:56:05 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/09/26 21:56:05 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/09/26 21:56:05 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/09/26 21:56:05 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/09/26 21:56:05 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/09/26 21:56:05 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/09/26 21:56:05 DAGMAN will adjust edges after parsing
+07/09/26 21:56:05 argv[0] == "condor_scheduniv_exec.171035.0"
+07/09/26 21:56:05 argv[1] == "-Lockfile"
+07/09/26 21:56:05 argv[2] == "transport_linetrack_17_10_action_shield.dag.lock"
+07/09/26 21:56:05 argv[3] == "-Dag"
+07/09/26 21:56:05 argv[4] == "transport_linetrack_17_10_action_shield.dag"
+07/09/26 21:56:05 argv[5] == "-CsdVersion"
+07/09/26 21:56:05 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/09/26 21:56:05 argv[7] == "-dagman"
+07/09/26 21:56:05 argv[8] == "/usr/bin/condor_dagman"
+07/09/26 21:56:05 argv[9] == "-AutoRescue"
+07/09/26 21:56:05 argv[10] == "1"
+07/09/26 21:56:05 argv[11] == "-DoRescueFrom"
+07/09/26 21:56:05 argv[12] == "0"
+07/09/26 21:56:05 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/09/26 21:56:05 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/09/26 21:56:05 Workflow batch-id: <171035.0>
+07/09/26 21:56:05 Workflow batch-name: <transport_linetrack_17_10_action_shield.dag+171035>
+07/09/26 21:56:05 Workflow accounting_group: <teaching>
+07/09/26 21:56:05 Workflow accounting_group_user: <atml_team041>
+07/09/26 21:56:05 Warning: failed to get attribute DAGNodeName
+07/09/26 21:56:05 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_17_10_action_shield.dag.nodes.log>
+07/09/26 21:56:05 DAG Lockfile will be written to transport_linetrack_17_10_action_shield.dag.lock
+07/09/26 21:56:05 DAG Input file is transport_linetrack_17_10_action_shield.dag
+07/09/26 21:56:05 Parsing 1 dagfiles
+07/09/26 21:56:05 Parsing transport_linetrack_17_10_action_shield.dag ...
+07/09/26 21:56:05 Adjusting edges
+07/09/26 21:56:05 Found rescue DAG number 3; running transport_linetrack_17_10_action_shield.dag.rescue003 in combination with normal DAG file
+07/09/26 21:56:05 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+07/09/26 21:56:05 USING RESCUE DAG transport_linetrack_17_10_action_shield.dag.rescue003
+07/09/26 21:56:05 Dag contains 5 total nodes
+07/09/26 21:56:05 Bootstrapping...
+07/09/26 21:56:05 Number of pre-completed nodes: 2
+07/09/26 21:56:05 MultiLogFiles: truncating log file /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_17_10_action_shield.dag.nodes.log
+07/09/26 21:56:05 DAG status: 0 (DAG_STATUS_OK)
+07/09/26 21:56:05 Of 5 nodes total:
+07/09/26 21:56:05  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 21:56:05   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 21:56:05     2       0        0       0       1          2        0        0
+07/09/26 21:56:05 0 job proc(s) currently held
+07/09/26 21:56:05 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/09/26 21:56:05 Registering condor_event_timer...
+07/09/26 21:56:06 Submitting HTCondor Node TRAIN job(s)...
+07/09/26 21:56:06 Submitting node TRAIN from file transport_linetrack_17_10_action_shield_train.sub using direct job submission
+07/09/26 21:56:06 	assigned HTCondor ID (171036.0.0)
+07/09/26 21:56:06 Just submitted 1 job this cycle...
+07/09/26 21:56:06 DAG status: 0 (DAG_STATUS_OK)
+07/09/26 21:56:06 Of 5 nodes total:
+07/09/26 21:56:06  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 21:56:06   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 21:56:06     2       0        1       0       0          2        0        0
+07/09/26 21:56:06 0 job proc(s) currently held
+07/09/26 21:56:06 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.028; SubmitCycleTimeMax=0.028; SubmitCycleTimeMin=0.028; SubmitCycleTimeStd=0.028; SubmitCycleTimeSum=0.028; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/09/26 21:56:11 Currently monitoring 1 HTCondor log file(s)
+07/09/26 21:56:11 Reassigning the id of job TRAIN from (171036.0.0) to (171036.0.0)
+07/09/26 21:56:11 Event: ULOG_SUBMIT for HTCondor Node TRAIN (171036.0.0) {07/09/26 21:56:06}
+07/09/26 21:56:11 Number of idle job procs: 1
+07/09/26 21:56:31 Currently monitoring 1 HTCondor log file(s)
+07/09/26 21:56:31 Event: ULOG_EXECUTE for HTCondor Node TRAIN (171036.0.0) {07/09/26 21:56:27}
+07/09/26 21:56:31 Number of idle job procs: 0
+07/09/26 21:56:36 Currently monitoring 1 HTCondor log file(s)
+07/09/26 21:56:36 Event: ULOG_JOB_TERMINATED for HTCondor Node TRAIN (171036.0.0) {07/09/26 21:56:32}
+07/09/26 21:56:36 Number of idle job procs: 0
+07/09/26 21:56:36 Node TRAIN job proc (171036.0.0) failed with status 1.
+07/09/26 21:56:36 Node TRAIN job(s) have exited the queue
+07/09/26 21:56:36 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/09/26 21:56:36 Of 5 nodes total:
+07/09/26 21:56:36  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 21:56:36   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 21:56:36     2       0        0       0       0          0        1        2
+07/09/26 21:56:36 0 job proc(s) currently held
+07/09/26 21:56:36 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.007; EventCycleTimeMax=0.033; EventCycleTimeMin=0.000; EventCycleTimeStd=0.013; EventCycleTimeSum=0.044; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.005; SleepCycleTimeMin=5.002; SleepCycleTimeStd=0.001; SleepCycleTimeSum=30.022; SubmitCycleTimeAvg=0.004; SubmitCycleTimeMax=0.028; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.010; SubmitCycleTimeSum=0.028; EventCycleTimeCount=6.000; SleepCycleTimeCount=6.000; SubmitCycleTimeCount=7.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.009; LogProcessCycleTimeCount=3.000; ]
+07/09/26 21:56:36 ERROR: the following job(s) failed:
+07/09/26 21:56:36 ---------------------- Node ----------------------
+07/09/26 21:56:36       Node Name: TRAIN
+07/09/26 21:56:36            Noop: false
+07/09/26 21:56:36          NodeID: 2
+07/09/26 21:56:36     Node Status: STATUS_ERROR    
+07/09/26 21:56:36 Node return val: 1
+07/09/26 21:56:36           Error: Job proc (171036.0.0) failed with status 1
+07/09/26 21:56:36 Job Submit File: transport_linetrack_17_10_action_shield_train.sub
+07/09/26 21:56:36  HTCondor Job ID: (171036.0.0)
+07/09/26 21:56:36 PARENTS: MERGE_COLLECTION WAITING: 0 CHILDREN: EVALUATE
+07/09/26 21:56:36 ---------------------------------------	<END>
+07/09/26 21:56:36 Aborting DAG...
+07/09/26 21:56:36 Writing Rescue DAG to transport_linetrack_17_10_action_shield.dag.rescue004...
+07/09/26 21:56:36 Removing submitted jobs...
+07/09/26 21:56:36 Removing any/all submitted HTCondor jobs...
+07/09/26 21:56:36 Running: /usr/bin/condor_rm -const DAGManJobId==171035 -reason DAG' 'Abort:' 'DAG' 'is' 'exiting' 'and' 'writing' 'rescue' 'file.
+07/09/26 21:56:36 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/09/26 21:56:36 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/09/26 21:56:36 Note: 0 total node deferrals because of node category throttles
+07/09/26 21:56:36 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/09/26 21:56:36 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/09/26 21:56:36 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/09/26 21:56:36 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/09/26 21:56:36 Of 5 nodes total:
+07/09/26 21:56:36  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 21:56:36   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 21:56:36     2       0        0       0       0          0        1        2
+07/09/26 21:56:36 0 job proc(s) currently held
+07/09/26 21:56:36 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.007; EventCycleTimeMax=0.033; EventCycleTimeMin=0.000; EventCycleTimeStd=0.013; EventCycleTimeSum=0.044; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.005; SleepCycleTimeMin=5.002; SleepCycleTimeStd=0.001; SleepCycleTimeSum=30.022; SubmitCycleTimeAvg=0.004; SubmitCycleTimeMax=0.028; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.010; SubmitCycleTimeSum=0.028; EventCycleTimeCount=6.000; SleepCycleTimeCount=6.000; SubmitCycleTimeCount=7.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.009; LogProcessCycleTimeCount=3.000; ]
+07/09/26 21:56:36 Wrote metrics file transport_linetrack_17_10_action_shield.dag.metrics.
+07/09/26 21:56:36 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.007; EventCycleTimeMax=0.033; EventCycleTimeMin=0.000; EventCycleTimeStd=0.013; EventCycleTimeSum=0.044; SleepCycleTimeAvg=5.004; SleepCycleTimeMax=5.005; SleepCycleTimeMin=5.002; SleepCycleTimeStd=0.001; SleepCycleTimeSum=30.022; SubmitCycleTimeAvg=0.004; SubmitCycleTimeMax=0.028; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.010; SubmitCycleTimeSum=0.028; EventCycleTimeCount=6.000; SleepCycleTimeCount=6.000; SubmitCycleTimeCount=7.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.009; LogProcessCycleTimeCount=3.000; ]
+07/09/26 21:56:36 **** condor_scheduniv_exec.171035.0 (condor_DAGMAN) pid 1907335 EXITING WITH STATUS 1
+07/09/26 22:11:32 ******************************************************
+07/09/26 22:11:32 ** condor_scheduniv_exec.171045.0 (CONDOR_DAGMAN) STARTING UP
+07/09/26 22:11:32 ** /usr/bin/condor_dagman
+07/09/26 22:11:32 ** SubsystemInfo: name=DAGMAN type=DAGMAN(9) class=CLIENT(2)
+07/09/26 22:11:32 ** Configuration: subsystem:DAGMAN local:<NONE> class:CLIENT
+07/09/26 22:11:32 ** $CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $
+07/09/26 22:11:32 ** $CondorPlatform: X86_64-Debian_12 $
+07/09/26 22:11:32 ** PID = 1915914 RealUID = 1620002036
+07/09/26 22:11:32 ** Log last touched 7/9 21:56:36
+07/09/26 22:11:32 ******************************************************
+07/09/26 22:11:32 Using config source: /etc/condor/condor_config
+07/09/26 22:11:32 Using local config sources: 
+07/09/26 22:11:32    /etc/condor/config.d/01-submit.conf
+07/09/26 22:11:32    /etc/condor/config.d/10-stash-plugin.conf
+07/09/26 22:11:32    /etc/condor/config.d/23-network.config
+07/09/26 22:11:32    /etc/condor/config.d/31-mail.conf
+07/09/26 22:11:32    /etc/condor/config.d/35-cc-sync.conf
+07/09/26 22:11:32    /etc/condor/config.d/41-periodic-remove.conf
+07/09/26 22:11:32    /etc/condor/config.d/49-common.conf
+07/09/26 22:11:32    /etc/condor/config.d/52-group-mapping.conf
+07/09/26 22:11:32    /etc/condor/config.d/54-container.conf
+07/09/26 22:11:32    /etc/condor/config.d/67-submit-transforms.conf
+07/09/26 22:11:32    /etc/condor/config.d/71-submit-requirements.conf
+07/09/26 22:11:32    /etc/condor/condor_config.local
+07/09/26 22:11:32 config Macros = 110, Sorted = 110, StringBytes = 6391, TablesBytes = 4088
+07/09/26 22:11:32 CLASSAD_CACHING is ENABLED
+07/09/26 22:11:32 Daemon Log is logging: D_ALWAYS D_ERROR D_STATUS
+07/09/26 22:11:33 Daemoncore: Listening at <0.0.0.0:2123> on TCP (ReliSock) and UDP (SafeSock).
+07/09/26 22:11:33 DaemonCore: command socket at <10.143.248.60:2123?addrs=10.143.248.60-2123&alias=conduit.hpc.uni-saarland.de>
+07/09/26 22:11:33 DaemonCore: private command socket at <10.143.248.60:2123?addrs=10.143.248.60-2123&alias=conduit.hpc.uni-saarland.de>
+07/09/26 22:11:33 DAGMAN_USE_STRICT setting: 1
+07/09/26 22:11:33 DAGMAN_VERBOSITY setting: 3
+07/09/26 22:11:33 DAGMAN_DEBUG_CACHE_SIZE setting: 5242880
+07/09/26 22:11:33 DAGMAN_DEBUG_CACHE_ENABLE setting: False
+07/09/26 22:11:33 DAGMAN_SUBMIT_DELAY setting: 0
+07/09/26 22:11:33 DAGMAN_MAX_SUBMIT_ATTEMPTS setting: 6
+07/09/26 22:11:33 DAGMAN_STARTUP_CYCLE_DETECT setting: False
+07/09/26 22:11:33 DAGMAN_USE_JOIN_NODES setting: True
+07/09/26 22:11:33 DAGMAN_REPORT_GRAPH_METRICS setting: False
+07/09/26 22:11:33 DAGMAN_MAX_SUBMITS_PER_INTERVAL setting: 100
+07/09/26 22:11:33 DAGMAN_AGGRESSIVE_SUBMIT setting: False
+07/09/26 22:11:33 DAGMAN_USER_LOG_SCAN_INTERVAL setting: 5
+07/09/26 22:11:33 DAGMAN_QUEUE_UPDATE_INTERVAL setting: 300.000000
+07/09/26 22:11:33 DAGMAN_DEFAULT_PRIORITY setting: 0
+07/09/26 22:11:33 DAGMAN_SUPPRESS_NOTIFICATION setting: False
+07/09/26 22:11:33 allow_events (DAGMAN_ALLOW_EVENTS) setting: 114
+07/09/26 22:11:33 DAGMAN_RETRY_SUBMIT_FIRST setting: True
+07/09/26 22:11:33 DAGMAN_RETRY_NODE_FIRST setting: False
+07/09/26 22:11:33 DAGMAN_MAX_JOBS_IDLE setting: 1000
+07/09/26 22:11:33 DAGMAN_MAX_JOBS_SUBMITTED setting: 0
+07/09/26 22:11:33 DAGMAN_MAX_PRE_SCRIPTS setting: 20
+07/09/26 22:11:33 DAGMAN_MAX_POST_SCRIPTS setting: 20
+07/09/26 22:11:33 DAGMAN_MAX_HOLD_SCRIPTS setting: 20
+07/09/26 22:11:33 DAGMAN_MUNGE_NODE_NAMES setting: True
+07/09/26 22:11:33 DAGMAN_ALLOW_ANY_NODE_NAME_CHARACTERS setting: False
+07/09/26 22:11:33 DAGMAN_PROHIBIT_MULTI_JOBS setting: False
+07/09/26 22:11:33 DAGMAN_SUBMIT_DEPTH_FIRST setting: False
+07/09/26 22:11:33 DAGMAN_ALWAYS_RUN_POST setting: False
+07/09/26 22:11:33 DAGMAN_CONDOR_SUBMIT_EXE setting: /usr/bin/condor_submit
+07/09/26 22:11:33 DAGMAN_CONDOR_RM_EXE setting: /usr/bin/condor_rm
+07/09/26 22:11:33 DAGMAN_USE_DIRECT_SUBMIT setting: True
+07/09/26 22:11:33 DAGMAN_PRODUCE_JOB_CREDENTIALS setting: True
+07/09/26 22:11:33 DAGMAN_DEFAULT_APPEND_VARS setting: False
+07/09/26 22:11:33 DAGMAN_INHERIT_ATTRS_PREFIX setting: 
+07/09/26 22:11:33 DAGMAN_INHERIT_ATTRS setting: 
+07/09/26 22:11:33 DAGMAN_ABORT_DUPLICATES setting: True
+07/09/26 22:11:33 DAGMAN_ABORT_ON_SCARY_SUBMIT setting: True
+07/09/26 22:11:33 DAGMAN_PENDING_REPORT_INTERVAL setting: 600
+07/09/26 22:11:33 DAGMAN_CHECK_QUEUE_INTERVAL setting: 28800
+07/09/26 22:11:33 DAGMAN_PRINT_JOB_TABLE_INTERVAL setting: 900
+07/09/26 22:11:33 DAGMAN_AUTO_RESCUE setting: True
+07/09/26 22:11:33 DAGMAN_MAX_RESCUE_NUM setting: 100
+07/09/26 22:11:33 DAGMAN_WRITE_PARTIAL_RESCUE setting: True
+07/09/26 22:11:33 DAGMAN_RESET_RETRIES_UPON_RESCUE setting: True
+07/09/26 22:11:33 DAGMAN_METRICS_FILE_VERSION setting: 2
+07/09/26 22:11:33 DAGMAN_DEFAULT_NODE_LOG setting: @(DAG_DIR)/@(DAG_FILE).nodes.log
+07/09/26 22:11:33 DAGMAN_LOG_ON_NFS_IS_ERROR setting: False
+07/09/26 22:11:33 DAGMAN_GENERATE_SUBDAG_SUBMITS setting: True
+07/09/26 22:11:33 DAGMAN_MAX_JOB_HOLDS setting: 100
+07/09/26 22:11:33 DAGMAN_NODE_JOB_FAILURE_TOLERANCE setting: 0
+07/09/26 22:11:33 DAGMAN_HOLD_CLAIM_TIME setting: 20
+07/09/26 22:11:33 DAGMAN_SUPPRESS_JOB_LOGS setting: False
+07/09/26 22:11:33 DAGMAN_REMOVE_NODE_JOBS setting: True
+07/09/26 22:11:33 DAGMAN_PUT_FAILED_JOBS_ON_HOLD setting: False
+07/09/26 22:11:33 DAGMAN_REMOVE_JOBS_AFTER_LIMIT_CHANGE setting: False
+07/09/26 22:11:33 DAGMAN will adjust edges after parsing
+07/09/26 22:11:33 argv[0] == "condor_scheduniv_exec.171045.0"
+07/09/26 22:11:33 argv[1] == "-Lockfile"
+07/09/26 22:11:33 argv[2] == "transport_linetrack_17_10_action_shield.dag.lock"
+07/09/26 22:11:33 argv[3] == "-Dag"
+07/09/26 22:11:33 argv[4] == "transport_linetrack_17_10_action_shield.dag"
+07/09/26 22:11:33 argv[5] == "-CsdVersion"
+07/09/26 22:11:33 argv[6] == "$CondorVersion: 24.12.19 2026-04-15 BuildID: 896241 PackageID: 24.12.19-1+deb12 GitSHA: c68f3e0e $"
+07/09/26 22:11:33 argv[7] == "-dagman"
+07/09/26 22:11:33 argv[8] == "/usr/bin/condor_dagman"
+07/09/26 22:11:33 argv[9] == "-AutoRescue"
+07/09/26 22:11:33 argv[10] == "1"
+07/09/26 22:11:33 argv[11] == "-DoRescueFrom"
+07/09/26 22:11:33 argv[12] == "0"
+07/09/26 22:11:33 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/09/26 22:11:33 Can't open directory "/etc/condor/passwords.d" as PRIV_ROOT, errno: 13 (Permission denied)
+07/09/26 22:11:33 Workflow batch-id: <171045.0>
+07/09/26 22:11:33 Workflow batch-name: <transport_linetrack_17_10_action_shield.dag+171045>
+07/09/26 22:11:33 Workflow accounting_group: <teaching>
+07/09/26 22:11:33 Workflow accounting_group_user: <atml_team041>
+07/09/26 22:11:33 Warning: failed to get attribute DAGNodeName
+07/09/26 22:11:33 Default node log file is: </home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_17_10_action_shield.dag.nodes.log>
+07/09/26 22:11:33 DAG Lockfile will be written to transport_linetrack_17_10_action_shield.dag.lock
+07/09/26 22:11:33 DAG Input file is transport_linetrack_17_10_action_shield.dag
+07/09/26 22:11:33 Parsing 1 dagfiles
+07/09/26 22:11:33 Parsing transport_linetrack_17_10_action_shield.dag ...
+07/09/26 22:11:33 Adjusting edges
+07/09/26 22:11:33 Found rescue DAG number 4; running transport_linetrack_17_10_action_shield.dag.rescue004 in combination with normal DAG file
+07/09/26 22:11:33 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+07/09/26 22:11:33 USING RESCUE DAG transport_linetrack_17_10_action_shield.dag.rescue004
+07/09/26 22:11:33 Dag contains 5 total nodes
+07/09/26 22:11:33 Bootstrapping...
+07/09/26 22:11:33 Number of pre-completed nodes: 2
+07/09/26 22:11:33 MultiLogFiles: truncating log file /home/atml_team041/condor_tutorial/jani_env/experiments/repair_wo_domain/submissions/action_shield/transport_linetrack/./transport_linetrack_17_10_action_shield.dag.nodes.log
+07/09/26 22:11:33 DAG status: 0 (DAG_STATUS_OK)
+07/09/26 22:11:33 Of 5 nodes total:
+07/09/26 22:11:33  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 22:11:33   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 22:11:33     2       0        0       0       1          2        0        0
+07/09/26 22:11:33 0 job proc(s) currently held
+07/09/26 22:11:33 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeSum=0.000; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=0.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/09/26 22:11:33 Registering condor_event_timer...
+07/09/26 22:11:34 Submitting HTCondor Node TRAIN job(s)...
+07/09/26 22:11:34 Submitting node TRAIN from file transport_linetrack_17_10_action_shield_train.sub using direct job submission
+07/09/26 22:11:34 	assigned HTCondor ID (171046.0.0)
+07/09/26 22:11:34 Just submitted 1 job this cycle...
+07/09/26 22:11:34 DAG status: 0 (DAG_STATUS_OK)
+07/09/26 22:11:34 Of 5 nodes total:
+07/09/26 22:11:34  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/09/26 22:11:34   ===     ===      ===     ===     ===        ===      ===      ===
+07/09/26 22:11:34     2       0        1       0       0          2        0        0
+07/09/26 22:11:34 0 job proc(s) currently held
+07/09/26 22:11:34 DAGMan Runtime Statistics: [EventCycleTimeSum=0.000; SleepCycleTimeSum=0.000; SubmitCycleTimeAvg=0.011; SubmitCycleTimeMax=0.011; SubmitCycleTimeMin=0.011; SubmitCycleTimeStd=0.011; SubmitCycleTimeSum=0.011; EventCycleTimeCount=0.000; SleepCycleTimeCount=0.000; SubmitCycleTimeCount=1.000; LogProcessCycleTimeSum=0.000; LogProcessCycleTimeCount=0.000; ]
+07/09/26 22:11:39 Currently monitoring 1 HTCondor log file(s)
+07/09/26 22:11:39 Reassigning the id of job TRAIN from (171046.0.0) to (171046.0.0)
+07/09/26 22:11:39 Event: ULOG_SUBMIT for HTCondor Node TRAIN (171046.0.0) {07/09/26 22:11:34}
+07/09/26 22:11:39 Number of idle job procs: 1
+07/09/26 22:21:39 600 seconds since last log event
+07/09/26 22:21:39 Pending DAG nodes:
+07/09/26 22:21:39   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 22:26:34 Total jobs placed to AP: 1
+07/09/26 22:26:34      Idle     Held     Running     Successful     Failed
+07/09/26 22:26:34       ===      ===         ===            ===        ===
+07/09/26 22:26:34         1        0           0              0          0
+07/09/26 22:31:48 1209 seconds since last log event
+07/09/26 22:31:48 Pending DAG nodes:
+07/09/26 22:31:48   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 22:41:49 Total jobs placed to AP: 1
+07/09/26 22:41:49      Idle     Held     Running     Successful     Failed
+07/09/26 22:41:49       ===      ===         ===            ===        ===
+07/09/26 22:41:49         1        0           0              0          0
+07/09/26 22:41:54 1815 seconds since last log event
+07/09/26 22:41:56 Pending DAG nodes:
+07/09/26 22:42:11   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 22:51:58 2419 seconds since last log event
+07/09/26 22:51:58 Pending DAG nodes:
+07/09/26 22:51:58   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 22:56:53 Total jobs placed to AP: 1
+07/09/26 22:56:53      Idle     Held     Running     Successful     Failed
+07/09/26 22:56:53       ===      ===         ===            ===        ===
+07/09/26 22:56:53         1        0           0              0          0
+07/09/26 23:01:58 3019 seconds since last log event
+07/09/26 23:01:58 Pending DAG nodes:
+07/09/26 23:01:58   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 23:11:54 Total jobs placed to AP: 1
+07/09/26 23:11:54      Idle     Held     Running     Successful     Failed
+07/09/26 23:11:54       ===      ===         ===            ===        ===
+07/09/26 23:11:54         1        0           0              0          0
+07/09/26 23:11:59 3620 seconds since last log event
+07/09/26 23:11:59 Pending DAG nodes:
+07/09/26 23:11:59   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 23:21:59 4220 seconds since last log event
+07/09/26 23:21:59 Pending DAG nodes:
+07/09/26 23:21:59   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 23:26:54 Total jobs placed to AP: 1
+07/09/26 23:26:54      Idle     Held     Running     Successful     Failed
+07/09/26 23:26:54       ===      ===         ===            ===        ===
+07/09/26 23:26:54         1        0           0              0          0
+07/09/26 23:32:00 4821 seconds since last log event
+07/09/26 23:32:00 Pending DAG nodes:
+07/09/26 23:32:00   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 23:41:55 Total jobs placed to AP: 1
+07/09/26 23:41:55      Idle     Held     Running     Successful     Failed
+07/09/26 23:41:55       ===      ===         ===            ===        ===
+07/09/26 23:41:55         1        0           0              0          0
+07/09/26 23:42:00 5421 seconds since last log event
+07/09/26 23:42:00 Pending DAG nodes:
+07/09/26 23:42:00   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 23:52:01 6022 seconds since last log event
+07/09/26 23:52:01 Pending DAG nodes:
+07/09/26 23:52:01   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/09/26 23:56:56 Total jobs placed to AP: 1
+07/09/26 23:56:56      Idle     Held     Running     Successful     Failed
+07/09/26 23:56:56       ===      ===         ===            ===        ===
+07/09/26 23:56:56         1        0           0              0          0
+07/10/26 00:02:01 6622 seconds since last log event
+07/10/26 00:02:01 Pending DAG nodes:
+07/10/26 00:02:01   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 00:11:57 Total jobs placed to AP: 1
+07/10/26 00:11:57      Idle     Held     Running     Successful     Failed
+07/10/26 00:11:57       ===      ===         ===            ===        ===
+07/10/26 00:11:57         1        0           0              0          0
+07/10/26 00:12:02 7223 seconds since last log event
+07/10/26 00:12:02 Pending DAG nodes:
+07/10/26 00:12:02   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 00:22:02 7823 seconds since last log event
+07/10/26 00:22:02 Pending DAG nodes:
+07/10/26 00:22:02   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 00:26:58 Total jobs placed to AP: 1
+07/10/26 00:26:58      Idle     Held     Running     Successful     Failed
+07/10/26 00:26:58       ===      ===         ===            ===        ===
+07/10/26 00:26:58         1        0           0              0          0
+07/10/26 00:32:03 8424 seconds since last log event
+07/10/26 00:32:03 Pending DAG nodes:
+07/10/26 00:32:03   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 00:41:58 Total jobs placed to AP: 1
+07/10/26 00:41:58      Idle     Held     Running     Successful     Failed
+07/10/26 00:41:58       ===      ===         ===            ===        ===
+07/10/26 00:41:58         1        0           0              0          0
+07/10/26 00:42:03 9024 seconds since last log event
+07/10/26 00:42:03 Pending DAG nodes:
+07/10/26 00:42:03   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 00:52:04 9625 seconds since last log event
+07/10/26 00:52:04 Pending DAG nodes:
+07/10/26 00:52:04   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 00:56:59 Total jobs placed to AP: 1
+07/10/26 00:56:59      Idle     Held     Running     Successful     Failed
+07/10/26 00:56:59       ===      ===         ===            ===        ===
+07/10/26 00:56:59         1        0           0              0          0
+07/10/26 01:02:04 10225 seconds since last log event
+07/10/26 01:02:04 Pending DAG nodes:
+07/10/26 01:02:04   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 01:12:00 Total jobs placed to AP: 1
+07/10/26 01:12:00      Idle     Held     Running     Successful     Failed
+07/10/26 01:12:00       ===      ===         ===            ===        ===
+07/10/26 01:12:00         1        0           0              0          0
+07/10/26 01:12:05 10826 seconds since last log event
+07/10/26 01:12:05 Pending DAG nodes:
+07/10/26 01:12:05   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 01:22:06 11427 seconds since last log event
+07/10/26 01:22:06 Pending DAG nodes:
+07/10/26 01:22:06   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 01:27:01 Total jobs placed to AP: 1
+07/10/26 01:27:01      Idle     Held     Running     Successful     Failed
+07/10/26 01:27:01       ===      ===         ===            ===        ===
+07/10/26 01:27:01         1        0           0              0          0
+07/10/26 01:32:06 12027 seconds since last log event
+07/10/26 01:32:06 Pending DAG nodes:
+07/10/26 01:32:06   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 01:42:02 Total jobs placed to AP: 1
+07/10/26 01:42:02      Idle     Held     Running     Successful     Failed
+07/10/26 01:42:02       ===      ===         ===            ===        ===
+07/10/26 01:42:02         1        0           0              0          0
+07/10/26 01:42:07 12628 seconds since last log event
+07/10/26 01:42:07 Pending DAG nodes:
+07/10/26 01:42:07   Node TRAIN, HTCondor ID 171046, status STATUS_SUBMITTED
+07/10/26 01:47:27 Currently monitoring 1 HTCondor log file(s)
+07/10/26 01:47:27 Event: ULOG_EXECUTE for HTCondor Node TRAIN (171046.0.0) {07/10/26 01:47:24}
+07/10/26 01:47:27 Number of idle job procs: 0
+07/10/26 01:47:32 Currently monitoring 1 HTCondor log file(s)
+07/10/26 01:47:32 Event: ULOG_JOB_TERMINATED for HTCondor Node TRAIN (171046.0.0) {07/10/26 01:47:29}
+07/10/26 01:47:32 Number of idle job procs: 0
+07/10/26 01:47:32 Node TRAIN job proc (171046.0.0) failed with status 1.
+07/10/26 01:47:32 Node TRAIN job(s) have exited the queue
+07/10/26 01:47:32 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/10/26 01:47:32 Of 5 nodes total:
+07/10/26 01:47:32  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/10/26 01:47:32   ===     ===      ===     ===     ===        ===      ===      ===
+07/10/26 01:47:32     2       0        0       0       0          0        1        2
+07/10/26 01:47:32 0 job proc(s) currently held
+07/10/26 01:47:32 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.054; EventCycleTimeMax=27.294; EventCycleTimeMin=0.000; EventCycleTimeStd=0.954; EventCycleTimeSum=138.077; SleepCycleTimeAvg=5.041; SleepCycleTimeMax=42.095; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.903; SleepCycleTimeSum=12820.315; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.011; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.013; EventCycleTimeCount=2543.000; SleepCycleTimeCount=2543.000; SubmitCycleTimeCount=2544.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.009; LogProcessCycleTimeCount=3.000; ]
+07/10/26 01:47:32 ERROR: the following job(s) failed:
+07/10/26 01:47:32 ---------------------- Node ----------------------
+07/10/26 01:47:32       Node Name: TRAIN
+07/10/26 01:47:32            Noop: false
+07/10/26 01:47:32          NodeID: 2
+07/10/26 01:47:32     Node Status: STATUS_ERROR    
+07/10/26 01:47:32 Node return val: 1
+07/10/26 01:47:32           Error: Job proc (171046.0.0) failed with status 1
+07/10/26 01:47:32 Job Submit File: transport_linetrack_17_10_action_shield_train.sub
+07/10/26 01:47:32  HTCondor Job ID: (171046.0.0)
+07/10/26 01:47:32 PARENTS: MERGE_COLLECTION WAITING: 0 CHILDREN: EVALUATE
+07/10/26 01:47:32 ---------------------------------------	<END>
+07/10/26 01:47:32 Aborting DAG...
+07/10/26 01:47:32 Writing Rescue DAG to transport_linetrack_17_10_action_shield.dag.rescue005...
+07/10/26 01:47:32 Removing submitted jobs...
+07/10/26 01:47:32 Removing any/all submitted HTCondor jobs...
+07/10/26 01:47:32 Running: /usr/bin/condor_rm -const DAGManJobId==171045 -reason DAG' 'Abort:' 'DAG' 'is' 'exiting' 'and' 'writing' 'rescue' 'file.
+07/10/26 01:47:32 Note: 0 total node deferrals because of -MaxJobs limit (0)
+07/10/26 01:47:32 Note: 0 total node deferrals because of -MaxIdle limit (1000)
+07/10/26 01:47:32 Note: 0 total node deferrals because of node category throttles
+07/10/26 01:47:32 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/10/26 01:47:32 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/10/26 01:47:32 Note: 0 total HOLD script deferrals because of -MaxHold limit (20) or DEFER
+07/10/26 01:47:32 DAG status: 2 (DAG_STATUS_NODE_FAILED)
+07/10/26 01:47:32 Of 5 nodes total:
+07/10/26 01:47:32  Done     Pre   Queued    Post   Ready   Un-Ready   Failed   Futile
+07/10/26 01:47:32   ===     ===      ===     ===     ===        ===      ===      ===
+07/10/26 01:47:32     2       0        0       0       0          0        1        2
+07/10/26 01:47:32 0 job proc(s) currently held
+07/10/26 01:47:32 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.054; EventCycleTimeMax=27.294; EventCycleTimeMin=0.000; EventCycleTimeStd=0.954; EventCycleTimeSum=138.077; SleepCycleTimeAvg=5.041; SleepCycleTimeMax=42.095; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.903; SleepCycleTimeSum=12820.315; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.011; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.013; EventCycleTimeCount=2543.000; SleepCycleTimeCount=2543.000; SubmitCycleTimeCount=2544.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.009; LogProcessCycleTimeCount=3.000; ]
+07/10/26 01:47:32 Wrote metrics file transport_linetrack_17_10_action_shield.dag.metrics.
+07/10/26 01:47:32 DAGMan Runtime Statistics: [EventCycleTimeAvg=0.054; EventCycleTimeMax=27.294; EventCycleTimeMin=0.000; EventCycleTimeStd=0.954; EventCycleTimeSum=138.077; SleepCycleTimeAvg=5.041; SleepCycleTimeMax=42.095; SleepCycleTimeMin=5.000; SleepCycleTimeStd=0.903; SleepCycleTimeSum=12820.315; SubmitCycleTimeAvg=0.000; SubmitCycleTimeMax=0.011; SubmitCycleTimeMin=0.000; SubmitCycleTimeStd=0.000; SubmitCycleTimeSum=0.013; EventCycleTimeCount=2543.000; SleepCycleTimeCount=2543.000; SubmitCycleTimeCount=2544.000; LogProcessCycleTimeAvg=0.003; LogProcessCycleTimeMax=0.004; LogProcessCycleTimeMin=0.002; LogProcessCycleTimeStd=0.001; LogProcessCycleTimeSum=0.009; LogProcessCycleTimeCount=3.000; ]
+07/10/26 01:47:32 **** condor_scheduniv_exec.171045.0 (condor_DAGMAN) pid 1915914 EXITING WITH STATUS 1

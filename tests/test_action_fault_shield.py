@@ -418,6 +418,9 @@ def test_all_applicable_actions_blocked_stops_episode():
         def action_mask(self):
             return np.asarray([True, True])
 
+        def is_state_action_fault(self, observation, action):
+            return action == 1
+
         def step(self, action):
             raise AssertionError("The environment must not step through an all-blocked state")
 
@@ -442,6 +445,9 @@ def test_all_applicable_actions_blocked_stops_episode():
     assert steps == 0
     assert stats["decision_states"] == 1
     assert stats["blocked_action_occurrences"] == [1, 1]
+    assert stats["policy_fault_blocked_occurrences"] == [0, 1]
+    assert stats["policy_fault_missed_occurrences"] == [0, 0]
+    assert stats["safe_policy_action_blocked_occurrences"] == [0, 0]
 
 
 def test_evaluation_merge_reports_goal_avoid_and_unique_all_blocked(tmp_path):
@@ -476,6 +482,12 @@ def test_evaluation_merge_reports_goal_avoid_and_unique_all_blocked(tmp_path):
             "shielded_decision_states": 2,
             "states_with_any_classifier_block": 1,
             "blocked_action_occurrences": {"move": 1},
+            "policy_fault_blocked_steps": 2,
+            "policy_fault_missed_steps": 3,
+            "safe_policy_action_blocked_steps": 4,
+            "policy_fault_blocked_occurrences": {"move": 2},
+            "policy_fault_missed_occurrences": {"move": 3},
+            "safe_policy_action_blocked_occurrences": {"move": 4},
         }
         (shard / "summary.json").write_text(json.dumps(summary), encoding="utf-8")
         np.savez_compressed(
@@ -509,3 +521,6 @@ def test_evaluation_merge_reports_goal_avoid_and_unique_all_blocked(tmp_path):
     assert summary["baseline_metrics"]["goal_percent"] == 100.0
     assert summary["shielded_metrics"]["avoid_percent"] == 50.0
     assert summary["unique_all_actions_blocked_states"] == 1
+    assert summary["policy_fault_blocked_steps"] == 4
+    assert summary["policy_fault_missed_steps"] == 6
+    assert summary["safe_policy_action_blocked_steps"] == 8

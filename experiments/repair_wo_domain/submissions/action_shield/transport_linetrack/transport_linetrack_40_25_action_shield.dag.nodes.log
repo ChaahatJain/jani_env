@@ -1,21 +1,695 @@
-000 (170835.000.000) 2026-07-09 01:26:10 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
-    DAG Node: MERGE_EVALUATION
+000 (171048.000.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
 ...
-001 (170835.000.000) 2026-07-09 02:57:07 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+000 (171048.001.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.010.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.011.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.012.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.013.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.014.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.015.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.016.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.017.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.018.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.019.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.002.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.020.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.021.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.022.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.023.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.024.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.025.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.026.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.027.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.028.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.029.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.003.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.030.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.031.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.032.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.033.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.034.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.035.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.036.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.037.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.038.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.039.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.004.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.005.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.006.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.007.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.008.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+000 (171048.009.000) 2026-07-09 22:17:50 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: COLLECT
+...
+001 (171048.000.000) 2026-07-10 01:47:30 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching3@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9df586a5 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1233628"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_9df586a5 = [ Id = "GPU-9df586a5"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "9df586a5-ff27-7b9f-82c3-b8456d545fcb"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.003.000) 2026-07-10 01:48:18 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching2@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_937c3d9c }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_25459"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_937c3d9c = [ Id = "GPU-937c3d9c"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "937c3d9c-b96e-480c-046d-949051a53328"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.004.000) 2026-07-10 01:48:18 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching3@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_de2e358d }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_25460"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_de2e358d = [ Id = "GPU-de2e358d"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "de2e358d-f46a-756a-ff50-391fce2c356a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.002.000) 2026-07-10 01:48:18 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching8@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_e99c9ae4 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1234804"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_e99c9ae4 = [ Id = "GPU-e99c9ae4"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "e99c9ae4-037f-4b9a-fb15-12150b483e3a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:91:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.005.000) 2026-07-10 01:50:39 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching5@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a9035eaf }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_27567"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_a9035eaf = [ Id = "GPU-a9035eaf"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a9035eaf-a662-65d1-d015-e49579605030"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.001.000) 2026-07-10 01:50:39 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching5@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_8b66a2d0 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1442799"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_8b66a2d0 = [ Id = "GPU-8b66a2d0"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "8b66a2d0-7b07-fd5d-7aa6-f00f0e1b3eba"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171048.007.000) 2026-07-10 01:53:40 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching1@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_694f8794 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_29984"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_694f8794 = [ Id = "GPU-694f8794"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "694f8794-1ee1-3d82-45b3-b8d876b063c6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.008.000) 2026-07-10 01:53:40 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching4@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_4353d652 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_29985"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_4353d652 = [ Id = "GPU-4353d652"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "4353d652-9c96-94b0-5f93-893a1173f6ef"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.006.000) 2026-07-10 01:53:40 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching1@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_cca7fafe }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1238725"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_cca7fafe = [ Id = "GPU-cca7fafe"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "cca7fafe-45ba-2993-f24a-b5737b8e5036"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.009.000) 2026-07-10 01:59:17 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching2@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_87019d2b }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1400918"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_87019d2b = [ Id = "GPU-87019d2b"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "87019d2b-cc45-061f-7c06-2347fb3d78cd"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171048.010.000) 2026-07-10 02:00:00 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
 	SlotName: teaching4@uller.hpc.uni-saarland.de
 	AvailableGPUs = { GPUs_GPU_35441559 }
-	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_2732688"
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3579829"
 	Cpus = 10
 	Disk = 455061702
 	GPUs = 1
 	GPUs_GPU_35441559 = [ Id = "GPU-35441559"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "35441559-b7c3-51c1-2be7-338f211b7bc4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
 	Memory = 73692
 ...
-005 (170835.000.000) 2026-07-09 02:57:11 Job terminated.
-	(1) Normal termination (return value 1)
-		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+001 (171048.011.000) 2026-07-10 02:04:01 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching4@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_850254af }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1245745"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_850254af = [ Id = "GPU-850254af"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "850254af-1026-fc6b-f162-c969e74a2330"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.012.000) 2026-07-10 02:06:23 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching1@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_5d3dd972 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3583950"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_5d3dd972 = [ Id = "GPU-5d3dd972"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "5d3dd972-423b-8021-c817-8b2b0bb88fa4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:06:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+001 (171048.013.000) 2026-07-10 02:06:44 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching2@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9e0d7699 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3584461"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_9e0d7699 = [ Id = "GPU-9e0d7699"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "9e0d7699-08df-cdcf-990b-f8d5b642d8b6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:07:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+005 (171048.001.000) 2026-07-10 02:43:01 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:50:15, Sys 0 00:02:03  -  Run Remote Usage
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
-		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:50:15, Sys 0 00:02:03  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-8b66a2d0"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40400       16384     96737 
+	   TimeExecute (s)      :  3141                       
+	   TimeSlotBusy (s)     :  3142                       
+...
+001 (171048.014.000) 2026-07-10 02:43:03 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching5@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_8b66a2d0 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1477117"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_8b66a2d0 = [ Id = "GPU-8b66a2d0"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "8b66a2d0-7b07-fd5d-7aa6-f00f0e1b3eba"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171048.003.000) 2026-07-10 02:44:39 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:33, Sys 0 00:01:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:33, Sys 0 00:01:41  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-937c3d9c"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39124       16384     64480 
+	   TimeExecute (s)      :  3381                       
+	   TimeSlotBusy (s)     :  3383                       
+...
+001 (171048.016.000) 2026-07-10 02:44:55 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching2@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_937c3d9c }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_63847"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_937c3d9c = [ Id = "GPU-937c3d9c"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "937c3d9c-b96e-480c-046d-949051a53328"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.015.000) 2026-07-10 02:44:55 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching7@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_06756434 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1273031"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_06756434 = [ Id = "GPU-06756434"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "06756434-59b8-f642-d934-ebe2921897c9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+005 (171048.002.000) 2026-07-10 02:45:09 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:46:50, Sys 0 00:01:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:46:50, Sys 0 00:01:46  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-e99c9ae4"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    39195    16384     64480 
+	   TimeExecute (s)      :     3411                    
+	   TimeSlotBusy (s)     :     3413                    
+...
+005 (171048.010.000) 2026-07-10 02:46:11 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:44:22, Sys 0 00:01:43  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:44:22, Sys 0 00:01:43  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-35441559"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39513       16384     73692 
+	   TimeExecute (s)      :  2771                       
+	   TimeSlotBusy (s)     :  2772                       
+...
+001 (171048.017.000) 2026-07-10 02:46:30 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching4@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_35441559 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3607362"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_35441559 = [ Id = "GPU-35441559"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "35441559-b7c3-51c1-2be7-338f211b7bc4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+005 (171048.009.000) 2026-07-10 02:48:55 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:47:31, Sys 0 00:02:03  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:47:31, Sys 0 00:02:03  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-87019d2b"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 38344       16384     96737 
+	   TimeExecute (s)      :  2978                       
+	   TimeSlotBusy (s)     :  2980                       
+...
+001 (171048.018.000) 2026-07-10 02:49:15 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching2@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_87019d2b }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1432817"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_87019d2b = [ Id = "GPU-87019d2b"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "87019d2b-cc45-061f-7c06-2347fb3d78cd"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171048.013.000) 2026-07-10 02:51:05 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:42:40, Sys 0 00:01:37  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:42:40, Sys 0 00:01:37  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-9e0d7699"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38884       16384     73692 
+	   TimeExecute (s)      :  2661                       
+	   TimeSlotBusy (s)     :  2662                       
+...
+001 (171048.019.000) 2026-07-10 02:51:36 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching2@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9e0d7699 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3610702"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_9e0d7699 = [ Id = "GPU-9e0d7699"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "9e0d7699-08df-cdcf-990b-f8d5b642d8b6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:07:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+005 (171048.012.000) 2026-07-10 02:53:44 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:30, Sys 0 00:01:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:30, Sys 0 00:01:46  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-5d3dd972"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40486       16384     73692 
+	   TimeExecute (s)      :  2841                       
+	   TimeSlotBusy (s)     :  2842                       
+...
+001 (171048.020.000) 2026-07-10 02:53:58 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching1@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_5d3dd972 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3612374"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_5d3dd972 = [ Id = "GPU-5d3dd972"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "5d3dd972-423b-8021-c817-8b2b0bb88fa4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:06:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+005 (171048.006.000) 2026-07-10 02:58:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:42:57, Sys 0 00:01:37  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:42:57, Sys 0 00:01:37  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-cca7fafe"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39502       16384     64480 
+	   TimeExecute (s)      :  3892                       
+	   TimeSlotBusy (s)     :  3893                       
+...
+005 (171048.000.000) 2026-07-10 02:58:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:48:35, Sys 0 00:01:51  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:48:35, Sys 0 00:01:51  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-9df586a5"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40237       16384     64480 
+	   TimeExecute (s)      :  4262                       
+	   TimeSlotBusy (s)     :  4263                       
+...
+001 (171048.021.000) 2026-07-10 02:58:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching1@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_cca7fafe }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1283181"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_cca7fafe = [ Id = "GPU-cca7fafe"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "cca7fafe-45ba-2993-f24a-b5737b8e5036"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.022.000) 2026-07-10 02:58:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching3@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9df586a5 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1283182"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_9df586a5 = [ Id = "GPU-9df586a5"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "9df586a5-ff27-7b9f-82c3-b8456d545fcb"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.023.000) 2026-07-10 03:00:18 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching2@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_f968d76a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1285273"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_f968d76a = [ Id = "GPU-f968d76a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "f968d76a-7475-2218-7b77-16ed4b0507fe"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.024.000) 2026-07-10 03:04:24 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching6@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_10bc3255 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1288303"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_10bc3255 = [ Id = "GPU-10bc3255"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "10bc3255-a0a4-9e06-ef44-bfb832980123"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+005 (171048.011.000) 2026-07-10 03:04:35 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:46:27, Sys 0 00:01:53  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:46:27, Sys 0 00:01:53  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-850254af"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    39036    16384     64480 
+	   TimeExecute (s)      :     3634                    
+	   TimeSlotBusy (s)     :     3636                    
+...
+001 (171048.025.000) 2026-07-10 03:05:08 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching4@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_850254af }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1289442"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_850254af = [ Id = "GPU-850254af"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "850254af-1026-fc6b-f162-c969e74a2330"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.027.000) 2026-07-10 03:08:13 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching6@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_036117e2 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_79523"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_036117e2 = [ Id = "GPU-036117e2"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "036117e2-f186-404f-cc36-c5575617ea99"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.026.000) 2026-07-10 03:08:13 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching8@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_e99c9ae4 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1291835"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_e99c9ae4 = [ Id = "GPU-e99c9ae4"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "e99c9ae4-037f-4b9a-fb15-12150b483e3a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:91:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+005 (171048.004.000) 2026-07-10 03:13:31 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:18, Sys 0 00:01:29  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:18, Sys 0 00:01:29  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-de2e358d"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40149       16384     64480 
+	   TimeExecute (s)      :  5113                       
+	   TimeSlotBusy (s)     :  5115                       
+...
+005 (171048.005.000) 2026-07-10 03:13:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:44:52, Sys 0 00:01:29  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:44:52, Sys 0 00:01:29  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-a9035eaf"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39683       16384     64480 
+	   TimeExecute (s)      :  4973                       
+	   TimeSlotBusy (s)     :  4974                       
+...
+005 (171048.007.000) 2026-07-10 03:13:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:42:11, Sys 0 00:01:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:42:11, Sys 0 00:01:41  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-694f8794"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39279       16384     64480 
+	   TimeExecute (s)      :  4792                       
+	   TimeSlotBusy (s)     :  4793                       
+...
+001 (171048.029.000) 2026-07-10 03:13:45 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching1@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_694f8794 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_83954"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_694f8794 = [ Id = "GPU-694f8794"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "694f8794-1ee1-3d82-45b3-b8d876b063c6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.030.000) 2026-07-10 03:13:45 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching3@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_de2e358d }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_83955"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_de2e358d = [ Id = "GPU-de2e358d"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "de2e358d-f46a-756a-ff50-391fce2c356a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.028.000) 2026-07-10 03:13:45 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching5@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d3c46ffb }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1295685"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_d3c46ffb = [ Id = "GPU-d3c46ffb"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d3c46ffb-e7f2-fd6f-1367-9ccdfb75fe4e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.031.000) 2026-07-10 03:13:45 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching5@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a9035eaf }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_83957"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_a9035eaf = [ Id = "GPU-a9035eaf"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a9035eaf-a662-65d1-d015-e49579605030"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+005 (171048.008.000) 2026-07-10 03:13:52 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:44, Sys 0 00:01:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:44, Sys 0 00:01:41  -  Total Remote Usage
 		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
 	0  -  Run Bytes Sent By Job
 	0  -  Run Bytes Received By Job
@@ -23,10 +697,1959 @@
 	0  -  Total Bytes Received By Job
 	Partitionable Resources :    Usage  Request Allocated Assigned
 	   Cpus                 :        0        1        10 
-	   Disk (KB)            :       22       50 455061702 
-	   GPUs                 :        0        0         1 "GPU-35441559"
+	   Disk (KB)            :       23       50 671444936 
+	   GPUs                 :        0        0         1 "GPU-4353d652"
 	   GpusMemory (MB)      :      117                    
-	   Memory (MB)          :              8192     73692 
-	   TimeExecute (s)      :        4                    
-	   TimeSlotBusy (s)     :        5                    
+	   Memory (MB)          :    39073    16384     64480 
+	   TimeExecute (s)      :     4812                    
+	   TimeSlotBusy (s)     :     4813                    
+...
+001 (171048.032.000) 2026-07-10 03:14:04 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching4@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_4353d652 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_85598"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_4353d652 = [ Id = "GPU-4353d652"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "4353d652-9c96-94b0-5f93-893a1173f6ef"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171048.033.000) 2026-07-10 03:26:43 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching5@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d4afbcd7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1456821"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_d4afbcd7 = [ Id = "GPU-d4afbcd7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d4afbcd7-c415-a8f0-e34d-1d8ca1f2a4d9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171048.034.000) 2026-07-10 03:28:04 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching4@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_46fa3b12 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1458078"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_46fa3b12 = [ Id = "GPU-46fa3b12"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "46fa3b12-09fe-b483-a6f1-32cc9bbd5b3e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171048.035.000) 2026-07-10 03:29:04 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching1@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c97c1695 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1459177"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_c97c1695 = [ Id = "GPU-c97c1695"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c97c1695-36f7-e7dd-85d7-83691e4a60a5"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171048.036.000) 2026-07-10 03:29:04 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching6@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a452c067 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1459178"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_a452c067 = [ Id = "GPU-a452c067"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a452c067-0d65-e291-c4ee-82d9aa851f4c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:86:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171048.037.000) 2026-07-10 03:31:27 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching3@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c19d320e }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1508821"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_c19d320e = [ Id = "GPU-c19d320e"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c19d320e-3dfb-1412-ae3a-7196f33f7758"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171048.014.000) 2026-07-10 03:34:06 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:49:02, Sys 0 00:01:58  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:49:02, Sys 0 00:01:58  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 414954411 
+	   GPUs                 :        0        0         1 "GPU-8b66a2d0"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    39122    16384     96737 
+	   TimeExecute (s)      :     3063                    
+	   TimeSlotBusy (s)     :     3064                    
+...
+001 (171048.038.000) 2026-07-10 03:34:32 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching5@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_8b66a2d0 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1511235"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_8b66a2d0 = [ Id = "GPU-8b66a2d0"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "8b66a2d0-7b07-fd5d-7aa6-f00f0e1b3eba"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171048.017.000) 2026-07-10 03:35:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:43:47, Sys 0 00:01:24  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:43:47, Sys 0 00:01:24  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-35441559"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40144       16384     73692 
+	   TimeExecute (s)      :  2942                       
+	   TimeSlotBusy (s)     :  2943                       
+...
+001 (171048.039.000) 2026-07-10 03:35:42 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching7@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_bea0e2a7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1463845"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_bea0e2a7 = [ Id = "GPU-bea0e2a7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "bea0e2a7-8a41-8bdb-f375-e5f3bb0d1627"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:89:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171048.019.000) 2026-07-10 03:37:14 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:43:55, Sys 0 00:01:38  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:43:55, Sys 0 00:01:38  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    24          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-9e0d7699"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38999       16384     73692 
+	   TimeExecute (s)      :  2737                       
+	   TimeSlotBusy (s)     :  2739                       
+...
+005 (171048.018.000) 2026-07-10 03:39:50 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:48:03, Sys 0 00:02:17  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:48:03, Sys 0 00:02:17  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-87019d2b"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 38426       16384     96737 
+	   TimeExecute (s)      :  3035                       
+	   TimeSlotBusy (s)     :  3037                       
+...
+005 (171048.020.000) 2026-07-10 03:40:06 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:44:22, Sys 0 00:01:42  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:44:22, Sys 0 00:01:42  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    24          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-5d3dd972"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39467       16384     73692 
+	   TimeExecute (s)      :  2768                       
+	   TimeSlotBusy (s)     :  2770                       
+...
+005 (171048.016.000) 2026-07-10 03:43:39 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:44:25, Sys 0 00:01:43  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:44:25, Sys 0 00:01:43  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-937c3d9c"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38672       16384     64480 
+	   TimeExecute (s)      :  3524                       
+	   TimeSlotBusy (s)     :  3525                       
+...
+005 (171048.015.000) 2026-07-10 03:47:43 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:42:58, Sys 0 00:01:29  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:42:58, Sys 0 00:01:29  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-06756434"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40004       16384     64480 
+	   TimeExecute (s)      :  3768                       
+	   TimeSlotBusy (s)     :  3769                       
+...
+005 (171048.021.000) 2026-07-10 03:55:29 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:23, Sys 0 00:01:39  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:23, Sys 0 00:01:39  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-cca7fafe"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39315       16384     64480 
+	   TimeExecute (s)      :  3412                       
+	   TimeSlotBusy (s)     :  3413                       
+...
+005 (171048.031.000) 2026-07-10 04:05:27 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:43:16, Sys 0 00:01:39  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:43:16, Sys 0 00:01:39  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-a9035eaf"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39516       16384     64480 
+	   TimeExecute (s)      :  3102                       
+	   TimeSlotBusy (s)     :  3103                       
+...
+005 (171048.033.000) 2026-07-10 04:16:27 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:47:44, Sys 0 00:01:55  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:47:44, Sys 0 00:01:55  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-d4afbcd7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 39190       16384     96737 
+	   TimeExecute (s)      :  2984                       
+	   TimeSlotBusy (s)     :  2985                       
+...
+005 (171048.035.000) 2026-07-10 04:17:50 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:46:49, Sys 0 00:01:52  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:46:49, Sys 0 00:01:52  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-c97c1695"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 39108       16384     96737 
+	   TimeExecute (s)      :  2926                       
+	   TimeSlotBusy (s)     :  2928                       
+...
+005 (171048.036.000) 2026-07-10 04:18:04 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:47:04, Sys 0 00:01:52  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:47:04, Sys 0 00:01:52  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-a452c067"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 39237       16384     96737 
+	   TimeExecute (s)      :  2940                       
+	   TimeSlotBusy (s)     :  2942                       
+...
+005 (171048.034.000) 2026-07-10 04:18:07 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:48:03, Sys 0 00:01:58  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:48:03, Sys 0 00:01:58  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-46fa3b12"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 40219       16384     96737 
+	   TimeExecute (s)      :  3003                       
+	   TimeSlotBusy (s)     :  3005                       
+...
+005 (171048.022.000) 2026-07-10 04:18:33 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:47:10, Sys 0 00:01:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:47:10, Sys 0 00:01:46  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-9df586a5"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38792       16384     64480 
+	   TimeExecute (s)      :  4797                       
+	   TimeSlotBusy (s)     :  4798                       
+...
+005 (171048.037.000) 2026-07-10 04:21:44 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:48:13, Sys 0 00:01:57  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:48:13, Sys 0 00:01:57  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-c19d320e"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38864       16384     96737 
+	   TimeExecute (s)      :  3017                       
+	   TimeSlotBusy (s)     :  3019                       
+...
+005 (171048.038.000) 2026-07-10 04:23:01 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:43:40, Sys 0 00:01:30  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:43:40, Sys 0 00:01:30  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-8b66a2d0"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38004       16384     96737 
+	   TimeExecute (s)      :  2909                       
+	   TimeSlotBusy (s)     :  2910                       
+...
+005 (171048.039.000) 2026-07-10 04:24:44 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:47:08, Sys 0 00:01:50  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:47:08, Sys 0 00:01:50  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-bea0e2a7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 39567       16384     96737 
+	   TimeExecute (s)      :  2942                       
+	   TimeSlotBusy (s)     :  2944                       
+...
+005 (171048.030.000) 2026-07-10 04:25:33 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:44:11, Sys 0 00:01:33  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:44:11, Sys 0 00:01:33  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-de2e358d"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38305       16384     64480 
+	   TimeExecute (s)      :  4307                       
+	   TimeSlotBusy (s)     :  4309                       
+...
+005 (171048.032.000) 2026-07-10 04:28:27 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:28, Sys 0 00:01:41  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:28, Sys 0 00:01:41  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-4353d652"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38715       16384     64480 
+	   TimeExecute (s)      :  4463                       
+	   TimeSlotBusy (s)     :  4464                       
+...
+005 (171048.027.000) 2026-07-10 04:28:31 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:46:40, Sys 0 00:01:45  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:46:40, Sys 0 00:01:45  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-036117e2"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39364       16384     64480 
+	   TimeExecute (s)      :  4818                       
+	   TimeSlotBusy (s)     :  4819                       
+...
+005 (171048.029.000) 2026-07-10 04:28:52 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:49:17, Sys 0 00:01:49  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:49:17, Sys 0 00:01:49  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-694f8794"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40180       16384     64480 
+	   TimeExecute (s)      :  4506                       
+	   TimeSlotBusy (s)     :  4509                       
+...
+005 (171048.025.000) 2026-07-10 04:31:51 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:45:55, Sys 0 00:01:39  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:45:55, Sys 0 00:01:39  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-850254af"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 39164       16384     64480 
+	   TimeExecute (s)      :  5203                       
+	   TimeSlotBusy (s)     :  5205                       
+...
+005 (171048.023.000) 2026-07-10 04:34:07 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:44:16, Sys 0 00:01:27  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:44:16, Sys 0 00:01:27  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-f968d76a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38980       16384     64480 
+	   TimeExecute (s)      :  5629                       
+	   TimeSlotBusy (s)     :  5631                       
+...
+005 (171048.024.000) 2026-07-10 04:34:08 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:48:39, Sys 0 00:01:42  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:48:39, Sys 0 00:01:42  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-10bc3255"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 38574       16384     64480 
+	   TimeExecute (s)      :  5384                       
+	   TimeSlotBusy (s)     :  5385                       
+...
+005 (171048.026.000) 2026-07-10 04:36:39 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:47:12, Sys 0 00:01:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:47:12, Sys 0 00:01:46  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-e99c9ae4"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40043       16384     64480 
+	   TimeExecute (s)      :  5306                       
+	   TimeSlotBusy (s)     :  5307                       
+...
+005 (171048.028.000) 2026-07-10 04:36:52 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:41:11, Sys 0 00:01:22  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:41:11, Sys 0 00:01:22  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-d3c46ffb"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 40244       16384     64480 
+	   TimeExecute (s)      :  4987                       
+	   TimeSlotBusy (s)     :  4989                       
+...
+000 (171077.000.000) 2026-07-10 04:36:58 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: MERGE_COLLECTION
+...
+001 (171077.000.000) 2026-07-10 04:37:05 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching3@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c19d320e }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1551091"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_c19d320e = [ Id = "GPU-c19d320e"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c19d320e-3dfb-1412-ae3a-7196f33f7758"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171077.000.000) 2026-07-10 04:52:35 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:14:10, Sys 0 00:01:13  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:14:10, Sys 0 00:01:13  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    22          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-c19d320e"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 33633        8192     96737 
+	   TimeExecute (s)      :   930                       
+	   TimeSlotBusy (s)     :   931                       
+...
+000 (171080.000.000) 2026-07-10 04:52:43 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: TRAIN
+...
+001 (171080.000.000) 2026-07-10 04:52:44 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching3@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c19d320e }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1561487"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_c19d320e = [ Id = "GPU-c19d320e"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c19d320e-3dfb-1412-ae3a-7196f33f7758"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171080.000.000) 2026-07-10 06:06:50 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 04:42:32, Sys 0 00:01:34  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 04:42:32, Sys 0 00:01:34  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        4         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-c19d320e"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 11137       16384     96737 
+	   TimeExecute (s)      :  4445                       
+	   TimeSlotBusy (s)     :  4446                       
+...
+000 (171097.000.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.001.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.010.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.011.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.012.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.013.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.014.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.015.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.016.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.017.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.018.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.019.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.002.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.020.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.021.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.022.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.023.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.024.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.025.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.026.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.027.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.028.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.029.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.003.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.030.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.031.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.032.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.033.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.034.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.035.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.036.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.037.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.038.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.039.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.004.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.005.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.006.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.007.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.008.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+000 (171097.009.000) 2026-07-10 06:06:57 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: EVALUATE
+...
+001 (171097.010.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching1@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_5d3dd972 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3717011"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_5d3dd972 = [ Id = "GPU-5d3dd972"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "5d3dd972-423b-8021-c817-8b2b0bb88fa4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:06:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+001 (171097.012.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching4@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_35441559 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3717013"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_35441559 = [ Id = "GPU-35441559"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "35441559-b7c3-51c1-2be7-338f211b7bc4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+001 (171097.011.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching2@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9e0d7699 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3717012"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_9e0d7699 = [ Id = "GPU-9e0d7699"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "9e0d7699-08df-cdcf-990b-f8d5b642d8b6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:07:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+001 (171097.021.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching1@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_694f8794 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_192301"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_694f8794 = [ Id = "GPU-694f8794"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "694f8794-1ee1-3d82-45b3-b8d876b063c6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.023.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching3@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_de2e358d }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_192305"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_de2e358d = [ Id = "GPU-de2e358d"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "de2e358d-f46a-756a-ff50-391fce2c356a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.022.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching2@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_937c3d9c }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_192302"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_937c3d9c = [ Id = "GPU-937c3d9c"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "937c3d9c-b96e-480c-046d-949051a53328"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.025.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching5@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a9035eaf }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_192303"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_a9035eaf = [ Id = "GPU-a9035eaf"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a9035eaf-a662-65d1-d015-e49579605030"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.024.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching4@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_4353d652 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_192306"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_4353d652 = [ Id = "GPU-4353d652"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "4353d652-9c96-94b0-5f93-893a1173f6ef"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.026.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching6@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_036117e2 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_192304"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_036117e2 = [ Id = "GPU-036117e2"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "036117e2-f186-404f-cc36-c5575617ea99"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.013.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching1@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_cca7fafe }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404640"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_cca7fafe = [ Id = "GPU-cca7fafe"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "cca7fafe-45ba-2993-f24a-b5737b8e5036"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.018.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching6@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_10bc3255 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404648"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_10bc3255 = [ Id = "GPU-10bc3255"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "10bc3255-a0a4-9e06-ef44-bfb832980123"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.016.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching4@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_850254af }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404643"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_850254af = [ Id = "GPU-850254af"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "850254af-1026-fc6b-f162-c969e74a2330"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.019.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching7@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_06756434 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404650"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_06756434 = [ Id = "GPU-06756434"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "06756434-59b8-f642-d934-ebe2921897c9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.017.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching5@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d3c46ffb }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404645"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_d3c46ffb = [ Id = "GPU-d3c46ffb"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d3c46ffb-e7f2-fd6f-1367-9ccdfb75fe4e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.015.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching3@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9df586a5 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404642"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_9df586a5 = [ Id = "GPU-9df586a5"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "9df586a5-ff27-7b9f-82c3-b8456d545fcb"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.014.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching2@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_f968d76a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404641"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_f968d76a = [ Id = "GPU-f968d76a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "f968d76a-7475-2218-7b77-16ed4b0507fe"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.003.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching1@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c97c1695 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552400"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_c97c1695 = [ Id = "GPU-c97c1695"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c97c1695-36f7-e7dd-85d7-83691e4a60a5"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.020.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching8@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_e99c9ae4 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1404652"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_e99c9ae4 = [ Id = "GPU-e99c9ae4"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "e99c9ae4-037f-4b9a-fb15-12150b483e3a"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:91:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.004.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching2@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_87019d2b }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552401"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_87019d2b = [ Id = "GPU-87019d2b"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "87019d2b-cc45-061f-7c06-2347fb3d78cd"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.005.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching4@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_46fa3b12 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552402"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_46fa3b12 = [ Id = "GPU-46fa3b12"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "46fa3b12-09fe-b483-a6f1-32cc9bbd5b3e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.006.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching5@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d4afbcd7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552403"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_d4afbcd7 = [ Id = "GPU-d4afbcd7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d4afbcd7-c415-a8f0-e34d-1d8ca1f2a4d9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.007.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching6@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_a452c067 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552404"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_a452c067 = [ Id = "GPU-a452c067"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "a452c067-0d65-e291-c4ee-82d9aa851f4c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:86:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.009.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching8@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_63102222 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552406"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_63102222 = [ Id = "GPU-63102222"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "63102222-d5b5-f850-32a9-dcfc4cefd76c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.008.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching7@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_bea0e2a7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1552405"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_bea0e2a7 = [ Id = "GPU-bea0e2a7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "bea0e2a7-8a41-8bdb-f375-e5f3bb0d1627"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:89:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.000.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching3@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c19d320e }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1608386"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_c19d320e = [ Id = "GPU-c19d320e"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c19d320e-3dfb-1412-ae3a-7196f33f7758"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.002.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching5@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_8b66a2d0 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1608388"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_8b66a2d0 = [ Id = "GPU-8b66a2d0"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "8b66a2d0-7b07-fd5d-7aa6-f00f0e1b3eba"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.001.000) 2026-07-10 06:07:11 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching4@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_5d139c0f }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1608387"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_5d139c0f = [ Id = "GPU-5d139c0f"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "5d139c0f-3db4-0193-ab8d-3eda63b529b3"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171097.025.000) 2026-07-10 07:09:07 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:58:55, Sys 0 00:01:16  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:58:55, Sys 0 00:01:16  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-a9035eaf"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30541        8192     64480 
+	   TimeExecute (s)      :  3716                       
+	   TimeSlotBusy (s)     :  3718                       
+...
+005 (171097.018.000) 2026-07-10 07:10:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:58:56, Sys 0 00:01:15  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:58:56, Sys 0 00:01:15  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-10bc3255"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30451        8192     64480 
+	   TimeExecute (s)      :  3801                       
+	   TimeSlotBusy (s)     :  3802                       
+...
+005 (171097.014.000) 2026-07-10 07:11:16 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:58:59, Sys 0 00:01:13  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:58:59, Sys 0 00:01:13  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-f968d76a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30992        8192     64480 
+	   TimeExecute (s)      :  3845                       
+	   TimeSlotBusy (s)     :  3847                       
+...
+001 (171097.027.000) 2026-07-10 07:11:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching2@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_f968d76a }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1449418"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_f968d76a = [ Id = "GPU-f968d76a"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "f968d76a-7475-2218-7b77-16ed4b0507fe"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+005 (171097.011.000) 2026-07-10 07:11:41 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:02:58, Sys 0 00:01:28  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:02:58, Sys 0 00:01:28  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-9e0d7699"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30850        8192     73692 
+	   TimeExecute (s)      :  3870                       
+	   TimeSlotBusy (s)     :  3872                       
+...
+001 (171097.028.000) 2026-07-10 07:12:36 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching2@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_9e0d7699 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3754145"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_9e0d7699 = [ Id = "GPU-9e0d7699"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "9e0d7699-08df-cdcf-990b-f8d5b642d8b6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:07:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+005 (171097.022.000) 2026-07-10 07:14:48 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:06:02, Sys 0 00:01:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:06:02, Sys 0 00:01:32  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-937c3d9c"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30805        8192     64480 
+	   TimeExecute (s)      :  4057                       
+	   TimeSlotBusy (s)     :  4059                       
+...
+005 (171097.023.000) 2026-07-10 07:15:30 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:06:40, Sys 0 00:01:35  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:06:40, Sys 0 00:01:35  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-de2e358d"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30915        8192     64480 
+	   TimeExecute (s)      :  4098                       
+	   TimeSlotBusy (s)     :  4100                       
+...
+001 (171097.030.000) 2026-07-10 07:15:36 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching2@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_937c3d9c }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_238135"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_937c3d9c = [ Id = "GPU-937c3d9c"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "937c3d9c-b96e-480c-046d-949051a53328"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:05:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.029.000) 2026-07-10 07:15:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching6@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_10bc3255 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1452466"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_10bc3255 = [ Id = "GPU-10bc3255"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "10bc3255-a0a4-9e06-ef44-bfb832980123"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8D:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+005 (171097.009.000) 2026-07-10 07:15:50 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:46, Sys 0 00:01:26  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:46, Sys 0 00:01:26  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-63102222"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 30419        8192     96737 
+	   TimeExecute (s)      :  4119                       
+	   TimeSlotBusy (s)     :  4120                       
+...
+005 (171097.012.000) 2026-07-10 07:16:18 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:07:29, Sys 0 00:01:34  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:07:29, Sys 0 00:01:34  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-35441559"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31745        8192     73692 
+	   TimeExecute (s)      :  4147                       
+	   TimeSlotBusy (s)     :  4149                       
+...
+005 (171097.016.000) 2026-07-10 07:16:26 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:07:36, Sys 0 00:01:36  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:07:36, Sys 0 00:01:36  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.01        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-850254af"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30802        8192     64480 
+	   TimeExecute (s)      :  4155                       
+	   TimeSlotBusy (s)     :  4156                       
+...
+001 (171097.032.000) 2026-07-10 07:16:36 Job executing on host: <10.143.248.18:9618?PrivAddr=%3c10.143.250.18:9618%3fsock%3dstartd_2268_3ce2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.18-9618&alias=uller.hpc.uni-saarland.de&noUDP&sock=startd_2268_3ce2>
+	SlotName: teaching4@uller.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_35441559 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_3756960"
+	Cpus = 10
+	Disk = 455061702
+	GPUs = 1
+	GPUs_GPU_35441559 = [ Id = "GPU-35441559"; Capability = 6.0; DeviceName = "Tesla P100-PCIE-16GB"; DeviceUuid = "35441559-b7c3-51c1-2be7-338f211b7bc4"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 73692
+...
+001 (171097.033.000) 2026-07-10 07:16:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching4@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_850254af }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1453690"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_850254af = [ Id = "GPU-850254af"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "850254af-1026-fc6b-f162-c969e74a2330"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:0A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.031.000) 2026-07-10 07:16:36 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching8@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_63102222 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1597490"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_63102222 = [ Id = "GPU-63102222"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "63102222-d5b5-f850-32a9-dcfc4cefd76c"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8A:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171097.017.000) 2026-07-10 07:16:42 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:07:51, Sys 0 00:01:37  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:07:51, Sys 0 00:01:37  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.01        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-d3c46ffb"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31099        8192     64480 
+	   TimeExecute (s)      :  4171                       
+	   TimeSlotBusy (s)     :  4172                       
+...
+005 (171097.026.000) 2026-07-10 07:17:01 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:54, Sys 0 00:01:20  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:54, Sys 0 00:01:20  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-036117e2"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31841        8192     64480 
+	   TimeExecute (s)      :  4190                       
+	   TimeSlotBusy (s)     :  4191                       
+...
+005 (171097.019.000) 2026-07-10 07:17:02 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:09, Sys 0 00:01:36  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:09, Sys 0 00:01:36  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-06756434"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    30697     8192     64480 
+	   TimeExecute (s)      :     4190                    
+	   TimeSlotBusy (s)     :     4192                    
+...
+005 (171097.008.000) 2026-07-10 07:17:04 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:48, Sys 0 00:01:24  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:48, Sys 0 00:01:24  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-bea0e2a7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31073        8192     96737 
+	   TimeExecute (s)      :  4193                       
+	   TimeSlotBusy (s)     :  4194                       
+...
+005 (171097.003.000) 2026-07-10 07:17:09 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:11, Sys 0 00:01:42  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:11, Sys 0 00:01:42  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-c97c1695"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 30556        8192     96737 
+	   TimeExecute (s)      :  4198                       
+	   TimeSlotBusy (s)     :  4200                       
+...
+005 (171097.006.000) 2026-07-10 07:17:18 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:16, Sys 0 00:01:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:16, Sys 0 00:01:46  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-d4afbcd7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 30907        8192     96737 
+	   TimeExecute (s)      :  4207                       
+	   TimeSlotBusy (s)     :  4208                       
+...
+005 (171097.021.000) 2026-07-10 07:17:30 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:40, Sys 0 00:01:35  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:40, Sys 0 00:01:35  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-694f8794"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31158        8192     64480 
+	   TimeExecute (s)      :  4219                       
+	   TimeSlotBusy (s)     :  4221                       
+...
+005 (171097.015.000) 2026-07-10 07:17:35 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:43, Sys 0 00:01:38  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:43, Sys 0 00:01:38  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-9df586a5"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    31705     8192     64480 
+	   TimeExecute (s)      :     4224                    
+	   TimeSlotBusy (s)     :     4226                    
+...
+001 (171097.039.000) 2026-07-10 07:17:36 Job executing on host: <10.143.248.12:9618?PrivAddr=%3c10.143.250.12:9618%3fsock%3dstartd_2348_1c76%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.12-9618&alias=idun.hpc.uni-saarland.de&noUDP&sock=startd_2348_1c76>
+	SlotName: teaching1@idun.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_694f8794 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_240042"
+	Cpus = 10
+	Disk = 671444936
+	GPUs = 1
+	GPUs_GPU_694f8794 = [ Id = "GPU-694f8794"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "694f8794-1ee1-3d82-45b3-b8d876b063c6"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.037.000) 2026-07-10 07:17:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching5@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d3c46ffb }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1455007"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_d3c46ffb = [ Id = "GPU-d3c46ffb"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d3c46ffb-e7f2-fd6f-1367-9ccdfb75fe4e"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:8C:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.038.000) 2026-07-10 07:17:36 Job executing on host: <10.143.248.11:9618?PrivAddr=%3c10.143.250.11:9618%3fsock%3dstartd_2272_fb43%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.11-9618&alias=lofn.hpc.uni-saarland.de&noUDP&sock=startd_2272_fb43>
+	SlotName: teaching7@lofn.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_06756434 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1455008"
+	Cpus = 7
+	Disk = 669345522
+	GPUs = 1
+	GPUs_GPU_06756434 = [ Id = "GPU-06756434"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "06756434-59b8-f642-d934-ebe2921897c9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:90:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 64480
+...
+001 (171097.034.000) 2026-07-10 07:17:36 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching1@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c97c1695 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1598786"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_c97c1695 = [ Id = "GPU-c97c1695"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c97c1695-36f7-e7dd-85d7-83691e4a60a5"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:04:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.035.000) 2026-07-10 07:17:36 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching5@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_d4afbcd7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1598787"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_d4afbcd7 = [ Id = "GPU-d4afbcd7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "d4afbcd7-c415-a8f0-e34d-1d8ca1f2a4d9"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:85:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+001 (171097.036.000) 2026-07-10 07:17:36 Job executing on host: <10.143.248.24:9618?PrivAddr=%3c10.143.250.24:9618%3fsock%3dstartd_3095_7db5%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.24-9618&alias=tenos.hpc.uni-saarland.de&noUDP&sock=startd_3095_7db5>
+	SlotName: teaching7@tenos.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_bea0e2a7 }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1598789"
+	Cpus = 7
+	Disk = 433398746
+	GPUs = 1
+	GPUs_GPU_bea0e2a7 = [ Id = "GPU-bea0e2a7"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "bea0e2a7-8a41-8bdb-f375-e5f3bb0d1627"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:89:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171097.002.000) 2026-07-10 07:17:58 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:54, Sys 0 00:01:51  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:54, Sys 0 00:01:51  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-8b66a2d0"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31028        8192     96737 
+	   TimeExecute (s)      :  4247                       
+	   TimeSlotBusy (s)     :  4249                       
+...
+005 (171097.020.000) 2026-07-10 07:18:44 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:42, Sys 0 00:01:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:42, Sys 0 00:01:32  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-e99c9ae4"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    31259     8192     64480 
+	   TimeExecute (s)      :     4293                    
+	   TimeSlotBusy (s)     :     4294                    
+...
+005 (171097.004.000) 2026-07-10 07:19:36 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:35, Sys 0 00:01:35  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:35, Sys 0 00:01:35  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-87019d2b"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31711        8192     96737 
+	   TimeExecute (s)      :  4344                       
+	   TimeSlotBusy (s)     :  4346                       
+...
+005 (171097.005.000) 2026-07-10 07:19:43 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:10:43, Sys 0 00:01:45  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:10:43, Sys 0 00:01:45  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-46fa3b12"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31370        8192     96737 
+	   TimeExecute (s)      :  4352                       
+	   TimeSlotBusy (s)     :  4353                       
+...
+005 (171097.013.000) 2026-07-10 07:20:59 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:08:50, Sys 0 00:01:26  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:08:50, Sys 0 00:01:26  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       23       50 669345522 
+	   GPUs                 :        0        0         1 "GPU-cca7fafe"
+	   GpusMemory (MB)      :      117                    
+	   Memory (MB)          :    30979     8192     64480 
+	   TimeExecute (s)      :     4428                    
+	   TimeSlotBusy (s)     :     4430                    
+...
+005 (171097.001.000) 2026-07-10 07:22:07 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:12:47, Sys 0 00:02:06  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:12:47, Sys 0 00:02:06  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-5d139c0f"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31553        8192     96737 
+	   TimeExecute (s)      :  4496                       
+	   TimeSlotBusy (s)     :  4498                       
+...
+005 (171097.000.000) 2026-07-10 07:22:22 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:13:18, Sys 0 00:01:49  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:13:18, Sys 0 00:01:49  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 414954411 
+	   GPUs                 :     0           0         1 "GPU-c19d320e"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31304        8192     96737 
+	   TimeExecute (s)      :  4510                       
+	   TimeSlotBusy (s)     :  4513                       
+...
+005 (171097.010.000) 2026-07-10 07:23:13 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:13:39, Sys 0 00:01:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:13:39, Sys 0 00:01:32  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-5d3dd972"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31354        8192     73692 
+	   TimeExecute (s)      :  4562                       
+	   TimeSlotBusy (s)     :  4564                       
+...
+005 (171097.007.000) 2026-07-10 07:25:00 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:15:58, Sys 0 00:01:46  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:15:58, Sys 0 00:01:46  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-a452c067"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31066        8192     96737 
+	   TimeExecute (s)      :  4668                       
+	   TimeSlotBusy (s)     :  4670                       
+...
+005 (171097.024.000) 2026-07-10 07:26:31 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:17:40, Sys 0 00:01:38  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:17:40, Sys 0 00:01:38  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-4353d652"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31108        8192     64480 
+	   TimeExecute (s)      :  4760                       
+	   TimeSlotBusy (s)     :  4761                       
+...
+005 (171097.027.000) 2026-07-10 08:13:29 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:00:22, Sys 0 00:01:26  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:00:22, Sys 0 00:01:26  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-f968d76a"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30889        8192     64480 
+	   TimeExecute (s)      :  3712                       
+	   TimeSlotBusy (s)     :  3714                       
+...
+005 (171097.028.000) 2026-07-10 08:17:13 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:07, Sys 0 00:01:29  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:07, Sys 0 00:01:29  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-9e0d7699"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31215        8192     73692 
+	   TimeExecute (s)      :  3877                       
+	   TimeSlotBusy (s)     :  3878                       
+...
+005 (171097.030.000) 2026-07-10 08:19:33 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:02:29, Sys 0 00:01:26  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:02:29, Sys 0 00:01:26  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-937c3d9c"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30621        8192     64480 
+	   TimeExecute (s)      :  3838                       
+	   TimeSlotBusy (s)     :  3839                       
+...
+005 (171097.038.000) 2026-07-10 08:19:50 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:00:46, Sys 0 00:01:25  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:00:46, Sys 0 00:01:25  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-06756434"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30239        8192     64480 
+	   TimeExecute (s)      :  3734                       
+	   TimeSlotBusy (s)     :  3735                       
+...
+005 (171097.033.000) 2026-07-10 08:20:33 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:02:25, Sys 0 00:01:28  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:02:25, Sys 0 00:01:28  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-850254af"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31173        8192     64480 
+	   TimeExecute (s)      :  3837                       
+	   TimeSlotBusy (s)     :  3839                       
+...
+005 (171097.032.000) 2026-07-10 08:20:34 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:02:27, Sys 0 00:01:27  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:02:27, Sys 0 00:01:27  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 455061702 
+	   GPUs                 :     0           0         1 "GPU-35441559"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30496        8192     73692 
+	   TimeExecute (s)      :  3838                       
+	   TimeSlotBusy (s)     :  3840                       
+...
+005 (171097.029.000) 2026-07-10 08:20:40 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:31, Sys 0 00:01:30  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:31, Sys 0 00:01:30  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-10bc3255"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31887        8192     64480 
+	   TimeExecute (s)      :  3904                       
+	   TimeSlotBusy (s)     :  3906                       
+...
+005 (171097.039.000) 2026-07-10 08:22:08 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:01, Sys 0 00:01:28  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:01, Sys 0 00:01:28  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1        10 
+	   Disk (KB)            :    23          50 671444936 
+	   GPUs                 :     0           0         1 "GPU-694f8794"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 31238        8192     64480 
+	   TimeExecute (s)      :  3872                       
+	   TimeSlotBusy (s)     :  3873                       
+...
+005 (171097.037.000) 2026-07-10 08:23:31 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:04:22, Sys 0 00:01:29  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:04:22, Sys 0 00:01:29  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 669345522 
+	   GPUs                 :     0           0         1 "GPU-d3c46ffb"
+	   GpusMemory (MB)      :   117                       
+	   Memory (MB)          : 30972        8192     64480 
+	   TimeExecute (s)      :  3955                       
+	   TimeSlotBusy (s)     :  3956                       
+...
+005 (171097.035.000) 2026-07-10 08:24:10 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:04:52, Sys 0 00:01:39  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:04:52, Sys 0 00:01:39  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-d4afbcd7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31271        8192     96737 
+	   TimeExecute (s)      :  3994                       
+	   TimeSlotBusy (s)     :  3995                       
+...
+005 (171097.031.000) 2026-07-10 08:25:26 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:07:01, Sys 0 00:01:44  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:07:01, Sys 0 00:01:44  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-63102222"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 30888        8192     96737 
+	   TimeExecute (s)      :  4130                       
+	   TimeSlotBusy (s)     :  4132                       
+...
+005 (171097.034.000) 2026-07-10 08:25:55 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:03:46, Sys 0 00:01:25  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:03:46, Sys 0 00:01:25  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-c97c1695"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31938        8192     96737 
+	   TimeExecute (s)      :  4099                       
+	   TimeSlotBusy (s)     :  4100                       
+...
+005 (171097.036.000) 2026-07-10 08:29:00 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 01:09:41, Sys 0 00:01:40  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 01:09:41, Sys 0 00:01:40  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :     0.00        1         7 
+	   Disk (KB)            :    23          50 433398746 
+	   GPUs                 :     0           0         1 "GPU-bea0e2a7"
+	   GpusMemory (MB)      :   121                       
+	   Memory (MB)          : 31296        8192     96737 
+	   TimeExecute (s)      :  4284                       
+	   TimeSlotBusy (s)     :  4285                       
+...
+000 (171114.000.000) 2026-07-10 08:29:09 Job submitted from host: <10.143.248.60:9618?addrs=10.143.248.60-9618&alias=conduit.hpc.uni-saarland.de&noUDP&sock=schedd_589376_7e06>
+    DAG Node: MERGE_EVALUATION
+...
+001 (171114.000.000) 2026-07-10 08:29:10 Job executing on host: <10.143.248.15:9618?PrivAddr=%3c10.143.250.15:9618%3fsock%3dstartd_2204_56d2%3e&PrivNet=cs-hpc-storage&addrs=10.143.248.15-9618&alias=thera.hpc.uni-saarland.de&noUDP&sock=startd_2204_56d2>
+	SlotName: teaching3@thera.hpc.uni-saarland.de
+	AvailableGPUs = { GPUs_GPU_c19d320e }
+	CondorScratchDir = "/raid/condor/lib/condor/execute/dir_1697754"
+	Cpus = 7
+	Disk = 414954411
+	GPUs = 1
+	GPUs_GPU_c19d320e = [ Id = "GPU-c19d320e"; Capability = 6.0; DeviceName = "Tesla P100-SXM2-16GB"; DeviceUuid = "c19d320e-3dfb-1412-ae3a-7196f33f7758"; ECCEnabled = true; NvidiaDriver = "550.163.01"; DriverVersion = 12.4; DevicePciBusId = "0000:09:00.0"; GlobalMemoryMb = 16269; MaxSupportedVersion = 12040 ]
+	Memory = 96737
+...
+005 (171114.000.000) 2026-07-10 08:29:16 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:02, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:02, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated Assigned
+	   Cpus                 :        0        1         7 
+	   Disk (KB)            :       22       50 414954411 
+	   GPUs                 :                 0         1 "GPU-c19d320e"
+	   Memory (MB)          :      271     8192     96737 
+	   TimeExecute (s)      :        6                    
+	   TimeSlotBusy (s)     :        7                    
 ...
